@@ -21,6 +21,7 @@ namespace VSTS.Net.Types
             _logger = logger;
         }
 
+        /// <inheritdoc />
         public async Task<T> ExecuteGet<T>(string url, CancellationToken cancellationToken = default(CancellationToken))
         {
             _logger.LogDebug($"Requesting '{url}' via GET");
@@ -32,11 +33,13 @@ namespace VSTS.Net.Types
             }
         }
 
+        /// <inheritdoc />
         public Task<T> ExecutePost<T>(string url, object payload, CancellationToken cancellationToken = default(CancellationToken))
         {
             return ExecutePost<T>(url, JsonConvert.SerializeObject(payload), cancellationToken);
         }
 
+        /// <inheritdoc />
         public async Task<T> ExecutePost<T>(string url, string payload, CancellationToken cancellationToken = default(CancellationToken))
         {
             var content = new StringContent(payload, Encoding.UTF8, Constants.JsonMimeType);

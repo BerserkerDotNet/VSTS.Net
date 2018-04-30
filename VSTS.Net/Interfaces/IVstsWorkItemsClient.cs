@@ -10,15 +10,17 @@ namespace VSTS.Net.Interfaces
         /// <summary>
         /// Executes a work item query
         /// </summary>
+        /// <param name="project">Project ID or project name</param>
         /// <param name="query">Work item query to execute</param>
         /// <returns>Returns <see cref="WorkItemsQueryResult"/></returns>
-        Task<WorkItemsQueryResult> ExecuteQueryAsync(WorkItemsQuery query);
+        Task<WorkItemsQueryResult> ExecuteQueryAsync(string project, WorkItemsQuery query);
 
         /// <summary>
         /// Executes a work item query
         /// </summary>
+        /// <param name="project">Project ID or project name</param>
         /// <param name="query">Work item query to execute</param>
         /// <returns>List of work items</returns>
-        Task<IEnumerable<WorkItem>> GetWorkItemsAsync(WorkItemsQuery query);
+        Task<IEnumerable<WorkItem>> GetWorkItemsAsync(string project, WorkItemsQuery query);
     }
 }

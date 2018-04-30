@@ -15,7 +15,7 @@ namespace VSTS.Net.Utils
         }
 
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public static void ThrowIfNullOrEmpty(string str, string message = "")
+        public static void ThrowIfArgumentNullOrEmpty(string str, string message = "")
         {
             if (string.IsNullOrEmpty(str))
                 throw new ArgumentNullException(message);

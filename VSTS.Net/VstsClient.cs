@@ -4,6 +4,7 @@ using System.Threading.Tasks;
 using VSTS.Net.Interfaces;
 using VSTS.Net.Models.Request;
 using VSTS.Net.Models.Response.WorkItems;
+using VSTS.Net.Types;
 using static VSTS.Net.Utils.NullCheckUtility;
 
 namespace VSTS.Net
@@ -19,19 +20,26 @@ namespace VSTS.Net
             _httpClient = client;
         }
 
-        public async Task<WorkItemsQueryResult> ExecuteQueryAsync(WorkItemsQuery query)
+        /// <inheritdoc />
+        public async Task<WorkItemsQueryResult> ExecuteQueryAsync(string project, WorkItemsQuery query)
         {
+            ThrowIfArgumentNullOrEmpty(project);
             ThrowIfArgumentNull(query, nameof(query));
-            ThrowIfNullOrEmpty(_instanceName, nameof(_instanceName));
-            ThrowIfNullOrEmpty(query.Query, "Query cannot be empty.");
+            ThrowIfArgumentNullOrEmpty(_instanceName, nameof(_instanceName));
+            ThrowIfArgumentNullOrEmpty(query.Query, "Query cannot be empty.");
+
+            var url = VstsUrlBuilder.Create(_instanceName)
+                .ForWIQL(project)
+                .Build(Constants.CurrentWorkItemsApiVersion);
 
             if (query.IsHierarchical)
-                return await _httpClient.ExecutePost<HierarchicalWorkItemsQueryResult>(string.Empty, query);
+                return await _httpClient.ExecutePost<HierarchicalWorkItemsQueryResult>(url, query);
 
-            return await _httpClient.ExecutePost<FlatWorkItemsQueryResult>(string.Empty, query);
+            return await _httpClient.ExecutePost<FlatWorkItemsQueryResult>(url, query);
         }
 
-        public Task<IEnumerable<WorkItem>> GetWorkItemsAsync(WorkItemsQuery query)
+        /// <inheritdoc />
+        public Task<IEnumerable<WorkItem>> GetWorkItemsAsync(string project, WorkItemsQuery query)
         {
             throw new NotImplementedException();
         }
