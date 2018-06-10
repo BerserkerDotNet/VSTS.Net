@@ -11,7 +11,7 @@ namespace VSTS.Net.Types
         private const string WITSection = "wit";
         private const string WIQLApiSection = "wiql";
         private const string QueriesApiSection = "queries";
-        private const string WorkItemsSection = "WorkItems";
+        private const string WorkItemsSection = "workitems";
         private const string GITSection = "git";
         private const string RepositoriesSection = "repositories";
         private const string PullRequestsSection = "pullRequests";
@@ -42,9 +42,9 @@ namespace VSTS.Net.Types
             return this;
         }
 
-        public VstsUrlBuilder ForWorkItemsBatch(string workItemIds)
+        public VstsUrlBuilder ForWorkItemsBatch(string workItemIds, string project)
         {
-            _url.Append($"/{APIsSection}/{WITSection}/{WorkItemsSection}");
+            _url.Append($"/{project}/{APIsSection}/{WITSection}/{WorkItemsSection}");
             WithQueryParameter("ids", workItemIds);
             return this;
         }
@@ -92,7 +92,7 @@ namespace VSTS.Net.Types
             return this;
         }
 
-        public string Build(string apiVersion = "3.0")
+        public string Build(string apiVersion = Constants.CurrentWorkItemsApiVersion)
         {
             _parameters.Add(APIVersion, apiVersion);
             var queryString = $"?{string.Join("&", _parameters.Select(p => $"{p.Key}={p.Value}"))}";

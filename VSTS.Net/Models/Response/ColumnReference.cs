@@ -4,6 +4,12 @@ namespace VSTS.Net.Models.Response
 {
     public class ColumnReference
     {
+        public ColumnReference(string name, string referenceName)
+        {
+            Name = name;
+            ReferenceName = referenceName;
+        }
+
         /// <summary>
         /// The name of the field.
         /// </summary>

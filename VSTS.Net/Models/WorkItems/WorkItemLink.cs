@@ -1,9 +1,16 @@
 ﻿using Newtonsoft.Json;
 
-namespace VSTS.Net.Models.Response.WorkItems
+namespace VSTS.Net.Models.WorkItems
 {
     public class WorkItemLink
     {
+        public WorkItemLink(WorkItemReference source, WorkItemReference target, string relationship)
+        {
+            Relationship = relationship;
+            Source = source;
+            Target = target;
+        }
+
         /// <summary>
         /// The type of link.
         /// </summary>

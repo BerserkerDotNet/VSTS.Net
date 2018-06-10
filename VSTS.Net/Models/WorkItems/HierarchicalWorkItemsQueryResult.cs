@@ -1,6 +1,6 @@
 ﻿using System.Collections.Generic;
 
-namespace VSTS.Net.Models.Response.WorkItems
+namespace VSTS.Net.Models.WorkItems
 {
     public class HierarchicalWorkItemsQueryResult : WorkItemsQueryResult
     {

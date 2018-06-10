@@ -1,7 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
+using VSTS.Net.Models.Response;
 
-namespace VSTS.Net.Models.Response.WorkItems
+namespace VSTS.Net.Models.WorkItems
 {
     public abstract class WorkItemsQueryResult
     {

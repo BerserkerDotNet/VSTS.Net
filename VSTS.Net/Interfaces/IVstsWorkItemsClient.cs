@@ -1,7 +1,7 @@
 ﻿using System.Collections.Generic;
 using System.Threading.Tasks;
 using VSTS.Net.Models.Request;
-using VSTS.Net.Models.Response.WorkItems;
+using VSTS.Net.Models.WorkItems;
 
 namespace VSTS.Net.Interfaces
 {
@@ -22,5 +22,12 @@ namespace VSTS.Net.Interfaces
         /// <param name="query">Work item query to execute</param>
         /// <returns>List of work items</returns>
         Task<IEnumerable<WorkItem>> GetWorkItemsAsync(string project, WorkItemsQuery query);
+
+        /// <summary>
+        /// Retrieves the list of updates for workitem
+        /// </summary>
+        /// <param name="workitemId">ID of the workitem</param>
+        /// <returns>List of work item updates</returns>
+        Task<IEnumerable<WorkItemUpdate>> GetWorkItemUpdatesAsync(int workitemId);
     }
 }

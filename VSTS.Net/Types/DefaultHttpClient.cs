@@ -42,6 +42,7 @@ namespace VSTS.Net.Types
         /// <inheritdoc />
         public async Task<T> ExecutePost<T>(string url, string payload, CancellationToken cancellationToken = default(CancellationToken))
         {
+            _logger.LogDebug($"Requesting '{url}' via POST");
             var content = new StringContent(payload, Encoding.UTF8, Constants.JsonMimeType);
             using (var response = await _client.PostAsync(url, content, cancellationToken))
             {
