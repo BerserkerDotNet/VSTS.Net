@@ -80,10 +80,18 @@ namespace VSTS.Net.Types
             return this;
         }
 
-        public VstsUrlBuilder WithQueryParameter(string name, string value)
+        public VstsUrlBuilder WithQueryParameter<T>(string name, T value)
         {
-            _parameters.Add(name, value);
+            _parameters.Add(name, value.ToString());
             return this;
+        }
+
+        public VstsUrlBuilder WithQueryParameterIfNotEmpty<T>(string name, T value)
+        {
+            if (value == null || string.IsNullOrEmpty(value.ToString()))
+                return this;
+            
+            return WithQueryParameter(name, value.ToString());
         }
 
         public VstsUrlBuilder Top(int count)

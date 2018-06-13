@@ -1,0 +1,19 @@
+﻿using System.Collections.Generic;
+using System.Threading.Tasks;
+using VSTS.Net.Models.PullRequests;
+using VSTS.Net.Models.Request;
+
+namespace VSTS.Net.Interfaces
+{
+    public interface IVstsPullRequestsClient
+    {
+        /// <summary>
+        /// Retrieve all pull requests matching a specified criteria.
+        /// </summary>
+        /// <param name="project">Project ID or project name</param>
+        /// <param name="repository">The repository ID of the pull request's target branch.</param>
+        /// <param name="query">Filter criteria</param>
+        /// <returns>List of pull requests matching a specified criteria.</returns>
+        Task<IEnumerable<PullRequest>> GetPullRequestsAsync(string project, string repository, PullRequestQuery query);
+    }
+}

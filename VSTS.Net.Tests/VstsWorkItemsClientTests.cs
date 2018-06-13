@@ -7,29 +7,16 @@ using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
 using VSTS.Net.Types;
-using VSTS.Net.Interfaces;
 using VSTS.Net.Models.Request;
 using VSTS.Net.Models.Response;
-using Microsoft.Extensions.Logging;
 using VSTS.Net.Models.WorkItems;
+using VSTS.Net.Tests.Types;
 
 namespace VSTS.Net.Tests
 {
     [TestFixture]
-    public class VstsWorkItemsClientTests
+    public class VstsWorkItemsClientTests : BaseHttpClientTests
     {
-        const string ProjectName = "FooProject";
-        const string InstanceName = "Foo";
-        Mock<IHttpClient> _httpClientMock;
-        VstsClient _client;
-
-        [SetUp]
-        public void SetUp()
-        {
-            _httpClientMock = new Mock<IHttpClient>();
-            _client = new VstsClient(InstanceName, _httpClientMock.Object, Mock.Of<ILogger<VstsClient>>());
-        }
-
         #region ExecuteQuery tests
 
         [TestCase("")]
@@ -226,7 +213,6 @@ namespace VSTS.Net.Tests
             _client.Awaiting(c => c.GetWorkItemUpdatesAsync(234))
                 .Should().Throw<Exception>();
         }
-
 
         [Test]
         public async Task GetWorkItemUpdatesShouldReturnEmptyListIfResponseNull()

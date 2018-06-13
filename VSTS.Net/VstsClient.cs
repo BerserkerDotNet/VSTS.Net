@@ -5,6 +5,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using VSTS.Net.Interfaces;
+using VSTS.Net.Models.PullRequests;
 using VSTS.Net.Models.Request;
 using VSTS.Net.Models.Response;
 using VSTS.Net.Models.WorkItems;
@@ -13,7 +14,7 @@ using static VSTS.Net.Utils.NullCheckUtility;
 
 namespace VSTS.Net
 {
-    public class VstsClient : IVstsWorkItemsClient
+    public class VstsClient : IVstsClient
     {
         private readonly string _instanceName;
         private readonly IHttpClient _httpClient;
@@ -98,6 +99,26 @@ namespace VSTS.Net
             return result.Value;
         }
 
+        /// <inheritdoc />
+        public async Task<IEnumerable<PullRequest>> GetPullRequestsAsync(string project, string repository, PullRequestQuery query)
+        {
+            ThrowIfArgumentNullOrEmpty(project, nameof(project));
+            ThrowIfArgumentNullOrEmpty(repository, nameof(repository));
+
+            if (query == null)
+                query = PullRequestQuery.None;
+
+            var url = VstsUrlBuilder.Create(_instanceName)
+                .ForPullRequests(project, repository)
+                .WithQueryParameterIfNotEmpty("searchCriteria.status", query.Status)
+                .WithQueryParameterIfNotEmpty("searchCriteria.reviewerId", query.ReviewerId)
+                .WithQueryParameterIfNotEmpty("searchCriteria.creatorId", query.CreatorId)
+                .Build();
+
+            var pullRequests = await _httpClient.ExecuteGet<CollectionResponse<PullRequest>>(url);
+            return pullRequests?.Value ?? Enumerable.Empty<PullRequest>();
+        }
+
         private int[] GetWorkitemIdsFromQuery(FlatWorkItemsQueryResult query)
         {
             return query.WorkItems.Select(w => w.Id).ToArray();
@@ -119,5 +140,7 @@ namespace VSTS.Net
             var clientLogger = logger ?? new NullLogger<VstsClient>();
             return new VstsClient(instanceName, httpClient, logger ?? clientLogger);
         }
+
+
     }
 }
