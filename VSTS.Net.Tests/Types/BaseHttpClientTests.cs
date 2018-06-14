@@ -4,6 +4,8 @@ using Moq.Language;
 using Moq.Language.Flow;
 using NUnit.Framework;
 using System;
+using System.Collections.Generic;
+using System.Linq;
 using System.Linq.Expressions;
 using System.Threading;
 using System.Threading.Tasks;
@@ -47,6 +49,21 @@ namespace VSTS.Net.Tests.Types
                 urlPredicate = _ => true;
 
             return _httpClientMock.SetupSequence(c => c.ExecuteGet<CollectionResponse<T>>(It.Is(urlPredicate), CancellationToken.None));
+        }
+
+        protected ISetupSequentialResult<Task<CollectionResponse<T>>> SetupOnePageOf<T>(IEnumerable<T> page, Expression<Func<string, bool>> urlPredicate = null)
+        {
+            if (urlPredicate == null)
+                urlPredicate = _ => true;
+
+            return _httpClientMock.SetupSequence(c => c.ExecuteGet<CollectionResponse<T>>(It.Is(urlPredicate), CancellationToken.None))
+                .ReturnsAsync(new CollectionResponse<T> { Value = page })
+                .ReturnsAsync(new CollectionResponse<T> { Value = Enumerable.Empty<T>() });
+        }
+
+        protected void VerifyPagedRequests<T>(Times times)
+        {
+            _httpClientMock.Verify(c => c.ExecuteGet<CollectionResponse<T>>(It.IsAny<string>(), CancellationToken.None), times);
         }
     }
 }

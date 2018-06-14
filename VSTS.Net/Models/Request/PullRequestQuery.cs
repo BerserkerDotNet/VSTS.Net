@@ -30,6 +30,6 @@ namespace VSTS.Net.Models.Request
         /// <summary>
         /// Custom filter to apply to retrieved pull requests.
         /// </summary>
-        public Predicate<PullRequest> CustomFilter { get; set; }
+        public Func<PullRequest, bool> CustomFilter { get; set; }
     }
 }

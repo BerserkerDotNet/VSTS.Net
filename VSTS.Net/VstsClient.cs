@@ -108,15 +108,36 @@ namespace VSTS.Net
             if (query == null)
                 query = PullRequestQuery.None;
 
-            var url = VstsUrlBuilder.Create(_instanceName)
-                .ForPullRequests(project, repository)
-                .WithQueryParameterIfNotEmpty("searchCriteria.status", query.Status)
-                .WithQueryParameterIfNotEmpty("searchCriteria.reviewerId", query.ReviewerId)
-                .WithQueryParameterIfNotEmpty("searchCriteria.creatorId", query.CreatorId)
-                .Build();
+            var haveMorePullRequests = true;
+            var skip = 0;
+            var allPullRequests = new List<PullRequest>();
+            while (haveMorePullRequests)
+            {
+                var url = VstsUrlBuilder.Create(_instanceName)
+                    .ForPullRequests(project, repository)
+                    .WithQueryParameterIfNotEmpty("searchCriteria.status", query.Status)
+                    .WithQueryParameterIfNotEmpty("searchCriteria.reviewerId", query.ReviewerId)
+                    .WithQueryParameterIfNotEmpty("searchCriteria.creatorId", query.CreatorId)
+                    .WithQueryParameter("$skip", skip)
+                    .Build();
 
-            var pullRequests = await _httpClient.ExecuteGet<CollectionResponse<PullRequest>>(url);
-            return pullRequests?.Value ?? Enumerable.Empty<PullRequest>();
+                var pullRequestsResponse = await _httpClient.ExecuteGet<CollectionResponse<PullRequest>>(url);
+                var pullRequests = pullRequestsResponse?.Value ?? Enumerable.Empty<PullRequest>();
+
+                haveMorePullRequests = pullRequests.Any() && (!query.CreatedAfter.HasValue || pullRequests.Min(p => p.CreationDate) >= query.CreatedAfter);
+
+                if (query.CreatedAfter.HasValue)
+                    pullRequests = pullRequests.Where(p => p.CreationDate >= query.CreatedAfter);
+
+                if (query.CustomFilter != null)
+                    pullRequests = pullRequests.Where(query.CustomFilter);
+
+                allPullRequests.AddRange(pullRequests);
+                
+                skip = allPullRequests.Count;
+            }
+
+            return allPullRequests;
         }
 
         private int[] GetWorkitemIdsFromQuery(FlatWorkItemsQueryResult query)
@@ -140,7 +161,5 @@ namespace VSTS.Net
             var clientLogger = logger ?? new NullLogger<VstsClient>();
             return new VstsClient(instanceName, httpClient, logger ?? clientLogger);
         }
-
-
     }
 }
