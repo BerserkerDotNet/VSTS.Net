@@ -140,6 +140,38 @@ namespace VSTS.Net
             return allPullRequests;
         }
 
+        /// <inheritdoc />
+        public async Task<IEnumerable<PullRequestIteration>> GetPullRequestIterationsAsync(string project, string repository, int pullRequestId)
+        {
+            ThrowIfArgumentNullOrEmpty(project, nameof(project));
+            ThrowIfArgumentNullOrEmpty(repository, nameof(repository));
+
+            var iterationsUrl = VstsUrlBuilder.Create(_instanceName)
+              .ForPullRequests(project, repository)
+              .WithSection(pullRequestId.ToString())
+              .WithSection("iterations")
+              .Build();
+
+            var iterationsResponse = await _httpClient.ExecuteGet<CollectionResponse<PullRequestIteration>>(iterationsUrl);
+            return iterationsResponse?.Value ?? Enumerable.Empty<PullRequestIteration>();
+        }
+
+        /// <inheritdoc />
+        public async Task<IEnumerable<PullRequestThread>> GetPullRequestThreadsAsync(string project, string repository, int pullRequestId)
+        {
+            ThrowIfArgumentNullOrEmpty(project, nameof(project));
+            ThrowIfArgumentNullOrEmpty(repository, nameof(repository));
+
+            var threadsUrl = VstsUrlBuilder.Create(_instanceName)
+              .ForPullRequests(project, repository)
+              .WithSection(pullRequestId.ToString())
+              .WithSection("threads")
+              .Build();
+
+            var threadsResponse = await _httpClient.ExecuteGet<CollectionResponse<PullRequestThread>>(threadsUrl);
+            return threadsResponse?.Value ?? Enumerable.Empty<PullRequestThread>();
+        }
+
         private int[] GetWorkitemIdsFromQuery(FlatWorkItemsQueryResult query)
         {
             return query.WorkItems.Select(w => w.Id).ToArray();

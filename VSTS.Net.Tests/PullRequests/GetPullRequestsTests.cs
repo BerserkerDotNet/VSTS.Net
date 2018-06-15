@@ -9,15 +9,14 @@ using VSTS.Net.Models.PullRequests;
 using VSTS.Net.Models.Request;
 using VSTS.Net.Models.Response;
 using VSTS.Net.Tests.Types;
-using VSTS.Net.Types;
 
-namespace VSTS.Net.Tests
+namespace VSTS.Net.Tests.PullRequests
 {
     [TestFixture]
-    public class VstsPullRequestsClientTests : BaseHttpClientTests
+    public class GetPullRequestsTests : BaseHttpClientTests
     {
         [Test, Combinatorial]
-        public void GetPullRequestsThrowsIfEmptyInput(
+        public void ThrowsIfEmptyInput(
             [Values(null, "", ProjectName)]string project, 
             [Values(null, "", RepositoryName)]string repository)
         {
@@ -29,14 +28,14 @@ namespace VSTS.Net.Tests
         }
 
         [Test]
-        public void GetPullRequestsDoesNotThrowIfNullQuery()
+        public void DoesNotThrowIfNullQuery()
         {
             _client.Awaiting(c => c.GetPullRequestsAsync(ProjectName, RepositoryName, null))
                 .Should().NotThrow<ArgumentNullException>();
         }
 
         [Test]
-        public async Task GetPullRequestsQueriesPullRequestsFromServer()
+        public async Task QueriesPullRequestsFromServer()
         {
             var pullRequests = new[] { new PullRequest(), new PullRequest() };
             SetupOnePageOf(pullRequests);
@@ -49,7 +48,7 @@ namespace VSTS.Net.Tests
         }
 
         [Test]
-        public async Task GetPullRequestsReturnsEmptyListIfNullResponse()
+        public async Task ReturnsEmptyListIfNullResponse()
         {
             SetupGetCollectionOf<PullRequest>()
                 .ReturnsAsync((CollectionResponse<PullRequest>)null);
@@ -61,10 +60,10 @@ namespace VSTS.Net.Tests
         }
 
         [Test]
-        public async Task GetPullRequestsRequestsCorrectUrl()
+        public async Task RequestsCorrectUrl()
         {
             var pullRequests = new[] { new PullRequest(), new PullRequest() };
-            SetupOnePageOf(pullRequests, s => ValidateGetPullRequestsUrl(s));
+            SetupOnePageOf(pullRequests, s => ValidateUrl(s));
 
             var result = await _client.GetPullRequestsAsync(ProjectName, RepositoryName, null);
 
@@ -76,7 +75,7 @@ namespace VSTS.Net.Tests
         }
 
         [Test]
-        public async Task GetPullRequestsIncludesQueryParametersInUrl()
+        public async Task IncludesQueryParametersInUrl()
         {
             var query = new PullRequestQuery
             {
@@ -86,7 +85,7 @@ namespace VSTS.Net.Tests
                 CreatedAfter = DateTime.UtcNow.AddDays(-3)
             };
             var pullRequests = new[] { CreatePR(daysAgo: 2), CreatePR(daysAgo: 1) };
-            SetupOnePageOf(pullRequests, s => ValidateGetPullRequestsUrlWithQuery(s, query));
+            SetupOnePageOf(pullRequests, s => ValidateUrlWithQuery(s, query));
 
             var result = await _client.GetPullRequestsAsync(ProjectName, RepositoryName, query);
 
@@ -98,14 +97,14 @@ namespace VSTS.Net.Tests
         }
 
         [Test]
-        public async Task GetPullRequestsFetchAllPages()
+        public async Task FetchAllPages()
         {
             var page1 = new[] { new PullRequest(), new PullRequest() };
             var page2 = new[] { new PullRequest(), new PullRequest() };
             var page3 = new[] { new PullRequest() };
 
             int skipTotal = 0;
-            SetupPagedGetCollectionOf<PullRequest>(u => ValidateGetPullRequestsUrlWithPaging(u, ref skipTotal))
+            SetupPagedGetCollectionOf<PullRequest>(u => ValidateUrlWithPaging(u, ref skipTotal))
                 .ReturnsAsync(new CollectionResponse<PullRequest> { Value = page1 })
                 .ReturnsAsync(new CollectionResponse<PullRequest> { Value = page2 })
                 .ReturnsAsync(new CollectionResponse<PullRequest> { Value = page3 })
@@ -121,7 +120,7 @@ namespace VSTS.Net.Tests
         }
 
         [Test]
-        public async Task GetPullRequestsFilterByDate()
+        public async Task FilterByDate()
         {
             var pullRequests = new[] { CreatePR(daysAgo: 5), CreatePR(daysAgo: 3), CreatePR(daysAgo: 2) };
             SetupOnePageOf(pullRequests);
@@ -134,7 +133,7 @@ namespace VSTS.Net.Tests
         }
 
         [Test]
-        public async Task GetPullRequestsStopRequestingIfFoundOlderPRsThanRequested()
+        public async Task StopRequestingIfFoundOlderPRsThanRequested()
         {
             var page1 = new[] { CreatePR(daysAgo: 1), CreatePR(daysAgo: 2) };
             var page2 = new[] { CreatePR(daysAgo: 3), CreatePR(daysAgo: 5) };
@@ -156,7 +155,7 @@ namespace VSTS.Net.Tests
         }
 
         [Test]
-        public async Task GetPullRequestsCustomFilter()
+        public async Task CustomFilter()
         {
             var pullRequests = new[] { CreatePR("Bug 1"), CreatePR("Task 1"), CreatePR("Bug 2") };
             SetupOnePageOf(pullRequests);
@@ -169,7 +168,7 @@ namespace VSTS.Net.Tests
         }
 
         [Test]
-        public async Task GetPullRequestsCustomFilterWithDateFilter()
+        public async Task CustomFilterWithDateFilter()
         {
             var pullRequests = new[] { CreatePR("Bug 1", daysAgo: 2), CreatePR("Task 1", daysAgo: 2), CreatePR("Bug 2", daysAgo: 4) };
             SetupOnePageOf(pullRequests);
@@ -182,7 +181,7 @@ namespace VSTS.Net.Tests
         }
 
         [Test]
-        public void GetPullRequestsDoesNotCatchExceptions()
+        public void DoesNotCatchExceptions()
         {
             var page1 = new[] { new PullRequest(), new PullRequest() };
 
@@ -195,7 +194,7 @@ namespace VSTS.Net.Tests
                 .Should().Throw<Exception>();
         }
 
-        private bool ValidateGetPullRequestsUrlWithPaging(string url, ref int skipTotal)
+        private bool ValidateUrlWithPaging(string url, ref int skipTotal)
         {
             var match = Regex.Match(url, "\\$skip=(?<Skip>\\d)");
             var skip = int.Parse(match.Groups["Skip"].Value);
@@ -203,13 +202,13 @@ namespace VSTS.Net.Tests
             return skip == 0 || skip == 2 || skip == 4 || skip == 5;
         }
 
-        private bool ValidateGetPullRequestsUrl(string url)
+        private bool ValidateUrl(string url)
         {
             var expectedUrl = $"https://{InstanceName}.visualstudio.com/{ProjectName}/_apis/git/repositories/{RepositoryName}/pullrequests";
             return url.StartsWith(expectedUrl, StringComparison.OrdinalIgnoreCase);
         }
 
-        private bool ValidateGetPullRequestsUrlWithQuery(string url, PullRequestQuery query)
+        private bool ValidateUrlWithQuery(string url, PullRequestQuery query)
         {
             var uri = new Uri(url);
             var queryString = uri.Query;
