@@ -22,13 +22,12 @@ namespace VSTS.Net.Tests
         public void SetUp()
         {
             _services = new FakeServiceCollection();
+            _services.AddVstsNet(InstanceName, Token);
         }
 
         [Test]
         public void ShouldRegisterIHttpClientImplementation()
         {
-            _services.AddVstsNet(InstanceName, Token);
-
             _services.Count.Should().BeGreaterThan(0);
             _services.Should().ContainSingle(d => d.ServiceType == typeof(IHttpClient) && d.Lifetime == ServiceLifetime.Singleton);
 
@@ -39,15 +38,25 @@ namespace VSTS.Net.Tests
         }
 
         [Test]
-        public void ShouldRegisterIVstsWorkItemsClientImplementation()
+        public void ShouldRegisterAllVstsClientInterfaces()
         {
-            _services.AddVstsNet(InstanceName, Token);
+            TestClientRegistration<IVstsPullRequestsClient>();
+            TestClientRegistration<IVstsWorkItemsClient>();
+            TestClientRegistration<IVstsClient>();
+        }
+
+        private void TestClientRegistration<T>()
+        {
+            var mockServiceProvider = new Mock<IServiceProvider>();
+            mockServiceProvider.Setup(p => p.GetService(It.Is<Type>(t => t == typeof(IVstsClient))))
+                .Returns(new VstsClient("Foo", Mock.Of<IHttpClient>()));
+            
 
             _services.Count.Should().BeGreaterThan(0);
-            _services.Should().ContainSingle(d => d.ServiceType == typeof(IVstsWorkItemsClient) && d.Lifetime == ServiceLifetime.Singleton);
+            _services.Should().ContainSingle(d => d.ServiceType == typeof(T) && d.Lifetime == ServiceLifetime.Singleton);
 
-            var clientRegistration = _services.Single(d => d.ServiceType == typeof(IVstsWorkItemsClient));
-            var client = clientRegistration.ImplementationFactory(Mock.Of<IServiceProvider>()) as VstsClient;
+            var clientRegistration = _services.Single(d => d.ServiceType == typeof(T));
+            var client = clientRegistration.ImplementationFactory(mockServiceProvider.Object) as VstsClient;
 
             client.Should().NotBeNull();
         }

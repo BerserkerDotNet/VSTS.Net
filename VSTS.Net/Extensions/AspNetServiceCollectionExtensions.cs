@@ -10,18 +10,27 @@ namespace VSTS.Net.Extensions
         public static void AddVstsNet(this IServiceCollection services, string instanceName, string accessToken)
         {
             var httpClient = HttpClientUtil.Create(accessToken);
-
             services.AddSingleton<IHttpClient, DefaultHttpClient>(ctx =>
             {
                 var logger = ctx.GetService<ILogger<DefaultHttpClient>>();
                 return new DefaultHttpClient(httpClient, logger);
             });
 
-            services.AddSingleton<IVstsWorkItemsClient, VstsClient>(ctx => 
-            {
-                var client = ctx.GetService<IHttpClient>();
-                return new VstsClient(instanceName, client);
-            });
+            services.AddSingleton<IVstsClient, VstsClient>(ctx => CreateVstsClient(instanceName, ctx));
+            services.AddSingleton<IVstsWorkItemsClient, VstsClient>(ctx => GetVstsClient(instanceName, ctx));
+            services.AddSingleton<IVstsPullRequestsClient, VstsClient>(ctx => GetVstsClient(instanceName, ctx));
+        }
+
+        private static VstsClient CreateVstsClient(string instanceName, System.IServiceProvider ctx)
+        {
+            var client = ctx.GetService<IHttpClient>();
+            var logger = ctx.GetService<ILogger<VstsClient>>();
+            return new VstsClient(instanceName, client, logger);
+        }
+
+        private static VstsClient GetVstsClient(string instanceName, System.IServiceProvider ctx)
+        {
+            return ctx.GetService<IVstsClient>() as VstsClient;
         }
     }
 }
