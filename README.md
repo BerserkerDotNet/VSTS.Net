@@ -1,18 +1,37 @@
 # VSTS.Net
-REST client for Visual Studio Team Services
+.Net client for Visual Studio Team Services API
 
-## Usage Console app
+## Usage
+
+### Console app
 
 ```csharp
-            var query = @"SELECT [System.Id] FROM WorkItems 
-                            WHERE [System.WorkItemType] IN ('Bug', 'Task') AND [System.AssignedTo] Ever 'foo@bar.com' AND System.ChangedDate >= '01/01/2018'";
+var query = @"SELECT [System.Id] FROM WorkItems 
+        WHERE [System.WorkItemType] IN ('Bug', 'Task') AND [System.AssignedTo] Ever 'foo@bar.com' AND System.ChangedDate >= '01/01/2018'";
 
-            var client = VstsClient.Get(instanceName: "foo", accessToken: "secure token");
-            var items = await client.GetWorkItemsAsync("MyProject", new WorkItemsQuery(query));
+var client = VstsClient.Get(instanceName: "foo", accessToken: "secure token");
+var items = await client.GetWorkItemsAsync("MyProject", new WorkItemsQuery(query));
 ```
 
-## Registering with Asp.Net Core DI
+### Asp.Net Core
+In the `Startup.cs` add `VstsNet` to the services collection
 
 ```csharp
-	services.AddVstsNet(instanceName: "foo", accessToken: "secure token");
+services.AddVstsNet(instanceName: "foo", accessToken: "secure token");
+```
+
+Now you can consume Vsts client through DI:
+
+```csharp
+private readonly IVstsClient client;
+
+public HomeController(IVstsClient client)
+{
+	this.client = client;
+}
+
+public async Task<IActionResult> Index()
+{
+    var prs = await client.GetPullRequestsAsync("MyProject", "MyRepository", new PullRequestQuery { CreatedAfter = DateTime.Now.AddDays(-5) });
+}
 ```
