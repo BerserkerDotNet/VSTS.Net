@@ -33,7 +33,7 @@
         "files": [
           "images/**",
           "*.svg",
-          "*.png"
+          "*.ico"
         ]
       }
     ],
@@ -52,6 +52,9 @@
     "globalMetadataFiles": [],
     "globalMetadata": {
       "_appTitle": "Vsts.Net Docs",
+      "_appLogoPath": "logo.svg",
+      "_appFaviconPath":"favicon.ico",
+      "_appFooter": "Copyright © 2018 Andrii Snihyr",
       "_enableSearch": true
     },
     "fileMetadataFiles": [],

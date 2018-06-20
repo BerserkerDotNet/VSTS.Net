@@ -18,7 +18,7 @@
       "output": {
         ".html": {
           "relative_path": "api/VSTS.Net.Extensions.AspNetServiceCollectionExtensions.html",
-          "hash": "Zhf3aVLc392ofoyvOwSzTg=="
+          "hash": "IQfoiCzwp+z3O7ae8v4QfA=="
         }
       },
       "is_incremental": false,
@@ -30,7 +30,7 @@
       "output": {
         ".html": {
           "relative_path": "api/VSTS.Net.Extensions.html",
-          "hash": "28ah57dCJpE7h/OJQVl6TQ=="
+          "hash": "iNAKpPXkz8Y/epj2o8TJYw=="
         }
       },
       "is_incremental": false,
@@ -42,7 +42,7 @@
       "output": {
         ".html": {
           "relative_path": "api/VSTS.Net.Interfaces.IHttpClient.html",
-          "hash": "EdCOqogqXYbqGvJBuxeyMg=="
+          "hash": "q5dX4QK3r3xuzAedNlHAqA=="
         }
       },
       "is_incremental": false,
@@ -54,7 +54,7 @@
       "output": {
         ".html": {
           "relative_path": "api/VSTS.Net.Interfaces.IVstsClient.html",
-          "hash": "1cqplfbej9Mty0WCPvVP3Q=="
+          "hash": "TJ1hCNzeLThKQ+RISxo6tw=="
         }
       },
       "is_incremental": false,
@@ -66,7 +66,7 @@
       "output": {
         ".html": {
           "relative_path": "api/VSTS.Net.Interfaces.IVstsPullRequestsClient.html",
-          "hash": "/u6jZW/k8+yuUtOdkJEmlA=="
+          "hash": "TobvGWpo7s5Gbpb1C7vKwg=="
         }
       },
       "is_incremental": false,
@@ -78,7 +78,7 @@
       "output": {
         ".html": {
           "relative_path": "api/VSTS.Net.Interfaces.IVstsWorkItemsClient.html",
-          "hash": "m12Hgxec42sl1EUAfC9I5g=="
+          "hash": "u926Mv3He4cyULttc30upQ=="
         }
       },
       "is_incremental": false,
@@ -90,7 +90,7 @@
       "output": {
         ".html": {
           "relative_path": "api/VSTS.Net.Interfaces.html",
-          "hash": "LMneAeuaIVw+mcg5G27H7Q=="
+          "hash": "Dnb39+LywFOa+Pnd4zlRrg=="
         }
       },
       "is_incremental": false,
@@ -102,7 +102,7 @@
       "output": {
         ".html": {
           "relative_path": "api/VSTS.Net.Models.Common.Project.html",
-          "hash": "BU5rWotD+iPVQCfDbRNgvA=="
+          "hash": "qX54JytrGzdlQHotBwucpA=="
         }
       },
       "is_incremental": false,
@@ -114,7 +114,7 @@
       "output": {
         ".html": {
           "relative_path": "api/VSTS.Net.Models.Common.Repository.html",
-          "hash": "zHJOSY4QTny3R6bU+7gV7w=="
+          "hash": "b5cTMiTZiUgBM0LM45TIkQ=="
         }
       },
       "is_incremental": false,
@@ -126,7 +126,7 @@
       "output": {
         ".html": {
           "relative_path": "api/VSTS.Net.Models.Common.html",
-          "hash": "MW0tR9vCzZ/fAcXNU00Mig=="
+          "hash": "z+mJH4KS8FKrfAErCDL5dA=="
         }
       },
       "is_incremental": false,
@@ -138,7 +138,7 @@
       "output": {
         ".html": {
           "relative_path": "api/VSTS.Net.Models.Identity.IdentityReference.html",
-          "hash": "UXOtcOnqK8w8L7bl2g8Ahg=="
+          "hash": "y0D+VbX2Bx7HIMNMkZJ66Q=="
         }
       },
       "is_incremental": false,
@@ -150,7 +150,7 @@
       "output": {
         ".html": {
           "relative_path": "api/VSTS.Net.Models.Identity.IdentityReferenceWithVote.html",
-          "hash": "iaTjNcemumSUIefE5hgmPg=="
+          "hash": "KA6UeDBM+3r4SOACxQq7Ww=="
         }
       },
       "is_incremental": false,
@@ -162,7 +162,7 @@
       "output": {
         ".html": {
           "relative_path": "api/VSTS.Net.Models.Identity.html",
-          "hash": "9hojsbsWjYZN9xvi1bDnaQ=="
+          "hash": "MSiTmE396Yz1e4Df78dgvQ=="
         }
       },
       "is_incremental": false,
@@ -174,7 +174,7 @@
       "output": {
         ".html": {
           "relative_path": "api/VSTS.Net.Models.PullRequests.PullRequest.html",
-          "hash": "JFtXqxKoBQl3fKwyezgoAQ=="
+          "hash": "p6KqNf/t7EN29ai8H9em/g=="
         }
       },
       "is_incremental": false,
@@ -186,7 +186,7 @@
       "output": {
         ".html": {
           "relative_path": "api/VSTS.Net.Models.PullRequests.PullRequestComment.html",
-          "hash": "vz6p+X5onnatwi5uIekoxQ=="
+          "hash": "fzt+PonDB1kh8Gm1M1FH2w=="
         }
       },
       "is_incremental": false,
@@ -198,7 +198,7 @@
       "output": {
         ".html": {
           "relative_path": "api/VSTS.Net.Models.PullRequests.PullRequestIteration.html",
-          "hash": "VCghW03OmWkIys2XF6HLlQ=="
+          "hash": "W5e1asRwJM66VdyEL/XY3g=="
         }
       },
       "is_incremental": false,
@@ -210,7 +210,7 @@
       "output": {
         ".html": {
           "relative_path": "api/VSTS.Net.Models.PullRequests.PullRequestThread.html",
-          "hash": "IZLSatZ5279DZ2qYBqok6w=="
+          "hash": "H+bFZ4KmFvOnj2Mi2keJVg=="
         }
       },
       "is_incremental": false,
@@ -222,7 +222,7 @@
       "output": {
         ".html": {
           "relative_path": "api/VSTS.Net.Models.PullRequests.html",
-          "hash": "Atgz8fxKKCKfWBRcwIlEEw=="
+          "hash": "DpQh8Ftl1j9Ub5JM/7AjDA=="
         }
       },
       "is_incremental": false,
@@ -234,7 +234,7 @@
       "output": {
         ".html": {
           "relative_path": "api/VSTS.Net.Models.Request.PullRequestQuery.html",
-          "hash": "o6M4ihX355ene5ROMNv9Ug=="
+          "hash": "eFLG5HXQR2j9LggDpZeGPg=="
         }
       },
       "is_incremental": false,
@@ -246,7 +246,7 @@
       "output": {
         ".html": {
           "relative_path": "api/VSTS.Net.Models.Request.WorkItemsQuery.html",
-          "hash": "9/p36GYerq3IDwhxkKzXDA=="
+          "hash": "UEpIfTTN7KuR+9rAjfWYZw=="
         }
       },
       "is_incremental": false,
@@ -258,7 +258,7 @@
       "output": {
         ".html": {
           "relative_path": "api/VSTS.Net.Models.Request.html",
-          "hash": "cDMAMDFXyAnuGIbkejZokA=="
+          "hash": "63fgrUsfXI000k16dsbB/A=="
         }
       },
       "is_incremental": false,
@@ -270,7 +270,7 @@
       "output": {
         ".html": {
           "relative_path": "api/VSTS.Net.Models.Response.CollectionResponse-1.html",
-          "hash": "qRiidATiaNHnhutDVXxT2g=="
+          "hash": "I9qEfisZR3K9qUDivAbRRA=="
         }
       },
       "is_incremental": false,
@@ -282,7 +282,7 @@
       "output": {
         ".html": {
           "relative_path": "api/VSTS.Net.Models.Response.ColumnReference.html",
-          "hash": "oSqx6yy3asT2QVnJjwCx6w=="
+          "hash": "Qntfhy2Fka76t+kqY1BRHg=="
         }
       },
       "is_incremental": false,
@@ -294,7 +294,7 @@
       "output": {
         ".html": {
           "relative_path": "api/VSTS.Net.Models.Response.SortColumn.html",
-          "hash": "sdFQIiQ08yH3me/Kc8axkA=="
+          "hash": "xGtm3pKBPBRnPrycert7Jg=="
         }
       },
       "is_incremental": false,
@@ -306,7 +306,7 @@
       "output": {
         ".html": {
           "relative_path": "api/VSTS.Net.Models.Response.html",
-          "hash": "GxDx8h0fRG26Qo0uCMWGng=="
+          "hash": "UfHpVZD2MDumg7dO0Ig6bw=="
         }
       },
       "is_incremental": false,
@@ -318,7 +318,7 @@
       "output": {
         ".html": {
           "relative_path": "api/VSTS.Net.Models.WorkItems.FlatWorkItemsQueryResult.html",
-          "hash": "AQ+kIeB8yLkP1ngP+Q/TDw=="
+          "hash": "+Bf8W7DnrYmOUhrH1TLgZA=="
         }
       },
       "is_incremental": false,
@@ -330,7 +330,7 @@
       "output": {
         ".html": {
           "relative_path": "api/VSTS.Net.Models.WorkItems.HierarchicalWorkItemsQueryResult.html",
-          "hash": "VP9LV7n08r1jIcVGEXYNQg=="
+          "hash": "6MNTJ3aN00pPcyukQN7RyA=="
         }
       },
       "is_incremental": false,
@@ -342,7 +342,7 @@
       "output": {
         ".html": {
           "relative_path": "api/VSTS.Net.Models.WorkItems.WorkItem.html",
-          "hash": "xPDQ29dfaI7fu+52gS0AAQ=="
+          "hash": "mWON4nN/NubzZFJJ3gXZtg=="
         }
       },
       "is_incremental": false,
@@ -354,7 +354,7 @@
       "output": {
         ".html": {
           "relative_path": "api/VSTS.Net.Models.WorkItems.WorkItemFieldUpdate.html",
-          "hash": "KzRRTRHO348AbUBh4l/Qtw=="
+          "hash": "NpRIln1UaCcM8Rj3elp1Jg=="
         }
       },
       "is_incremental": false,
@@ -366,7 +366,7 @@
       "output": {
         ".html": {
           "relative_path": "api/VSTS.Net.Models.WorkItems.WorkItemLink.html",
-          "hash": "evvfUXXc8Szf6xsbSg6YWA=="
+          "hash": "++76lOJjBEbzg5IHQsNWbw=="
         }
       },
       "is_incremental": false,
@@ -378,7 +378,7 @@
       "output": {
         ".html": {
           "relative_path": "api/VSTS.Net.Models.WorkItems.WorkItemReference.html",
-          "hash": "yXlwLOMmoe3CRHBc/6Qa4Q=="
+          "hash": "0L1UKUN65dgDIGomJDqByw=="
         }
       },
       "is_incremental": false,
@@ -390,7 +390,7 @@
       "output": {
         ".html": {
           "relative_path": "api/VSTS.Net.Models.WorkItems.WorkItemRelation.html",
-          "hash": "A64hLsu7qibjgK5ZqtHiTA=="
+          "hash": "blcmO3SogYRaXkOUx8gaXA=="
         }
       },
       "is_incremental": false,
@@ -402,7 +402,7 @@
       "output": {
         ".html": {
           "relative_path": "api/VSTS.Net.Models.WorkItems.WorkItemUpdate.html",
-          "hash": "57sZWH9G1IxgCcjVFWM2nA=="
+          "hash": "qUdW4Gdh0KM30w3by1zseA=="
         }
       },
       "is_incremental": false,
@@ -414,7 +414,7 @@
       "output": {
         ".html": {
           "relative_path": "api/VSTS.Net.Models.WorkItems.WorkItemsQueryResult.html",
-          "hash": "9QN23xO8j+HPIlYn7UnHyw=="
+          "hash": "iE4jj/n5TbWoj86v1n977Q=="
         }
       },
       "is_incremental": false,
@@ -426,7 +426,7 @@
       "output": {
         ".html": {
           "relative_path": "api/VSTS.Net.Models.WorkItems.html",
-          "hash": "7AUc/4I8VxFf3oRYUbE/Kw=="
+          "hash": "730NKwhWtx9eFGuiAx4iOg=="
         }
       },
       "is_incremental": false,
@@ -438,7 +438,7 @@
       "output": {
         ".html": {
           "relative_path": "api/VSTS.Net.Types.Constants.html",
-          "hash": "rmMhXFqXmFsh7ssq1ekuaQ=="
+          "hash": "U4QN0cn0UQTJ7ZnJ9c94uw=="
         }
       },
       "is_incremental": false,
@@ -450,7 +450,7 @@
       "output": {
         ".html": {
           "relative_path": "api/VSTS.Net.Types.DefaultHttpClient.html",
-          "hash": "hSZ0pvB5hOUK9b6HdSxBkQ=="
+          "hash": "EiSWJTH7M4ySfp9n9blnnw=="
         }
       },
       "is_incremental": false,
@@ -462,7 +462,7 @@
       "output": {
         ".html": {
           "relative_path": "api/VSTS.Net.Types.HttpClientUtil.html",
-          "hash": "LWqXgxh3zg1JgN6ffqTFXw=="
+          "hash": "xsA+Kz0GW+BLx6K9eyQHDw=="
         }
       },
       "is_incremental": false,
@@ -474,7 +474,7 @@
       "output": {
         ".html": {
           "relative_path": "api/VSTS.Net.Types.VstsUrlBuilder.html",
-          "hash": "TaeLoF06iWdxGb1F2VqCxw=="
+          "hash": "4ZlEXrwMq8RCv2sQQisHIQ=="
         }
       },
       "is_incremental": false,
@@ -486,7 +486,7 @@
       "output": {
         ".html": {
           "relative_path": "api/VSTS.Net.Types.html",
-          "hash": "ppZ6g0+3yBrY3vPkKYUlZQ=="
+          "hash": "hChsoiL9Eyfr37nzezeWLg=="
         }
       },
       "is_incremental": false,
@@ -498,7 +498,7 @@
       "output": {
         ".html": {
           "relative_path": "api/VSTS.Net.VstsClient.html",
-          "hash": "fPIJ9Vqeteoyz2MjAYdV4A=="
+          "hash": "yJS728sl8zWCN+GSRBHzPg=="
         }
       },
       "is_incremental": false,
@@ -510,7 +510,7 @@
       "output": {
         ".html": {
           "relative_path": "api/VSTS.Net.html",
-          "hash": "jOWe8o8aYX0eGba/CrN7Mw=="
+          "hash": "aLpayN3jMQWkNcAbebBUcQ=="
         }
       },
       "is_incremental": false,
@@ -522,7 +522,7 @@
       "output": {
         ".html": {
           "relative_path": "api/index.html",
-          "hash": "7lKcGdblEaO7L7sXw+6H2w=="
+          "hash": "jSxAq5js7VWejgDiDRCNAw=="
         }
       },
       "is_incremental": false,
@@ -541,12 +541,56 @@
       "version": ""
     },
     {
+      "type": "Resource",
+      "source_relative_path": "favicon.ico",
+      "output": {
+        "resource": {
+          "relative_path": "favicon.ico"
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "Resource",
+      "source_relative_path": "if_windows-visual-studio_306167.svg",
+      "output": {
+        "resource": {
+          "relative_path": "if_windows-visual-studio_306167.svg"
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
       "type": "Conceptual",
       "source_relative_path": "index.md",
       "output": {
         ".html": {
           "relative_path": "index.html",
-          "hash": "axwVRp/CR7RqQyfFknkQBw=="
+          "hash": "ShVZ5x+XShag2s7GC9+s9Q=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "Resource",
+      "source_relative_path": "logo.svg",
+      "output": {
+        "resource": {
+          "relative_path": "logo.svg"
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "Resource",
+      "source_relative_path": "logo1.svg",
+      "output": {
+        "resource": {
+          "relative_path": "logo1.svg"
         }
       },
       "is_incremental": false,
@@ -572,16 +616,21 @@
         "incrementalPhase": "build"
       },
       "processors": {
+        "ResourceDocumentProcessor": {
+          "can_incremental": false,
+          "details": "Processor ResourceDocumentProcessor cannot support incremental build because the processor doesn't implement ISupportIncrementalDocumentProcessor interface.",
+          "incrementalPhase": "build"
+        },
         "TocDocumentProcessor": {
           "can_incremental": false,
           "details": "Processor TocDocumentProcessor cannot support incremental build because the processor doesn't implement ISupportIncrementalDocumentProcessor interface.",
           "incrementalPhase": "build"
         },
-        "ManagedReferenceDocumentProcessor": {
+        "ConceptualDocumentProcessor": {
           "can_incremental": true,
           "incrementalPhase": "build"
         },
-        "ConceptualDocumentProcessor": {
+        "ManagedReferenceDocumentProcessor": {
           "can_incremental": true,
           "incrementalPhase": "build"
         }

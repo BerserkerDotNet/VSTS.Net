@@ -9,7 +9,15 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "VSTS.Net.Tests", "src\VSTS.
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{7238B3DE-B86F-4804-9F68-713998509222}"
 	ProjectSection(SolutionItems) = preProject
+		docs\docfx.json = docs\docfx.json
 		README.md = README.md
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "docs", "docs", "{08A5D9D3-C35D-4D5A-903F-A81FCA275BED}"
+	ProjectSection(SolutionItems) = preProject
+		docs\docfx.json = docs\docfx.json
+		docs\index.md = docs\index.md
+		docs\toc.yml = docs\toc.yml
 	EndProjectSection
 EndProject
 Global
@@ -29,6 +37,9 @@ Global
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{08A5D9D3-C35D-4D5A-903F-A81FCA275BED} = {7238B3DE-B86F-4804-9F68-713998509222}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {BBAB42B9-6196-4226-BBD1-1C474A5D2911}
