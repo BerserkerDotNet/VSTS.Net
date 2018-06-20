@@ -1,0 +1,605 @@
+{
+  "homepages": [],
+  "source_base_path": "D:/Projects/VSTS.Net/docs",
+  "xrefmap": "xrefmap.yml",
+  "files": [
+    {
+      "type": "Resource",
+      "output": {
+        "resource": {
+          "relative_path": "index.json"
+        }
+      },
+      "is_incremental": false
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/VSTS.Net.Extensions.AspNetServiceCollectionExtensions.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/VSTS.Net.Extensions.AspNetServiceCollectionExtensions.html",
+          "hash": "Zhf3aVLc392ofoyvOwSzTg=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/VSTS.Net.Extensions.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/VSTS.Net.Extensions.html",
+          "hash": "28ah57dCJpE7h/OJQVl6TQ=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/VSTS.Net.Interfaces.IHttpClient.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/VSTS.Net.Interfaces.IHttpClient.html",
+          "hash": "EdCOqogqXYbqGvJBuxeyMg=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/VSTS.Net.Interfaces.IVstsClient.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/VSTS.Net.Interfaces.IVstsClient.html",
+          "hash": "1cqplfbej9Mty0WCPvVP3Q=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/VSTS.Net.Interfaces.IVstsPullRequestsClient.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/VSTS.Net.Interfaces.IVstsPullRequestsClient.html",
+          "hash": "/u6jZW/k8+yuUtOdkJEmlA=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/VSTS.Net.Interfaces.IVstsWorkItemsClient.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/VSTS.Net.Interfaces.IVstsWorkItemsClient.html",
+          "hash": "m12Hgxec42sl1EUAfC9I5g=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/VSTS.Net.Interfaces.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/VSTS.Net.Interfaces.html",
+          "hash": "LMneAeuaIVw+mcg5G27H7Q=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/VSTS.Net.Models.Common.Project.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/VSTS.Net.Models.Common.Project.html",
+          "hash": "BU5rWotD+iPVQCfDbRNgvA=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/VSTS.Net.Models.Common.Repository.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/VSTS.Net.Models.Common.Repository.html",
+          "hash": "zHJOSY4QTny3R6bU+7gV7w=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/VSTS.Net.Models.Common.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/VSTS.Net.Models.Common.html",
+          "hash": "MW0tR9vCzZ/fAcXNU00Mig=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/VSTS.Net.Models.Identity.IdentityReference.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/VSTS.Net.Models.Identity.IdentityReference.html",
+          "hash": "UXOtcOnqK8w8L7bl2g8Ahg=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/VSTS.Net.Models.Identity.IdentityReferenceWithVote.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/VSTS.Net.Models.Identity.IdentityReferenceWithVote.html",
+          "hash": "iaTjNcemumSUIefE5hgmPg=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/VSTS.Net.Models.Identity.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/VSTS.Net.Models.Identity.html",
+          "hash": "9hojsbsWjYZN9xvi1bDnaQ=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/VSTS.Net.Models.PullRequests.PullRequest.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/VSTS.Net.Models.PullRequests.PullRequest.html",
+          "hash": "JFtXqxKoBQl3fKwyezgoAQ=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/VSTS.Net.Models.PullRequests.PullRequestComment.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/VSTS.Net.Models.PullRequests.PullRequestComment.html",
+          "hash": "vz6p+X5onnatwi5uIekoxQ=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/VSTS.Net.Models.PullRequests.PullRequestIteration.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/VSTS.Net.Models.PullRequests.PullRequestIteration.html",
+          "hash": "VCghW03OmWkIys2XF6HLlQ=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/VSTS.Net.Models.PullRequests.PullRequestThread.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/VSTS.Net.Models.PullRequests.PullRequestThread.html",
+          "hash": "IZLSatZ5279DZ2qYBqok6w=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/VSTS.Net.Models.PullRequests.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/VSTS.Net.Models.PullRequests.html",
+          "hash": "Atgz8fxKKCKfWBRcwIlEEw=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/VSTS.Net.Models.Request.PullRequestQuery.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/VSTS.Net.Models.Request.PullRequestQuery.html",
+          "hash": "o6M4ihX355ene5ROMNv9Ug=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/VSTS.Net.Models.Request.WorkItemsQuery.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/VSTS.Net.Models.Request.WorkItemsQuery.html",
+          "hash": "9/p36GYerq3IDwhxkKzXDA=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/VSTS.Net.Models.Request.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/VSTS.Net.Models.Request.html",
+          "hash": "cDMAMDFXyAnuGIbkejZokA=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/VSTS.Net.Models.Response.CollectionResponse-1.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/VSTS.Net.Models.Response.CollectionResponse-1.html",
+          "hash": "qRiidATiaNHnhutDVXxT2g=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/VSTS.Net.Models.Response.ColumnReference.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/VSTS.Net.Models.Response.ColumnReference.html",
+          "hash": "oSqx6yy3asT2QVnJjwCx6w=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/VSTS.Net.Models.Response.SortColumn.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/VSTS.Net.Models.Response.SortColumn.html",
+          "hash": "sdFQIiQ08yH3me/Kc8axkA=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/VSTS.Net.Models.Response.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/VSTS.Net.Models.Response.html",
+          "hash": "GxDx8h0fRG26Qo0uCMWGng=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/VSTS.Net.Models.WorkItems.FlatWorkItemsQueryResult.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/VSTS.Net.Models.WorkItems.FlatWorkItemsQueryResult.html",
+          "hash": "AQ+kIeB8yLkP1ngP+Q/TDw=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/VSTS.Net.Models.WorkItems.HierarchicalWorkItemsQueryResult.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/VSTS.Net.Models.WorkItems.HierarchicalWorkItemsQueryResult.html",
+          "hash": "VP9LV7n08r1jIcVGEXYNQg=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/VSTS.Net.Models.WorkItems.WorkItem.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/VSTS.Net.Models.WorkItems.WorkItem.html",
+          "hash": "xPDQ29dfaI7fu+52gS0AAQ=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/VSTS.Net.Models.WorkItems.WorkItemFieldUpdate.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/VSTS.Net.Models.WorkItems.WorkItemFieldUpdate.html",
+          "hash": "KzRRTRHO348AbUBh4l/Qtw=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/VSTS.Net.Models.WorkItems.WorkItemLink.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/VSTS.Net.Models.WorkItems.WorkItemLink.html",
+          "hash": "evvfUXXc8Szf6xsbSg6YWA=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/VSTS.Net.Models.WorkItems.WorkItemReference.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/VSTS.Net.Models.WorkItems.WorkItemReference.html",
+          "hash": "yXlwLOMmoe3CRHBc/6Qa4Q=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/VSTS.Net.Models.WorkItems.WorkItemRelation.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/VSTS.Net.Models.WorkItems.WorkItemRelation.html",
+          "hash": "A64hLsu7qibjgK5ZqtHiTA=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/VSTS.Net.Models.WorkItems.WorkItemUpdate.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/VSTS.Net.Models.WorkItems.WorkItemUpdate.html",
+          "hash": "57sZWH9G1IxgCcjVFWM2nA=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/VSTS.Net.Models.WorkItems.WorkItemsQueryResult.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/VSTS.Net.Models.WorkItems.WorkItemsQueryResult.html",
+          "hash": "9QN23xO8j+HPIlYn7UnHyw=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/VSTS.Net.Models.WorkItems.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/VSTS.Net.Models.WorkItems.html",
+          "hash": "7AUc/4I8VxFf3oRYUbE/Kw=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/VSTS.Net.Types.Constants.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/VSTS.Net.Types.Constants.html",
+          "hash": "rmMhXFqXmFsh7ssq1ekuaQ=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/VSTS.Net.Types.DefaultHttpClient.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/VSTS.Net.Types.DefaultHttpClient.html",
+          "hash": "hSZ0pvB5hOUK9b6HdSxBkQ=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/VSTS.Net.Types.HttpClientUtil.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/VSTS.Net.Types.HttpClientUtil.html",
+          "hash": "LWqXgxh3zg1JgN6ffqTFXw=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/VSTS.Net.Types.VstsUrlBuilder.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/VSTS.Net.Types.VstsUrlBuilder.html",
+          "hash": "TaeLoF06iWdxGb1F2VqCxw=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/VSTS.Net.Types.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/VSTS.Net.Types.html",
+          "hash": "ppZ6g0+3yBrY3vPkKYUlZQ=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/VSTS.Net.VstsClient.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/VSTS.Net.VstsClient.html",
+          "hash": "fPIJ9Vqeteoyz2MjAYdV4A=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/VSTS.Net.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/VSTS.Net.html",
+          "hash": "jOWe8o8aYX0eGba/CrN7Mw=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "Conceptual",
+      "source_relative_path": "api/index.md",
+      "output": {
+        ".html": {
+          "relative_path": "api/index.html",
+          "hash": "7lKcGdblEaO7L7sXw+6H2w=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "Toc",
+      "source_relative_path": "api/toc.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/toc.html",
+          "hash": "PoZNJhv4C31NlL2sw9QR6Q=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "Conceptual",
+      "source_relative_path": "index.md",
+      "output": {
+        ".html": {
+          "relative_path": "index.html",
+          "hash": "axwVRp/CR7RqQyfFknkQBw=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "Toc",
+      "source_relative_path": "toc.yml",
+      "output": {
+        ".html": {
+          "relative_path": "toc.html",
+          "hash": "zUEcqxeC8MmPdFio0fKEQA=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    }
+  ],
+  "incremental_info": [
+    {
+      "status": {
+        "can_incremental": true,
+        "incrementalPhase": "build"
+      },
+      "processors": {
+        "TocDocumentProcessor": {
+          "can_incremental": false,
+          "details": "Processor TocDocumentProcessor cannot support incremental build because the processor doesn't implement ISupportIncrementalDocumentProcessor interface.",
+          "incrementalPhase": "build"
+        },
+        "ManagedReferenceDocumentProcessor": {
+          "can_incremental": true,
+          "incrementalPhase": "build"
+        },
+        "ConceptualDocumentProcessor": {
+          "can_incremental": true,
+          "incrementalPhase": "build"
+        }
+      }
+    },
+    {
+      "status": {
+        "can_incremental": false,
+        "details": "Cannot support incremental post processing, the reason is: should not trace intermediate info.",
+        "incrementalPhase": "postProcessing"
+      },
+      "processors": {}
+    }
+  ],
+  "version_info": {},
+  "groups": [
+    {
+      "xrefmap": "xrefmap.yml"
+    }
+  ]
+}

@@ -1,0 +1,68 @@
+{
+  "metadata": [
+    {
+      "src": [
+        {
+          "files": ["**/*.csproj"],
+          "exclude": [ "**/bin/**", "**/obj/**", "**/VSTS.Net.Tests/**" ],
+          "src": "../src"
+        }
+      ],
+      "dest": "api",
+      "disableGitFeatures": false
+    }
+  ],
+  "build": {
+    "content": [
+      {
+        "files": [
+          "api/**.yml",
+          "api/index.md"
+        ]
+      },
+      {
+        "files": [
+          "articles/**.md",
+          "toc.yml",
+          "*.md"
+        ]
+      }
+    ],
+    "resource": [
+      {
+        "files": [
+          "images/**",
+          "*.svg",
+          "*.png"
+        ]
+      }
+    ],
+    "overwrite": [
+      {
+        "files": [
+          "apidoc/**.md"
+        ],
+        "exclude": [
+          "obj/**",
+          "site/**"
+        ]
+      }
+    ],
+    "dest": "site",
+    "globalMetadataFiles": [],
+    "globalMetadata": {
+      "_appTitle": "Vsts.Net Docs",
+      "_enableSearch": true
+    },
+    "fileMetadataFiles": [],
+    "template": [
+      "default"
+    ],
+    "postProcessors": [],
+    "markdownEngineName": "markdig",
+    "noLangKeyword": false,
+    "keepFileLink": false,
+    "cleanupCacheHistory": false,
+    "disableGitFeatures": false
+  }
+}
