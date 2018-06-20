@@ -5,6 +5,8 @@
 
 [![Nuget](https://buildstats.info/nuget/VSTS.Net?v=0.1.0)](https://www.nuget.org/packages/VSTS.Net)
 
+[Api documentation](https://berserkerdotnet.github.io/VSTS.Net/site/api/index.html)
+
 ## Usage
 
 ### Console app
