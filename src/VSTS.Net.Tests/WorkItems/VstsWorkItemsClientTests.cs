@@ -12,7 +12,7 @@ using VSTS.Net.Models.Response;
 using VSTS.Net.Models.WorkItems;
 using VSTS.Net.Tests.Types;
 
-namespace VSTS.Net.Tests
+namespace VSTS.Net.Tests.WorkItems
 {
     [TestFixture]
     public class VstsWorkItemsClientTests : BaseHttpClientTests
