@@ -61,9 +61,24 @@ namespace VSTS.Net.Tests.Types
                 .ReturnsAsync(new CollectionResponse<T> { Value = Enumerable.Empty<T>() });
         }
 
+        protected void SetupSingle<T>(T item, Expression<Func<string, bool>> urlPredicate = null)
+        {
+            MakeSureUrlPredicateExists(ref urlPredicate);
+
+            _httpClientMock.Setup(c => c.ExecuteGet<T>(It.Is(urlPredicate), CancellationToken.None))
+                .ReturnsAsync(item)
+                .Verifiable();
+        }
+
         protected void VerifyPagedRequests<T>(Times times)
         {
             _httpClientMock.Verify(c => c.ExecuteGet<CollectionResponse<T>>(It.IsAny<string>(), CancellationToken.None), times);
+        }
+
+        private void MakeSureUrlPredicateExists(ref Expression<Func<string, bool>> urlPredicate)
+        {
+            if (urlPredicate == null)
+                urlPredicate = _ => true;
         }
     }
 }

@@ -172,6 +172,36 @@ namespace VSTS.Net
             return threadsResponse?.Value ?? Enumerable.Empty<PullRequestThread>();
         }
 
+        /// <inheritdoc />
+        public Task<WorkItem> GetWorkItemAsync(string project, int workItemId, DateTime? asOf = null, string[] fields = null)
+        {
+            ThrowIfArgumentNullOrEmpty(project, nameof(project));
+
+            var fieldsString = fields != null ? string.Join(",", fields) : string.Empty;
+            var asOfString = asOf.HasValue ? asOf.Value.ToString("u") : string.Empty;
+
+            var url = VstsUrlBuilder.Create(_instanceName)
+                .WithSection(project)
+                .ForWorkItems(workItemId)
+                .WithQueryParameterIfNotEmpty("fields", fieldsString)
+                .WithQueryParameterIfNotEmpty("asOf", asOfString)
+                .Build();
+
+            return _httpClient.ExecuteGet<WorkItem>(url);
+        }
+
+        /// <inheritdoc />
+        public Task<IEnumerable<WorkItem>> GetWorkItemsAsync(string project, int[] ids, DateTime? asOf = null, string[] fields = null)
+        {
+            throw new NotImplementedException();
+        }
+
+        /// <inheritdoc />
+        public Task<bool> DeleteWorkItemAsync(string project, int id, bool destroy = false)
+        {
+            throw new NotImplementedException();
+        }
+
         private int[] GetWorkitemIdsFromQuery(FlatWorkItemsQueryResult query)
         {
             return query.WorkItems.Select(w => w.Id).ToArray();
