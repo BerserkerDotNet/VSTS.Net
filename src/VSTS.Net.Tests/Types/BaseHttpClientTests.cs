@@ -70,6 +70,13 @@ namespace VSTS.Net.Tests.Types
                 .Verifiable();
         }
 
+        protected ISetup<IHttpClient, Task<T>> SetupSingle<T>(Expression<Func<string, bool>> urlPredicate = null)
+        {
+            MakeSureUrlPredicateExists(ref urlPredicate);
+
+            return _httpClientMock.Setup(c => c.ExecuteGet<T>(It.Is(urlPredicate), CancellationToken.None));
+        }
+
         protected void VerifyPagedRequests<T>(Times times)
         {
             _httpClientMock.Verify(c => c.ExecuteGet<CollectionResponse<T>>(It.IsAny<string>(), CancellationToken.None), times);

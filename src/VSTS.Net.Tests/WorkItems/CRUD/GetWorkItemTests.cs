@@ -63,6 +63,15 @@ namespace VSTS.Net.Tests.WorkItems.CRUD
             _httpClientMock.Verify();
         }
 
+        [Test]
+        public void PassThroughExceptions()
+        {
+            SetupSingle<WorkItem>().Throws<Exception>();
+
+            _client.Awaiting(c => c.GetWorkItemAsync(ProjectName, 1))
+                .Should().Throw<Exception>();
+        }
+
         private bool VerifyUrlWithAll(string url, DateTime? asOf, string[] fields, int expectedWorkitemId)
         {
             var fieldsString = fields != null ? string.Join(',', fields) : string.Empty;
