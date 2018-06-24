@@ -17,20 +17,20 @@ namespace VSTS.Net.Tests.PullRequests
     {
         [Test, Combinatorial]
         public void ThrowsIfEmptyInput(
-            [Values(null, "", ProjectName)]string project, 
+            [Values(null, "", ProjectName)]string project,
             [Values(null, "", RepositoryName)]string repository)
         {
             if (!string.IsNullOrEmpty(project) && !string.IsNullOrEmpty(repository))
                 return;
 
-            _client.Awaiting(c=>c.GetPullRequestsAsync(project, repository, null))
+            _client.Awaiting(c => c.GetPullRequestsAsync(project, repository, null, _cancellationToken))
                 .Should().Throw<ArgumentNullException>();
         }
 
         [Test]
         public void DoesNotThrowIfNullQuery()
         {
-            _client.Awaiting(c => c.GetPullRequestsAsync(ProjectName, RepositoryName, null))
+            _client.Awaiting(c => c.GetPullRequestsAsync(ProjectName, RepositoryName, null, _cancellationToken))
                 .Should().NotThrow<ArgumentNullException>();
         }
 
@@ -40,7 +40,7 @@ namespace VSTS.Net.Tests.PullRequests
             var pullRequests = new[] { new PullRequest(), new PullRequest() };
             SetupOnePageOf(pullRequests);
 
-            var result = await _client.GetPullRequestsAsync(ProjectName, RepositoryName, null);
+            var result = await _client.GetPullRequestsAsync(ProjectName, RepositoryName, null, _cancellationToken);
 
             result.Should().NotBeNull();
             result.Should().NotBeEmpty();
@@ -53,7 +53,7 @@ namespace VSTS.Net.Tests.PullRequests
             SetupGetCollectionOf<PullRequest>()
                 .ReturnsAsync((CollectionResponse<PullRequest>)null);
 
-            var result = await _client.GetPullRequestsAsync(ProjectName, RepositoryName, null);
+            var result = await _client.GetPullRequestsAsync(ProjectName, RepositoryName, null, _cancellationToken);
 
             result.Should().NotBeNull();
             result.Should().BeEmpty();
@@ -65,7 +65,7 @@ namespace VSTS.Net.Tests.PullRequests
             var pullRequests = new[] { new PullRequest(), new PullRequest() };
             SetupOnePageOf(pullRequests, s => ValidateUrl(s));
 
-            var result = await _client.GetPullRequestsAsync(ProjectName, RepositoryName, null);
+            var result = await _client.GetPullRequestsAsync(ProjectName, RepositoryName, null, _cancellationToken);
 
             _httpClientMock.VerifyAll();
 
@@ -87,7 +87,7 @@ namespace VSTS.Net.Tests.PullRequests
             var pullRequests = new[] { CreatePR(daysAgo: 2), CreatePR(daysAgo: 1) };
             SetupOnePageOf(pullRequests, s => ValidateUrlWithQuery(s, query));
 
-            var result = await _client.GetPullRequestsAsync(ProjectName, RepositoryName, query);
+            var result = await _client.GetPullRequestsAsync(ProjectName, RepositoryName, query, _cancellationToken);
 
             _httpClientMock.VerifyAll();
 
@@ -110,7 +110,7 @@ namespace VSTS.Net.Tests.PullRequests
                 .ReturnsAsync(new CollectionResponse<PullRequest> { Value = page3 })
                 .ReturnsAsync(new CollectionResponse<PullRequest> { Value = Enumerable.Empty<PullRequest>() });
 
-            var result = await _client.GetPullRequestsAsync(ProjectName, RepositoryName, null);
+            var result = await _client.GetPullRequestsAsync(ProjectName, RepositoryName, null, _cancellationToken);
 
             skipTotal.Should().Be(11);
             result.Should().NotBeNull();
@@ -126,7 +126,7 @@ namespace VSTS.Net.Tests.PullRequests
             SetupOnePageOf(pullRequests);
             var query = new PullRequestQuery { CreatedAfter = DateTime.UtcNow.AddDays(-4) };
 
-            var result = await _client.GetPullRequestsAsync(ProjectName, RepositoryName, query);
+            var result = await _client.GetPullRequestsAsync(ProjectName, RepositoryName, query, _cancellationToken);
 
             result.Should().HaveCount(2);
             result.Should().BeEquivalentTo(pullRequests.Skip(1));
@@ -146,7 +146,7 @@ namespace VSTS.Net.Tests.PullRequests
                 .ReturnsAsync(new CollectionResponse<PullRequest> { Value = Enumerable.Empty<PullRequest>() });
             var query = new PullRequestQuery { CreatedAfter = DateTime.UtcNow.AddDays(-4) };
 
-            var result = await _client.GetPullRequestsAsync(ProjectName, RepositoryName, query);
+            var result = await _client.GetPullRequestsAsync(ProjectName, RepositoryName, query, _cancellationToken);
 
             VerifyPagedRequests<PullRequest>(Times.Exactly(2));
 
@@ -161,7 +161,7 @@ namespace VSTS.Net.Tests.PullRequests
             SetupOnePageOf(pullRequests);
             var query = new PullRequestQuery { CustomFilter = p => p.Title.StartsWith("Bug") };
 
-            var result = await _client.GetPullRequestsAsync(ProjectName, RepositoryName, query);
+            var result = await _client.GetPullRequestsAsync(ProjectName, RepositoryName, query, _cancellationToken);
 
             result.Should().HaveCount(2);
             result.Should().OnlyContain(p => query.CustomFilter(p));
@@ -174,7 +174,7 @@ namespace VSTS.Net.Tests.PullRequests
             SetupOnePageOf(pullRequests);
             var query = new PullRequestQuery { CustomFilter = p => p.Title.StartsWith("Bug"), CreatedAfter = DateTime.UtcNow.AddDays(-3) };
 
-            var result = await _client.GetPullRequestsAsync(ProjectName, RepositoryName, query);
+            var result = await _client.GetPullRequestsAsync(ProjectName, RepositoryName, query, _cancellationToken);
 
             result.Should().HaveCount(1);
             result.Should().BeEquivalentTo(pullRequests.Take(1));
@@ -190,7 +190,7 @@ namespace VSTS.Net.Tests.PullRequests
                 .Throws<Exception>()
                 .ReturnsAsync(new CollectionResponse<PullRequest> { Value = Enumerable.Empty<PullRequest>() });
 
-            _client.Awaiting(c => c.GetPullRequestsAsync(ProjectName, RepositoryName, null))
+            _client.Awaiting(c => c.GetPullRequestsAsync(ProjectName, RepositoryName, null, _cancellationToken))
                 .Should().Throw<Exception>();
         }
 

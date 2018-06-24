@@ -20,7 +20,7 @@ namespace VSTS.Net.Tests.PullRequests
             if (!string.IsNullOrEmpty(project) && !string.IsNullOrEmpty(repository))
                 return;
 
-            _client.Awaiting(c => c.GetPullRequestThreadsAsync(project, repository, 0))
+            _client.Awaiting(c => c.GetPullRequestThreadsAsync(project, repository, 0, _cancellationToken))
                 .Should().Throw<ArgumentNullException>();
         }
 
@@ -30,7 +30,7 @@ namespace VSTS.Net.Tests.PullRequests
             var threads = new[] { new PullRequestThread(), new PullRequestThread() };
             SetupOnePageOf(threads);
 
-            var result = await _client.GetPullRequestThreadsAsync(ProjectName, RepositoryName, 0);
+            var result = await _client.GetPullRequestThreadsAsync(ProjectName, RepositoryName, 0, _cancellationToken);
 
             result.Should().HaveCount(2);
             result.Should().BeSameAs(threads);
@@ -42,7 +42,7 @@ namespace VSTS.Net.Tests.PullRequests
             SetupGetCollectionOf<PullRequestThread>()
                 .ReturnsAsync((CollectionResponse<PullRequestThread>)null);
 
-            var result = await _client.GetPullRequestThreadsAsync(ProjectName, RepositoryName, 0);
+            var result = await _client.GetPullRequestThreadsAsync(ProjectName, RepositoryName, 0, _cancellationToken);
 
             result.Should().BeEmpty();
         }
@@ -54,7 +54,7 @@ namespace VSTS.Net.Tests.PullRequests
             var threads = new[] { new PullRequestThread(), new PullRequestThread() };
             SetupOnePageOf(threads, u => VerifyUrl(u, pullRequestId));
 
-            var result = await _client.GetPullRequestThreadsAsync(ProjectName, RepositoryName, pullRequestId);
+            var result = await _client.GetPullRequestThreadsAsync(ProjectName, RepositoryName, pullRequestId, _cancellationToken);
 
             VerifyPagedRequests<PullRequestThread>(Times.Once());
 

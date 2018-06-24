@@ -59,19 +59,19 @@ namespace VSTS.Net.Tests.WorkItems
         public async Task ExecuteQueryShouldReturnCorrectResultType(bool isHierarchical, Type expectedReturnType)
         {
             var query = new WorkItemsQuery("Dummy query", isHierarchical);
-            _httpClientMock.Setup(c => c.ExecutePost<HierarchicalWorkItemsQueryResult>(It.Is<string>(u => VerifyWiqlQueryUrl(u)), It.Is<WorkItemsQuery>(q => q.IsHierarchical), CancellationToken.None))
-                .Returns<string, WorkItemsQuery, CancellationToken>((_, __, ___) => Task.FromResult(new HierarchicalWorkItemsQueryResult()));
-            _httpClientMock.Setup(c => c.ExecutePost<FlatWorkItemsQueryResult>(It.Is<string>(u => VerifyWiqlQueryUrl(u)), It.Is<WorkItemsQuery>(q => !q.IsHierarchical), CancellationToken.None))
-                .Returns<string, WorkItemsQuery, CancellationToken>((_, __, ___) => Task.FromResult(new FlatWorkItemsQueryResult()));
+            _httpClientMock.Setup(c => c.ExecutePost<HierarchicalWorkItemsQueryResult>(It.Is<string>(u => VerifyWiqlQueryUrl(u)), It.Is<WorkItemsQuery>(q => q.IsHierarchical), _cancellationToken))
+                .ReturnsAsync(new HierarchicalWorkItemsQueryResult());
+            _httpClientMock.Setup(c => c.ExecutePost<FlatWorkItemsQueryResult>(It.Is<string>(u => VerifyWiqlQueryUrl(u)), It.Is<WorkItemsQuery>(q => !q.IsHierarchical), _cancellationToken))
+                .ReturnsAsync(new FlatWorkItemsQueryResult());
 
-            var result = await _client.ExecuteQueryAsync(ProjectName, query);
+            var result = await _client.ExecuteQueryAsync(ProjectName, query, _cancellationToken);
 
             result.Should().BeOfType(expectedReturnType);
-            _httpClientMock.Verify(c => c.ExecutePost<HierarchicalWorkItemsQueryResult>(It.Is<string>(u => VerifyWiqlQueryUrl(u)), It.Is<WorkItemsQuery>(q => q.IsHierarchical), CancellationToken.None),
+            _httpClientMock.Verify(c => c.ExecutePost<HierarchicalWorkItemsQueryResult>(It.Is<string>(u => VerifyWiqlQueryUrl(u)), It.Is<WorkItemsQuery>(q => q.IsHierarchical), _cancellationToken),
                 Times.Exactly(isHierarchical ? 1 : 0));
-            _httpClientMock.Verify(c => c.ExecutePost<FlatWorkItemsQueryResult>(It.Is<string>(u => VerifyWiqlQueryUrl(u)), It.Is<WorkItemsQuery>(q => !q.IsHierarchical), CancellationToken.None),
+            _httpClientMock.Verify(c => c.ExecutePost<FlatWorkItemsQueryResult>(It.Is<string>(u => VerifyWiqlQueryUrl(u)), It.Is<WorkItemsQuery>(q => !q.IsHierarchical), _cancellationToken),
                 Times.Exactly(!isHierarchical ? 1 : 0));
-        } 
+        }
         #endregion
 
         #region GetWorkItems tests
@@ -88,16 +88,20 @@ namespace VSTS.Net.Tests.WorkItems
             var ids = queryResult.WorkItems.Select(w => w.Id);
             var workItems = ids.Select(i => new WorkItem { Id = i });
 
-            _httpClientMock.Setup(c => c.ExecutePost<FlatWorkItemsQueryResult>(It.IsAny<string>(), It.Is<WorkItemsQuery>(q => !q.IsHierarchical), CancellationToken.None))
-                .Returns<string, WorkItemsQuery, CancellationToken>((_, __, ___) => Task.FromResult(queryResult));
+            _httpClientMock.Setup(c => c.ExecutePost<FlatWorkItemsQueryResult>(It.IsAny<string>(), It.Is<WorkItemsQuery>(q => !q.IsHierarchical), _cancellationToken))
+                .ReturnsAsync(queryResult)
+                .Verifiable();
 
-            _httpClientMock.Setup(c => c.ExecuteGet<CollectionResponse<WorkItem>>(It.Is<string>(u => VerifyWorkItemsUrl(u, fields, ids)), CancellationToken.None))
-                .Returns(Task.FromResult(new CollectionResponse<WorkItem> { Value = workItems }));
+            _httpClientMock.Setup(c => c.ExecuteGet<CollectionResponse<WorkItem>>(It.Is<string>(u => VerifyWorkItemsUrl(u, fields, ids)), _cancellationToken))
+                .ReturnsAsync(new CollectionResponse<WorkItem> { Value = workItems })
+                .Verifiable();
 
-            var result = await _client.GetWorkItemsAsync(ProjectName, query);
+            var result = await _client.GetWorkItemsAsync(ProjectName, query, _cancellationToken);
 
             result.Should().HaveCount(workItems.Count());
             result.Should().BeEquivalentTo(workItems);
+
+            _httpClientMock.Verify();
         }
 
         [Test]
@@ -121,16 +125,20 @@ namespace VSTS.Net.Tests.WorkItems
                 .ToArray();
             var workItems = ids.Select(i => new WorkItem { Id = i });
 
-            _httpClientMock.Setup(c => c.ExecutePost<HierarchicalWorkItemsQueryResult>(It.IsAny<string>(), It.Is<WorkItemsQuery>(q => q.IsHierarchical), CancellationToken.None))
-                .Returns<string, WorkItemsQuery, CancellationToken>((_, __, ___) => Task.FromResult(queryResult));
+            _httpClientMock.Setup(c => c.ExecutePost<HierarchicalWorkItemsQueryResult>(It.IsAny<string>(), It.Is<WorkItemsQuery>(q => q.IsHierarchical), _cancellationToken))
+                .ReturnsAsync(queryResult)
+                .Verifiable();
 
-            _httpClientMock.Setup(c => c.ExecuteGet<CollectionResponse<WorkItem>>(It.Is<string>(u => VerifyWorkItemsUrl(u, fields, ids)), CancellationToken.None))
-                .Returns(Task.FromResult(new CollectionResponse<WorkItem> { Value = workItems }));
+            _httpClientMock.Setup(c => c.ExecuteGet<CollectionResponse<WorkItem>>(It.Is<string>(u => VerifyWorkItemsUrl(u, fields, ids)), _cancellationToken))
+                .ReturnsAsync(new CollectionResponse<WorkItem> { Value = workItems })
+                .Verifiable();
 
-            var result = await _client.GetWorkItemsAsync(ProjectName, query);
+            var result = await _client.GetWorkItemsAsync(ProjectName, query, _cancellationToken);
 
             result.Should().HaveCount(workItems.Count());
             result.Should().BeEquivalentTo(workItems);
+
+            _httpClientMock.Verify();
         }
 
         [Test]
@@ -195,13 +203,16 @@ namespace VSTS.Net.Tests.WorkItems
                 new WorkItemUpdate { WorkItemId=workItemId, Id=2, Revision = 2 }
             };
 
-            _httpClientMock.Setup(c => c.ExecuteGet<CollectionResponse<WorkItemUpdate>>(It.Is<string>(u => VerifyUpdatesUrl(u, workItemId)), CancellationToken.None))
-                .ReturnsAsync(new CollectionResponse<WorkItemUpdate> { Value = updates });
+            _httpClientMock.Setup(c => c.ExecuteGet<CollectionResponse<WorkItemUpdate>>(It.Is<string>(u => VerifyUpdatesUrl(u, workItemId)), _cancellationToken))
+                .ReturnsAsync(new CollectionResponse<WorkItemUpdate> { Value = updates })
+                .Verifiable();
 
-            var result = await _client.GetWorkItemUpdatesAsync(workItemId);
+            var result = await _client.GetWorkItemUpdatesAsync(workItemId, _cancellationToken);
 
             result.Should().HaveCount(2);
             result.Should().BeEquivalentTo(updates);
+
+            _httpClientMock.Verify();
         }
 
         [Test]

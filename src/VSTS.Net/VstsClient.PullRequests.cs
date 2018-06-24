@@ -1,5 +1,6 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
+using System.Threading;
 using System.Threading.Tasks;
 using VSTS.Net.Interfaces;
 using VSTS.Net.Models.PullRequests;
@@ -13,7 +14,7 @@ namespace VSTS.Net
     public partial class VstsClient : IVstsClient
     {
         /// <inheritdoc />
-        public async Task<IEnumerable<PullRequest>> GetPullRequestsAsync(string project, string repository, PullRequestQuery query)
+        public async Task<IEnumerable<PullRequest>> GetPullRequestsAsync(string project, string repository, PullRequestQuery query, CancellationToken cancellationToken = default(CancellationToken))
         {
             ThrowIfArgumentNullOrEmpty(project, nameof(project));
             ThrowIfArgumentNullOrEmpty(repository, nameof(repository));
@@ -34,7 +35,7 @@ namespace VSTS.Net
                     .WithQueryParameter("$skip", skip)
                     .Build();
 
-                var pullRequestsResponse = await _httpClient.ExecuteGet<CollectionResponse<PullRequest>>(url);
+                var pullRequestsResponse = await _httpClient.ExecuteGet<CollectionResponse<PullRequest>>(url, cancellationToken);
                 var pullRequests = pullRequestsResponse?.Value ?? Enumerable.Empty<PullRequest>();
 
                 haveMorePullRequests = pullRequests.Any() && (!query.CreatedAfter.HasValue || pullRequests.Min(p => p.CreationDate) >= query.CreatedAfter);
@@ -54,7 +55,7 @@ namespace VSTS.Net
         }
 
         /// <inheritdoc />
-        public async Task<IEnumerable<PullRequestIteration>> GetPullRequestIterationsAsync(string project, string repository, int pullRequestId)
+        public async Task<IEnumerable<PullRequestIteration>> GetPullRequestIterationsAsync(string project, string repository, int pullRequestId, CancellationToken cancellationToken = default(CancellationToken))
         {
             ThrowIfArgumentNullOrEmpty(project, nameof(project));
             ThrowIfArgumentNullOrEmpty(repository, nameof(repository));
@@ -65,12 +66,12 @@ namespace VSTS.Net
               .WithSection("iterations")
               .Build();
 
-            var iterationsResponse = await _httpClient.ExecuteGet<CollectionResponse<PullRequestIteration>>(iterationsUrl);
+            var iterationsResponse = await _httpClient.ExecuteGet<CollectionResponse<PullRequestIteration>>(iterationsUrl, cancellationToken);
             return iterationsResponse?.Value ?? Enumerable.Empty<PullRequestIteration>();
         }
 
         /// <inheritdoc />
-        public async Task<IEnumerable<PullRequestThread>> GetPullRequestThreadsAsync(string project, string repository, int pullRequestId)
+        public async Task<IEnumerable<PullRequestThread>> GetPullRequestThreadsAsync(string project, string repository, int pullRequestId, CancellationToken cancellationToken = default(CancellationToken))
         {
             ThrowIfArgumentNullOrEmpty(project, nameof(project));
             ThrowIfArgumentNullOrEmpty(repository, nameof(repository));
@@ -81,7 +82,7 @@ namespace VSTS.Net
               .WithSection("threads")
               .Build();
 
-            var threadsResponse = await _httpClient.ExecuteGet<CollectionResponse<PullRequestThread>>(threadsUrl);
+            var threadsResponse = await _httpClient.ExecuteGet<CollectionResponse<PullRequestThread>>(threadsUrl, cancellationToken);
             return threadsResponse?.Value ?? Enumerable.Empty<PullRequestThread>();
         }
     }

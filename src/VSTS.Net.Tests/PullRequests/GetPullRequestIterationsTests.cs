@@ -30,7 +30,7 @@ namespace VSTS.Net.Tests.PullRequests
             var iterations = new[] { new PullRequestIteration(), new PullRequestIteration() };
             SetupOnePageOf(iterations);
 
-            var result = await _client.GetPullRequestIterationsAsync(ProjectName, RepositoryName, 0);
+            var result = await _client.GetPullRequestIterationsAsync(ProjectName, RepositoryName, 0, _cancellationToken);
 
             result.Should().HaveCount(2);
             result.Should().BeSameAs(iterations);
@@ -42,7 +42,7 @@ namespace VSTS.Net.Tests.PullRequests
             SetupGetCollectionOf<PullRequestIteration>()
                 .ReturnsAsync((CollectionResponse<PullRequestIteration>)null);
 
-            var result = await _client.GetPullRequestIterationsAsync(ProjectName, RepositoryName, 0);
+            var result = await _client.GetPullRequestIterationsAsync(ProjectName, RepositoryName, 0, _cancellationToken);
 
             result.Should().BeEmpty();
         }
@@ -54,7 +54,7 @@ namespace VSTS.Net.Tests.PullRequests
             var iterations = new[] { new PullRequestIteration(), new PullRequestIteration() };
             SetupOnePageOf(iterations, u => VerifyUrl(u, pullRequestId));
 
-            var result = await _client.GetPullRequestIterationsAsync(ProjectName, RepositoryName, pullRequestId);
+            var result = await _client.GetPullRequestIterationsAsync(ProjectName, RepositoryName, pullRequestId, _cancellationToken);
 
             VerifyPagedRequests<PullRequestIteration>(Times.Once());
 
