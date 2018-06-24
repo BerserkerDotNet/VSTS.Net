@@ -25,7 +25,7 @@ namespace VSTS.Net.Tests.WorkItems.CRUD
             var workItem = new WorkItem { Id = expectedWorkitemId };
             SetupSingle(workItem);
 
-            var result = await _client.GetWorkItemAsync(ProjectName, expectedWorkitemId);
+            var result = await _client.GetWorkItemAsync(ProjectName, expectedWorkitemId, cancellationToken: _cancellationToken);
 
             result.Should().NotBeNull();
             result.Id.Should().Be(expectedWorkitemId);
@@ -40,7 +40,7 @@ namespace VSTS.Net.Tests.WorkItems.CRUD
             var workItem = new WorkItem { Id = expectedWorkitemId };
             SetupSingle(workItem, u => VerifyUrlWithAll(u, dt, fields, expectedWorkitemId));
 
-            var result = await _client.GetWorkItemAsync(ProjectName, expectedWorkitemId, dt, fields);
+            var result = await _client.GetWorkItemAsync(ProjectName, expectedWorkitemId, dt, fields, cancellationToken: _cancellationToken);
 
             _httpClientMock.Verify();
         }
@@ -56,9 +56,9 @@ namespace VSTS.Net.Tests.WorkItems.CRUD
             SetupSingle(workItem, u => VerifyUrlWithoutAsOf(u, fields, expectedWorkitemId));
             SetupSingle(workItem, u => VerifyUrlBasic(u, expectedWorkitemId));
 
-            await _client.GetWorkItemAsync(ProjectName, expectedWorkitemId, null, fields);
-            await _client.GetWorkItemAsync(ProjectName, expectedWorkitemId, dt);
-            await _client.GetWorkItemAsync(ProjectName, expectedWorkitemId);
+            await _client.GetWorkItemAsync(ProjectName, expectedWorkitemId, null, fields, cancellationToken: _cancellationToken);
+            await _client.GetWorkItemAsync(ProjectName, expectedWorkitemId, dt, cancellationToken: _cancellationToken);
+            await _client.GetWorkItemAsync(ProjectName, expectedWorkitemId, cancellationToken: _cancellationToken);
 
             _httpClientMock.Verify();
         }
@@ -68,7 +68,7 @@ namespace VSTS.Net.Tests.WorkItems.CRUD
         {
             SetupSingle<WorkItem>().Throws<Exception>();
 
-            _client.Awaiting(c => c.GetWorkItemAsync(ProjectName, 1))
+            _client.Awaiting(c => c.GetWorkItemAsync(ProjectName, 1, cancellationToken: _cancellationToken))
                 .Should().Throw<Exception>();
         }
 

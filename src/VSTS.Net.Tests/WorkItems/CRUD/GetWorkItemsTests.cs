@@ -41,7 +41,7 @@ namespace VSTS.Net.Tests.WorkItems.CRUD
             SetupGetCollectionOf<WorkItem>()
                 .ReturnsAsync(new CollectionResponse<WorkItem> { Value = workitems });
 
-            var result = await _client.GetWorkItemsAsync(ProjectName, new[] { 1, 2 });
+            var result = await _client.GetWorkItemsAsync(ProjectName, new[] { 1, 2 }, cancellationToken: _cancellationToken);
 
             result.Should().BeEquivalentTo(workitems);
         }
@@ -77,10 +77,10 @@ namespace VSTS.Net.Tests.WorkItems.CRUD
                 .ReturnsAsync(new CollectionResponse<WorkItem> { Value = workitems })
                 .Verifiable();
 
-            await _client.GetWorkItemsAsync(ProjectName, ids);
-            await _client.GetWorkItemsAsync(ProjectName, ids, asOf, fields);
-            await _client.GetWorkItemsAsync(ProjectName, ids, fields: fields);
-            await _client.GetWorkItemsAsync(ProjectName, ids, asOf);
+            await _client.GetWorkItemsAsync(ProjectName, ids, cancellationToken: _cancellationToken);
+            await _client.GetWorkItemsAsync(ProjectName, ids, asOf, fields, cancellationToken: _cancellationToken);
+            await _client.GetWorkItemsAsync(ProjectName, ids, fields: fields, cancellationToken: _cancellationToken);
+            await _client.GetWorkItemsAsync(ProjectName, ids, asOf, cancellationToken: _cancellationToken);
 
             _httpClientMock.Verify();
         }

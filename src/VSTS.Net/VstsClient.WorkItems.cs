@@ -2,6 +2,7 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Threading;
 using System.Threading.Tasks;
 using VSTS.Net.Interfaces;
 using VSTS.Net.Models.Request;
@@ -15,7 +16,7 @@ namespace VSTS.Net
     public partial class VstsClient : IVstsClient
     {
         /// <inheritdoc />
-        public async Task<WorkItemsQueryResult> ExecuteQueryAsync(string project, WorkItemsQuery query)
+        public async Task<WorkItemsQueryResult> ExecuteQueryAsync(string project, WorkItemsQuery query, CancellationToken cancellationToken = default(CancellationToken))
         {
             ThrowIfArgumentNullOrEmpty(project);
             ThrowIfArgumentNull(query, nameof(query));
@@ -29,15 +30,15 @@ namespace VSTS.Net
             _logger.LogDebug("Requesting {0}", url);
 
             if (query.IsHierarchical)
-                return await _httpClient.ExecutePost<HierarchicalWorkItemsQueryResult>(url, query);
+                return await _httpClient.ExecutePost<HierarchicalWorkItemsQueryResult>(url, query, cancellationToken);
 
-            return await _httpClient.ExecutePost<FlatWorkItemsQueryResult>(url, query);
+            return await _httpClient.ExecutePost<FlatWorkItemsQueryResult>(url, query, cancellationToken);
         }
 
         /// <inheritdoc />
-        public async Task<IEnumerable<WorkItem>> GetWorkItemsAsync(string project, WorkItemsQuery query)
+        public async Task<IEnumerable<WorkItem>> GetWorkItemsAsync(string project, WorkItemsQuery query, CancellationToken cancellationToken = default(CancellationToken))
         {
-            var queryResult = await ExecuteQueryAsync(project, query);
+            var queryResult = await ExecuteQueryAsync(project, query, cancellationToken);
             int[] ids;
             switch (queryResult)
             {
@@ -58,7 +59,7 @@ namespace VSTS.Net
                 .WithQueryParameter("fields", fieldsString)
                 .Build();
 
-            var workitemsResponse = await _httpClient.ExecuteGet<CollectionResponse<WorkItem>>(url);
+            var workitemsResponse = await _httpClient.ExecuteGet<CollectionResponse<WorkItem>>(url, cancellationToken);
 
             if (workitemsResponse == null)
                 return Enumerable.Empty<WorkItem>();
@@ -67,14 +68,14 @@ namespace VSTS.Net
         }
 
         /// <inheritdoc />
-        public async Task<IEnumerable<WorkItemUpdate>> GetWorkItemUpdatesAsync(int workitemId)
+        public async Task<IEnumerable<WorkItemUpdate>> GetWorkItemUpdatesAsync(int workitemId, CancellationToken cancellationToken = default(CancellationToken))
         {
             var url = VstsUrlBuilder.Create(_instanceName)
                 .ForWorkItems(workitemId)
                 .WithSection("updates")
                 .Build();
 
-            var result = await _httpClient.ExecuteGet<CollectionResponse<WorkItemUpdate>>(url);
+            var result = await _httpClient.ExecuteGet<CollectionResponse<WorkItemUpdate>>(url, cancellationToken);
             if (result == null)
                 return Enumerable.Empty<WorkItemUpdate>();
 
@@ -82,7 +83,7 @@ namespace VSTS.Net
         }
 
         /// <inheritdoc />
-        public async Task<WorkItem> GetWorkItemAsync(string project, int workItemId, DateTime? asOf = null, string[] fields = null)
+        public async Task<WorkItem> GetWorkItemAsync(string project, int workItemId, DateTime? asOf = null, string[] fields = null, CancellationToken cancellationToken = default(CancellationToken))
         {
             ThrowIfArgumentNullOrEmpty(project, nameof(project));
 
@@ -96,11 +97,11 @@ namespace VSTS.Net
                 .WithQueryParameterIfNotEmpty("asOf", asOfString)
                 .Build();
 
-            return await _httpClient.ExecuteGet<WorkItem>(url);
+            return await _httpClient.ExecuteGet<WorkItem>(url, cancellationToken);
         }
 
         /// <inheritdoc />
-        public async Task<IEnumerable<WorkItem>> GetWorkItemsAsync(string project, int[] ids, DateTime? asOf = null, string[] fields = null)
+        public async Task<IEnumerable<WorkItem>> GetWorkItemsAsync(string project, int[] ids, DateTime? asOf = null, string[] fields = null, CancellationToken cancellationToken = default(CancellationToken))
         {
             ThrowIfArgumentNullOrEmpty(project, nameof(project));
             ThrowIfArgumentNull(ids, nameof(ids));
@@ -117,12 +118,12 @@ namespace VSTS.Net
                 .WithQueryParameterIfNotEmpty("asOf", asOfString)
                 .Build();
 
-            var response = await _httpClient.ExecuteGet<CollectionResponse<WorkItem>>(url);
+            var response = await _httpClient.ExecuteGet<CollectionResponse<WorkItem>>(url, cancellationToken);
             return response?.Value ?? Enumerable.Empty<WorkItem>();
         }
 
         /// <inheritdoc />
-        public Task<bool> DeleteWorkItemAsync(string project, int id, bool destroy = false)
+        public Task<bool> DeleteWorkItemAsync(string project, int id, bool destroy = false, CancellationToken cancellationToken = default(CancellationToken))
         {
             throw new NotImplementedException();
         }

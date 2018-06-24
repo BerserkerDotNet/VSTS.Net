@@ -23,12 +23,15 @@ namespace VSTS.Net.Tests.Types
 
         protected Mock<IHttpClient> _httpClientMock;
         protected VstsClient _client;
+        protected CancellationToken _cancellationToken;
 
         [SetUp]
         public void SetUp()
         {
             _httpClientMock = new Mock<IHttpClient>();
             _client = new VstsClient(InstanceName, _httpClientMock.Object, Mock.Of<ILogger<VstsClient>>());
+            var source = new CancellationTokenSource();
+            _cancellationToken = source.Token;
         }
 
         protected virtual void Initialize()
@@ -40,7 +43,7 @@ namespace VSTS.Net.Tests.Types
             if (urlPredicate == null)
                 urlPredicate = _ => true;
 
-            return _httpClientMock.Setup(c => c.ExecuteGet<CollectionResponse<T>>(It.Is(urlPredicate), CancellationToken.None));
+            return _httpClientMock.Setup(c => c.ExecuteGet<CollectionResponse<T>>(It.Is(urlPredicate), _cancellationToken));
         }
 
         protected ISetupSequentialResult<Task<CollectionResponse<T>>> SetupPagedGetCollectionOf<T>(Expression<Func<string, bool>> urlPredicate = null)
@@ -48,7 +51,7 @@ namespace VSTS.Net.Tests.Types
             if (urlPredicate == null)
                 urlPredicate = _ => true;
 
-            return _httpClientMock.SetupSequence(c => c.ExecuteGet<CollectionResponse<T>>(It.Is(urlPredicate), CancellationToken.None));
+            return _httpClientMock.SetupSequence(c => c.ExecuteGet<CollectionResponse<T>>(It.Is(urlPredicate), _cancellationToken));
         }
 
         protected ISetupSequentialResult<Task<CollectionResponse<T>>> SetupOnePageOf<T>(IEnumerable<T> page, Expression<Func<string, bool>> urlPredicate = null)
@@ -56,7 +59,7 @@ namespace VSTS.Net.Tests.Types
             if (urlPredicate == null)
                 urlPredicate = _ => true;
 
-            return _httpClientMock.SetupSequence(c => c.ExecuteGet<CollectionResponse<T>>(It.Is(urlPredicate), CancellationToken.None))
+            return _httpClientMock.SetupSequence(c => c.ExecuteGet<CollectionResponse<T>>(It.Is(urlPredicate), _cancellationToken))
                 .ReturnsAsync(new CollectionResponse<T> { Value = page })
                 .ReturnsAsync(new CollectionResponse<T> { Value = Enumerable.Empty<T>() });
         }
@@ -65,7 +68,7 @@ namespace VSTS.Net.Tests.Types
         {
             MakeSureUrlPredicateExists(ref urlPredicate);
 
-            _httpClientMock.Setup(c => c.ExecuteGet<T>(It.Is(urlPredicate), CancellationToken.None))
+            _httpClientMock.Setup(c => c.ExecuteGet<T>(It.Is(urlPredicate), _cancellationToken))
                 .ReturnsAsync(item)
                 .Verifiable();
         }
@@ -74,12 +77,12 @@ namespace VSTS.Net.Tests.Types
         {
             MakeSureUrlPredicateExists(ref urlPredicate);
 
-            return _httpClientMock.Setup(c => c.ExecuteGet<T>(It.Is(urlPredicate), CancellationToken.None));
+            return _httpClientMock.Setup(c => c.ExecuteGet<T>(It.Is(urlPredicate), _cancellationToken));
         }
 
         protected void VerifyPagedRequests<T>(Times times)
         {
-            _httpClientMock.Verify(c => c.ExecuteGet<CollectionResponse<T>>(It.IsAny<string>(), CancellationToken.None), times);
+            _httpClientMock.Verify(c => c.ExecuteGet<CollectionResponse<T>>(It.IsAny<string>(), _cancellationToken), times);
         }
 
         private void MakeSureUrlPredicateExists(ref Expression<Func<string, bool>> urlPredicate)
