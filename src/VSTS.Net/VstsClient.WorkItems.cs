@@ -52,6 +52,9 @@ namespace VSTS.Net
                     throw new NotSupportedException($"Query result is of not supported type.");
             }
 
+            if (!ids.Any())
+                return Enumerable.Empty<WorkItem>();
+
             var fieldsString = string.Join(",", queryResult.Columns.Select(c => c.ReferenceName));
             var idsString = string.Join(",", ids);
             var url = VstsUrlBuilder.Create(_instanceName)
@@ -123,9 +126,18 @@ namespace VSTS.Net
         }
 
         /// <inheritdoc />
-        public Task<bool> DeleteWorkItemAsync(string project, int id, bool destroy = false, CancellationToken cancellationToken = default(CancellationToken))
+        public async Task<bool> DeleteWorkItemAsync(string project, int id, bool destroy = false, CancellationToken cancellationToken = default(CancellationToken))
         {
-            throw new NotImplementedException();
+            ThrowIfArgumentNullOrEmpty(project, nameof(project));
+
+            var url = VstsUrlBuilder.Create(_instanceName)
+                    .WithSection(project)
+                    .ForWorkItems(id)
+                    .WithQueryParameterIfNotDefault("destroy", destroy)
+                    .Build();
+
+            await _httpClient.ExecuteDelete<WorkItemDeleteResponse>(url, cancellationToken);
+            return true;
         }
 
         private int[] GetWorkitemIdsFromQuery(FlatWorkItemsQueryResult query)

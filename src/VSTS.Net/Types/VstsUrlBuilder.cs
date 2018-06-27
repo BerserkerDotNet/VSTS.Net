@@ -94,6 +94,14 @@ namespace VSTS.Net.Types
             return WithQueryParameter(name, value.ToString());
         }
 
+        public VstsUrlBuilder WithQueryParameterIfNotDefault<T>(string name, T value)
+        {
+            if (EqualityComparer<T>.Default.Equals(value, default(T)))
+                return this;
+
+            return WithQueryParameter(name, value.ToString());
+        }
+
         public VstsUrlBuilder Top(int count)
         {
             _parameters.Add("$top", count.ToString());
