@@ -51,5 +51,17 @@ namespace VSTS.Net.Types
                 return JsonConvert.DeserializeObject<T>(resultContent);
             }
         }
+
+        /// <inheritdoc />
+        public async Task<T> ExecuteDelete<T>(string url, CancellationToken cancellationToken = default(CancellationToken))
+        {
+            _logger.LogDebug($"Deleting {url}");
+            using (var response = await _client.DeleteAsync(url, cancellationToken))
+            {
+                response.EnsureSuccessStatusCode();
+                var content = await response.Content.ReadAsStringAsync();
+                return JsonConvert.DeserializeObject<T>(content);
+            }
+        }
     }
 }

@@ -182,12 +182,37 @@ namespace VSTS.Net.Tests.WorkItems
 
             // Test 2
             _httpClientMock.Setup(c => c.ExecutePost<FlatWorkItemsQueryResult>(It.IsAny<string>(), It.Is<WorkItemsQuery>(q => !q.IsHierarchical), CancellationToken.None))
-                .ReturnsAsync(new FlatWorkItemsQueryResult { Columns = Enumerable.Empty<ColumnReference>(), WorkItems = Enumerable.Empty<WorkItemReference>() });
+                .ReturnsAsync(new FlatWorkItemsQueryResult
+                {
+                    Columns = new[] {new ColumnReference("Title", "System.Title") },
+                    WorkItems = new[] {new WorkItemReference(1) } });
             _httpClientMock.Setup(c => c.ExecuteGet<CollectionResponse<WorkItem>>(It.IsAny<string>(), CancellationToken.None))
                 .Throws(new Exception());
 
             _client.Awaiting(c => c.GetWorkItemsAsync(ProjectName, query))
                 .Should().Throw<Exception>();
+        }
+
+        [Test]
+        public async Task GetWorkItemsShouldReturnEmptyIfNoItemsFound()
+        {
+            var query = new WorkItemsQuery("Dummy query");
+            var queryResult = new FlatWorkItemsQueryResult
+            {
+                Columns = new ColumnReference[0],
+                WorkItems = new WorkItemReference[0]
+            };
+
+            _httpClientMock.Setup(c => c.ExecutePost<FlatWorkItemsQueryResult>(It.IsAny<string>(), It.Is<WorkItemsQuery>(q => !q.IsHierarchical), _cancellationToken))
+                .ReturnsAsync(queryResult)
+                .Verifiable();
+
+            var result = await _client.GetWorkItemsAsync(ProjectName, query, _cancellationToken);
+
+            result.Should().BeEmpty();
+
+            _httpClientMock.Verify();
+            _httpClientMock.Verify(c => c.ExecuteGet<CollectionResponse<WorkItem>>(It.IsAny<string>(), _cancellationToken), Times.Never());
         }
         #endregion
 
