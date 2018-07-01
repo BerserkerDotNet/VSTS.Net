@@ -51,7 +51,13 @@ namespace VSTS.Net.Types
 
         public VstsUrlBuilder ForWorkItems(int workItemId)
         {
-            _url.Append($"/{APIsSection}/{WITSection}/{WorkItemsSection}/{workItemId}");
+            ForWorkItems().WithSection(workItemId.ToString());
+            return this;
+        }
+
+        public VstsUrlBuilder ForWorkItems()
+        {
+            _url.Append($"/{APIsSection}/{WITSection}/{WorkItemsSection}");
             return this;
         }
 

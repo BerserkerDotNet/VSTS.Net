@@ -32,6 +32,15 @@ namespace VSTS.Net.Interfaces
         Task<IEnumerable<WorkItem>> GetWorkItemsAsync(string project, int[] ids, DateTime? asOf = null, string[] fields = null, CancellationToken cancellationToken = default(CancellationToken));
 
         /// <summary>
+        /// Creates a single work item.
+        /// </summary>
+        /// <param name="project">Project ID or project name</param>
+        /// <param name="type">The work item type of the work item to create</param>
+        /// <param name="item">Work item to create</param>
+        /// <returns></returns>
+        Task<WorkItem> CreateWorkItemAsync(string project, string type, WorkItem item, CancellationToken cancellationToken = default(CancellationToken));
+
+        /// <summary>
         /// Deletes the specified work item and sends it to the Recycle Bin, so that it can be restored back, if required. Optionally, if the destroy parameter has been set to true, it destroys the work item permanently.
         /// </summary>
         /// <param name="project">Project ID or project name</param>

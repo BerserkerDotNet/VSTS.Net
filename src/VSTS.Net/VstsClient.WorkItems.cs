@@ -140,6 +140,29 @@ namespace VSTS.Net
             return true;
         }
 
+        /// <inheritdoc />
+        public async Task<WorkItem> CreateWorkItemAsync(string project, string type, WorkItem item, CancellationToken cancellationToken = default(CancellationToken))
+        {
+            ThrowIfArgumentNullOrEmpty(project, nameof(project));
+            ThrowIfArgumentNullOrEmpty(type, nameof(type));
+            ThrowIfArgumentNull(item, nameof(item));
+
+            var updateRequest = new UpdateWorkitemRequest();
+            foreach (var field in item.Fields)
+            {
+                updateRequest.AddFieldValue(field.Key, field.Value);
+            }
+
+            var url = VstsUrlBuilder.Create(_instanceName)
+               .WithSection(project)
+               .ForWorkItems()
+               .WithSection($"${type}")
+               .Build();
+
+            var result = await _httpClient.ExecutePost<WorkItem>(url, updateRequest.Updates.ToArray(), Constants.JsonPatchMimeType, cancellationToken);
+            return result;
+        }
+
         private int[] GetWorkitemIdsFromQuery(FlatWorkItemsQueryResult query)
         {
             return query.WorkItems.Select(w => w.Id).ToArray();

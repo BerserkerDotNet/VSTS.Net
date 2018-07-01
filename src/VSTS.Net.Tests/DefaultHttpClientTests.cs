@@ -58,7 +58,7 @@ namespace VSTS.Net.Tests
                 .Setup<Task<HttpResponseMessage>>("SendAsync", ItExpr.Is<HttpRequestMessage>(r => VerifyPostRequest(r, SamplePostContent)), ItExpr.IsAny<CancellationToken>())
                 .Returns((HttpRequestMessage request, CancellationToken cancellationToken) => GetMockResponse(request, cancellationToken));
 
-            var result = await _client.ExecutePost<SampleResponse>("http://foo.com/sample", SamplePostContent);
+            var result = await _client.ExecutePost<SampleResponse>("http://foo.com/sample", SamplePostContent, CancellationToken.None);
 
             result.Should().NotBeNull();
             result.IsSample.Should().BeTrue();
@@ -71,7 +71,7 @@ namespace VSTS.Net.Tests
                 .Setup<Task<HttpResponseMessage>>("SendAsync", ItExpr.Is<HttpRequestMessage>(r => VerifyPostRequest(r, _sampleSerializedContent)), ItExpr.IsAny<CancellationToken>())
                 .Returns((HttpRequestMessage request, CancellationToken cancellationToken) => GetMockResponse(request, cancellationToken));
 
-            var result = await _client.ExecutePost<SampleResponse>("http://foo.com/sample", new SampleResponse() { IsSample = true });
+            var result = await _client.ExecutePost<SampleResponse>("http://foo.com/sample", new SampleResponse() { IsSample = true }, CancellationToken.None);
 
             result.Should().NotBeNull();
             result.IsSample.Should().BeTrue();
@@ -87,10 +87,10 @@ namespace VSTS.Net.Tests
             _client.Awaiting(async c => await c.ExecuteGet<SampleResponse>("http://foo.com/error"))
                 .Should().Throw<HttpRequestException>();
 
-            _client.Awaiting(async c => await c.ExecutePost<SampleResponse>("http://foo.com/error", SamplePostContent))
+            _client.Awaiting(async c => await c.ExecutePost<SampleResponse>("http://foo.com/error", SamplePostContent, CancellationToken.None))
                 .Should().Throw<HttpRequestException>();
 
-            _client.Awaiting(async c => await c.ExecutePost<SampleResponse>("http://foo.com/error", new SampleResponse() { IsSample = true }))
+            _client.Awaiting(async c => await c.ExecutePost<SampleResponse>("http://foo.com/error", new SampleResponse() { IsSample = true }, CancellationToken.None))
                 .Should().Throw<HttpRequestException>();
         }
 
