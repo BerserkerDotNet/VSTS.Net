@@ -34,22 +34,34 @@ namespace VSTS.Net.Types
         }
 
         /// <inheritdoc />
-        public Task<T> ExecutePost<T>(string url, object payload, CancellationToken cancellationToken = default(CancellationToken))
+        public async Task<T> ExecutePost<T>(string url, object payload, string mimeType = Constants.JsonMimeType, CancellationToken cancellationToken = default(CancellationToken))
         {
-            return ExecutePost<T>(url, JsonConvert.SerializeObject(payload), cancellationToken);
+            return await ExecutePost<T>(url, JsonConvert.SerializeObject(payload), mimeType, cancellationToken);
         }
 
         /// <inheritdoc />
-        public async Task<T> ExecutePost<T>(string url, string payload, CancellationToken cancellationToken = default(CancellationToken))
+        public async Task<T> ExecutePost<T>(string url, string payload, string mimeType = Constants.JsonMimeType, CancellationToken cancellationToken = default(CancellationToken))
         {
             _logger.LogDebug($"Requesting '{url}' via POST");
-            var content = new StringContent(payload, Encoding.UTF8, Constants.JsonMimeType);
+            var content = new StringContent(payload, Encoding.UTF8, mimeType);
             using (var response = await _client.PostAsync(url, content, cancellationToken))
             {
                 response.EnsureSuccessStatusCode();
                 var resultContent = await response.Content.ReadAsStringAsync();
                 return JsonConvert.DeserializeObject<T>(resultContent);
             }
+        }
+
+        /// <inheritdoc />
+        public async Task<T> ExecutePost<T>(string url, object payload, CancellationToken cancellationToken = default(CancellationToken))
+        {
+            return await ExecutePost<T>(url, payload, Constants.JsonMimeType, cancellationToken);
+        }
+
+        /// <inheritdoc />
+        public async Task<T> ExecutePost<T>(string url, string payload, CancellationToken cancellationToken = default(CancellationToken))
+        {
+            return await ExecutePost<T>(url, payload, Constants.JsonMimeType, cancellationToken);
         }
 
         /// <inheritdoc />
