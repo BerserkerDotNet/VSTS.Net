@@ -7,10 +7,13 @@ namespace VSTS.Net.Models.Request
     {
         public const string OperationAdd = "add";
 
-        public UpdateWorkitemRequest()
+        public UpdateWorkitemRequest(int? id = null)
         {
+            Id = id;
             Updates = new List<Update>();
         }
+
+        public int? Id { get; set; }
 
         public List<Update> Updates { get; set; }
 

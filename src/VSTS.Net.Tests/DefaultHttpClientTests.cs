@@ -18,6 +18,7 @@ namespace VSTS.Net.Tests
     public class DefaultHttpClientTests
     {
         private const string SamplePostContent = "post content";
+        private const string SamplePatchContent = "patch content";
 
         private DefaultHttpClient _client;
         private Mock<HttpMessageHandler> _mockHttpMessageHandler;
@@ -55,7 +56,7 @@ namespace VSTS.Net.Tests
         public async Task ShouldSendPostRequest()
         {
             _mockHttpMessageHandler.Protected()
-                .Setup<Task<HttpResponseMessage>>("SendAsync", ItExpr.Is<HttpRequestMessage>(r => VerifyPostRequest(r, SamplePostContent)), ItExpr.IsAny<CancellationToken>())
+                .Setup<Task<HttpResponseMessage>>("SendAsync", ItExpr.Is<HttpRequestMessage>(r => VerifyPostRequest(r, SamplePostContent, Constants.JsonMimeType)), ItExpr.IsAny<CancellationToken>())
                 .Returns((HttpRequestMessage request, CancellationToken cancellationToken) => GetMockResponse(request, cancellationToken));
 
             var result = await _client.ExecutePost<SampleResponse>("http://foo.com/sample", SamplePostContent, CancellationToken.None);
@@ -65,10 +66,39 @@ namespace VSTS.Net.Tests
         }
 
         [Test]
+        public async Task ShouldSendPostRequestWithSpecificMimeType()
+        {
+            _mockHttpMessageHandler.Protected()
+                .Setup<Task<HttpResponseMessage>>("SendAsync", ItExpr.Is<HttpRequestMessage>(r => VerifyPostRequest(r, SamplePostContent, Constants.JsonPatchMimeType)), ItExpr.IsAny<CancellationToken>())
+                .Returns((HttpRequestMessage request, CancellationToken cancellationToken) => GetMockResponse(request, cancellationToken));
+
+            var result = await _client.ExecutePost<SampleResponse>("http://foo.com/sample", SamplePostContent, Constants.JsonPatchMimeType, CancellationToken.None);
+
+            result.Should().NotBeNull();
+            result.IsSample.Should().BeTrue();
+        }
+
+        [Test]
+        public async Task ShouldSendPatchRequest()
+        {
+            _mockHttpMessageHandler.Protected()
+                .Setup<Task<HttpResponseMessage>>("SendAsync", ItExpr.Is<HttpRequestMessage>(r => VerifyPatchRequest(r, SamplePatchContent)), ItExpr.IsAny<CancellationToken>())
+                .Returns((HttpRequestMessage request, CancellationToken cancellationToken) => GetMockResponse(request, cancellationToken))
+                .Verifiable();
+
+            var result = await _client.ExecutePatch<SampleResponse>("http://foo.com/sample", SamplePatchContent, Constants.JsonPatchMimeType, CancellationToken.None);
+
+            result.Should().NotBeNull();
+            result.IsSample.Should().BeTrue();
+
+            _mockHttpMessageHandler.Verify();
+        }
+
+        [Test]
         public async Task ShouldSerializePayloadForPostRequest()
         {
             _mockHttpMessageHandler.Protected()
-                .Setup<Task<HttpResponseMessage>>("SendAsync", ItExpr.Is<HttpRequestMessage>(r => VerifyPostRequest(r, _sampleSerializedContent)), ItExpr.IsAny<CancellationToken>())
+                .Setup<Task<HttpResponseMessage>>("SendAsync", ItExpr.Is<HttpRequestMessage>(r => VerifyPostRequest(r, _sampleSerializedContent, Constants.JsonMimeType)), ItExpr.IsAny<CancellationToken>())
                 .Returns((HttpRequestMessage request, CancellationToken cancellationToken) => GetMockResponse(request, cancellationToken));
 
             var result = await _client.ExecutePost<SampleResponse>("http://foo.com/sample", new SampleResponse() { IsSample = true }, CancellationToken.None);
@@ -99,13 +129,22 @@ namespace VSTS.Net.Tests
             return request.Method == HttpMethod.Get && request.RequestUri.LocalPath == "/sample";
         }
 
-        private bool VerifyPostRequest(HttpRequestMessage request, string expectedContent)
+        private bool VerifyPostRequest(HttpRequestMessage request, string expectedContent, string expectedMimeType)
         {
             var content = request.Content.ReadAsStringAsync().GetAwaiter().GetResult();
             return request.Method == HttpMethod.Post && 
                 request.RequestUri.LocalPath == "/sample" && 
                 content == expectedContent &&
-                request.Content.Headers.ContentType.MediaType == Constants.JsonMimeType;
+                request.Content.Headers.ContentType.MediaType == expectedMimeType;
+        }
+
+        private bool VerifyPatchRequest(HttpRequestMessage request, string expectedContent)
+        {
+            var content = request.Content.ReadAsStringAsync().GetAwaiter().GetResult();
+            return request.Method.Method == Constants.HttpMethodPatch &&
+                request.RequestUri.LocalPath == "/sample" &&
+                content == expectedContent &&
+                request.Content.Headers.ContentType.MediaType == Constants.JsonPatchMimeType;
         }
 
         private Task<HttpResponseMessage> GetMockResponse(HttpRequestMessage request, CancellationToken cancellationToken)
