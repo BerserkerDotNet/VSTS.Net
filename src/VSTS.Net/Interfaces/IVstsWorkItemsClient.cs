@@ -51,6 +51,15 @@ namespace VSTS.Net.Interfaces
         Task<bool> DeleteWorkItemAsync(string project, int id, bool destroy = false, CancellationToken cancellationToken = default(CancellationToken));
 
         /// <summary>
+        /// Updates a single work item.
+        /// </summary>
+        /// <param name="project">Project ID or project name</param>
+        /// <param name="request"></param>
+        /// <param name="cancellationToken">Cancellation token</param>
+        /// <returns></returns>
+        Task<WorkItem> UpdateWorkItemAsync(string project, UpdateWorkitemRequest request, CancellationToken cancellationToken = default(CancellationToken));
+
+        /// <summary>
         /// Executes a work item query
         /// </summary>
         /// <param name="project">Project ID or project name</param>

@@ -37,6 +37,28 @@ namespace VSTS.Net.Interfaces
         Task<T> ExecutePost<T>(string url, string payload, CancellationToken cancellationToken = default(CancellationToken));
 
         /// <summary>
+        /// Sends a PATCH request to the specified URL
+        /// </summary>
+        /// <typeparam name="T">Type of the result</typeparam>
+        /// <param name="url">Url to send request to</param>
+        /// <param name="payload">content to send</param>
+        /// <param name="mimeType">Mime type of the content</param>
+        /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
+        /// <returns></returns>
+        Task<T> ExecutePatch<T>(string url, object payload, string mimeType, CancellationToken cancellationToken = default(CancellationToken));
+
+        /// <summary>
+        /// Sends a PATCH request to the specified URL
+        /// </summary>
+        /// <typeparam name="T">Type of the result</typeparam>
+        /// <param name="url">Url to send request to</param>
+        /// <param name="payload">content to send</param>
+        /// <param name="mimeType">Mime type of the content</param>
+        /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
+        /// <returns></returns>
+        Task<T> ExecutePatch<T>(string url, string payload, string mimeType, CancellationToken cancellationToken = default(CancellationToken));
+
+        /// <summary>
         /// Sends a POST request to the specified URL
         /// </summary>
         /// <typeparam name="T">Type of the result</typeparam>
