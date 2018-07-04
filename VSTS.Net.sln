@@ -20,6 +20,8 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "docs", "docs", "{08A5D9D3-C
 		docs\toc.yml = docs\toc.yml
 	EndProjectSection
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "VSTS.Net.AspNetCore", "src\VSTS.Net.AspNetCore\VSTS.Net.AspNetCore.csproj", "{7484ACA1-08EC-4531-8247-1AD9250B4E1B}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -34,6 +36,10 @@ Global
 		{76A5B9D6-408A-4A50-A372-241E52AC690A}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{76A5B9D6-408A-4A50-A372-241E52AC690A}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{76A5B9D6-408A-4A50-A372-241E52AC690A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7484ACA1-08EC-4531-8247-1AD9250B4E1B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7484ACA1-08EC-4531-8247-1AD9250B4E1B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7484ACA1-08EC-4531-8247-1AD9250B4E1B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7484ACA1-08EC-4531-8247-1AD9250B4E1B}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

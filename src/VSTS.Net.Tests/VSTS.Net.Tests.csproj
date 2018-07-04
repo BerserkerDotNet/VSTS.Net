@@ -13,6 +13,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\VSTS.Net.AspNetCore\VSTS.Net.AspNetCore.csproj" />
     <ProjectReference Include="..\VSTS.Net\VSTS.Net.csproj" />
   </ItemGroup>
 
