@@ -42,5 +42,17 @@ namespace VSTS.Net.Models.WorkItems
         /// Link to the work item update
         /// </summary>
         public string Url { get; set; }
+
+
+        public WorkItemFieldUpdate this[string key]
+        {
+            get
+            {
+                if (string.IsNullOrEmpty(key) || !Fields.ContainsKey(key))
+                    return new WorkItemFieldUpdate();
+
+                return Fields[key];
+            }
+        }
     }
 }
