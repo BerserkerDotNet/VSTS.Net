@@ -99,9 +99,9 @@ namespace VSTS.Net.Tests.PullRequests
         [Test]
         public async Task FetchAllPages()
         {
-            var page1 = new[] { new PullRequest(), new PullRequest() };
-            var page2 = new[] { new PullRequest(), new PullRequest() };
-            var page3 = new[] { new PullRequest() };
+            var page1 = new[] { CreatePR(), CreatePR() };
+            var page2 = new[] { CreatePR(), CreatePR() };
+            var page3 = new[] { CreatePR() };
 
             int skipTotal = 0;
             SetupPagedGetCollectionOf<PullRequest>(u => ValidateUrlWithPaging(u, ref skipTotal))
@@ -217,12 +217,12 @@ namespace VSTS.Net.Tests.PullRequests
                 queryString.Contains($"searchCriteria.creatorId={query.CreatorId}");
         }
 
-        private PullRequest CreatePR(DateTime? createdOn)
+        private PullRequest CreatePR(DateTime? createdOn = null)
         {
             if (!createdOn.HasValue)
                 createdOn = DateTime.UtcNow;
 
-            return new PullRequest { CreationDate = createdOn.Value };
+            return new PullRequest { CreationDate = createdOn.Value, PullRequestId = _random.Next(1, int.MaxValue) };
         }
 
         private PullRequest CreatePR(int daysAgo)
@@ -232,7 +232,7 @@ namespace VSTS.Net.Tests.PullRequests
 
         private PullRequest CreatePR(string title, int daysAgo = 1)
         {
-            return new PullRequest { Title = title, CreationDate = DateTime.UtcNow.AddDays(-daysAgo) };
+            return new PullRequest { PullRequestId = _random.Next(1, int.MaxValue), Title = title, CreationDate = DateTime.UtcNow.AddDays(-daysAgo) };
         }
     }
 }

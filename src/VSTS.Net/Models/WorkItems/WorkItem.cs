@@ -4,7 +4,7 @@ using System.Collections.Generic;
 
 namespace VSTS.Net.Models.WorkItems
 {
-    public class WorkItem
+    public class WorkItem : IEquatable<WorkItem>
     {
         /// <summary>
         /// The work item ID.
@@ -31,5 +31,26 @@ namespace VSTS.Net.Models.WorkItems
         /// Relations of the work item.
         /// </summary>
         public IEnumerable<WorkItemRelation> Relations { get; set; }
+
+        public virtual bool Equals(WorkItem other)
+        {
+            if (other == null)
+                return false;
+
+            if (ReferenceEquals(this, other))
+                return true;
+
+            return Id == other.Id;
+        }
+
+        public override bool Equals(object obj)
+        {
+            return Equals(obj as WorkItem);
+        }
+
+        public override int GetHashCode()
+        {
+            return Id.GetHashCode();
+        }
     }
 }

@@ -5,7 +5,7 @@ using VSTS.Net.Models.Identity;
 
 namespace VSTS.Net.Models.PullRequests
 {
-    public class PullRequest
+    public class PullRequest : IEquatable<PullRequest>
     {
         /// <summary>
         /// The ID of the pull request.
@@ -30,7 +30,7 @@ namespace VSTS.Net.Models.PullRequests
         /// <summary>
         /// The date when the pull request was closed (completed, abandoned, or merged externally).
         /// </summary>
-        public DateTime ClosedDate { get; set; }
+        public DateTime? ClosedDate { get; set; }
 
         /// <summary>
         /// The title of the pull request.
@@ -76,5 +76,26 @@ namespace VSTS.Net.Models.PullRequests
         /// A list of reviewers on the pull request along with the state of their votes.
         /// </summary>
         public IEnumerable<IdentityReferenceWithVote> Reviewers { get; set; }
+
+        public virtual bool Equals(PullRequest other)
+        {
+            if (other == null)
+                return false;
+
+            if (ReferenceEquals(this, other))
+                return true;
+
+            return PullRequestId == other.PullRequestId;
+        }
+
+        public override bool Equals(object obj)
+        {
+            return Equals(obj as PullRequest);
+        }
+
+        public override int GetHashCode()
+        {
+            return PullRequestId.GetHashCode();
+        }
     }
 }

@@ -16,15 +16,14 @@ namespace VSTS.Net
     public partial class VstsClient : IVstsClient
     {
         /// <inheritdoc />
-        public async Task<WorkItemsQueryResult> ExecuteQueryAsync(string project, WorkItemsQuery query, CancellationToken cancellationToken = default(CancellationToken))
+        public async Task<WorkItemsQueryResult> ExecuteQueryAsync(WorkItemsQuery query, CancellationToken cancellationToken = default(CancellationToken))
         {
-            ThrowIfArgumentNullOrEmpty(project);
             ThrowIfArgumentNull(query, nameof(query));
             ThrowIfArgumentNullOrEmpty(_instanceName, nameof(_instanceName));
             ThrowIfArgumentNullOrEmpty(query.Query, "Query cannot be empty.");
 
             var url = VstsUrlBuilder.Create(_instanceName)
-                .ForWIQL(project)
+                .ForWIQL()
                 .Build(Constants.CurrentWorkItemsApiVersion);
 
             _logger.LogDebug("Requesting {0}", url);
@@ -36,9 +35,9 @@ namespace VSTS.Net
         }
 
         /// <inheritdoc />
-        public async Task<IEnumerable<WorkItem>> GetWorkItemsAsync(string project, WorkItemsQuery query, CancellationToken cancellationToken = default(CancellationToken))
+        public async Task<IEnumerable<WorkItem>> GetWorkItemsAsync(WorkItemsQuery query, CancellationToken cancellationToken = default(CancellationToken))
         {
-            var queryResult = await ExecuteQueryAsync(project, query, cancellationToken);
+            var queryResult = await ExecuteQueryAsync(query, cancellationToken);
             int[] ids;
             switch (queryResult)
             {
@@ -58,7 +57,7 @@ namespace VSTS.Net
             var fieldsString = string.Join(",", queryResult.Columns.Select(c => c.ReferenceName));
             var idsString = string.Join(",", ids);
             var url = VstsUrlBuilder.Create(_instanceName)
-                .ForWorkItemsBatch(idsString, project)
+                .ForWorkItemsBatch(idsString)
                 .WithQueryParameter("fields", fieldsString)
                 .Build();
 
@@ -86,15 +85,12 @@ namespace VSTS.Net
         }
 
         /// <inheritdoc />
-        public async Task<WorkItem> GetWorkItemAsync(string project, int workItemId, DateTime? asOf = null, string[] fields = null, CancellationToken cancellationToken = default(CancellationToken))
+        public async Task<WorkItem> GetWorkItemAsync(int workItemId, DateTime? asOf = null, string[] fields = null, CancellationToken cancellationToken = default(CancellationToken))
         {
-            ThrowIfArgumentNullOrEmpty(project, nameof(project));
-
             var fieldsString = fields != null ? string.Join(",", fields) : string.Empty;
             var asOfString = asOf.HasValue ? asOf.Value.ToString("u") : string.Empty;
 
             var url = VstsUrlBuilder.Create(_instanceName)
-                .WithSection(project)
                 .ForWorkItems(workItemId)
                 .WithQueryParameterIfNotEmpty("fields", fieldsString)
                 .WithQueryParameterIfNotEmpty("asOf", asOfString)
@@ -104,9 +100,8 @@ namespace VSTS.Net
         }
 
         /// <inheritdoc />
-        public async Task<IEnumerable<WorkItem>> GetWorkItemsAsync(string project, int[] ids, DateTime? asOf = null, string[] fields = null, CancellationToken cancellationToken = default(CancellationToken))
+        public async Task<IEnumerable<WorkItem>> GetWorkItemsAsync(int[] ids, DateTime? asOf = null, string[] fields = null, CancellationToken cancellationToken = default(CancellationToken))
         {
-            ThrowIfArgumentNullOrEmpty(project, nameof(project));
             ThrowIfArgumentNull(ids, nameof(ids));
 
             if (!ids.Any())
@@ -116,7 +111,7 @@ namespace VSTS.Net
             var asOfString = asOf.HasValue ? asOf.Value.ToString("u") : string.Empty;
             var idsString = string.Join(",", ids);
             var url = VstsUrlBuilder.Create(_instanceName)
-                .ForWorkItemsBatch(idsString, project)
+                .ForWorkItemsBatch(idsString)
                 .WithQueryParameterIfNotEmpty("fields", fieldsString)
                 .WithQueryParameterIfNotEmpty("asOf", asOfString)
                 .Build();
@@ -126,12 +121,9 @@ namespace VSTS.Net
         }
 
         /// <inheritdoc />
-        public async Task<bool> DeleteWorkItemAsync(string project, int id, bool destroy = false, CancellationToken cancellationToken = default(CancellationToken))
+        public async Task<bool> DeleteWorkItemAsync(int id, bool destroy = false, CancellationToken cancellationToken = default(CancellationToken))
         {
-            ThrowIfArgumentNullOrEmpty(project, nameof(project));
-
             var url = VstsUrlBuilder.Create(_instanceName)
-                    .WithSection(project)
                     .ForWorkItems(id)
                     .WithQueryParameterIfNotDefault("destroy", destroy)
                     .Build();
@@ -164,14 +156,12 @@ namespace VSTS.Net
         }
 
         /// <inheritdoc />
-        public async Task<WorkItem> UpdateWorkItemAsync(string project, UpdateWorkitemRequest request, CancellationToken cancellationToken = default(CancellationToken))
+        public async Task<WorkItem> UpdateWorkItemAsync(UpdateWorkitemRequest request, CancellationToken cancellationToken = default(CancellationToken))
         {
-            ThrowIfArgumentNullOrEmpty(project, nameof(project));
             ThrowIfArgumentNull(request, nameof(request));
             ThrowIfArgumentNull(request.Id, nameof(request.Id));
 
             var url = VstsUrlBuilder.Create(_instanceName)
-               .WithSection(project)
                .ForWorkItems()
                .WithSection(request.Id.Value.ToString())
                .Build();
@@ -193,7 +183,5 @@ namespace VSTS.Net
                 .Distinct()
                 .ToArray();
         }
-
-
     }
 }

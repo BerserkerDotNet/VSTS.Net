@@ -19,19 +19,10 @@ namespace VSTS.Net.Tests.WorkItems
     {
         #region ExecuteQuery tests
 
-        [TestCase("")]
-        [TestCase(null)]
-        public void ExecuteQueryShouldThrowArgumentNullExceptionIfProjectIsNullOrEmpty(string project)
-        {
-            _client.Awaiting(async c => await c.ExecuteQueryAsync(project, new WorkItemsQuery("dummy")))
-                .Should()
-                .Throw<ArgumentNullException>("project");
-        }
-
         [Test]
         public void ExecuteQueryShouldThrowArgumentNullExceptionIfQueryIsNull()
         {
-            _client.Awaiting(async c => await c.ExecuteQueryAsync(ProjectName, null))
+            _client.Awaiting(async c => await c.ExecuteQueryAsync(null))
                 .Should()
                 .Throw<ArgumentNullException>("query");
         }
@@ -40,7 +31,7 @@ namespace VSTS.Net.Tests.WorkItems
         public void ExecuteQueryShouldThrowArgumentNullExceptionIfConfigurationIsNull()
         {
             var client = new VstsClient(null, _httpClientMock.Object);
-            client.Awaiting(async c => await c.ExecuteQueryAsync(ProjectName, new WorkItemsQuery("dummy")))
+            client.Awaiting(async c => await c.ExecuteQueryAsync(new WorkItemsQuery("dummy")))
                 .Should()
                 .Throw<ArgumentNullException>("configuration");
         }
@@ -49,7 +40,7 @@ namespace VSTS.Net.Tests.WorkItems
         public void ExecuteQueryShouldThrowArgumentExceptionIfQueryIsEmpty()
         {
             var query = new WorkItemsQuery(string.Empty);
-            _client.Awaiting(async c => await c.ExecuteQueryAsync(ProjectName, query))
+            _client.Awaiting(async c => await c.ExecuteQueryAsync(query))
                 .Should()
                 .Throw<ArgumentException>();
         }
@@ -64,7 +55,7 @@ namespace VSTS.Net.Tests.WorkItems
             _httpClientMock.Setup(c => c.ExecutePost<FlatWorkItemsQueryResult>(It.Is<string>(u => VerifyWiqlQueryUrl(u)), It.Is<WorkItemsQuery>(q => !q.IsHierarchical), _cancellationToken))
                 .ReturnsAsync(new FlatWorkItemsQueryResult());
 
-            var result = await _client.ExecuteQueryAsync(ProjectName, query, _cancellationToken);
+            var result = await _client.ExecuteQueryAsync(query, _cancellationToken);
 
             result.Should().BeOfType(expectedReturnType);
             _httpClientMock.Verify(c => c.ExecutePost<HierarchicalWorkItemsQueryResult>(It.Is<string>(u => VerifyWiqlQueryUrl(u)), It.Is<WorkItemsQuery>(q => q.IsHierarchical), _cancellationToken),
@@ -96,7 +87,7 @@ namespace VSTS.Net.Tests.WorkItems
                 .ReturnsAsync(new CollectionResponse<WorkItem> { Value = workItems })
                 .Verifiable();
 
-            var result = await _client.GetWorkItemsAsync(ProjectName, query, _cancellationToken);
+            var result = await _client.GetWorkItemsAsync(query, _cancellationToken);
 
             result.Should().HaveCount(workItems.Count());
             result.Should().BeEquivalentTo(workItems);
@@ -133,7 +124,7 @@ namespace VSTS.Net.Tests.WorkItems
                 .ReturnsAsync(new CollectionResponse<WorkItem> { Value = workItems })
                 .Verifiable();
 
-            var result = await _client.GetWorkItemsAsync(ProjectName, query, _cancellationToken);
+            var result = await _client.GetWorkItemsAsync(query, _cancellationToken);
 
             result.Should().HaveCount(workItems.Count());
             result.Should().BeEquivalentTo(workItems);
@@ -149,7 +140,7 @@ namespace VSTS.Net.Tests.WorkItems
             _httpClientMock.Setup(c => c.ExecutePost<FlatWorkItemsQueryResult>(It.IsAny<string>(), It.Is<WorkItemsQuery>(q => !q.IsHierarchical), CancellationToken.None))
                 .ReturnsAsync((FlatWorkItemsQueryResult)null);
 
-            _client.Awaiting(c => c.GetWorkItemsAsync(ProjectName, query))
+            _client.Awaiting(c => c.GetWorkItemsAsync(query))
                 .Should().Throw<NotSupportedException>();
         }
 
@@ -163,7 +154,7 @@ namespace VSTS.Net.Tests.WorkItems
             _httpClientMock.Setup(c => c.ExecuteGet<CollectionResponse<WorkItem>>(It.IsAny<string>(), CancellationToken.None))
                 .ReturnsAsync((CollectionResponse<WorkItem>)null);
 
-            var result = await _client.GetWorkItemsAsync(ProjectName, query);
+            var result = await _client.GetWorkItemsAsync(query);
 
             result.Should().HaveCount(0);
         }
@@ -177,7 +168,7 @@ namespace VSTS.Net.Tests.WorkItems
             _httpClientMock.Setup(c => c.ExecutePost<FlatWorkItemsQueryResult>(It.IsAny<string>(), It.Is<WorkItemsQuery>(q => !q.IsHierarchical), CancellationToken.None))
                 .Throws<Exception>();
 
-            _client.Awaiting(c => c.GetWorkItemsAsync(ProjectName, query))
+            _client.Awaiting(c => c.GetWorkItemsAsync(query))
                 .Should().Throw<Exception>();
 
             // Test 2
@@ -189,7 +180,7 @@ namespace VSTS.Net.Tests.WorkItems
             _httpClientMock.Setup(c => c.ExecuteGet<CollectionResponse<WorkItem>>(It.IsAny<string>(), CancellationToken.None))
                 .Throws(new Exception());
 
-            _client.Awaiting(c => c.GetWorkItemsAsync(ProjectName, query))
+            _client.Awaiting(c => c.GetWorkItemsAsync(query))
                 .Should().Throw<Exception>();
         }
 
@@ -207,7 +198,7 @@ namespace VSTS.Net.Tests.WorkItems
                 .ReturnsAsync(queryResult)
                 .Verifiable();
 
-            var result = await _client.GetWorkItemsAsync(ProjectName, query, _cancellationToken);
+            var result = await _client.GetWorkItemsAsync(query, _cancellationToken);
 
             result.Should().BeEmpty();
 
@@ -267,7 +258,7 @@ namespace VSTS.Net.Tests.WorkItems
 
         private bool VerifyWiqlQueryUrl(string url)
         {
-            var expectedUrl = $"https://{InstanceName}.visualstudio.com/{ProjectName}/_apis/wit/wiql?api-version={Constants.CurrentWorkItemsApiVersion}";
+            var expectedUrl = $"https://{InstanceName}.visualstudio.com/_apis/wit/wiql?api-version={Constants.CurrentWorkItemsApiVersion}";
             return string.Equals(url, expectedUrl, StringComparison.Ordinal);
         }
 
@@ -275,7 +266,7 @@ namespace VSTS.Net.Tests.WorkItems
         {
             var fieldsString = string.Join(',', fields);
             var idsString = string.Join(',', ids);
-            var expectedUrl = $"https://{InstanceName}.visualstudio.com/{ProjectName}/_apis/wit/workitems?ids={idsString}&fields={fieldsString}&api-version={Constants.CurrentWorkItemsApiVersion}";
+            var expectedUrl = $"https://{InstanceName}.visualstudio.com/_apis/wit/workitems?ids={idsString}&fields={fieldsString}&api-version={Constants.CurrentWorkItemsApiVersion}";
 
             return string.Equals(url, expectedUrl, StringComparison.Ordinal);
         }

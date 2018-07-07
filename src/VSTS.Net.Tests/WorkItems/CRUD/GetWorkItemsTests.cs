@@ -13,23 +13,16 @@ namespace VSTS.Net.Tests.WorkItems.CRUD
     public class GetWorkItemsTests: BaseHttpClientTests
     {
         [Test]
-        public void ThrowsIfEmptyProject([Values("", null)] string project)
-        {
-            _client.Awaiting(c => c.GetWorkItemsAsync(project, new[] { 0 }))
-                .Should().Throw<ArgumentNullException>();
-        }
-
-        [Test]
         public void ThrowsIfEmptyListOfIds()
         {
-            _client.Awaiting(c => c.GetWorkItemsAsync(ProjectName, (int[])null))
+            _client.Awaiting(c => c.GetWorkItemsAsync((int[])null))
                 .Should().Throw<ArgumentNullException>();
         }
 
         [Test]
         public async Task ReturnsEmptyCollectionIfEmptyListOfIds()
         {
-            var result = await _client.GetWorkItemsAsync(ProjectName, new int[0]);
+            var result = await _client.GetWorkItemsAsync(new int[0]);
 
             result.Should().BeEmpty();
         }
@@ -41,7 +34,7 @@ namespace VSTS.Net.Tests.WorkItems.CRUD
             SetupGetCollectionOf<WorkItem>()
                 .ReturnsAsync(new CollectionResponse<WorkItem> { Value = workitems });
 
-            var result = await _client.GetWorkItemsAsync(ProjectName, new[] { 1, 2 }, cancellationToken: _cancellationToken);
+            var result = await _client.GetWorkItemsAsync(new[] { 1, 2 }, cancellationToken: _cancellationToken);
 
             result.Should().BeEquivalentTo(workitems);
         }
@@ -52,7 +45,7 @@ namespace VSTS.Net.Tests.WorkItems.CRUD
             SetupGetCollectionOf<WorkItem>()
                 .ReturnsAsync((CollectionResponse<WorkItem>)null);
 
-            var result = await _client.GetWorkItemsAsync(ProjectName, new[] { 1, 2 });
+            var result = await _client.GetWorkItemsAsync(new[] { 1, 2 });
 
             result.Should().BeEmpty();
         }
@@ -77,10 +70,10 @@ namespace VSTS.Net.Tests.WorkItems.CRUD
                 .ReturnsAsync(new CollectionResponse<WorkItem> { Value = workitems })
                 .Verifiable();
 
-            await _client.GetWorkItemsAsync(ProjectName, ids, cancellationToken: _cancellationToken);
-            await _client.GetWorkItemsAsync(ProjectName, ids, asOf, fields, cancellationToken: _cancellationToken);
-            await _client.GetWorkItemsAsync(ProjectName, ids, fields: fields, cancellationToken: _cancellationToken);
-            await _client.GetWorkItemsAsync(ProjectName, ids, asOf, cancellationToken: _cancellationToken);
+            await _client.GetWorkItemsAsync(ids, cancellationToken: _cancellationToken);
+            await _client.GetWorkItemsAsync(ids, asOf, fields, cancellationToken: _cancellationToken);
+            await _client.GetWorkItemsAsync(ids, fields: fields, cancellationToken: _cancellationToken);
+            await _client.GetWorkItemsAsync(ids, asOf, cancellationToken: _cancellationToken);
 
             _httpClientMock.Verify();
         }
@@ -88,7 +81,7 @@ namespace VSTS.Net.Tests.WorkItems.CRUD
         private bool VerifyUrlWithIds(string url, int[] ids)
         {
             var idsString = string.Join(",", ids);
-            var expectedUrl = $"https://{InstanceName}.visualstudio.com/{ProjectName}/_apis/wit/workitems?ids={idsString}&api-version";
+            var expectedUrl = $"https://{InstanceName}.visualstudio.com/_apis/wit/workitems?ids={idsString}&api-version";
             return url.StartsWith(expectedUrl, StringComparison.OrdinalIgnoreCase);
         }
 
@@ -97,7 +90,7 @@ namespace VSTS.Net.Tests.WorkItems.CRUD
             var fieldsString = fields != null ? string.Join(',', fields) : string.Empty;
             var asOfString = asOf.ToString("u");
             var idsString = string.Join(",", ids);
-            var expectedUrl = $"https://{InstanceName}.visualstudio.com/{ProjectName}/_apis/wit/workitems?ids={idsString}&fields={fieldsString}&asOf={asOfString}&api-version";
+            var expectedUrl = $"https://{InstanceName}.visualstudio.com/_apis/wit/workitems?ids={idsString}&fields={fieldsString}&asOf={asOfString}&api-version";
             return url.StartsWith(expectedUrl, StringComparison.OrdinalIgnoreCase);
         }
 
@@ -105,7 +98,7 @@ namespace VSTS.Net.Tests.WorkItems.CRUD
         {
             var asOfString = asOf.ToString("u");
             var idsString = string.Join(",", ids);
-            var expectedUrl = $"https://{InstanceName}.visualstudio.com/{ProjectName}/_apis/wit/workitems?ids={idsString}&asOf={asOfString}&api-version";
+            var expectedUrl = $"https://{InstanceName}.visualstudio.com/_apis/wit/workitems?ids={idsString}&asOf={asOfString}&api-version";
             return url.StartsWith(expectedUrl, StringComparison.OrdinalIgnoreCase);
         }
 
@@ -113,7 +106,7 @@ namespace VSTS.Net.Tests.WorkItems.CRUD
         {
             var fieldsString = fields != null ? string.Join(',', fields) : string.Empty;
             var idsString = string.Join(",", ids);
-            var expectedUrl = $"https://{InstanceName}.visualstudio.com/{ProjectName}/_apis/wit/workitems?ids={idsString}&fields={fieldsString}&api-version";
+            var expectedUrl = $"https://{InstanceName}.visualstudio.com/_apis/wit/workitems?ids={idsString}&fields={fieldsString}&api-version";
             return url.StartsWith(expectedUrl, StringComparison.OrdinalIgnoreCase);
         }
     }

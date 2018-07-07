@@ -2,7 +2,7 @@
 
 namespace VSTS.Net.Models.Identity
 {
-    public class IdentityReference
+    public class IdentityReference : IEquatable<IdentityReference>
     {
         public Guid Id { get; set; }
 
@@ -15,5 +15,26 @@ namespace VSTS.Net.Models.Identity
         public string Url { get; set; }
 
         public string ImageUrl { get; set; }
+
+        public virtual bool Equals(IdentityReference other)
+        {
+            if (other == null)
+                return false;
+
+            if (ReferenceEquals(this, other))
+                return true;
+
+            return string.Equals(UniqueName, other.UniqueName, StringComparison.OrdinalIgnoreCase);
+        }
+
+        public override bool Equals(object obj)
+        {
+            return Equals(obj as IdentityReference);
+        }
+
+        public override int GetHashCode()
+        {
+            return UniqueName.ToLower().GetHashCode();
+        }
     }
 }

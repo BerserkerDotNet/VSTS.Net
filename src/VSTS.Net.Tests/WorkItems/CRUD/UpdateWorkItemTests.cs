@@ -15,23 +15,16 @@ namespace VSTS.Net.Tests.WorkItems.CRUD
     public class UpdateWorkItemTests : BaseHttpClientTests
     {
         [Test]
-        public void ThrowsExceptionIfProjectIsNull([Values("", null)]string project)
-        {
-            _client.Awaiting(c => c.UpdateWorkItemAsync(project, new UpdateWorkitemRequest(1), _cancellationToken))
-                .Should().Throw<ArgumentNullException>();
-        }
-
-        [Test]
         public void ThrowsExceptionIfRequestIsNull()
         {
-            _client.Awaiting(c => c.UpdateWorkItemAsync(ProjectName, null, _cancellationToken))
+            _client.Awaiting(c => c.UpdateWorkItemAsync(null, _cancellationToken))
                 .Should().Throw<ArgumentNullException>();
         }
 
         [Test]
         public void ThrowsExceptionIfWorkitemIdIsNull()
         {
-            _client.Awaiting(c => c.UpdateWorkItemAsync(ProjectName, new UpdateWorkitemRequest(), _cancellationToken))
+            _client.Awaiting(c => c.UpdateWorkItemAsync(new UpdateWorkitemRequest(), _cancellationToken))
                 .Should().Throw<ArgumentNullException>();
         }
 
@@ -48,7 +41,7 @@ namespace VSTS.Net.Tests.WorkItems.CRUD
                 .ReturnsAsync(workitem)
                 .Verifiable();
 
-            var result = await _client.UpdateWorkItemAsync(ProjectName, updateRequest, _cancellationToken);
+            var result = await _client.UpdateWorkItemAsync(updateRequest, _cancellationToken);
 
             _httpClientMock.Verify();
             result.Should().Be(workitem);
@@ -56,7 +49,7 @@ namespace VSTS.Net.Tests.WorkItems.CRUD
 
         private bool VerifyUrl(string url, int id)
         {
-            var expectedUrl = $"https://{InstanceName}.visualstudio.com/{ProjectName}/_apis/wit/workitems/{id}";
+            var expectedUrl = $"https://{InstanceName}.visualstudio.com/_apis/wit/workitems/{id}";
             return url.StartsWith(expectedUrl, StringComparison.OrdinalIgnoreCase);
         }
 

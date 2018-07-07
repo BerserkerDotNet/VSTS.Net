@@ -30,9 +30,9 @@ namespace VSTS.Net.Types
             return new VstsUrlBuilder(instance, subDomain);
         }
 
-        public VstsUrlBuilder ForWIQL(string project)
+        public VstsUrlBuilder ForWIQL()
         {
-            _url.Append($"/{project}/{APIsSection}/{WITSection}/{WIQLApiSection}");
+            _url.Append($"/{APIsSection}/{WITSection}/{WIQLApiSection}");
             return this;
         }
 
@@ -42,9 +42,9 @@ namespace VSTS.Net.Types
             return this;
         }
 
-        public VstsUrlBuilder ForWorkItemsBatch(string workItemIds, string project)
+        public VstsUrlBuilder ForWorkItemsBatch(string workItemIds)
         {
-            _url.Append($"/{project}/{APIsSection}/{WITSection}/{WorkItemsSection}");
+            _url.Append($"/{APIsSection}/{WITSection}/{WorkItemsSection}");
             WithQueryParameter("ids", workItemIds);
             return this;
         }

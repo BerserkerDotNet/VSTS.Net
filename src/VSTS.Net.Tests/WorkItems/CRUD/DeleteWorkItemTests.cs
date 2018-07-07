@@ -12,13 +12,6 @@ namespace VSTS.Net.Tests.WorkItems.CRUD
     public class DeleteWorkItemTests : BaseHttpClientTests
     {
         [Test]
-        public void ThrowsArgumentNullIfProjectIsEmpty([Values(null, "")]string project)
-        {
-            _client.Awaiting(c => c.DeleteWorkItemAsync(project, 0))
-                .Should().Throw<ArgumentNullException>();
-        }
-
-        [Test]
         public async Task SendDeleteRequest([Values(true, false)]bool destroy)
         {
             const int workitemId = 124;
@@ -26,7 +19,7 @@ namespace VSTS.Net.Tests.WorkItems.CRUD
                 .ReturnsAsync(new WorkItemDeleteResponse { Id = workitemId, Code = 200, DeletedBy = "Foo", DeletedDate = DateTime.UtcNow })
                 .Verifiable();
 
-            var result = await _client.DeleteWorkItemAsync(ProjectName, workitemId, destroy, _cancellationToken);
+            var result = await _client.DeleteWorkItemAsync(workitemId, destroy, _cancellationToken);
 
             result.Should().BeTrue();
             _httpClientMock.Verify();
@@ -39,13 +32,13 @@ namespace VSTS.Net.Tests.WorkItems.CRUD
                 .Throws<Exception>()
                 .Verifiable();
 
-            _client.Awaiting(c => c.DeleteWorkItemAsync(ProjectName, 124, false, _cancellationToken))
+            _client.Awaiting(c => c.DeleteWorkItemAsync(124, false, _cancellationToken))
                 .Should().Throw<Exception>();
         }
 
         private bool VerifyUrl(string url, int workitemId, bool destroy)
         {
-            var expectedUrl = $"https://{InstanceName}.visualstudio.com/{ProjectName}/_apis/wit/workitems/{workitemId}?";
+            var expectedUrl = $"https://{InstanceName}.visualstudio.com/_apis/wit/workitems/{workitemId}?";
             if (destroy)
             {
                 expectedUrl += "destroy=true&";

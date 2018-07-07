@@ -24,6 +24,7 @@ namespace VSTS.Net.Tests.Types
         protected Mock<IHttpClient> _httpClientMock;
         protected VstsClient _client;
         protected CancellationToken _cancellationToken;
+        protected Random _random = new Random();
 
         [SetUp]
         public void SetUp()
