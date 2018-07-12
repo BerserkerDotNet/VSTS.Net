@@ -1,10 +1,12 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using VSTS.Net.Models.Common;
 using VSTS.Net.Models.Identity;
 
 namespace VSTS.Net.Models.PullRequests
 {
+    [DebuggerDisplay("{Status}-{PullRequestId} {Title}")]
     public class PullRequest : IEquatable<PullRequest>
     {
         /// <summary>

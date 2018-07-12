@@ -120,6 +120,47 @@ namespace VSTS.Net.Tests.PullRequests
         }
 
         [Test]
+        public async Task CorrectlySetSkipCountWithQuery()
+        {
+            var page1 = new[] { CreatePR("PR 1"), CreatePR("PR 2 skip") };
+            var page2 = new[] { CreatePR("PR 3 skip"), CreatePR("PR 4") };
+            var page3 = new[] { CreatePR("PR 5") };
+
+            int skipTotal = 0;
+            SetupPagedGetCollectionOf<PullRequest>(u => ValidateUrlWithPaging(u, ref skipTotal))
+                .ReturnsAsync(new CollectionResponse<PullRequest> { Value = page1 })
+                .ReturnsAsync(new CollectionResponse<PullRequest> { Value = page2 })
+                .ReturnsAsync(new CollectionResponse<PullRequest> { Value = page3 })
+                .ReturnsAsync(new CollectionResponse<PullRequest> { Value = Enumerable.Empty<PullRequest>() });
+
+            var query = new PullRequestQuery { CustomFilter = p => !p.Title.Contains("skip") };
+            var result = await _client.GetPullRequestsAsync(ProjectName, RepositoryName, query, _cancellationToken);
+
+            result.Should().HaveCount(3);
+            skipTotal.Should().Be(11);
+        }
+
+        [Test]
+        public async Task DoNotFetchMorePullRequestsIfCreatedAfterIsSet()
+        {
+            var page1 = new[] { CreatePR("PR 1", daysAgo: 1), CreatePR("PR 2 skip", daysAgo: 1) };
+            var page2 = new[] { CreatePR("PR 3 skip", daysAgo: 3), CreatePR("PR 4", daysAgo: 5) };
+            var page3 = new[] { CreatePR("PR 5", daysAgo: 6) };
+
+            SetupPagedGetCollectionOf<PullRequest>()
+                .ReturnsAsync(new CollectionResponse<PullRequest> { Value = page1 })
+                .ReturnsAsync(new CollectionResponse<PullRequest> { Value = page2 })
+                .ReturnsAsync(new CollectionResponse<PullRequest> { Value = page3 })
+                .ReturnsAsync(new CollectionResponse<PullRequest> { Value = Enumerable.Empty<PullRequest>() });
+
+            var query = new PullRequestQuery { CreatedAfter = DateTime.UtcNow.AddDays(-4) };
+            var result = await _client.GetPullRequestsAsync(ProjectName, RepositoryName, query, _cancellationToken);
+
+            result.Should().HaveCount(3);
+            _httpClientMock.Verify(c => c.ExecuteGet<CollectionResponse<PullRequest>>(It.IsAny<string>(), _cancellationToken), Times.Exactly(2));
+        }
+
+        [Test]
         public async Task FilterByDate()
         {
             var pullRequests = new[] { CreatePR(daysAgo: 5), CreatePR(daysAgo: 3), CreatePR(daysAgo: 2) };

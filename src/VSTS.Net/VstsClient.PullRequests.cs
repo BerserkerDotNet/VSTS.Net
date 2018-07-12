@@ -38,6 +38,7 @@ namespace VSTS.Net
                 var pullRequestsResponse = await _httpClient.ExecuteGet<CollectionResponse<PullRequest>>(url, cancellationToken);
                 var pullRequests = pullRequestsResponse?.Value ?? Enumerable.Empty<PullRequest>();
 
+                skip += pullRequests.Count();
                 haveMorePullRequests = pullRequests.Any() && (!query.CreatedAfter.HasValue || pullRequests.Min(p => p.CreationDate) >= query.CreatedAfter);
 
                 if (query.CreatedAfter.HasValue)
@@ -47,8 +48,6 @@ namespace VSTS.Net
                     pullRequests = pullRequests.Where(query.CustomFilter);
 
                 allPullRequests.AddRange(pullRequests);
-                
-                skip = allPullRequests.Count;
             }
 
             return allPullRequests;

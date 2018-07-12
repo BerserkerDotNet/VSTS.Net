@@ -6,8 +6,6 @@ namespace VSTS.Net.Models.Identity
     {
         public int Vote { get; set; }
 
-        public bool IsContainer { get; set; }
-
         public bool IsRequired { get; set; }
 
         public IEnumerable<IdentityReferenceWithVote> VotedFor { get; set; }
