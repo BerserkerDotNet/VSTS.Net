@@ -31,5 +31,15 @@ namespace VSTS.Net.Tests.Models
 
             fieldUpdate.IsEmpty().Should().BeTrue();
         }
+
+        [Test]
+        public void IndexAccessorsShouldReturnDEfaulIfFieldsPropertyIsNull()
+        {
+            var update = new WorkItemUpdate();
+            update.Fields = null;
+            var fieldUpdate = update["State"];
+
+            fieldUpdate.IsEmpty().Should().BeTrue();
+        }
     }
 }

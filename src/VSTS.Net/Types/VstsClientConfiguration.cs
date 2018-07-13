@@ -17,7 +17,7 @@
         /// <summary>
         /// Maximum number of workitem ids per request.
         /// </summary>
-        public int WorkitemsBatchSize { get; set; } = 400;
+        public int WorkitemsBatchSize { get; set; } = 200;
 
         /// <summary>
         /// Default configuration

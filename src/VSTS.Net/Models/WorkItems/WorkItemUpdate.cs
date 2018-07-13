@@ -48,7 +48,7 @@ namespace VSTS.Net.Models.WorkItems
         {
             get
             {
-                if (string.IsNullOrEmpty(key) || !Fields.ContainsKey(key))
+                if (string.IsNullOrEmpty(key) || Fields == null || !Fields.ContainsKey(key))
                     return new WorkItemFieldUpdate();
 
                 return Fields[key];
