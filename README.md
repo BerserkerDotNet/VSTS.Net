@@ -3,7 +3,8 @@
 
 [![Build status](https://ci.appveyor.com/api/projects/status/et2718qanpkjf55m?svg=true)](https://ci.appveyor.com/project/BerserkerDotNet/vsts-net)
 
-[![Nuget](https://buildstats.info/nuget/VSTS.Net?v=0.1.0)](https://www.nuget.org/packages/VSTS.Net)
+[![Nuget](https://buildstats.info/nuget/VSTS.Net?v=0.2.1)](https://www.nuget.org/packages/VSTS.Net)
+[![Nuget](https://buildstats.info/nuget/VSTS.Net?v=0.2.1)](https://www.nuget.org/packages/VSTS.Net.AspNetCore)
 
 [Api documentation](https://berserkerdotnet.github.io/VSTS.Net/site/api/index.html)
 
@@ -16,7 +17,7 @@ var query = @"SELECT [System.Id] FROM WorkItems
         WHERE [System.WorkItemType] IN ('Bug', 'Task') AND [System.AssignedTo] Ever 'foo@bar.com' AND System.ChangedDate >= '01/01/2018'";
 
 var client = VstsClient.Get(instanceName: "foo", accessToken: "secure token");
-var items = await client.GetWorkItemsAsync("MyProject", new WorkItemsQuery(query));
+var items = await client.GetWorkItemsAsync(new WorkItemsQuery(query));
 ```
 
 ### Asp.Net Core

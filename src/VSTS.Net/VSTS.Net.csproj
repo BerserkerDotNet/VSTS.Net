@@ -3,7 +3,7 @@
   <PropertyGroup>
     <Description>REST client for Visual Studio Team Services</Description>
     <Authors>Andrii Snihyr</Authors>
-    <Version>0.1.0</Version>
+    <Version>0.2.1</Version>
     <TargetFramework>netstandard2.0</TargetFramework>
     <Copyright>Copyright © Andrii Snihyr</Copyright>
     <PackageLicenseUrl>https://github.com/BerserkerDotNet/VSTS.Net/blob/master/LICENSE</PackageLicenseUrl>
