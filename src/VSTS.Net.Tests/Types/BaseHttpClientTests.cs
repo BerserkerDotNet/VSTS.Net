@@ -11,6 +11,7 @@ using System.Threading;
 using System.Threading.Tasks;
 using VSTS.Net.Interfaces;
 using VSTS.Net.Models.Response;
+using VSTS.Net.Types;
 
 namespace VSTS.Net.Tests.Types
 {
@@ -30,7 +31,7 @@ namespace VSTS.Net.Tests.Types
         public void SetUp()
         {
             _httpClientMock = new Mock<IHttpClient>();
-            _client = new VstsClient(InstanceName, _httpClientMock.Object, Mock.Of<ILogger<VstsClient>>());
+            _client = new VstsClient(InstanceName, _httpClientMock.Object, VstsClientConfiguration.Default, Mock.Of<ILogger<VstsClient>>());
             var source = new CancellationTokenSource();
             _cancellationToken = source.Token;
         }
