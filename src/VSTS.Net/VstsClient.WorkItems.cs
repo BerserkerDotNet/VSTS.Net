@@ -54,19 +54,8 @@ namespace VSTS.Net
             if (!ids.Any())
                 return Enumerable.Empty<WorkItem>();
 
-            var fieldsString = string.Join(",", queryResult.Columns.Select(c => c.ReferenceName));
-            var idsString = string.Join(",", ids);
-            var url = VstsUrlBuilder.Create(_instanceName)
-                .ForWorkItemsBatch(idsString)
-                .WithQueryParameter("fields", fieldsString)
-                .Build();
-
-            var workitemsResponse = await _httpClient.ExecuteGet<CollectionResponse<WorkItem>>(url, cancellationToken);
-
-            if (workitemsResponse == null)
-                return Enumerable.Empty<WorkItem>();
-
-            return workitemsResponse.Value;
+            var columns = queryResult.Columns.Select(c => c.ReferenceName).ToArray();
+            return await GetWorkItemsAsync(ids, fields: columns, cancellationToken: cancellationToken);
         }
 
         /// <inheritdoc />
@@ -107,17 +96,25 @@ namespace VSTS.Net
             if (!ids.Any())
                 return Enumerable.Empty<WorkItem>();
 
+            var result = new List<WorkItem>(ids.Length);
             var fieldsString = fields != null ? string.Join(",", fields) : string.Empty;
             var asOfString = asOf.HasValue ? asOf.Value.ToString("u") : string.Empty;
-            var idsString = string.Join(",", ids);
-            var url = VstsUrlBuilder.Create(_instanceName)
-                .ForWorkItemsBatch(idsString)
-                .WithQueryParameterIfNotEmpty("fields", fieldsString)
-                .WithQueryParameterIfNotEmpty("asOf", asOfString)
-                .Build();
+            var batchSize = Configuration.WorkitemsBatchSize;
+            var batches = Math.Ceiling((decimal)ids.Length / batchSize);
+            for (int i = 0; i < batches; i++)
+            {
+                var idsString = string.Join(",", ids.Skip(i * batchSize).Take(batchSize));
+                var url = VstsUrlBuilder.Create(_instanceName)
+                    .ForWorkItemsBatch(idsString)
+                    .WithQueryParameterIfNotEmpty("fields", fieldsString)
+                    .WithQueryParameterIfNotEmpty("asOf", asOfString)
+                    .Build();
 
-            var response = await _httpClient.ExecuteGet<CollectionResponse<WorkItem>>(url, cancellationToken);
-            return response?.Value ?? Enumerable.Empty<WorkItem>();
+                var response = await _httpClient.ExecuteGet<CollectionResponse<WorkItem>>(url, cancellationToken);
+                result.AddRange(response?.Value ?? Enumerable.Empty<WorkItem>());
+            }
+
+            return result;
         }
 
         /// <inheritdoc />

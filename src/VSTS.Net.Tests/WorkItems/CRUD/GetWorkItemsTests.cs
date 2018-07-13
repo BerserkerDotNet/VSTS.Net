@@ -2,6 +2,7 @@
 using Moq;
 using NUnit.Framework;
 using System;
+using System.Linq;
 using System.Threading.Tasks;
 using VSTS.Net.Models.Response;
 using VSTS.Net.Models.WorkItems;
@@ -48,6 +49,23 @@ namespace VSTS.Net.Tests.WorkItems.CRUD
             var result = await _client.GetWorkItemsAsync(new[] { 1, 2 });
 
             result.Should().BeEmpty();
+        }
+
+        [Test]
+        public async Task RetrieveInBatchesIfTooManyIds()
+        {
+            var batch1 = Enumerable.Range(1, 10).Select(i => new WorkItem { Id = i }).ToArray();
+            var batch2 = Enumerable.Range(11, 5).Select(i => new WorkItem { Id = i }).ToArray();
+            _client.Configuration.WorkitemsBatchSize = 10;
+            SetupPagedGetCollectionOf<WorkItem>(u => VerifyBatchUrl(u))
+                .ReturnsAsync(new CollectionResponse<WorkItem> { Value = batch1 })
+                .ReturnsAsync(new CollectionResponse<WorkItem> { Value = batch2 });
+
+            var result = await _client.GetWorkItemsAsync(Enumerable.Range(1, 15).ToArray(), fields: new[] { "Id" }, cancellationToken: _cancellationToken);
+
+            result.Should().HaveCount(15);
+
+            _httpClientMock.Verify(c => c.ExecuteGet<CollectionResponse<WorkItem>>(It.IsAny<string>(), _cancellationToken), Times.Exactly(2));
         }
 
         [Test]
@@ -108,6 +126,14 @@ namespace VSTS.Net.Tests.WorkItems.CRUD
             var idsString = string.Join(",", ids);
             var expectedUrl = $"https://{InstanceName}.visualstudio.com/_apis/wit/workitems?ids={idsString}&fields={fieldsString}&api-version";
             return url.StartsWith(expectedUrl, StringComparison.OrdinalIgnoreCase);
+        }
+
+        private bool VerifyBatchUrl(string url)
+        {
+            var batch1Ids = $"ids={string.Join(",", Enumerable.Range(1, 10))}&";
+            var batch2Ids = $"ids={string.Join(",", Enumerable.Range(11, 5))}&";
+
+            return url.Contains(batch1Ids) || url.Contains(batch2Ids);
         }
     }
 }
