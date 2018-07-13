@@ -4,7 +4,8 @@
 [![Build status](https://ci.appveyor.com/api/projects/status/et2718qanpkjf55m?svg=true)](https://ci.appveyor.com/project/BerserkerDotNet/vsts-net)
 
 [![Nuget](https://buildstats.info/nuget/VSTS.Net?v=0.2.1)](https://www.nuget.org/packages/VSTS.Net)
-[![Nuget](https://buildstats.info/nuget/VSTS.Net?v=0.2.1)](https://www.nuget.org/packages/VSTS.Net.AspNetCore)
+
+[![Nuget](https://buildstats.info/nuget/VSTS.Net.AspNetCore?v=0.2.1)](https://www.nuget.org/packages/VSTS.Net.AspNetCore)
 
 [Api documentation](https://berserkerdotnet.github.io/VSTS.Net/site/api/index.html)
 
