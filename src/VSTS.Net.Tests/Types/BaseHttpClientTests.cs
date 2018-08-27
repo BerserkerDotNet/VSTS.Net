@@ -31,7 +31,8 @@ namespace VSTS.Net.Tests.Types
         public void SetUp()
         {
             _httpClientMock = new Mock<IHttpClient>();
-            _client = new VstsClient(InstanceName, _httpClientMock.Object, VstsClientConfiguration.Default, Mock.Of<ILogger<VstsClient>>());
+            var factory = new OnlineUrlBuilderFactory(InstanceName);
+            _client = new VstsClient(factory, _httpClientMock.Object, VstsClientConfiguration.Default, Mock.Of<ILogger<VstsClient>>());
             var source = new CancellationTokenSource();
             _cancellationToken = source.Token;
         }

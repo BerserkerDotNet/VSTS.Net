@@ -28,15 +28,6 @@ namespace VSTS.Net.Tests.WorkItems
         }
 
         [Test]
-        public void ExecuteQueryShouldThrowArgumentNullExceptionIfConfigurationIsNull()
-        {
-            var client = new VstsClient(null, _httpClientMock.Object);
-            client.Awaiting(async c => await c.ExecuteQueryAsync(new WorkItemsQuery("dummy")))
-                .Should()
-                .Throw<ArgumentNullException>("configuration");
-        }
-
-        [Test]
         public void ExecuteQueryShouldThrowArgumentExceptionIfQueryIsEmpty()
         {
             var query = new WorkItemsQuery(string.Empty);
@@ -259,7 +250,7 @@ namespace VSTS.Net.Tests.WorkItems
         private bool VerifyWiqlQueryUrl(string url)
         {
             var expectedUrl = $"https://{InstanceName}.visualstudio.com/_apis/wit/wiql?api-version={Constants.CurrentWorkItemsApiVersion}";
-            return string.Equals(url, expectedUrl, StringComparison.Ordinal);
+            return string.Equals(url, expectedUrl, StringComparison.OrdinalIgnoreCase);
         }
 
         private bool VerifyWorkItemsUrl(string url, IEnumerable<string> fields, IEnumerable<int> ids)
@@ -268,13 +259,13 @@ namespace VSTS.Net.Tests.WorkItems
             var idsString = string.Join(',', ids);
             var expectedUrl = $"https://{InstanceName}.visualstudio.com/_apis/wit/workitems?ids={idsString}&fields={fieldsString}&api-version={Constants.CurrentWorkItemsApiVersion}";
 
-            return string.Equals(url, expectedUrl, StringComparison.Ordinal);
+            return string.Equals(url, expectedUrl, StringComparison.OrdinalIgnoreCase);
         }
 
         private bool VerifyUpdatesUrl(string url, int workitemId)
         {
             var expectedUrl = $"https://{InstanceName}.visualstudio.com/_apis/wit/workitems/{workitemId}/updates?api-version={Constants.CurrentWorkItemsApiVersion}";
-            return string.Equals(url, expectedUrl, StringComparison.Ordinal);
+            return string.Equals(url, expectedUrl, StringComparison.OrdinalIgnoreCase);
         }
     }
 }

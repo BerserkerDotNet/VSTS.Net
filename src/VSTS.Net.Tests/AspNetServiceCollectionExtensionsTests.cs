@@ -50,12 +50,24 @@ namespace VSTS.Net.Tests
         public void ShouldRegisterDefaultConfiguration()
         {
             _services.AddVstsNet(InstanceName, Token);
-            var clientRegistration = _services.Single(d => d.ServiceType == typeof(IVstsClient));
-            var mockServiceProvider = new Mock<IServiceProvider>();
-            var client = clientRegistration.ImplementationFactory(mockServiceProvider.Object) as VstsClient;
+            var configRegistration = _services.Single(d => d.ServiceType == typeof(VstsClientConfiguration));
+            var config = configRegistration.ImplementationInstance as VstsClientConfiguration;
 
-            client.Configuration.Should().NotBeNull();
-            client.Configuration.Should().BeEquivalentTo(VstsClientConfiguration.Default);
+            config.Should().NotBeNull();
+            config.Should().NotBeNull();
+            config.Should().BeEquivalentTo(VstsClientConfiguration.Default);
+        }
+
+        [Test]
+        public void ShouldRegisterDefaultConfigurationWithOnPrem()
+        {
+            _services.AddVstsNet(new Uri("https://foo.com"), Token);
+            var configRegistration = _services.Single(d => d.ServiceType == typeof(VstsClientConfiguration));
+            var config = configRegistration.ImplementationInstance as VstsClientConfiguration;
+
+            config.Should().NotBeNull();
+            config.Should().NotBeNull();
+            config.Should().BeEquivalentTo(VstsClientConfiguration.Default);
         }
 
         [Test]
@@ -65,35 +77,80 @@ namespace VSTS.Net.Tests
             const string expecetdWIAPIVersion = "3.0";
             const int expectedWorkitemsBatchSize = 210;
 
-            _services.AddVstsNet(InstanceName, Token, config => 
+            _services.AddVstsNet(InstanceName, Token, cfg => 
             {
-                config.WorkItemsApiVersion = expecetdWIAPIVersion;
-                config.PullRequestsApiVersion = expectedPRApiVersion;
-                config.WorkitemsBatchSize = expectedWorkitemsBatchSize;
+                cfg.WorkItemsApiVersion = expecetdWIAPIVersion;
+                cfg.PullRequestsApiVersion = expectedPRApiVersion;
+                cfg.WorkitemsBatchSize = expectedWorkitemsBatchSize;
             });
-            var clientRegistration = _services.Single(d => d.ServiceType == typeof(IVstsClient));
-            var mockServiceProvider = new Mock<IServiceProvider>();
-            var client = clientRegistration.ImplementationFactory(mockServiceProvider.Object) as VstsClient;
 
-            client.Configuration.Should().NotBeNull();
-            client.Configuration.WorkItemsApiVersion.Should().Be(expecetdWIAPIVersion);
-            client.Configuration.PullRequestsApiVersion.Should().Be(expectedPRApiVersion);
-            client.Configuration.WorkitemsBatchSize.Should().Be(expectedWorkitemsBatchSize);
+            var configRegistration = _services.Single(d => d.ServiceType == typeof(VstsClientConfiguration));
+            var config = configRegistration.ImplementationInstance as VstsClientConfiguration;
+
+            config.Should().NotBeNull();
+            config.WorkItemsApiVersion.Should().Be(expecetdWIAPIVersion);
+            config.PullRequestsApiVersion.Should().Be(expectedPRApiVersion);
+            config.WorkitemsBatchSize.Should().Be(expectedWorkitemsBatchSize);
+        }
+
+        [Test]
+        public void ShouldRegisterCustomConfigurationWithOnPrem()
+        {
+            const string expectedPRApiVersion = "5.2";
+            const string expecetdWIAPIVersion = "3.2";
+            const int expectedWorkitemsBatchSize = 123;
+
+            _services.AddVstsNet(new Uri("https://foo.com"), Token, cfg =>
+            {
+                cfg.WorkItemsApiVersion = expecetdWIAPIVersion;
+                cfg.PullRequestsApiVersion = expectedPRApiVersion;
+                cfg.WorkitemsBatchSize = expectedWorkitemsBatchSize;
+            });
+
+            var configRegistration = _services.Single(d => d.ServiceType == typeof(VstsClientConfiguration));
+            var config = configRegistration.ImplementationInstance as VstsClientConfiguration;
+
+            config.Should().NotBeNull();
+            config.WorkItemsApiVersion.Should().Be(expecetdWIAPIVersion);
+            config.PullRequestsApiVersion.Should().Be(expectedPRApiVersion);
+            config.WorkitemsBatchSize.Should().Be(expectedWorkitemsBatchSize);
+        }
+
+        [Test]
+        public void ShouldRegisterOnlineUrlFactoryBuilder()
+        {
+            _services.AddVstsNet(InstanceName, Token);
+            _services.Count.Should().BeGreaterThan(0);
+            _services.Should().ContainSingle(d => d.ServiceType == typeof(IVstsUrlBuilderFactory) && d.Lifetime == ServiceLifetime.Singleton);
+
+            var urlFactoryRegistration = _services.Single(d => d.ServiceType == typeof(IVstsUrlBuilderFactory));
+            var urlFactory = urlFactoryRegistration.ImplementationFactory(Mock.Of<IServiceProvider>()) as OnlineUrlBuilderFactory;
+
+            urlFactory.Should().NotBeNull();
+        }
+
+        [Test]
+        public void ShouldRegisterOnPremUrlFactoryBuilder()
+        {
+            const string baseUrl = "https://foo.com";
+
+            _services.AddVstsNet(new Uri(baseUrl), Token);
+            _services.Count.Should().BeGreaterThan(0);
+            _services.Should().ContainSingle(d => d.ServiceType == typeof(IVstsUrlBuilderFactory) && d.Lifetime == ServiceLifetime.Singleton);
+
+            var urlFactoryRegistration = _services.Single(d => d.ServiceType == typeof(IVstsUrlBuilderFactory));
+            var urlFactory = urlFactoryRegistration.ImplementationFactory(Mock.Of<IServiceProvider>()) as OnPremUrlBuilderFactory;
+
+            urlFactory.Should().NotBeNull();
         }
 
         private void TestClientRegistration<T>()
         {
-            var mockServiceProvider = new Mock<IServiceProvider>();
-            mockServiceProvider.Setup(p => p.GetService(It.Is<Type>(t => t == typeof(IVstsClient))))
-                .Returns(_services.Single(d => d.ServiceType == typeof(IVstsClient)).ImplementationFactory(mockServiceProvider.Object));
-
             _services.Count.Should().BeGreaterThan(0);
             _services.Should().ContainSingle(d => d.ServiceType == typeof(T) && d.Lifetime == ServiceLifetime.Singleton);
 
             var clientRegistration = _services.Single(d => d.ServiceType == typeof(T));
-            var client = clientRegistration.ImplementationFactory(mockServiceProvider.Object) as VstsClient;
-
-            client.Should().NotBeNull();
+            clientRegistration.ImplementationType.Should().Be(typeof(VstsClient));
         }
     }
 }

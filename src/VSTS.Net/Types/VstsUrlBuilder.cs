@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 
@@ -19,15 +20,25 @@ namespace VSTS.Net.Types
 
         private StringBuilder _url = new StringBuilder();
         private Dictionary<string, string> _parameters = new Dictionary<string, string>();
+
         private VstsUrlBuilder(string instance, string subDomain = "")
+            : this(new Uri($"https://{$"{instance}.{subDomain}".TrimEnd('.')}.visualstudio.com"))
         {
-            var name = $"{instance}.{subDomain}".TrimEnd('.');
-            _url.Append($"https://{name}.visualstudio.com");
+        }
+
+        private VstsUrlBuilder(Uri baseUri)
+        {
+            _url.Append(baseUri.ToString().Trim('/'));
         }
 
         public static VstsUrlBuilder Create(string instance, string subDomain = "")
         {
             return new VstsUrlBuilder(instance, subDomain);
+        }
+
+        public static VstsUrlBuilder Create(Uri baseUri)
+        {
+            return new VstsUrlBuilder(baseUri);
         }
 
         public VstsUrlBuilder ForWIQL()

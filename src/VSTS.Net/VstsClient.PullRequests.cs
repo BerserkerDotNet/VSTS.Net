@@ -27,7 +27,7 @@ namespace VSTS.Net
             var allPullRequests = new List<PullRequest>();
             while (haveMorePullRequests)
             {
-                var url = VstsUrlBuilder.Create(_instanceName)
+                var url = _urlBuilderFactory.Create()
                     .ForPullRequests(project, repository)
                     .WithQueryParameterIfNotEmpty("searchCriteria.status", query.Status)
                     .WithQueryParameterIfNotEmpty("searchCriteria.reviewerId", query.ReviewerId)
@@ -59,7 +59,7 @@ namespace VSTS.Net
             ThrowIfArgumentNullOrEmpty(project, nameof(project));
             ThrowIfArgumentNullOrEmpty(repository, nameof(repository));
 
-            var iterationsUrl = VstsUrlBuilder.Create(_instanceName)
+            var iterationsUrl = _urlBuilderFactory.Create()
               .ForPullRequests(project, repository)
               .WithSection(pullRequestId.ToString())
               .WithSection("iterations")
@@ -75,7 +75,7 @@ namespace VSTS.Net
             ThrowIfArgumentNullOrEmpty(project, nameof(project));
             ThrowIfArgumentNullOrEmpty(repository, nameof(repository));
 
-            var threadsUrl = VstsUrlBuilder.Create(_instanceName)
+            var threadsUrl = _urlBuilderFactory.Create()
               .ForPullRequests(project, repository)
               .WithSection(pullRequestId.ToString())
               .WithSection("threads")
