@@ -1,10 +1,10 @@
-﻿using FluentAssertions;
-using Moq;
-using NUnit.Framework;
-using System;
+﻿using System;
 using System.Linq;
 using System.Text.RegularExpressions;
 using System.Threading.Tasks;
+using FluentAssertions;
+using Moq;
+using NUnit.Framework;
 using VSTS.Net.Models.PullRequests;
 using VSTS.Net.Models.Request;
 using VSTS.Net.Models.Response;
@@ -15,22 +15,25 @@ namespace VSTS.Net.Tests.PullRequests
     [TestFixture]
     public class GetPullRequestsTests : BaseHttpClientTests
     {
-        [Test, Combinatorial]
+        [Test]
+        [Combinatorial]
         public void ThrowsIfEmptyInput(
             [Values(null, "", ProjectName)]string project,
             [Values(null, "", RepositoryName)]string repository)
         {
             if (!string.IsNullOrEmpty(project) && !string.IsNullOrEmpty(repository))
+            {
                 return;
+            }
 
-            _client.Awaiting(c => c.GetPullRequestsAsync(project, repository, null, _cancellationToken))
+            Client.Awaiting(c => c.GetPullRequestsAsync(project, repository, null, CancellationToken))
                 .Should().Throw<ArgumentNullException>();
         }
 
         [Test]
         public void DoesNotThrowIfNullQuery()
         {
-            _client.Awaiting(c => c.GetPullRequestsAsync(ProjectName, RepositoryName, null, _cancellationToken))
+            Client.Awaiting(c => c.GetPullRequestsAsync(ProjectName, RepositoryName, null, CancellationToken))
                 .Should().NotThrow<ArgumentNullException>();
         }
 
@@ -40,7 +43,7 @@ namespace VSTS.Net.Tests.PullRequests
             var pullRequests = new[] { new PullRequest(), new PullRequest() };
             SetupOnePageOf(pullRequests);
 
-            var result = await _client.GetPullRequestsAsync(ProjectName, RepositoryName, null, _cancellationToken);
+            var result = await Client.GetPullRequestsAsync(ProjectName, RepositoryName, null, CancellationToken);
 
             result.Should().NotBeNull();
             result.Should().NotBeEmpty();
@@ -53,7 +56,7 @@ namespace VSTS.Net.Tests.PullRequests
             SetupGetCollectionOf<PullRequest>()
                 .ReturnsAsync((CollectionResponse<PullRequest>)null);
 
-            var result = await _client.GetPullRequestsAsync(ProjectName, RepositoryName, null, _cancellationToken);
+            var result = await Client.GetPullRequestsAsync(ProjectName, RepositoryName, null, CancellationToken);
 
             result.Should().NotBeNull();
             result.Should().BeEmpty();
@@ -65,9 +68,9 @@ namespace VSTS.Net.Tests.PullRequests
             var pullRequests = new[] { new PullRequest(), new PullRequest() };
             SetupOnePageOf(pullRequests, s => ValidateUrl(s));
 
-            var result = await _client.GetPullRequestsAsync(ProjectName, RepositoryName, null, _cancellationToken);
+            var result = await Client.GetPullRequestsAsync(ProjectName, RepositoryName, null, CancellationToken);
 
-            _httpClientMock.VerifyAll();
+            HttpClientMock.VerifyAll();
 
             result.Should().NotBeNull();
             result.Should().NotBeEmpty();
@@ -87,9 +90,9 @@ namespace VSTS.Net.Tests.PullRequests
             var pullRequests = new[] { CreatePR(daysAgo: 2), CreatePR(daysAgo: 1) };
             SetupOnePageOf(pullRequests, s => ValidateUrlWithQuery(s, query));
 
-            var result = await _client.GetPullRequestsAsync(ProjectName, RepositoryName, query, _cancellationToken);
+            var result = await Client.GetPullRequestsAsync(ProjectName, RepositoryName, query, CancellationToken);
 
-            _httpClientMock.VerifyAll();
+            HttpClientMock.VerifyAll();
 
             result.Should().NotBeNull();
             result.Should().NotBeEmpty();
@@ -110,7 +113,7 @@ namespace VSTS.Net.Tests.PullRequests
                 .ReturnsAsync(new CollectionResponse<PullRequest> { Value = page3 })
                 .ReturnsAsync(new CollectionResponse<PullRequest> { Value = Enumerable.Empty<PullRequest>() });
 
-            var result = await _client.GetPullRequestsAsync(ProjectName, RepositoryName, null, _cancellationToken);
+            var result = await Client.GetPullRequestsAsync(ProjectName, RepositoryName, null, CancellationToken);
 
             skipTotal.Should().Be(11);
             result.Should().NotBeNull();
@@ -134,7 +137,7 @@ namespace VSTS.Net.Tests.PullRequests
                 .ReturnsAsync(new CollectionResponse<PullRequest> { Value = Enumerable.Empty<PullRequest>() });
 
             var query = new PullRequestQuery { CustomFilter = p => !p.Title.Contains("skip") };
-            var result = await _client.GetPullRequestsAsync(ProjectName, RepositoryName, query, _cancellationToken);
+            var result = await Client.GetPullRequestsAsync(ProjectName, RepositoryName, query, CancellationToken);
 
             result.Should().HaveCount(3);
             skipTotal.Should().Be(11);
@@ -154,10 +157,10 @@ namespace VSTS.Net.Tests.PullRequests
                 .ReturnsAsync(new CollectionResponse<PullRequest> { Value = Enumerable.Empty<PullRequest>() });
 
             var query = new PullRequestQuery { CreatedAfter = DateTime.UtcNow.AddDays(-4) };
-            var result = await _client.GetPullRequestsAsync(ProjectName, RepositoryName, query, _cancellationToken);
+            var result = await Client.GetPullRequestsAsync(ProjectName, RepositoryName, query, CancellationToken);
 
             result.Should().HaveCount(3);
-            _httpClientMock.Verify(c => c.ExecuteGet<CollectionResponse<PullRequest>>(It.IsAny<string>(), _cancellationToken), Times.Exactly(2));
+            HttpClientMock.Verify(c => c.ExecuteGet<CollectionResponse<PullRequest>>(It.IsAny<string>(), CancellationToken), Times.Exactly(2));
         }
 
         [Test]
@@ -167,7 +170,7 @@ namespace VSTS.Net.Tests.PullRequests
             SetupOnePageOf(pullRequests);
             var query = new PullRequestQuery { CreatedAfter = DateTime.UtcNow.AddDays(-4) };
 
-            var result = await _client.GetPullRequestsAsync(ProjectName, RepositoryName, query, _cancellationToken);
+            var result = await Client.GetPullRequestsAsync(ProjectName, RepositoryName, query, CancellationToken);
 
             result.Should().HaveCount(2);
             result.Should().BeEquivalentTo(pullRequests.Skip(1));
@@ -187,7 +190,7 @@ namespace VSTS.Net.Tests.PullRequests
                 .ReturnsAsync(new CollectionResponse<PullRequest> { Value = Enumerable.Empty<PullRequest>() });
             var query = new PullRequestQuery { CreatedAfter = DateTime.UtcNow.AddDays(-4) };
 
-            var result = await _client.GetPullRequestsAsync(ProjectName, RepositoryName, query, _cancellationToken);
+            var result = await Client.GetPullRequestsAsync(ProjectName, RepositoryName, query, CancellationToken);
 
             VerifyPagedRequests<PullRequest>(Times.Exactly(2));
 
@@ -202,7 +205,7 @@ namespace VSTS.Net.Tests.PullRequests
             SetupOnePageOf(pullRequests);
             var query = new PullRequestQuery { CustomFilter = p => p.Title.StartsWith("Bug") };
 
-            var result = await _client.GetPullRequestsAsync(ProjectName, RepositoryName, query, _cancellationToken);
+            var result = await Client.GetPullRequestsAsync(ProjectName, RepositoryName, query, CancellationToken);
 
             result.Should().HaveCount(2);
             result.Should().OnlyContain(p => query.CustomFilter(p));
@@ -215,7 +218,7 @@ namespace VSTS.Net.Tests.PullRequests
             SetupOnePageOf(pullRequests);
             var query = new PullRequestQuery { CustomFilter = p => p.Title.StartsWith("Bug"), CreatedAfter = DateTime.UtcNow.AddDays(-3) };
 
-            var result = await _client.GetPullRequestsAsync(ProjectName, RepositoryName, query, _cancellationToken);
+            var result = await Client.GetPullRequestsAsync(ProjectName, RepositoryName, query, CancellationToken);
 
             result.Should().HaveCount(1);
             result.Should().BeEquivalentTo(pullRequests.Take(1));
@@ -231,7 +234,7 @@ namespace VSTS.Net.Tests.PullRequests
                 .Throws<Exception>()
                 .ReturnsAsync(new CollectionResponse<PullRequest> { Value = Enumerable.Empty<PullRequest>() });
 
-            _client.Awaiting(c => c.GetPullRequestsAsync(ProjectName, RepositoryName, null, _cancellationToken))
+            Client.Awaiting(c => c.GetPullRequestsAsync(ProjectName, RepositoryName, null, CancellationToken))
                 .Should().Throw<Exception>();
         }
 
@@ -261,9 +264,11 @@ namespace VSTS.Net.Tests.PullRequests
         private PullRequest CreatePR(DateTime? createdOn = null)
         {
             if (!createdOn.HasValue)
+            {
                 createdOn = DateTime.UtcNow;
+            }
 
-            return new PullRequest { CreationDate = createdOn.Value, PullRequestId = _random.Next(1, int.MaxValue) };
+            return new PullRequest { CreationDate = createdOn.Value, PullRequestId = Random.Next(1, int.MaxValue) };
         }
 
         private PullRequest CreatePR(int daysAgo)
@@ -273,7 +278,7 @@ namespace VSTS.Net.Tests.PullRequests
 
         private PullRequest CreatePR(string title, int daysAgo = 1)
         {
-            return new PullRequest { PullRequestId = _random.Next(1, int.MaxValue), Title = title, CreationDate = DateTime.UtcNow.AddDays(-daysAgo) };
+            return new PullRequest { PullRequestId = Random.Next(1, int.MaxValue), Title = title, CreationDate = DateTime.UtcNow.AddDays(-daysAgo) };
         }
     }
 }

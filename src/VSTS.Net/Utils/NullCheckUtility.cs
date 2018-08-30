@@ -11,14 +11,18 @@ namespace VSTS.Net.Utils
         public static void ThrowIfArgumentNull<T>(T obj, string name = "")
         {
             if (obj == null)
+            {
                 throw new ArgumentNullException(name);
+            }
         }
 
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static void ThrowIfArgumentNullOrEmpty(string str, string message = "")
         {
             if (string.IsNullOrEmpty(str))
+            {
                 throw new ArgumentNullException(message);
+            }
         }
     }
 }

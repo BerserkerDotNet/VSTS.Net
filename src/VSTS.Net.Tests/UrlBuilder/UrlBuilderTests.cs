@@ -1,6 +1,6 @@
-﻿using FluentAssertions;
+﻿using System;
+using FluentAssertions;
 using NUnit.Framework;
-using System;
 using VSTS.Net.Types;
 
 namespace VSTS.Net.Tests.UrlBuilder

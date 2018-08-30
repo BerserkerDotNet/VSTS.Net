@@ -1,8 +1,8 @@
-﻿using FluentAssertions;
+﻿using System;
+using System.Threading.Tasks;
+using FluentAssertions;
 using Moq;
 using NUnit.Framework;
-using System;
-using System.Threading.Tasks;
 using VSTS.Net.Models.WorkItems;
 using VSTS.Net.Tests.Types;
 
@@ -18,14 +18,14 @@ namespace VSTS.Net.Tests.WorkItems.CRUD
             var workItem = new WorkItem { Id = expectedWorkitemId };
             SetupSingle(workItem);
 
-            var result = await _client.GetWorkItemAsync(expectedWorkitemId, cancellationToken: _cancellationToken);
+            var result = await Client.GetWorkItemAsync(expectedWorkitemId, cancellationToken: CancellationToken);
 
             result.Should().NotBeNull();
             result.Id.Should().Be(expectedWorkitemId);
         }
 
         [Test]
-        public async Task VerifyUrlHasAllParameters() 
+        public async Task VerifyUrlHasAllParameters()
         {
             const int expectedWorkitemId = 2;
             var dt = DateTime.UtcNow.AddDays(-1);
@@ -33,9 +33,9 @@ namespace VSTS.Net.Tests.WorkItems.CRUD
             var workItem = new WorkItem { Id = expectedWorkitemId };
             SetupSingle(workItem, u => VerifyUrlWithAll(u, dt, fields, expectedWorkitemId));
 
-            var result = await _client.GetWorkItemAsync(expectedWorkitemId, dt, fields, cancellationToken: _cancellationToken);
+            var result = await Client.GetWorkItemAsync(expectedWorkitemId, dt, fields, cancellationToken: CancellationToken);
 
-            _httpClientMock.Verify();
+            HttpClientMock.Verify();
         }
 
         [Test]
@@ -49,11 +49,11 @@ namespace VSTS.Net.Tests.WorkItems.CRUD
             SetupSingle(workItem, u => VerifyUrlWithoutAsOf(u, fields, expectedWorkitemId));
             SetupSingle(workItem, u => VerifyUrlBasic(u, expectedWorkitemId));
 
-            await _client.GetWorkItemAsync(expectedWorkitemId, null, fields, cancellationToken: _cancellationToken);
-            await _client.GetWorkItemAsync(expectedWorkitemId, dt, cancellationToken: _cancellationToken);
-            await _client.GetWorkItemAsync(expectedWorkitemId, cancellationToken: _cancellationToken);
+            await Client.GetWorkItemAsync(expectedWorkitemId, null, fields, cancellationToken: CancellationToken);
+            await Client.GetWorkItemAsync(expectedWorkitemId, dt, cancellationToken: CancellationToken);
+            await Client.GetWorkItemAsync(expectedWorkitemId, cancellationToken: CancellationToken);
 
-            _httpClientMock.Verify();
+            HttpClientMock.Verify();
         }
 
         [Test]
@@ -61,7 +61,7 @@ namespace VSTS.Net.Tests.WorkItems.CRUD
         {
             SetupSingle<WorkItem>().Throws<Exception>();
 
-            _client.Awaiting(c => c.GetWorkItemAsync(1, cancellationToken: _cancellationToken))
+            Client.Awaiting(c => c.GetWorkItemAsync(1, cancellationToken: CancellationToken))
                 .Should().Throw<Exception>();
         }
 

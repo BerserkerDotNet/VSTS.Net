@@ -1,8 +1,8 @@
-﻿using FluentAssertions;
+﻿using System;
+using System.Threading.Tasks;
+using FluentAssertions;
 using Moq;
 using NUnit.Framework;
-using System;
-using System.Threading.Tasks;
 using VSTS.Net.Models.PullRequests;
 using VSTS.Net.Models.Response;
 using VSTS.Net.Tests.Types;
@@ -12,15 +12,18 @@ namespace VSTS.Net.Tests.PullRequests
     [TestFixture]
     public class GetPullRequestIterationsTests : BaseHttpClientTests
     {
-        [Test, Combinatorial]
+        [Test]
+        [Combinatorial]
         public void ThrowsIfEmptyInput(
              [Values(null, "", ProjectName)]string project,
              [Values(null, "", RepositoryName)]string repository)
         {
             if (!string.IsNullOrEmpty(project) && !string.IsNullOrEmpty(repository))
+            {
                 return;
+            }
 
-            _client.Awaiting(c => c.GetPullRequestIterationsAsync(project, repository, 0))
+            Client.Awaiting(c => c.GetPullRequestIterationsAsync(project, repository, 0))
                 .Should().Throw<ArgumentNullException>();
         }
 
@@ -30,7 +33,7 @@ namespace VSTS.Net.Tests.PullRequests
             var iterations = new[] { new PullRequestIteration(), new PullRequestIteration() };
             SetupOnePageOf(iterations);
 
-            var result = await _client.GetPullRequestIterationsAsync(ProjectName, RepositoryName, 0, _cancellationToken);
+            var result = await Client.GetPullRequestIterationsAsync(ProjectName, RepositoryName, 0, CancellationToken);
 
             result.Should().HaveCount(2);
             result.Should().BeSameAs(iterations);
@@ -42,7 +45,7 @@ namespace VSTS.Net.Tests.PullRequests
             SetupGetCollectionOf<PullRequestIteration>()
                 .ReturnsAsync((CollectionResponse<PullRequestIteration>)null);
 
-            var result = await _client.GetPullRequestIterationsAsync(ProjectName, RepositoryName, 0, _cancellationToken);
+            var result = await Client.GetPullRequestIterationsAsync(ProjectName, RepositoryName, 0, CancellationToken);
 
             result.Should().BeEmpty();
         }
@@ -54,7 +57,7 @@ namespace VSTS.Net.Tests.PullRequests
             var iterations = new[] { new PullRequestIteration(), new PullRequestIteration() };
             SetupOnePageOf(iterations, u => VerifyUrl(u, pullRequestId));
 
-            var result = await _client.GetPullRequestIterationsAsync(ProjectName, RepositoryName, pullRequestId, _cancellationToken);
+            var result = await Client.GetPullRequestIterationsAsync(ProjectName, RepositoryName, pullRequestId, CancellationToken);
 
             VerifyPagedRequests<PullRequestIteration>(Times.Once());
 

@@ -1,30 +1,31 @@
-﻿using FluentAssertions;
-using Moq;
-using NUnit.Framework;
-using System;
+﻿using System;
 using System.Linq;
 using System.Threading.Tasks;
+using FluentAssertions;
+using Moq;
+using NUnit.Framework;
 using VSTS.Net.Models.Request;
 using VSTS.Net.Models.WorkItems;
-using VSTS.Net.Types;
 using VSTS.Net.Tests.Types;
+using VSTS.Net.Types;
 
 namespace VSTS.Net.Tests.WorkItems.CRUD
 {
     [TestFixture]
     public class CreateWorkItemTests : BaseHttpClientTests
     {
-        [Test, Sequential]
+        [Test]
+        [Sequential]
         public void ThrowsArgumentExceptionIfArgumentsNull([Values(null, "", ProjectName, ProjectName)]string project, [Values("Task", "Task", null, "")]string type)
         {
-            _client.Awaiting(c => c.CreateWorkItemAsync(project, type, new WorkItem(), _cancellationToken))
+            Client.Awaiting(c => c.CreateWorkItemAsync(project, type, new WorkItem(), CancellationToken))
                 .Should().Throw<ArgumentNullException>();
         }
 
         [Test]
         public void ThrowsArgumentExceptionIfWorkitemIsNull()
         {
-            _client.Awaiting(c => c.CreateWorkItemAsync(ProjectName, "Task", null, _cancellationToken))
+            Client.Awaiting(c => c.CreateWorkItemAsync(ProjectName, "Task", null, CancellationToken))
                 .Should().Throw<ArgumentNullException>();
         }
 
@@ -36,13 +37,13 @@ namespace VSTS.Net.Tests.WorkItems.CRUD
             workitem.Fields.Add("System.Title", "Foo");
             workitem.Fields.Add("System.Tags", "Bla; Foo");
 
-            _httpClientMock.Setup(c => c.ExecutePost<WorkItem>(It.IsAny<string>(), It.Is<UpdateWorkitemRequest.Update[]>(r => ValidateRequest(r, workitem)), Constants.JsonPatchMimeType, _cancellationToken))
+            HttpClientMock.Setup(c => c.ExecutePost<WorkItem>(It.IsAny<string>(), It.Is<UpdateWorkitemRequest.Update[]>(r => ValidateRequest(r, workitem)), Constants.JsonPatchMimeType, CancellationToken))
                 .ReturnsAsync(workitem)
                 .Verifiable();
 
-            var result = await _client.CreateWorkItemAsync(ProjectName, "Task", workitem, _cancellationToken);
+            var result = await Client.CreateWorkItemAsync(ProjectName, "Task", workitem, CancellationToken);
 
-            _httpClientMock.Verify();
+            HttpClientMock.Verify();
             result.Should().Be(workitem);
         }
 
@@ -53,24 +54,24 @@ namespace VSTS.Net.Tests.WorkItems.CRUD
             var workitem = new WorkItem();
             workitem.Fields = new System.Collections.Generic.Dictionary<string, string>();
 
-            _httpClientMock.Setup(c => c.ExecutePost<WorkItem>(It.Is<string>(u => VerifyUrl(u, type)), It.IsAny<UpdateWorkitemRequest.Update[]>(), Constants.JsonPatchMimeType, _cancellationToken))
+            HttpClientMock.Setup(c => c.ExecutePost<WorkItem>(It.Is<string>(u => VerifyUrl(u, type)), It.IsAny<UpdateWorkitemRequest.Update[]>(), Constants.JsonPatchMimeType, CancellationToken))
                 .ReturnsAsync(workitem)
                 .Verifiable();
 
-            var result = await _client.CreateWorkItemAsync(ProjectName, type, workitem, _cancellationToken);
+            var result = await Client.CreateWorkItemAsync(ProjectName, type, workitem, CancellationToken);
 
-            _httpClientMock.Verify();
+            HttpClientMock.Verify();
             result.Should().Be(workitem);
         }
 
         [Test]
         public void DoesNotCatchExceptions()
         {
-            _httpClientMock.Setup(c => c.ExecutePost<WorkItem>(It.IsAny<string>(), It.IsAny<UpdateWorkitemRequest.Update[]>(), Constants.JsonPatchMimeType, _cancellationToken))
+            HttpClientMock.Setup(c => c.ExecutePost<WorkItem>(It.IsAny<string>(), It.IsAny<UpdateWorkitemRequest.Update[]>(), Constants.JsonPatchMimeType, CancellationToken))
                 .Throws<Exception>()
                 .Verifiable();
 
-            _client.Awaiting(c => c.CreateWorkItemAsync(ProjectName, "Bug", new WorkItem(), _cancellationToken));
+            Client.Awaiting(c => c.CreateWorkItemAsync(ProjectName, "Bug", new WorkItem(), CancellationToken));
         }
 
         private bool VerifyUrl(string url, string type)

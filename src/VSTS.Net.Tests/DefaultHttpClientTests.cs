@@ -1,15 +1,15 @@
-﻿using FluentAssertions;
-using Microsoft.Extensions.Logging;
-using Moq;
-using Moq.Protected;
-using Newtonsoft.Json;
-using NUnit.Framework;
-using System;
+﻿using System;
 using System.Net.Http;
 using System.Net.Http.Headers;
 using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
+using FluentAssertions;
+using Microsoft.Extensions.Logging;
+using Moq;
+using Moq.Protected;
+using Newtonsoft.Json;
+using NUnit.Framework;
 using VSTS.Net.Types;
 
 namespace VSTS.Net.Tests
@@ -132,8 +132,8 @@ namespace VSTS.Net.Tests
         private bool VerifyPostRequest(HttpRequestMessage request, string expectedContent, string expectedMimeType)
         {
             var content = request.Content.ReadAsStringAsync().GetAwaiter().GetResult();
-            return request.Method == HttpMethod.Post && 
-                request.RequestUri.LocalPath == "/sample" && 
+            return request.Method == HttpMethod.Post &&
+                request.RequestUri.LocalPath == "/sample" &&
                 content == expectedContent &&
                 request.Content.Headers.ContentType.MediaType == expectedMimeType;
         }

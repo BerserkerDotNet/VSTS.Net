@@ -1,9 +1,9 @@
-﻿using FluentAssertions;
+﻿using System;
+using System.Linq;
+using FluentAssertions;
 using Microsoft.Extensions.DependencyInjection;
 using Moq;
 using NUnit.Framework;
-using System;
-using System.Linq;
 using VSTS.Net.Extensions;
 using VSTS.Net.Interfaces;
 using VSTS.Net.Tests.Types;
@@ -14,9 +14,9 @@ namespace VSTS.Net.Tests
     [TestFixture]
     public class AspNetServiceCollectionExtensionsTests
     {
-        const string InstanceName = "Foo";
-        const string Token = "Bla";
-        IServiceCollection _services;
+        private const string InstanceName = "Foo";
+        private const string Token = "Bla";
+        private IServiceCollection _services;
 
         [SetUp]
         public void SetUp()
@@ -77,7 +77,7 @@ namespace VSTS.Net.Tests
             const string expecetdWIAPIVersion = "3.0";
             const int expectedWorkitemsBatchSize = 210;
 
-            _services.AddVstsNet(InstanceName, Token, cfg => 
+            _services.AddVstsNet(InstanceName, Token, cfg =>
             {
                 cfg.WorkItemsApiVersion = expecetdWIAPIVersion;
                 cfg.PullRequestsApiVersion = expectedPRApiVersion;

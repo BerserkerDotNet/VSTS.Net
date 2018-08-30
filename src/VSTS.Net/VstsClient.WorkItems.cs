@@ -1,9 +1,9 @@
-﻿using Microsoft.Extensions.Logging;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
+using Microsoft.Extensions.Logging;
 using VSTS.Net.Interfaces;
 using VSTS.Net.Models.Request;
 using VSTS.Net.Models.Response;
@@ -28,7 +28,9 @@ namespace VSTS.Net
             _logger.LogDebug("Requesting {0}", url);
 
             if (query.IsHierarchical)
+            {
                 return await _httpClient.ExecutePost<HierarchicalWorkItemsQueryResult>(url, query, cancellationToken);
+            }
 
             return await _httpClient.ExecutePost<FlatWorkItemsQueryResult>(url, query, cancellationToken);
         }
@@ -51,7 +53,9 @@ namespace VSTS.Net
             }
 
             if (!ids.Any())
+            {
                 return Enumerable.Empty<WorkItem>();
+            }
 
             var columns = queryResult.Columns.Select(c => c.ReferenceName).ToArray();
             return await GetWorkItemsAsync(ids, fields: columns, cancellationToken: cancellationToken);
@@ -67,7 +71,9 @@ namespace VSTS.Net
 
             var result = await _httpClient.ExecuteGet<CollectionResponse<WorkItemUpdate>>(url, cancellationToken);
             if (result == null)
+            {
                 return Enumerable.Empty<WorkItemUpdate>();
+            }
 
             return result.Value;
         }
@@ -93,7 +99,9 @@ namespace VSTS.Net
             ThrowIfArgumentNull(ids, nameof(ids));
 
             if (!ids.Any())
+            {
                 return Enumerable.Empty<WorkItem>();
+            }
 
             var result = new List<WorkItem>(ids.Length);
             var fieldsString = fields != null ? string.Join(",", fields) : string.Empty;

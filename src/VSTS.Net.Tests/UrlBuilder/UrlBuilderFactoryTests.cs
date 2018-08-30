@@ -1,8 +1,8 @@
-﻿using FluentAssertions;
-using NUnit.Framework;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Text;
+using FluentAssertions;
+using NUnit.Framework;
 using VSTS.Net.Types;
 
 namespace VSTS.Net.Tests.UrlBuilder

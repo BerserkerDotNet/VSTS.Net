@@ -1,13 +1,13 @@
-﻿using FluentAssertions;
+﻿using System;
+using System.Linq;
+using System.Threading.Tasks;
+using FluentAssertions;
 using Moq;
 using NUnit.Framework;
-using System;
-using System.Threading.Tasks;
 using VSTS.Net.Models.Request;
 using VSTS.Net.Models.WorkItems;
-using VSTS.Net.Types;
 using VSTS.Net.Tests.Types;
-using System.Linq;
+using VSTS.Net.Types;
 
 namespace VSTS.Net.Tests.WorkItems.CRUD
 {
@@ -17,14 +17,14 @@ namespace VSTS.Net.Tests.WorkItems.CRUD
         [Test]
         public void ThrowsExceptionIfRequestIsNull()
         {
-            _client.Awaiting(c => c.UpdateWorkItemAsync(null, _cancellationToken))
+            Client.Awaiting(c => c.UpdateWorkItemAsync(null, CancellationToken))
                 .Should().Throw<ArgumentNullException>();
         }
 
         [Test]
         public void ThrowsExceptionIfWorkitemIdIsNull()
         {
-            _client.Awaiting(c => c.UpdateWorkItemAsync(new UpdateWorkitemRequest(), _cancellationToken))
+            Client.Awaiting(c => c.UpdateWorkItemAsync(new UpdateWorkitemRequest(), CancellationToken))
                 .Should().Throw<ArgumentNullException>();
         }
 
@@ -37,13 +37,13 @@ namespace VSTS.Net.Tests.WorkItems.CRUD
             var updateRequest = new UpdateWorkitemRequest(expectedId);
             updateRequest.AddFieldValue("System.Title", "Foo");
             updateRequest.AddFieldValue("System.Tags", "Bla");
-            _httpClientMock.Setup(c => c.ExecutePatch<WorkItem>(It.Is<string>(u=>VerifyUrl(u, expectedId)), It.Is<UpdateWorkitemRequest.Update[]>(r=>ValidateRequest(r, updateRequest.Updates.ToArray())), Constants.JsonPatchMimeType, _cancellationToken))
+            HttpClientMock.Setup(c => c.ExecutePatch<WorkItem>(It.Is<string>(u => VerifyUrl(u, expectedId)), It.Is<UpdateWorkitemRequest.Update[]>(r => ValidateRequest(r, updateRequest.Updates.ToArray())), Constants.JsonPatchMimeType, CancellationToken))
                 .ReturnsAsync(workitem)
                 .Verifiable();
 
-            var result = await _client.UpdateWorkItemAsync(updateRequest, _cancellationToken);
+            var result = await Client.UpdateWorkItemAsync(updateRequest, CancellationToken);
 
-            _httpClientMock.Verify();
+            HttpClientMock.Verify();
             result.Should().Be(workitem);
         }
 

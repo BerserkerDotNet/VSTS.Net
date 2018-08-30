@@ -29,6 +29,11 @@ namespace VSTS.Net
         {
         }
 
+        /// <summary>
+        /// Client configuration
+        /// </summary>
+        public VstsClientConfiguration Configuration { get; set; }
+
         public static VstsClient Get(IVstsUrlBuilderFactory urlBuilderFactory, string accessToken, VstsClientConfiguration configuration = null, ILogger<VstsClient> logger = null)
         {
             var client = HttpClientUtil.Create(accessToken);
@@ -36,10 +41,5 @@ namespace VSTS.Net
             var clientLogger = logger ?? new NullLogger<VstsClient>();
             return new VstsClient(urlBuilderFactory, httpClient, configuration ?? VstsClientConfiguration.Default, logger ?? clientLogger);
         }
-
-        /// <summary>
-        /// Client configuration
-        /// </summary>
-        public VstsClientConfiguration Configuration { get; set; }
     }
 }

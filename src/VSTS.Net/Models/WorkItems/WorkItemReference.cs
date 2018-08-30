@@ -22,10 +22,14 @@ namespace VSTS.Net.Models.WorkItems
         public bool Equals(WorkItemReference other)
         {
             if (ReferenceEquals(this, other))
+            {
                 return true;
+            }
 
             if (other == null)
+            {
                 return false;
+            }
 
             return Id == other.Id;
         }
@@ -33,7 +37,9 @@ namespace VSTS.Net.Models.WorkItems
         public override bool Equals(object obj)
         {
             if (ReferenceEquals(this, obj))
+            {
                 return true;
+            }
 
             return base.Equals(obj as WorkItemReference);
         }

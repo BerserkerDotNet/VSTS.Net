@@ -1,6 +1,6 @@
-﻿using Newtonsoft.Json;
-using System;
+﻿using System;
 using System.Collections.Generic;
+using Newtonsoft.Json;
 using VSTS.Net.Models.Identity;
 
 namespace VSTS.Net.Models.WorkItems
@@ -43,13 +43,14 @@ namespace VSTS.Net.Models.WorkItems
         /// </summary>
         public string Url { get; set; }
 
-
         public WorkItemFieldUpdate this[string key]
         {
             get
             {
                 if (string.IsNullOrEmpty(key) || Fields == null || !Fields.ContainsKey(key))
+                {
                     return new WorkItemFieldUpdate();
+                }
 
                 return Fields[key];
             }

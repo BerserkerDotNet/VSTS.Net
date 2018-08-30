@@ -12,7 +12,7 @@ namespace VSTS.Net.Tests.Models
         {
             var update = new WorkItemUpdate();
             update.Fields = new System.Collections.Generic.Dictionary<string, WorkItemFieldUpdate>();
-            var wfu = new WorkItemFieldUpdate { OldValue = "", NewValue = "Bla" };
+            var wfu = new WorkItemFieldUpdate { OldValue = string.Empty, NewValue = "Bla" };
             update.Fields.Add("Foo", wfu);
 
             var fieldUpdate = update["Foo"];

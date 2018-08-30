@@ -106,15 +106,19 @@ namespace VSTS.Net.Types
         public VstsUrlBuilder WithQueryParameterIfNotEmpty<T>(string name, T value)
         {
             if (value == null || string.IsNullOrEmpty(value.ToString()))
+            {
                 return this;
-            
+            }
+
             return WithQueryParameter(name, value.ToString());
         }
 
         public VstsUrlBuilder WithQueryParameterIfNotDefault<T>(string name, T value)
         {
             if (EqualityComparer<T>.Default.Equals(value, default(T)))
+            {
                 return this;
+            }
 
             return WithQueryParameter(name, value.ToString());
         }

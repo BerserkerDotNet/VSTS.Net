@@ -21,10 +21,14 @@ namespace VSTS.Net.Models.Identity
         public virtual bool Equals(IdentityReference other)
         {
             if (other == null)
+            {
                 return false;
+            }
 
             if (ReferenceEquals(this, other))
+            {
                 return true;
+            }
 
             return string.Equals(UniqueName, other.UniqueName, StringComparison.OrdinalIgnoreCase);
         }

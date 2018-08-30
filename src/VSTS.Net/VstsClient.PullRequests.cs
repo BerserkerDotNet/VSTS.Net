@@ -20,7 +20,9 @@ namespace VSTS.Net
             ThrowIfArgumentNullOrEmpty(repository, nameof(repository));
 
             if (query == null)
+            {
                 query = PullRequestQuery.None;
+            }
 
             var haveMorePullRequests = true;
             var skip = 0;
@@ -42,10 +44,14 @@ namespace VSTS.Net
                 haveMorePullRequests = pullRequests.Any() && (!query.CreatedAfter.HasValue || pullRequests.Min(p => p.CreationDate) >= query.CreatedAfter);
 
                 if (query.CreatedAfter.HasValue)
+                {
                     pullRequests = pullRequests.Where(p => p.CreationDate >= query.CreatedAfter);
+                }
 
                 if (query.CustomFilter != null)
+                {
                     pullRequests = pullRequests.Where(query.CustomFilter);
+                }
 
                 allPullRequests.AddRange(pullRequests);
             }

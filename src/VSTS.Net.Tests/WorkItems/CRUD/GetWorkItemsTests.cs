@@ -1,9 +1,9 @@
-﻿using FluentAssertions;
-using Moq;
-using NUnit.Framework;
-using System;
+﻿using System;
 using System.Linq;
 using System.Threading.Tasks;
+using FluentAssertions;
+using Moq;
+using NUnit.Framework;
 using VSTS.Net.Models.Response;
 using VSTS.Net.Models.WorkItems;
 using VSTS.Net.Tests.Types;
@@ -11,19 +11,19 @@ using VSTS.Net.Tests.Types;
 namespace VSTS.Net.Tests.WorkItems.CRUD
 {
     [TestFixture]
-    public class GetWorkItemsTests: BaseHttpClientTests
+    public class GetWorkItemsTests : BaseHttpClientTests
     {
         [Test]
         public void ThrowsIfEmptyListOfIds()
         {
-            _client.Awaiting(c => c.GetWorkItemsAsync((int[])null))
+            Client.Awaiting(c => c.GetWorkItemsAsync((int[])null))
                 .Should().Throw<ArgumentNullException>();
         }
 
         [Test]
         public async Task ReturnsEmptyCollectionIfEmptyListOfIds()
         {
-            var result = await _client.GetWorkItemsAsync(new int[0]);
+            var result = await Client.GetWorkItemsAsync(new int[0]);
 
             result.Should().BeEmpty();
         }
@@ -35,7 +35,7 @@ namespace VSTS.Net.Tests.WorkItems.CRUD
             SetupGetCollectionOf<WorkItem>()
                 .ReturnsAsync(new CollectionResponse<WorkItem> { Value = workitems });
 
-            var result = await _client.GetWorkItemsAsync(new[] { 1, 2 }, cancellationToken: _cancellationToken);
+            var result = await Client.GetWorkItemsAsync(new[] { 1, 2 }, cancellationToken: CancellationToken);
 
             result.Should().BeEquivalentTo(workitems);
         }
@@ -46,7 +46,7 @@ namespace VSTS.Net.Tests.WorkItems.CRUD
             SetupGetCollectionOf<WorkItem>()
                 .ReturnsAsync((CollectionResponse<WorkItem>)null);
 
-            var result = await _client.GetWorkItemsAsync(new[] { 1, 2 });
+            var result = await Client.GetWorkItemsAsync(new[] { 1, 2 });
 
             result.Should().BeEmpty();
         }
@@ -56,16 +56,16 @@ namespace VSTS.Net.Tests.WorkItems.CRUD
         {
             var batch1 = Enumerable.Range(1, 10).Select(i => new WorkItem { Id = i }).ToArray();
             var batch2 = Enumerable.Range(11, 5).Select(i => new WorkItem { Id = i }).ToArray();
-            _client.Configuration.WorkitemsBatchSize = 10;
+            Client.Configuration.WorkitemsBatchSize = 10;
             SetupPagedGetCollectionOf<WorkItem>(u => VerifyBatchUrl(u))
                 .ReturnsAsync(new CollectionResponse<WorkItem> { Value = batch1 })
                 .ReturnsAsync(new CollectionResponse<WorkItem> { Value = batch2 });
 
-            var result = await _client.GetWorkItemsAsync(Enumerable.Range(1, 15).ToArray(), fields: new[] { "Id" }, cancellationToken: _cancellationToken);
+            var result = await Client.GetWorkItemsAsync(Enumerable.Range(1, 15).ToArray(), fields: new[] { "Id" }, cancellationToken: CancellationToken);
 
             result.Should().HaveCount(15);
 
-            _httpClientMock.Verify(c => c.ExecuteGet<CollectionResponse<WorkItem>>(It.IsAny<string>(), _cancellationToken), Times.Exactly(2));
+            HttpClientMock.Verify(c => c.ExecuteGet<CollectionResponse<WorkItem>>(It.IsAny<string>(), CancellationToken), Times.Exactly(2));
         }
 
         [Test]
@@ -88,12 +88,12 @@ namespace VSTS.Net.Tests.WorkItems.CRUD
                 .ReturnsAsync(new CollectionResponse<WorkItem> { Value = workitems })
                 .Verifiable();
 
-            await _client.GetWorkItemsAsync(ids, cancellationToken: _cancellationToken);
-            await _client.GetWorkItemsAsync(ids, asOf, fields, cancellationToken: _cancellationToken);
-            await _client.GetWorkItemsAsync(ids, fields: fields, cancellationToken: _cancellationToken);
-            await _client.GetWorkItemsAsync(ids, asOf, cancellationToken: _cancellationToken);
+            await Client.GetWorkItemsAsync(ids, cancellationToken: CancellationToken);
+            await Client.GetWorkItemsAsync(ids, asOf, fields, cancellationToken: CancellationToken);
+            await Client.GetWorkItemsAsync(ids, fields: fields, cancellationToken: CancellationToken);
+            await Client.GetWorkItemsAsync(ids, asOf, cancellationToken: CancellationToken);
 
-            _httpClientMock.Verify();
+            HttpClientMock.Verify();
         }
 
         private bool VerifyUrlWithIds(string url, int[] ids)

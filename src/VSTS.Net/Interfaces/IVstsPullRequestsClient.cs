@@ -25,7 +25,7 @@ namespace VSTS.Net.Interfaces
         /// <param name="repository">The repository ID of the pull request's target branch.</param>
         /// <param name="pullRequestId">ID of the pull request.</param>
         /// <param name="cancellationToken">Cancellation token</param>
-        /// <returns></returns>
+        /// <returns>List of pull request iterations</returns>
         Task<IEnumerable<PullRequestIteration>> GetPullRequestIterationsAsync(string project, string repository, int pullRequestId, CancellationToken cancellationToken = default(CancellationToken));
 
         /// <summary>
@@ -35,7 +35,7 @@ namespace VSTS.Net.Interfaces
         /// <param name="repository">The repository ID of the pull request's target branch.</param>
         /// <param name="pullRequestId">ID of the pull request.</param>
         /// <param name="cancellationToken">Cancellation token</param>
-        /// <returns></returns>
+        /// <returns>List of pull request threads</returns>
         Task<IEnumerable<PullRequestThread>> GetPullRequestThreadsAsync(string project, string repository, int pullRequestId, CancellationToken cancellationToken = default(CancellationToken));
     }
 }

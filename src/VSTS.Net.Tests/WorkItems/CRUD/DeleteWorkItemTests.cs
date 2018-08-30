@@ -1,8 +1,8 @@
-﻿using FluentAssertions;
+﻿using System;
+using System.Threading.Tasks;
+using FluentAssertions;
 using Moq;
 using NUnit.Framework;
-using System;
-using System.Threading.Tasks;
 using VSTS.Net.Models.Response;
 using VSTS.Net.Tests.Types;
 
@@ -15,24 +15,24 @@ namespace VSTS.Net.Tests.WorkItems.CRUD
         public async Task SendDeleteRequest([Values(true, false)]bool destroy)
         {
             const int workitemId = 124;
-            _httpClientMock.Setup(c => c.ExecuteDelete<WorkItemDeleteResponse>(It.Is<string>(u => VerifyUrl(u, workitemId, destroy)), _cancellationToken))
+            HttpClientMock.Setup(c => c.ExecuteDelete<WorkItemDeleteResponse>(It.Is<string>(u => VerifyUrl(u, workitemId, destroy)), CancellationToken))
                 .ReturnsAsync(new WorkItemDeleteResponse { Id = workitemId, Code = 200, DeletedBy = "Foo", DeletedDate = DateTime.UtcNow })
                 .Verifiable();
 
-            var result = await _client.DeleteWorkItemAsync(workitemId, destroy, _cancellationToken);
+            var result = await Client.DeleteWorkItemAsync(workitemId, destroy, CancellationToken);
 
             result.Should().BeTrue();
-            _httpClientMock.Verify();
+            HttpClientMock.Verify();
         }
 
         [Test]
         public void DoesNotCatchExceptions()
         {
-            _httpClientMock.Setup(c => c.ExecuteDelete<WorkItemDeleteResponse>(It.IsAny<string>(), _cancellationToken))
+            HttpClientMock.Setup(c => c.ExecuteDelete<WorkItemDeleteResponse>(It.IsAny<string>(), CancellationToken))
                 .Throws<Exception>()
                 .Verifiable();
 
-            _client.Awaiting(c => c.DeleteWorkItemAsync(124, false, _cancellationToken))
+            Client.Awaiting(c => c.DeleteWorkItemAsync(124, false, CancellationToken))
                 .Should().Throw<Exception>();
         }
 
@@ -43,6 +43,7 @@ namespace VSTS.Net.Tests.WorkItems.CRUD
             {
                 expectedUrl += "destroy=true&";
             }
+
             expectedUrl += "api-version=";
             return url.StartsWith(expectedUrl, StringComparison.OrdinalIgnoreCase);
         }

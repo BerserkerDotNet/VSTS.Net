@@ -13,7 +13,7 @@ namespace VSTS.Net.Interfaces
         /// <typeparam name="T">Type of the result</typeparam>
         /// <param name="url">Url to send request to</param>
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
-        /// <returns></returns>
+        /// <returns>A requested object</returns>
         Task<T> ExecuteGet<T>(string url, CancellationToken cancellationToken = default(CancellationToken));
 
         /// <summary>
@@ -23,7 +23,7 @@ namespace VSTS.Net.Interfaces
         /// <param name="url">Url to send request to</param>
         /// <param name="payload">content to send</param>
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
-        /// <returns></returns>
+        /// <returns>A requested object</returns>
         Task<T> ExecutePost<T>(string url, object payload, CancellationToken cancellationToken = default(CancellationToken));
 
         /// <summary>
@@ -33,7 +33,7 @@ namespace VSTS.Net.Interfaces
         /// <param name="url">Url to send request to</param>
         /// <param name="payload">content to send</param>
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
-        /// <returns></returns>
+        /// <returns>A requested object</returns>
         Task<T> ExecutePost<T>(string url, string payload, CancellationToken cancellationToken = default(CancellationToken));
 
         /// <summary>
@@ -44,7 +44,7 @@ namespace VSTS.Net.Interfaces
         /// <param name="payload">content to send</param>
         /// <param name="mimeType">Mime type of the content</param>
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
-        /// <returns></returns>
+        /// <returns>A requested object</returns>
         Task<T> ExecutePatch<T>(string url, object payload, string mimeType, CancellationToken cancellationToken = default(CancellationToken));
 
         /// <summary>
@@ -55,7 +55,7 @@ namespace VSTS.Net.Interfaces
         /// <param name="payload">content to send</param>
         /// <param name="mimeType">Mime type of the content</param>
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
-        /// <returns></returns>
+        /// <returns>A requested object</returns>
         Task<T> ExecutePatch<T>(string url, string payload, string mimeType, CancellationToken cancellationToken = default(CancellationToken));
 
         /// <summary>
@@ -66,7 +66,7 @@ namespace VSTS.Net.Interfaces
         /// <param name="payload">content to send</param>
         /// <param name="mimeType">Mime type of the content</param>
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
-        /// <returns></returns>
+        /// <returns>A requested object</returns>
         Task<T> ExecutePost<T>(string url, object payload, string mimeType, CancellationToken cancellationToken = default(CancellationToken));
 
         /// <summary>
@@ -77,7 +77,7 @@ namespace VSTS.Net.Interfaces
         /// <param name="payload">content to send</param>
         /// <param name="mimeType">Mime type of the content</param>
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
-        /// <returns></returns>
+        /// <returns>A requested object</returns>
         Task<T> ExecutePost<T>(string url, string payload, string mimeType, CancellationToken cancellationToken = default(CancellationToken));
 
         /// <summary>
@@ -86,7 +86,7 @@ namespace VSTS.Net.Interfaces
         /// <typeparam name="T">Type of the result</typeparam>
         /// <param name="url">Url to send request to</param>
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
-        /// <returns></returns>
+        /// <returns>A requested object</returns>
         Task<T> ExecuteDelete<T>(string url, CancellationToken cancellationToken = default(CancellationToken));
     }
 }

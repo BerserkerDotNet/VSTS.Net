@@ -82,10 +82,14 @@ namespace VSTS.Net.Models.PullRequests
         public virtual bool Equals(PullRequest other)
         {
             if (other == null)
+            {
                 return false;
+            }
 
             if (ReferenceEquals(this, other))
+            {
                 return true;
+            }
 
             return PullRequestId == other.PullRequestId;
         }

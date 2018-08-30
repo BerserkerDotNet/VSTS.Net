@@ -1,6 +1,6 @@
-﻿using Newtonsoft.Json;
-using System;
+﻿using System;
 using System.Collections.Generic;
+using Newtonsoft.Json;
 
 namespace VSTS.Net.Models.WorkItems
 {
@@ -25,7 +25,7 @@ namespace VSTS.Net.Models.WorkItems
         /// <summary>
         /// API link to the work item
         /// </summary>
-        public Uri Url {get; set; }
+        public Uri Url { get; set; }
 
         /// <summary>
         /// Relations of the work item.
@@ -35,10 +35,14 @@ namespace VSTS.Net.Models.WorkItems
         public virtual bool Equals(WorkItem other)
         {
             if (other == null)
+            {
                 return false;
+            }
 
             if (ReferenceEquals(this, other))
+            {
                 return true;
+            }
 
             return Id == other.Id;
         }

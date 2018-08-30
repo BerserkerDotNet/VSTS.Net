@@ -3,6 +3,11 @@
     public class VstsClientConfiguration
     {
         /// <summary>
+        /// Default configuration
+        /// </summary>
+        public static VstsClientConfiguration Default => new VstsClientConfiguration();
+
+        /// <summary>
         /// Version of the VSTS api to use when working with workitems.
         /// Default is 4.1
         /// </summary>
@@ -18,10 +23,5 @@
         /// Maximum number of workitem ids per request.
         /// </summary>
         public int WorkitemsBatchSize { get; set; } = 200;
-
-        /// <summary>
-        /// Default configuration
-        /// </summary>
-        public static VstsClientConfiguration Default => new VstsClientConfiguration();
     }
 }

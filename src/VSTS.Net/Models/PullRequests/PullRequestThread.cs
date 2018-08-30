@@ -4,7 +4,7 @@ using System.Collections.Generic;
 namespace VSTS.Net.Models.PullRequests
 {
     /// <summary>
-    /// Represents a comment thread of a pull request. 
+    /// Represents a comment thread of a pull request.
     /// </summary>
     public class PullRequestThread
     {

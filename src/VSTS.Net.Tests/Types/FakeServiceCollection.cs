@@ -1,6 +1,6 @@
-﻿using Microsoft.Extensions.DependencyInjection;
-using System.Collections;
+﻿using System.Collections;
 using System.Collections.Generic;
+using Microsoft.Extensions.DependencyInjection;
 
 namespace VSTS.Net.Tests.Types
 {
@@ -18,6 +18,7 @@ namespace VSTS.Net.Tests.Types
             {
                 return _descriptors[index];
             }
+
             set
             {
                 _descriptors[index] = value;

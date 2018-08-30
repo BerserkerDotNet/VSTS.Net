@@ -1,8 +1,8 @@
-﻿using FluentAssertions;
+﻿using System;
+using System.Threading.Tasks;
+using FluentAssertions;
 using Moq;
 using NUnit.Framework;
-using System;
-using System.Threading.Tasks;
 using VSTS.Net.Models.PullRequests;
 using VSTS.Net.Models.Response;
 using VSTS.Net.Tests.Types;
@@ -12,15 +12,18 @@ namespace VSTS.Net.Tests.PullRequests
     [TestFixture]
     public class GetPullRequestThreadsTests : BaseHttpClientTests
     {
-        [Test, Combinatorial]
+        [Test]
+        [Combinatorial]
         public void ThrowsIfEmptyInput(
              [Values(null, "", ProjectName)]string project,
              [Values(null, "", RepositoryName)]string repository)
         {
             if (!string.IsNullOrEmpty(project) && !string.IsNullOrEmpty(repository))
+            {
                 return;
+            }
 
-            _client.Awaiting(c => c.GetPullRequestThreadsAsync(project, repository, 0, _cancellationToken))
+            Client.Awaiting(c => c.GetPullRequestThreadsAsync(project, repository, 0, CancellationToken))
                 .Should().Throw<ArgumentNullException>();
         }
 
@@ -30,7 +33,7 @@ namespace VSTS.Net.Tests.PullRequests
             var threads = new[] { new PullRequestThread(), new PullRequestThread() };
             SetupOnePageOf(threads);
 
-            var result = await _client.GetPullRequestThreadsAsync(ProjectName, RepositoryName, 0, _cancellationToken);
+            var result = await Client.GetPullRequestThreadsAsync(ProjectName, RepositoryName, 0, CancellationToken);
 
             result.Should().HaveCount(2);
             result.Should().BeSameAs(threads);
@@ -42,7 +45,7 @@ namespace VSTS.Net.Tests.PullRequests
             SetupGetCollectionOf<PullRequestThread>()
                 .ReturnsAsync((CollectionResponse<PullRequestThread>)null);
 
-            var result = await _client.GetPullRequestThreadsAsync(ProjectName, RepositoryName, 0, _cancellationToken);
+            var result = await Client.GetPullRequestThreadsAsync(ProjectName, RepositoryName, 0, CancellationToken);
 
             result.Should().BeEmpty();
         }
@@ -54,7 +57,7 @@ namespace VSTS.Net.Tests.PullRequests
             var threads = new[] { new PullRequestThread(), new PullRequestThread() };
             SetupOnePageOf(threads, u => VerifyUrl(u, pullRequestId));
 
-            var result = await _client.GetPullRequestThreadsAsync(ProjectName, RepositoryName, pullRequestId, _cancellationToken);
+            var result = await Client.GetPullRequestThreadsAsync(ProjectName, RepositoryName, pullRequestId, CancellationToken);
 
             VerifyPagedRequests<PullRequestThread>(Times.Once());
 
