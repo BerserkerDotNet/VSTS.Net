@@ -57,6 +57,19 @@ namespace VSTS.Net.Tests.WorkItems.CRUD
         }
 
         [Test]
+        public async Task VerifyAllFieldsExdpandedIfNoFieldsREquests()
+        {
+            const int expectedWorkitemId = 2;
+            var dt = DateTime.UtcNow.AddDays(-1);
+            var workItem = new WorkItem { Id = expectedWorkitemId };
+            SetupSingle(workItem, u => VerifyUrlWithExpand(u, dt, expectedWorkitemId));
+
+            var result = await Client.GetWorkItemAsync(expectedWorkitemId, dt, fields: null, cancellationToken: CancellationToken);
+
+            HttpClientMock.Verify();
+        }
+
+        [Test]
         public void PassThroughExceptions()
         {
             SetupSingle<WorkItem>().Throws<Exception>();
@@ -77,7 +90,7 @@ namespace VSTS.Net.Tests.WorkItems.CRUD
         private bool VerifyUrlWithoutFields(string url, DateTime? asOf, int expectedWorkitemId)
         {
             var asOfString = asOf.HasValue ? asOf.Value.ToString("u") : string.Empty;
-            var expectedUrl = $"https://{InstanceName}.visualstudio.com/_apis/wit/workitems/{expectedWorkitemId}?asOf={asOfString}&api-version";
+            var expectedUrl = $"https://{InstanceName}.visualstudio.com/_apis/wit/workitems/{expectedWorkitemId}?$expand=All&asOf={asOfString}&api-version";
 
             return url.StartsWith(expectedUrl, StringComparison.OrdinalIgnoreCase);
         }
@@ -92,7 +105,15 @@ namespace VSTS.Net.Tests.WorkItems.CRUD
 
         private bool VerifyUrlBasic(string url, int expectedWorkitemId)
         {
-            var expectedUrl = $"https://{InstanceName}.visualstudio.com/_apis/wit/workitems/{expectedWorkitemId}?api-version";
+            var expectedUrl = $"https://{InstanceName}.visualstudio.com/_apis/wit/workitems/{expectedWorkitemId}?$expand=All&api-version";
+
+            return url.StartsWith(expectedUrl, StringComparison.OrdinalIgnoreCase);
+        }
+
+        private bool VerifyUrlWithExpand(string url, DateTime? asOf, int expectedWorkitemId)
+        {
+            var asOfString = asOf.HasValue ? asOf.Value.ToString("u") : string.Empty;
+            var expectedUrl = $"https://{InstanceName}.visualstudio.com/_apis/wit/workitems/{expectedWorkitemId}?$expand=All&asOf={asOfString}&api-version";
 
             return url.StartsWith(expectedUrl, StringComparison.OrdinalIgnoreCase);
         }

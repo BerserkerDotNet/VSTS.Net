@@ -15,6 +15,8 @@ namespace VSTS.Net
 {
     public partial class VstsClient : IVstsClient
     {
+        private const string ExpandAllWorkItemFieldsParameterValue = "All";
+
         /// <inheritdoc />
         public async Task<WorkItemsQueryResult> ExecuteQueryAsync(WorkItemsQuery query, CancellationToken cancellationToken = default(CancellationToken))
         {
@@ -36,7 +38,7 @@ namespace VSTS.Net
         }
 
         /// <inheritdoc />
-        public async Task<IEnumerable<WorkItem>> GetWorkItemsAsync(WorkItemsQuery query, CancellationToken cancellationToken = default(CancellationToken))
+        public async Task<IEnumerable<WorkItem>> GetWorkItemsAsync(WorkItemsQuery query, bool expand = false, CancellationToken cancellationToken = default(CancellationToken))
         {
             var queryResult = await ExecuteQueryAsync(query, cancellationToken);
             int[] ids;
@@ -57,8 +59,15 @@ namespace VSTS.Net
                 return Enumerable.Empty<WorkItem>();
             }
 
-            var columns = queryResult.Columns.Select(c => c.ReferenceName).ToArray();
-            return await GetWorkItemsAsync(ids, fields: columns, cancellationToken: cancellationToken);
+            if (!expand)
+            {
+                var columns = queryResult.Columns.Select(c => c.ReferenceName).ToArray();
+                return await GetWorkItemsAsync(ids, fields: columns, cancellationToken: cancellationToken);
+            }
+            else
+            {
+                return await GetWorkItemsAsync(ids, cancellationToken: cancellationToken);
+            }
         }
 
         /// <inheritdoc />
@@ -82,15 +91,23 @@ namespace VSTS.Net
         public async Task<WorkItem> GetWorkItemAsync(int workItemId, DateTime? asOf = null, string[] fields = null, CancellationToken cancellationToken = default(CancellationToken))
         {
             var fieldsString = fields != null ? string.Join(",", fields) : string.Empty;
+            var expandValue = string.IsNullOrEmpty(fieldsString) ? ExpandAllWorkItemFieldsParameterValue : string.Empty;
             var asOfString = asOf.HasValue ? asOf.Value.ToString("u") : string.Empty;
 
             var url = _urlBuilderFactory.Create()
                 .ForWorkItems(workItemId)
+                .WithQueryParameterIfNotEmpty("$expand", expandValue)
                 .WithQueryParameterIfNotEmpty("fields", fieldsString)
                 .WithQueryParameterIfNotEmpty("asOf", asOfString)
                 .Build();
 
             return await _httpClient.ExecuteGet<WorkItem>(url, cancellationToken);
+        }
+
+        /// <inheritdoc />
+        public Task<WorkItem> GetWorkItemExpandedAsync(int workItemId, DateTime? asOf = null, CancellationToken cancellationToken = default(CancellationToken))
+        {
+            return GetWorkItemAsync(workItemId, asOf, cancellationToken: cancellationToken);
         }
 
         /// <inheritdoc />
@@ -105,6 +122,7 @@ namespace VSTS.Net
 
             var result = new List<WorkItem>(ids.Length);
             var fieldsString = fields != null ? string.Join(",", fields) : string.Empty;
+            var expandValue = string.IsNullOrEmpty(fieldsString) ? ExpandAllWorkItemFieldsParameterValue : string.Empty;
             var asOfString = asOf.HasValue ? asOf.Value.ToString("u") : string.Empty;
             var batchSize = Configuration.WorkitemsBatchSize;
             var batches = Math.Ceiling((decimal)ids.Length / batchSize);
@@ -113,6 +131,7 @@ namespace VSTS.Net
                 var idsString = string.Join(",", ids.Skip(i * batchSize).Take(batchSize));
                 var url = _urlBuilderFactory.Create()
                     .ForWorkItemsBatch(idsString)
+                    .WithQueryParameterIfNotEmpty("$expand", expandValue)
                     .WithQueryParameterIfNotEmpty("fields", fieldsString)
                     .WithQueryParameterIfNotEmpty("asOf", asOfString)
                     .Build();
@@ -122,6 +141,12 @@ namespace VSTS.Net
             }
 
             return result;
+        }
+
+        /// <inheritdoc />
+        public Task<IEnumerable<WorkItem>> GetWorkItemsExpandedAsync(int[] ids, DateTime? asOf = null, CancellationToken cancellationToken = default(CancellationToken))
+        {
+            return GetWorkItemsAsync(ids, asOf, fields: null, cancellationToken: cancellationToken);
         }
 
         /// <inheritdoc />

@@ -99,7 +99,7 @@ namespace VSTS.Net.Tests.WorkItems.CRUD
         private bool VerifyUrlWithIds(string url, int[] ids)
         {
             var idsString = string.Join(",", ids);
-            var expectedUrl = $"https://{InstanceName}.visualstudio.com/_apis/wit/workitems?ids={idsString}&api-version";
+            var expectedUrl = $"https://{InstanceName}.visualstudio.com/_apis/wit/workitems?ids={idsString}&$expand=All&api-version";
             return url.StartsWith(expectedUrl, StringComparison.OrdinalIgnoreCase);
         }
 
@@ -116,7 +116,7 @@ namespace VSTS.Net.Tests.WorkItems.CRUD
         {
             var asOfString = asOf.ToString("u");
             var idsString = string.Join(",", ids);
-            var expectedUrl = $"https://{InstanceName}.visualstudio.com/_apis/wit/workitems?ids={idsString}&asOf={asOfString}&api-version";
+            var expectedUrl = $"https://{InstanceName}.visualstudio.com/_apis/wit/workitems?ids={idsString}&$expand=All&asOf={asOfString}&api-version";
             return url.StartsWith(expectedUrl, StringComparison.OrdinalIgnoreCase);
         }
 

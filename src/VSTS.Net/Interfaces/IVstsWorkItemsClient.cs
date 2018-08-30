@@ -20,6 +20,15 @@ namespace VSTS.Net.Interfaces
         Task<WorkItem> GetWorkItemAsync(int workItemId, DateTime? asOf = null, string[] fields = null, CancellationToken cancellationToken = default(CancellationToken));
 
         /// <summary>
+        /// Returns a single work item with all fields expanded.
+        /// </summary>
+        /// <param name="workItemId">The work item id</param>
+        /// <param name="asOf">AsOf UTC date time string</param>
+        /// <param name="cancellationToken">Cancellation token</param>
+        /// <returns>Returns a single work item.</returns>
+        Task<WorkItem> GetWorkItemExpandedAsync(int workItemId, DateTime? asOf = null, CancellationToken cancellationToken = default(CancellationToken));
+
+        /// <summary>
         /// Returns a list of work items.
         /// </summary>
         /// <param name="ids">The list of requested work item ids</param>
@@ -28,6 +37,15 @@ namespace VSTS.Net.Interfaces
         /// <param name="cancellationToken">Cancellation token</param>
         /// <returns>Returns a list of work items.</returns>
         Task<IEnumerable<WorkItem>> GetWorkItemsAsync(int[] ids, DateTime? asOf = null, string[] fields = null, CancellationToken cancellationToken = default(CancellationToken));
+
+        /// <summary>
+        /// Returns a list of work items with all fields expanded.
+        /// </summary>
+        /// <param name="ids">The list of requested work item ids</param>
+        /// <param name="asOf">AsOf UTC date time string. Defaul to UtcNow if not specified</param>
+        /// <param name="cancellationToken">Cancellation token</param>
+        /// <returns>Returns a list of work items.</returns>
+        Task<IEnumerable<WorkItem>> GetWorkItemsExpandedAsync(int[] ids, DateTime? asOf = null, CancellationToken cancellationToken = default(CancellationToken));
 
         /// <summary>
         /// Creates a single work item.
@@ -67,9 +85,10 @@ namespace VSTS.Net.Interfaces
         /// Executes a work item query
         /// </summary>
         /// <param name="query">Work item query to execute</param>
+        /// <param name="expand">Indicates whether to expand the workitem fields. if true, columns list will be ignored</param>
         /// <param name="cancellationToken">Cancellation token</param>
         /// <returns>List of work items</returns>
-        Task<IEnumerable<WorkItem>> GetWorkItemsAsync(WorkItemsQuery query, CancellationToken cancellationToken = default(CancellationToken));
+        Task<IEnumerable<WorkItem>> GetWorkItemsAsync(WorkItemsQuery query, bool expand = false, CancellationToken cancellationToken = default(CancellationToken));
 
         /// <summary>
         /// Retrieves the list of updates for workitem

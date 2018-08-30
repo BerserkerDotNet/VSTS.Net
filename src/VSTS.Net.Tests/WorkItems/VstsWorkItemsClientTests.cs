@@ -80,7 +80,7 @@ namespace VSTS.Net.Tests.WorkItems
                 .ReturnsAsync(new CollectionResponse<WorkItem> { Value = workItems })
                 .Verifiable();
 
-            var result = await Client.GetWorkItemsAsync(query, CancellationToken);
+            var result = await Client.GetWorkItemsAsync(query, false, CancellationToken);
 
             result.Should().HaveCount(workItems.Count());
             result.Should().BeEquivalentTo(workItems);
@@ -117,7 +117,7 @@ namespace VSTS.Net.Tests.WorkItems
                 .ReturnsAsync(new CollectionResponse<WorkItem> { Value = workItems })
                 .Verifiable();
 
-            var result = await Client.GetWorkItemsAsync(query, CancellationToken);
+            var result = await Client.GetWorkItemsAsync(query, false, CancellationToken);
 
             result.Should().HaveCount(workItems.Count());
             result.Should().BeEquivalentTo(workItems);
@@ -192,12 +192,41 @@ namespace VSTS.Net.Tests.WorkItems
                 .ReturnsAsync(queryResult)
                 .Verifiable();
 
-            var result = await Client.GetWorkItemsAsync(query, CancellationToken);
+            var result = await Client.GetWorkItemsAsync(query, false, CancellationToken);
 
             result.Should().BeEmpty();
 
             HttpClientMock.Verify();
             HttpClientMock.Verify(c => c.ExecuteGet<CollectionResponse<WorkItem>>(It.IsAny<string>(), CancellationToken), Times.Never());
+        }
+
+        [Test]
+        public async Task GetWorkItemsShouldIgnoreFiledsParameterIfExpand()
+        {
+            var query = new WorkItemsQuery("Dummy query");
+            var queryResult = new FlatWorkItemsQueryResult
+            {
+                Columns = new[] { new ColumnReference("Id", "System.Id"), new ColumnReference("Title", "System.Title") },
+                WorkItems = new[] { new WorkItemReference(2), new WorkItemReference(34), new WorkItemReference(56) }
+            };
+            var fields = queryResult.Columns.Select(c => c.ReferenceName);
+            var ids = queryResult.WorkItems.Select(w => w.Id);
+            var workItems = ids.Select(i => new WorkItem { Id = i });
+
+            HttpClientMock.Setup(c => c.ExecutePost<FlatWorkItemsQueryResult>(It.IsAny<string>(), It.Is<WorkItemsQuery>(q => !q.IsHierarchical), CancellationToken))
+                .ReturnsAsync(queryResult)
+                .Verifiable();
+
+            HttpClientMock.Setup(c => c.ExecuteGet<CollectionResponse<WorkItem>>(It.Is<string>(u => VerifyWorkItemsUrl(u, ids)), CancellationToken))
+                .ReturnsAsync(new CollectionResponse<WorkItem> { Value = workItems })
+                .Verifiable();
+
+            var result = await Client.GetWorkItemsAsync(query, expand: true, cancellationToken: CancellationToken);
+
+            result.Should().HaveCount(workItems.Count());
+            result.Should().BeEquivalentTo(workItems);
+
+            HttpClientMock.Verify();
         }
         #endregion
 
@@ -261,6 +290,14 @@ namespace VSTS.Net.Tests.WorkItems
             var fieldsString = string.Join(',', fields);
             var idsString = string.Join(',', ids);
             var expectedUrl = $"https://{InstanceName}.visualstudio.com/_apis/wit/workitems?ids={idsString}&fields={fieldsString}&api-version={Constants.CurrentWorkItemsApiVersion}";
+
+            return string.Equals(url, expectedUrl, StringComparison.OrdinalIgnoreCase);
+        }
+
+        private bool VerifyWorkItemsUrl(string url, IEnumerable<int> ids)
+        {
+            var idsString = string.Join(',', ids);
+            var expectedUrl = $"https://{InstanceName}.visualstudio.com/_apis/wit/workitems?ids={idsString}&$expand=All&api-version={Constants.CurrentWorkItemsApiVersion}";
 
             return string.Equals(url, expectedUrl, StringComparison.OrdinalIgnoreCase);
         }
