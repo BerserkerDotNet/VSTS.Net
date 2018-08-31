@@ -17,52 +17,11 @@ namespace VSTS.Net.Tests.WorkItems
     [TestFixture]
     public class VstsWorkItemsClientTests : BaseHttpClientTests
     {
-        #region ExecuteQuery tests
-
-        [Test]
-        public void ExecuteQueryShouldThrowArgumentNullExceptionIfQueryIsNull()
-        {
-            Client.Awaiting(async c => await c.ExecuteQueryAsync(null))
-                .Should()
-                .Throw<ArgumentNullException>("query");
-        }
-
-        [Test]
-        public void ExecuteQueryShouldThrowArgumentExceptionIfQueryIsEmpty()
-        {
-            var query = new WorkItemsQuery(string.Empty);
-            Client.Awaiting(async c => await c.ExecuteQueryAsync(query))
-                .Should()
-                .Throw<ArgumentException>();
-        }
-
-        [TestCase(false, typeof(FlatWorkItemsQueryResult))]
-        [TestCase(true, typeof(HierarchicalWorkItemsQueryResult))]
-        public async Task ExecuteQueryShouldReturnCorrectResultType(bool isHierarchical, Type expectedReturnType)
-        {
-            var query = new WorkItemsQuery("Dummy query", isHierarchical);
-            HttpClientMock.Setup(c => c.ExecutePost<HierarchicalWorkItemsQueryResult>(It.Is<string>(u => VerifyWiqlQueryUrl(u)), It.Is<WorkItemsQuery>(q => q.IsHierarchical), CancellationToken))
-                .ReturnsAsync(new HierarchicalWorkItemsQueryResult());
-            HttpClientMock.Setup(c => c.ExecutePost<FlatWorkItemsQueryResult>(It.Is<string>(u => VerifyWiqlQueryUrl(u)), It.Is<WorkItemsQuery>(q => !q.IsHierarchical), CancellationToken))
-                .ReturnsAsync(new FlatWorkItemsQueryResult());
-
-            var result = await Client.ExecuteQueryAsync(query, CancellationToken);
-
-            result.Should().BeOfType(expectedReturnType);
-            HttpClientMock.Verify(
-                c => c.ExecutePost<HierarchicalWorkItemsQueryResult>(It.Is<string>(u => VerifyWiqlQueryUrl(u)), It.Is<WorkItemsQuery>(q => q.IsHierarchical), CancellationToken),
-                Times.Exactly(isHierarchical ? 1 : 0));
-            HttpClientMock.Verify(
-                c => c.ExecutePost<FlatWorkItemsQueryResult>(It.Is<string>(u => VerifyWiqlQueryUrl(u)), It.Is<WorkItemsQuery>(q => !q.IsHierarchical), CancellationToken),
-                Times.Exactly(!isHierarchical ? 1 : 0));
-        }
-        #endregion
-
         #region GetWorkItems tests
         [Test]
         public async Task GetWorkItemsShouldComposeCorrectUrlForFlatQueries()
         {
-            var query = new WorkItemsQuery("Dummy query");
+            var query = WorkItemsQuery.Get("Dummy query");
             var queryResult = new FlatWorkItemsQueryResult
             {
                 Columns = new[] { new ColumnReference("Id", "System.Id"), new ColumnReference("Title", "System.Title") },
@@ -91,7 +50,7 @@ namespace VSTS.Net.Tests.WorkItems
         [Test]
         public async Task GetWorkItemsShouldComposeCorrectUrlForTreeQueries()
         {
-            var query = new WorkItemsQuery("Dummy query", isHierarchical: true);
+            var query = WorkItemsQuery.Get("Dummy query", isHierarchical: true);
             var queryResult = new HierarchicalWorkItemsQueryResult
             {
                 Columns = new[] { new ColumnReference("Id", "System.Id"), new ColumnReference("Title", "System.Title") },
@@ -128,7 +87,7 @@ namespace VSTS.Net.Tests.WorkItems
         [Test]
         public void GetWorkItemsShouldThrowExceptionIfNullQuery()
         {
-            var query = new WorkItemsQuery("Dummy query");
+            var query = WorkItemsQuery.Get("Dummy query");
 
             HttpClientMock.Setup(c => c.ExecutePost<FlatWorkItemsQueryResult>(It.IsAny<string>(), It.Is<WorkItemsQuery>(q => !q.IsHierarchical), CancellationToken.None))
                 .ReturnsAsync((FlatWorkItemsQueryResult)null);
@@ -140,7 +99,7 @@ namespace VSTS.Net.Tests.WorkItems
         [Test]
         public async Task GetWorkItemsShouldReturnEmptyListOfWorkItemsIfResponseIsNull()
         {
-            var query = new WorkItemsQuery("Dummy query");
+            var query = WorkItemsQuery.Get("Dummy query");
 
             HttpClientMock.Setup(c => c.ExecutePost<FlatWorkItemsQueryResult>(It.IsAny<string>(), It.Is<WorkItemsQuery>(q => !q.IsHierarchical), CancellationToken.None))
                 .ReturnsAsync(new FlatWorkItemsQueryResult { Columns = Enumerable.Empty<ColumnReference>(), WorkItems = Enumerable.Empty<WorkItemReference>() });
@@ -155,7 +114,7 @@ namespace VSTS.Net.Tests.WorkItems
         [Test]
         public void GetWorkItemsShouldNotCatchExceptions()
         {
-            var query = new WorkItemsQuery("Dummy query");
+            var query = WorkItemsQuery.Get("Dummy query");
 
             // Test 1
             HttpClientMock.Setup(c => c.ExecutePost<FlatWorkItemsQueryResult>(It.IsAny<string>(), It.Is<WorkItemsQuery>(q => !q.IsHierarchical), CancellationToken.None))
@@ -181,7 +140,7 @@ namespace VSTS.Net.Tests.WorkItems
         [Test]
         public async Task GetWorkItemsShouldReturnEmptyIfNoItemsFound()
         {
-            var query = new WorkItemsQuery("Dummy query");
+            var query = WorkItemsQuery.Get("Dummy query");
             var queryResult = new FlatWorkItemsQueryResult
             {
                 Columns = new ColumnReference[0],
@@ -203,7 +162,7 @@ namespace VSTS.Net.Tests.WorkItems
         [Test]
         public async Task GetWorkItemsShouldIgnoreFiledsParameterIfExpand()
         {
-            var query = new WorkItemsQuery("Dummy query");
+            var query = WorkItemsQuery.Get("Dummy query");
             var queryResult = new FlatWorkItemsQueryResult
             {
                 Columns = new[] { new ColumnReference("Id", "System.Id"), new ColumnReference("Title", "System.Title") },
@@ -278,12 +237,6 @@ namespace VSTS.Net.Tests.WorkItems
         }
 
         #endregion
-
-        private bool VerifyWiqlQueryUrl(string url)
-        {
-            var expectedUrl = $"https://{InstanceName}.visualstudio.com/_apis/wit/wiql?api-version={Constants.CurrentWorkItemsApiVersion}";
-            return string.Equals(url, expectedUrl, StringComparison.OrdinalIgnoreCase);
-        }
 
         private bool VerifyWorkItemsUrl(string url, IEnumerable<string> fields, IEnumerable<int> ids)
         {

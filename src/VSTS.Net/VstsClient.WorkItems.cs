@@ -38,6 +38,20 @@ namespace VSTS.Net
         }
 
         /// <inheritdoc />
+        public async Task<FlatWorkItemsQueryResult> ExecuteFlatQueryAsync(string query, CancellationToken cancellationToken = default(CancellationToken))
+        {
+            var result = await ExecuteQueryAsync(WorkItemsQuery.Get(query, isHierarchical: false), cancellationToken);
+            return result as FlatWorkItemsQueryResult;
+        }
+
+        /// <inheritdoc />
+        public async Task<HierarchicalWorkItemsQueryResult> ExecuteHierarchicalQueryAsync(string query, CancellationToken cancellationToken = default(CancellationToken))
+        {
+            var result = await ExecuteQueryAsync(WorkItemsQuery.Get(query, isHierarchical: true), cancellationToken);
+            return result as HierarchicalWorkItemsQueryResult;
+        }
+
+        /// <inheritdoc />
         public async Task<IEnumerable<WorkItem>> GetWorkItemsAsync(WorkItemsQuery query, bool expand = false, CancellationToken cancellationToken = default(CancellationToken))
         {
             var queryResult = await ExecuteQueryAsync(query, cancellationToken);

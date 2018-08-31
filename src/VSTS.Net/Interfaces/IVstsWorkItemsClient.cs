@@ -82,6 +82,22 @@ namespace VSTS.Net.Interfaces
         Task<WorkItemsQueryResult> ExecuteQueryAsync(WorkItemsQuery query, CancellationToken cancellationToken = default(CancellationToken));
 
         /// <summary>
+        /// Executes a flat work item query
+        /// </summary>
+        /// <param name="query">Work item query to execute</param>
+        /// <param name="cancellationToken">Cancellation token</param>
+        /// <returns>List of workitems returned by the query</returns>
+        Task<FlatWorkItemsQueryResult> ExecuteFlatQueryAsync(string query, CancellationToken cancellationToken = default(CancellationToken));
+
+        /// <summary>
+        /// Executes a hierarchical work item query
+        /// </summary>
+        /// <param name="query">Work item query to execute</param>
+        /// <param name="cancellationToken">Cancellation token</param>
+        /// <returns>List of workitem relations returned by the query</returns>
+        Task<HierarchicalWorkItemsQueryResult> ExecuteHierarchicalQueryAsync(string query, CancellationToken cancellationToken = default(CancellationToken));
+
+        /// <summary>
         /// Executes a work item query
         /// </summary>
         /// <param name="query">Work item query to execute</param>
