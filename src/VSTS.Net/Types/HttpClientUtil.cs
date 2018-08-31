@@ -15,11 +15,20 @@ namespace VSTS.Net.Types
         public static HttpClient Create(string accessToken)
         {
             var httpClient = new HttpClient();
+            ConfigureHttpClient(httpClient, accessToken);
+            return httpClient;
+        }
+
+        /// <summary>
+        /// Sets correct Accept and Authorization headers for VSTS HTTP client
+        /// </summary>
+        /// <param name="httpClient">An instance of http client ot configure</param>
+        /// <param name="accessToken">Personal access token for VSTS instance</param>
+        public static void ConfigureHttpClient(HttpClient httpClient, string accessToken)
+        {
             httpClient.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue(Constants.JsonMimeType));
             var parameter = Convert.ToBase64String(Encoding.ASCII.GetBytes(string.Format("{0}:{1}", string.Empty, accessToken)));
             httpClient.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue(Constants.AuthenticationSchemaBasic, parameter);
-
-            return httpClient;
         }
     }
 }

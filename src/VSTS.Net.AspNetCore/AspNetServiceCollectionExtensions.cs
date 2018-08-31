@@ -36,11 +36,9 @@ namespace VSTS.Net.Extensions
             cfg(config);
             services.Add(new ServiceDescriptor(typeof(VstsClientConfiguration), config));
 
-            var httpClient = HttpClientUtil.Create(accessToken);
-            services.AddSingleton<IHttpClient, DefaultHttpClient>(ctx =>
+            services.AddHttpClient<IHttpClient, DefaultHttpClient>(client =>
             {
-                var logger = ctx.GetService<ILogger<DefaultHttpClient>>();
-                return new DefaultHttpClient(httpClient, logger);
+                HttpClientUtil.ConfigureHttpClient(client, accessToken);
             });
 
             services.AddSingleton<IVstsClient, VstsClient>();

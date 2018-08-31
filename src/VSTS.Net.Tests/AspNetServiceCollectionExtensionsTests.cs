@@ -29,12 +29,9 @@ namespace VSTS.Net.Tests
         {
             _services.AddVstsNet(InstanceName, Token);
             _services.Count.Should().BeGreaterThan(0);
-            _services.Should().ContainSingle(d => d.ServiceType == typeof(IHttpClient) && d.Lifetime == ServiceLifetime.Singleton);
+            _services.Should().ContainSingle(d => d.ServiceType == typeof(IHttpClient));
 
             var httpClientRegistration = _services.Single(d => d.ServiceType == typeof(IHttpClient));
-            var httpClient = httpClientRegistration.ImplementationFactory(Mock.Of<IServiceProvider>()) as DefaultHttpClient;
-
-            httpClient.Should().NotBeNull();
         }
 
         [Test]
