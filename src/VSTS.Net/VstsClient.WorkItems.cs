@@ -4,6 +4,8 @@ using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
 using Microsoft.Extensions.Logging;
+using Newtonsoft.Json.Linq;
+using VSTS.Net.Exceptions;
 using VSTS.Net.Interfaces;
 using VSTS.Net.Models.Request;
 using VSTS.Net.Models.Response;
@@ -35,6 +37,13 @@ namespace VSTS.Net
             }
 
             return await _httpClient.ExecutePost<FlatWorkItemsQueryResult>(url, query, cancellationToken);
+        }
+
+        /// <inheritdoc />
+        public async Task<T> ExecuteQueryAsync<T>(Guid queryId, CancellationToken cancellationToken = default(CancellationToken))
+            where T : WorkItemsQueryResult
+        {
+            return await ExecuteQueryInternalAsync<T>(queryId, cancellationToken);
         }
 
         /// <inheritdoc />
@@ -158,6 +167,47 @@ namespace VSTS.Net
         }
 
         /// <inheritdoc />
+        public async Task<IEnumerable<WorkItem>> GetWorkItemsAsync(Guid queryId, bool expand, CancellationToken cancellationToken = default(CancellationToken))
+        {
+            ThrowIfArgumentIsDefault(queryId, nameof(queryId));
+
+            var queryResultObject = await ExecuteQueryInternalAsync<JObject>(queryId, cancellationToken);
+            var queryType = queryResultObject.GetValue("queryType", StringComparison.OrdinalIgnoreCase).Value<string>();
+
+            int[] ids = new int[0];
+            WorkItemsQueryResult resultObject;
+            if (queryType == "tree")
+            {
+                var treeQueryResult = queryResultObject.ToObject<HierarchicalWorkItemsQueryResult>();
+                ids = treeQueryResult.WorkItemRelations.SelectMany(r => new[] { r.Source, r.Target })
+                    .Select(r => r.Id)
+                    .Distinct()
+                    .ToArray();
+                resultObject = treeQueryResult;
+            }
+            else if (queryType == "flat")
+            {
+                var flatQueryResult = queryResultObject.ToObject<FlatWorkItemsQueryResult>();
+                ids = flatQueryResult.WorkItems.Select(r => r.Id).ToArray();
+                resultObject = flatQueryResult;
+            }
+            else
+            {
+                throw new UnknownWorkItemQueryTypeException($"Query of type {queryType} is not supported.");
+            }
+
+            if (expand)
+            {
+                return await GetWorkItemsExpandedAsync(ids, cancellationToken: cancellationToken);
+            }
+            else
+            {
+                var fields = resultObject.Columns.Select(c => c.ReferenceName).ToArray();
+                return await GetWorkItemsAsync(ids, fields: fields, cancellationToken: cancellationToken);
+            }
+        }
+
+        /// <inheritdoc />
         public Task<IEnumerable<WorkItem>> GetWorkItemsExpandedAsync(int[] ids, DateTime? asOf = null, CancellationToken cancellationToken = default(CancellationToken))
         {
             return GetWorkItemsAsync(ids, asOf, fields: null, cancellationToken: cancellationToken);
@@ -225,6 +275,18 @@ namespace VSTS.Net
             return sourceIds.Union(targetIds)
                 .Distinct()
                 .ToArray();
+        }
+
+        private async Task<T> ExecuteQueryInternalAsync<T>(Guid queryId, CancellationToken cancellationToken = default(CancellationToken))
+        {
+            ThrowIfArgumentIsDefault(queryId, nameof(queryId));
+
+            var url = _urlBuilderFactory.Create()
+                .ForWIQL()
+                .WithSection(queryId.ToString())
+                .Build(Constants.CurrentWorkItemsApiVersion);
+
+            return await _httpClient.ExecuteGet<T>(url, cancellationToken);
         }
     }
 }

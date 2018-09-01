@@ -3,7 +3,10 @@ using System.Linq;
 using System.Threading.Tasks;
 using FluentAssertions;
 using Moq;
+using Newtonsoft.Json;
+using Newtonsoft.Json.Linq;
 using NUnit.Framework;
+using VSTS.Net.Exceptions;
 using VSTS.Net.Models.Response;
 using VSTS.Net.Models.WorkItems;
 using VSTS.Net.Tests.Types;
@@ -94,6 +97,92 @@ namespace VSTS.Net.Tests.WorkItems.CRUD
             await Client.GetWorkItemsAsync(ids, asOf, cancellationToken: CancellationToken);
 
             HttpClientMock.Verify();
+        }
+
+        [Test]
+        public void ThrowsArgumentNullIfIdEmpty()
+        {
+            Client.Awaiting(c => c.GetWorkItemsAsync(Guid.Empty, false, CancellationToken))
+                .Should().Throw<ArgumentNullException>();
+        }
+
+        [Test]
+        public async Task AggregatesWorkitemsFromFlatQuery()
+        {
+            var workitemReferences = new[] { new WorkItemReference(1), new WorkItemReference(2), new WorkItemReference(3) };
+            var queryResult = new FlatWorkItemsQueryResult { QueryType = "flat", WorkItems = workitemReferences };
+            HttpClientMock.Setup(c => c.ExecuteGet<JObject>(It.IsAny<string>(), CancellationToken))
+                .ReturnsAsync(JObject.FromObject(queryResult));
+
+            var workitems = workitemReferences.Select(r => new WorkItem { Id = r.Id });
+            SetupGetCollectionOf<WorkItem>(url => url.Contains("$expand=All"))
+                .ReturnsAsync(new CollectionResponse<WorkItem> { Value = workitems });
+
+            var result = await Client.GetWorkItemsAsync(Guid.NewGuid(), true, CancellationToken);
+
+            result.Should().NotBeEmpty();
+            result.Should().BeEquivalentTo(workitems);
+
+            HttpClientMock.VerifyAll();
+        }
+
+        [Test]
+        public async Task AggregatesWorkitemsFromHierarchicalQuery()
+        {
+            var workitemLinks = new[]
+            {
+                new WorkItemLink(new WorkItemReference(1), new WorkItemReference(2), "forward"),
+                new WorkItemLink(new WorkItemReference(1), new WorkItemReference(3), "forward"),
+                new WorkItemLink(new WorkItemReference(2), new WorkItemReference(4), "forward"),
+                new WorkItemLink(new WorkItemReference(5), new WorkItemReference(6), "forward"),
+            };
+            var queryResult = new HierarchicalWorkItemsQueryResult { QueryType = "tree", WorkItemRelations = workitemLinks };
+            HttpClientMock.Setup(c => c.ExecuteGet<JObject>(It.IsAny<string>(), CancellationToken))
+                .ReturnsAsync(JObject.FromObject(queryResult));
+
+            var workitems = workitemLinks.SelectMany(l => new[] { l.Source, l.Target })
+                .Distinct()
+                .Select(r => new WorkItem { Id = r.Id });
+            SetupGetCollectionOf<WorkItem>(url => url.Contains("$expand=All"))
+                .ReturnsAsync(new CollectionResponse<WorkItem> { Value = workitems });
+
+            var result = await Client.GetWorkItemsAsync(Guid.NewGuid(), true, CancellationToken);
+
+            result.Should().NotBeEmpty();
+            result.Should().BeEquivalentTo(workitems);
+
+            HttpClientMock.VerifyAll();
+        }
+
+        [Test]
+        public async Task RequestsColumnsFromQueryIfNoExpand()
+        {
+            var workitemReferences = new[] { new WorkItemReference(1), new WorkItemReference(2), new WorkItemReference(3) };
+            var columns = new[] { new ColumnReference("C1", "System.C1"), new ColumnReference("C2", "System.C2") };
+            var queryResult = new FlatWorkItemsQueryResult { QueryType = "flat", WorkItems = workitemReferences, Columns = columns };
+            HttpClientMock.Setup(c => c.ExecuteGet<JObject>(It.IsAny<string>(), CancellationToken))
+                .ReturnsAsync(JObject.FromObject(queryResult));
+
+            var workitems = workitemReferences.Select(r => new WorkItem { Id = r.Id });
+            SetupGetCollectionOf<WorkItem>(url => url.Contains(string.Join(',', columns.Select(c => c.ReferenceName))) && !url.Contains("$expand=All"))
+                .ReturnsAsync(new CollectionResponse<WorkItem> { Value = workitems });
+
+            var result = await Client.GetWorkItemsAsync(Guid.NewGuid(), expand: false, cancellationToken: CancellationToken);
+
+            result.Should().NotBeEmpty();
+            result.Should().BeEquivalentTo(workitems);
+
+            HttpClientMock.VerifyAll();
+        }
+
+        [Test]
+        public void ThrowsIfUnknownQueryType()
+        {
+            var queryResult = new FlatWorkItemsQueryResult { QueryType = "3D" };
+            HttpClientMock.Setup(c => c.ExecuteGet<JObject>(It.IsAny<string>(), CancellationToken))
+                .ReturnsAsync(JObject.FromObject(queryResult));
+            Client.Awaiting(c => c.GetWorkItemsAsync(Guid.NewGuid(), false, CancellationToken))
+                .Should().Throw<UnknownWorkItemQueryTypeException>();
         }
 
         private bool VerifyUrlWithIds(string url, int[] ids)

@@ -82,6 +82,16 @@ namespace VSTS.Net.Interfaces
         Task<WorkItemsQueryResult> ExecuteQueryAsync(WorkItemsQuery query, CancellationToken cancellationToken = default(CancellationToken));
 
         /// <summary>
+        /// Gets the results of the query given the query ID.
+        /// </summary>
+        /// <typeparam name="T">Type of the returned result. <see cref="FlatWorkItemsQueryResult" />for flat query and<see cref="HierarchicalWorkItemsQueryResult" for hierarchical queries/></typeparam>
+        /// <param name="queryId">The query ID.</param>
+        /// <param name="cancellationToken">Cancellation token</param>
+        /// <returns>Returns <see cref="WorkItemsQueryResult"/></returns>
+        Task<T> ExecuteQueryAsync<T>(Guid queryId, CancellationToken cancellationToken = default(CancellationToken))
+            where T : WorkItemsQueryResult;
+
+        /// <summary>
         /// Executes a flat work item query
         /// </summary>
         /// <param name="query">Work item query to execute</param>
@@ -105,6 +115,15 @@ namespace VSTS.Net.Interfaces
         /// <param name="cancellationToken">Cancellation token</param>
         /// <returns>List of work items</returns>
         Task<IEnumerable<WorkItem>> GetWorkItemsAsync(WorkItemsQuery query, bool expand = false, CancellationToken cancellationToken = default(CancellationToken));
+
+        /// <summary>
+        /// Gets the results of the query given the query ID.
+        /// </summary>
+        /// <param name="queryId">The query ID.</param>
+        /// <param name="expand">If true, workitems will be exanded to have all attributes and relations, otherwise columns from the query will be returned</param>
+        /// <param name="cancellationToken">Cancellation token</param>
+        /// <returns>Returns <see cref="WorkItemsQueryResult"/></returns>
+        Task<IEnumerable<WorkItem>> GetWorkItemsAsync(Guid queryId, bool expand, CancellationToken cancellationToken = default(CancellationToken));
 
         /// <summary>
         /// Retrieves the list of updates for workitem

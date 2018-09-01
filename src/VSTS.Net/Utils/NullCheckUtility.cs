@@ -24,5 +24,13 @@ namespace VSTS.Net.Utils
                 throw new ArgumentNullException(message);
             }
         }
+
+        public static void ThrowIfArgumentIsDefault<T>(T obj, string name = "")
+        {
+            if (Equals(obj, default(T)))
+            {
+                throw new ArgumentNullException(name);
+            }
+        }
     }
 }

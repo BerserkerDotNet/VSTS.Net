@@ -77,6 +77,50 @@ namespace VSTS.Net.Tests.WorkItems
             HttpClientMock.VerifyAll();
         }
 
+        [Test]
+        public void ExecuteQueryByIdThrowsArgumentExceptionIfEmptyGuid()
+        {
+            Client.Awaiting(c => c.ExecuteQueryAsync<FlatWorkItemsQueryResult>(Guid.Empty, CancellationToken))
+                .Should().Throw<ArgumentNullException>();
+        }
+
+        [Test]
+        public async Task ExecuteQueryByIdReturnsCorrectResult()
+        {
+            var queryId = Guid.NewGuid();
+            var asOf = DateTime.UtcNow;
+            HttpClientMock.Setup(c => c.ExecuteGet<FlatWorkItemsQueryResult>(It.Is<string>(u => VerifyWiqlByIdQueryUrl(u, queryId)), CancellationToken))
+                .ReturnsAsync(new FlatWorkItemsQueryResult() { AsOf = asOf })
+                .Verifiable();
+
+            var result = await Client.ExecuteQueryAsync<FlatWorkItemsQueryResult>(queryId, CancellationToken);
+
+            result.Should().NotBeNull();
+            result.Should().BeOfType<FlatWorkItemsQueryResult>();
+            result.AsOf.Should().Be(asOf);
+            HttpClientMock.VerifyAll();
+        }
+
+        [Test]
+        public void ExecuteQueryByIdDoesNotCatchExceptions()
+        {
+            var queryId = Guid.NewGuid();
+            var asOf = DateTime.UtcNow;
+            HttpClientMock.Setup(c => c.ExecuteGet<FlatWorkItemsQueryResult>(It.Is<string>(u => VerifyWiqlByIdQueryUrl(u, queryId)), CancellationToken))
+                .Throws<NullReferenceException>();
+
+            Client.Awaiting(c => c.ExecuteQueryAsync<FlatWorkItemsQueryResult>(queryId, CancellationToken))
+                .Should().Throw<NullReferenceException>();
+
+            HttpClientMock.VerifyAll();
+        }
+
+        private bool VerifyWiqlByIdQueryUrl(string url, Guid id)
+        {
+            var expectedUrl = $"https://{InstanceName}.visualstudio.com/_apis/wit/wiql/{id}?api-version={Constants.CurrentWorkItemsApiVersion}";
+            return string.Equals(url, expectedUrl, StringComparison.OrdinalIgnoreCase);
+        }
+
         private bool VerifyWiqlQueryUrl(string url)
         {
             var expectedUrl = $"https://{InstanceName}.visualstudio.com/_apis/wit/wiql?api-version={Constants.CurrentWorkItemsApiVersion}";
