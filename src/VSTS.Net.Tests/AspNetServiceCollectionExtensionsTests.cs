@@ -38,6 +38,7 @@ namespace VSTS.Net.Tests
         public void ShouldRegisterAllVstsClientInterfaces()
         {
             _services.AddVstsNet(InstanceName, Token);
+            TestClientRegistration<IVstsWorkItemsMetadataClient>();
             TestClientRegistration<IVstsPullRequestsClient>();
             TestClientRegistration<IVstsWorkItemsClient>();
             TestClientRegistration<IVstsClient>();

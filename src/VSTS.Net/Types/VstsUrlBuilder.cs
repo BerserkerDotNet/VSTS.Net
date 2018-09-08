@@ -13,6 +13,7 @@ namespace VSTS.Net.Types
         private const string WIQLApiSection = "wiql";
         private const string QueriesApiSection = "queries";
         private const string WorkItemsSection = "workitems";
+        private const string WorkItemFieldsSection = "fields";
         private const string GITSection = "git";
         private const string RepositoriesSection = "repositories";
         private const string PullRequestsSection = "pullRequests";
@@ -69,6 +70,12 @@ namespace VSTS.Net.Types
         public VstsUrlBuilder ForWorkItems()
         {
             _url.Append($"/{APIsSection}/{WITSection}/{WorkItemsSection}");
+            return this;
+        }
+
+        public VstsUrlBuilder ForWorkItemFields()
+        {
+            _url.Append($"/{APIsSection}/{WITSection}/{WorkItemFieldsSection}");
             return this;
         }
 
