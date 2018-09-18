@@ -19,6 +19,24 @@ namespace VSTS.Net.Interfaces
         Task<IEnumerable<PullRequest>> GetPullRequestsAsync(string project, string repository, PullRequestQuery query, CancellationToken cancellationToken = default(CancellationToken));
 
         /// <summary>
+        /// Retrieve a pull request.
+        /// </summary>
+        /// <param name="project">Project ID or project name</param>
+        /// <param name="repository">The repository ID of the pull request's target branch.</param>
+        /// <param name="id">The ID of the pull request to retrieve.</param>
+        /// <param name="cancellationToken">Cancellation token</param>
+        /// <returns>An instance of the <see cref="PullRequest"></see> fetched from the server</returns>
+        Task<PullRequest> GetPullRequestAsync(string project, string repository, int id, CancellationToken cancellationToken = default(CancellationToken));
+
+        /// <summary>
+        /// Retrieve a pull request.
+        /// </summary>
+        /// <param name="id">The ID of the pull request to retrieve.</param>
+        /// <param name="cancellationToken">Cancellation token</param>
+        /// <returns><An instance of the <see cref="PullRequest"></see> fetched from the server/returns>
+        Task<PullRequest> GetPullRequestAsync(int id, CancellationToken cancellationToken = default(CancellationToken));
+
+        /// <summary>
         /// Get the list of iterations for the specified pull request.
         /// </summary>
         /// <param name="project">Project ID or project name</param>

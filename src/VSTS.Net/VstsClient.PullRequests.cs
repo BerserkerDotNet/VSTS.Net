@@ -60,6 +60,30 @@ namespace VSTS.Net
         }
 
         /// <inheritdoc />
+        public async Task<PullRequest> GetPullRequestAsync(string project, string repository, int id, CancellationToken cancellationToken = default(CancellationToken))
+        {
+            ThrowIfArgumentNullOrEmpty(project, nameof(project));
+            ThrowIfArgumentNullOrEmpty(repository, nameof(repository));
+
+            var url = _urlBuilderFactory.Create()
+                .ForPullRequests(project, repository)
+                .WithSection(id.ToString())
+                .Build();
+
+            return await _httpClient.ExecuteGet<PullRequest>(url, cancellationToken);
+        }
+
+        /// <inheritdoc />
+        public async Task<PullRequest> GetPullRequestAsync(int id, CancellationToken cancellationToken = default(CancellationToken))
+        {
+            var url = _urlBuilderFactory.Create()
+                .ForPullRequestId(id)
+                .Build();
+
+            return await _httpClient.ExecuteGet<PullRequest>(url, cancellationToken);
+        }
+
+        /// <inheritdoc />
         public async Task<IEnumerable<PullRequestIteration>> GetPullRequestIterationsAsync(string project, string repository, int pullRequestId, CancellationToken cancellationToken = default(CancellationToken))
         {
             ThrowIfArgumentNullOrEmpty(project, nameof(project));

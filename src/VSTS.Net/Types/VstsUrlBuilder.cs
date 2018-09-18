@@ -88,7 +88,13 @@ namespace VSTS.Net.Types
         public VstsUrlBuilder ForPullRequests(string projectName, string repositoryName)
         {
             ForRepository(projectName, repositoryName);
-            _url.Append("/pullRequests");
+            WithSection(PullRequestsSection);
+            return this;
+        }
+
+        public VstsUrlBuilder ForPullRequestId(int id)
+        {
+            _url.Append($"/{APIsSection}/{GITSection}/{PullRequestsSection}/{id}");
             return this;
         }
 
