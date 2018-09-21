@@ -1,5 +1,5 @@
 # VSTS.Net
-.Net client for Visual Studio Team Services API
+.Net client for Azure DevOps Services (Visual Studio Team Services) API
 
 [![Build status](https://ci.appveyor.com/api/projects/status/et2718qanpkjf55m?svg=true)](https://ci.appveyor.com/project/BerserkerDotNet/vsts-net)
 
@@ -27,13 +27,18 @@ For OnPrem (TFS) versions use `OnPremUrlBuilderFactory` instead of `OnlineUrlBui
 In the `Startup.cs` add `VstsNet` to the services collection
 
 ```csharp
-services.AddVstsNet(instanceName: "foo", accessToken: "secure token");
+services.AddAzureDevOpsServices(instanceName: "foo", accessToken: "secure token");
 ```
 
 or if you have OnPrem (TFS) version:
 
 ```csharp
-services.AddVstsNet(new Uri("https://foo.mydomain.com"), accessToken: "secure token");
+services.AddAzureDevOpsServices(new Uri("https://foo.mydomain.com"), accessToken: "secure token");
+```
+
+To use Azure DevOps Services style url:
+```csharp
+services.AddAzureDevOpsServices(new Uri("https://dev.azure.com/{organization}"), accessToken: "secure token");
 ```
 
 Now you can consume Vsts client through DI:

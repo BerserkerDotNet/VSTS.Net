@@ -27,7 +27,7 @@ namespace VSTS.Net.Tests
         [Test]
         public void ShouldRegisterIHttpClientImplementation()
         {
-            _services.AddVstsNet(InstanceName, Token);
+            _services.AddAzureDevOpsServices(InstanceName, Token);
             _services.Count.Should().BeGreaterThan(0);
             _services.Should().ContainSingle(d => d.ServiceType == typeof(IHttpClient));
 
@@ -37,7 +37,7 @@ namespace VSTS.Net.Tests
         [Test]
         public void ShouldRegisterAllVstsClientInterfaces()
         {
-            _services.AddVstsNet(InstanceName, Token);
+            _services.AddAzureDevOpsServices(InstanceName, Token);
             TestClientRegistration<IVstsWorkItemsMetadataClient>();
             TestClientRegistration<IVstsPullRequestsClient>();
             TestClientRegistration<IVstsWorkItemsClient>();
@@ -47,7 +47,7 @@ namespace VSTS.Net.Tests
         [Test]
         public void ShouldRegisterDefaultConfiguration()
         {
-            _services.AddVstsNet(InstanceName, Token);
+            _services.AddAzureDevOpsServices(InstanceName, Token);
             var configRegistration = _services.Single(d => d.ServiceType == typeof(VstsClientConfiguration));
             var config = configRegistration.ImplementationInstance as VstsClientConfiguration;
 
@@ -59,7 +59,7 @@ namespace VSTS.Net.Tests
         [Test]
         public void ShouldRegisterDefaultConfigurationWithOnPrem()
         {
-            _services.AddVstsNet(new Uri("https://foo.com"), Token);
+            _services.AddAzureDevOpsServices(new Uri("https://foo.com"), Token);
             var configRegistration = _services.Single(d => d.ServiceType == typeof(VstsClientConfiguration));
             var config = configRegistration.ImplementationInstance as VstsClientConfiguration;
 
@@ -75,7 +75,7 @@ namespace VSTS.Net.Tests
             const string expecetdWIAPIVersion = "3.0";
             const int expectedWorkitemsBatchSize = 210;
 
-            _services.AddVstsNet(InstanceName, Token, cfg =>
+            _services.AddAzureDevOpsServices(InstanceName, Token, cfg =>
             {
                 cfg.WorkItemsApiVersion = expecetdWIAPIVersion;
                 cfg.PullRequestsApiVersion = expectedPRApiVersion;
@@ -98,7 +98,7 @@ namespace VSTS.Net.Tests
             const string expecetdWIAPIVersion = "3.2";
             const int expectedWorkitemsBatchSize = 123;
 
-            _services.AddVstsNet(new Uri("https://foo.com"), Token, cfg =>
+            _services.AddAzureDevOpsServices(new Uri("https://foo.com"), Token, cfg =>
             {
                 cfg.WorkItemsApiVersion = expecetdWIAPIVersion;
                 cfg.PullRequestsApiVersion = expectedPRApiVersion;
@@ -117,7 +117,7 @@ namespace VSTS.Net.Tests
         [Test]
         public void ShouldRegisterOnlineUrlFactoryBuilder()
         {
-            _services.AddVstsNet(InstanceName, Token);
+            _services.AddAzureDevOpsServices(InstanceName, Token);
             _services.Count.Should().BeGreaterThan(0);
             _services.Should().ContainSingle(d => d.ServiceType == typeof(IVstsUrlBuilderFactory) && d.Lifetime == ServiceLifetime.Singleton);
 
@@ -132,7 +132,7 @@ namespace VSTS.Net.Tests
         {
             const string baseUrl = "https://foo.com";
 
-            _services.AddVstsNet(new Uri(baseUrl), Token);
+            _services.AddAzureDevOpsServices(new Uri(baseUrl), Token);
             _services.Count.Should().BeGreaterThan(0);
             _services.Should().ContainSingle(d => d.ServiceType == typeof(IVstsUrlBuilderFactory) && d.Lifetime == ServiceLifetime.Singleton);
 
