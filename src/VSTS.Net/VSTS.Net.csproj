@@ -1,16 +1,16 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
-    <Description>REST client for Visual Studio Team Services</Description>
+    <Description>REST client for Azure DevOps Services (Visual Studio Team Services)</Description>
     <Authors>Andrii Snihyr</Authors>
-    <Version>0.2.2</Version>
+    <Version>0.2.3</Version>
     <TargetFramework>netstandard2.0</TargetFramework>
     <Copyright>Copyright © Andrii Snihyr</Copyright>
     <PackageLicenseUrl>https://github.com/BerserkerDotNet/VSTS.Net/blob/master/LICENSE</PackageLicenseUrl>
     <PackageProjectUrl>https://github.com/BerserkerDotNet/VSTS.Net</PackageProjectUrl>
     <RepositoryUrl>https://github.com/BerserkerDotNet/VSTS.Net</RepositoryUrl>
     <RepositoryType>git</RepositoryType>
-    <PackageTags>vsts, client, REST, tfs</PackageTags>
+    <PackageTags>vsts, client, REST, tfs, AzureDevOpsServices, AzureDevOps</PackageTags>
     <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
     <SignAssembly>true</SignAssembly>
     <AssemblyOriginatorKeyFile>vsts.net.snk</AssemblyOriginatorKeyFile>
