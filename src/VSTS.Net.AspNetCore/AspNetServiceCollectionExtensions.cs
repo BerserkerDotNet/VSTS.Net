@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Diagnostics.CodeAnalysis;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
 using VSTS.Net.Interfaces;
@@ -9,24 +10,28 @@ namespace VSTS.Net.Extensions
     public static class AspNetServiceCollectionExtensions
     {
         [Obsolete("VSTS was renamed to Azure DevOps Services, use AddAzureDevOpsServices instead")]
+        [ExcludeFromCodeCoverage]
         public static void AddVstsNet(this IServiceCollection services, string instanceName, string accessToken)
         {
             AddAzureDevOpsServices(services, instanceName, accessToken, _ => { });
         }
 
         [Obsolete("VSTS was renamed to Azure DevOps Services, use AddAzureDevOpsServices instead")]
+        [ExcludeFromCodeCoverage]
         public static void AddVstsNet(this IServiceCollection services, string instanceName, string accessToken, Action<VstsClientConfiguration> cfg)
         {
             AddAzureDevOpsServices(services, accessToken, accessToken, cfg);
         }
 
         [Obsolete("VSTS was renamed to Azure DevOps Services, use AddAzureDevOpsServices instead")]
+        [ExcludeFromCodeCoverage]
         public static void AddVstsNet(this IServiceCollection services, Uri baseAddress, string accessToken)
         {
             AddAzureDevOpsServices(services, baseAddress, accessToken, _ => { });
         }
 
         [Obsolete("VSTS was renamed to Azure DevOps Services, use AddAzureDevOpsServices instead")]
+        [ExcludeFromCodeCoverage]
         public static void AddVstsNet(this IServiceCollection services, Uri baseAddress, string accessToken, Action<VstsClientConfiguration> cfg)
         {
             AddAzureDevOpsServices(services, baseAddress, accessToken, cfg);
@@ -69,13 +74,6 @@ namespace VSTS.Net.Extensions
             services.AddSingleton<IVstsWorkItemsClient, VstsClient>();
             services.AddSingleton<IVstsPullRequestsClient, VstsClient>();
             services.AddSingleton<IVstsWorkItemsMetadataClient, VstsClient>();
-        }
-
-        private static VstsClient CreateVstsClient(string instanceName, IServiceProvider ctx, VstsClientConfiguration config)
-        {
-            var client = ctx.GetService<IHttpClient>();
-            var logger = ctx.GetService<ILogger<VstsClient>>();
-            return new VstsClient(new OnlineUrlBuilderFactory(instanceName), client, config, logger);
         }
     }
 }
