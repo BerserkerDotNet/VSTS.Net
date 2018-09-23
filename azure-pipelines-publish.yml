@@ -1,0 +1,31 @@
+pool:
+  vmImage: 'VS2017-Win2016'
+
+variables:
+  buildConfiguration: 'Release'
+
+steps:
+- script: |
+    dotnet build -c $(buildConfiguration) -o $(Build.BinariesDirectory)
+    dotnet test ./src/VSTS.Net.Tests -c $(buildConfiguration) -l:trx /p:CollectCoverage=true /p:CoverletOutputFormat=opencover /p:Exclude="[NUnit3.TestAdapter]*" /p:ExcludeByFile="../Vsts.Net/Models/*.cs"
+- task: CopyFiles@2
+  inputs:
+    contents: '**\*.nupkg'
+    sourceFolder: $(Build.BinariesDirectory)
+    targetFolder: $(Build.ArtifactStagingDirectory)
+
+- task: PublishTestResults@2
+  inputs:
+    testResultsFormat: VSTest
+    testResultsFiles: '**/*.trx'
+
+- task: PublishBuildArtifacts@1
+
+- task: NuGetCommand@2
+  displayName: 'Publish NuGet packages'
+  inputs:
+    command: push
+    packagesToPush: '$(Build.BinariesDirectory)/**/*.nupkg'
+    nuGetFeedType: external
+    publishFeedCredentials: 'NuGet.org feed'
+
