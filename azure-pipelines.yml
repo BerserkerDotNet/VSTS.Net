@@ -1,30 +1,18 @@
-# .NET Desktop
-# Build and run tests for .NET Desktop or Windows classic desktop solutions.
-# Add steps that publish symbols, save build artifacts, and more:
-# https://docs.microsoft.com/vsts/pipelines/apps/windows/dot-net
-
 pool:
   vmImage: 'VS2017-Win2016'
 
 variables:
-  solution: '**/*.sln'
-  buildPlatform: 'Any CPU'
   buildConfiguration: 'Release'
 
 steps:
-- task: NuGetToolInstaller@0
+- script: |
+    dotnet build -c $(buildConfiguration)
+    dotnet test ./src/VSTS.Net.Tests -c $(buildConfiguration) -l:trx /p:CollectCoverage=true /p:CoverletOutputFormat=opencover /p:Exclude="[NUnit3.TestAdapter]*" /p:ExcludeByFile="../Vsts.Net/Models/*.cs"
+    dotnet publish -c $(buildConfiguration) --output $BUILD_ARTIFACTSTAGINGDIRECTORY
 
-- task: NuGetCommand@2
+- task: PublishTestResults@2
   inputs:
-    restoreSolution: '$(solution)'
-
-- task: VSBuild@1
-  inputs:
-    solution: '$(solution)'
-    platform: '$(buildPlatform)'
-    configuration: '$(buildConfiguration)'
-
-- task: VSTest@2
-  inputs:
-    platform: '$(buildPlatform)'
-    configuration: '$(buildConfiguration)'
+    testRunner: VSTest
+    testResultFilters: '**/*.trx'
+    
+- task: PublishBuildArtifacts@1
