@@ -16,7 +16,7 @@ steps:
 
 - task: PublishTestResults@2
   inputs:
-    testResultsFormat: 'VSTest'
+    testResultsFormat: VSTest
     testResultsFiles: '**/*.trx'
 
 - task: PublishBuildArtifacts@1

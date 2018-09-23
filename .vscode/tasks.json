@@ -1,0 +1,27 @@
+{
+    "version": "2.0.0",
+    "tasks": [
+        {
+            "label": "build",
+            "command": "dotnet",
+            "type": "process",
+            "args": [
+                "build"
+            ],
+            "problemMatcher": "$msCompile"
+        },
+        {
+            "label": "test",
+            "command": "dotnet",
+            "type": "process",
+            "args": [
+                "test",
+                "./src/VSTS.Net.Tests",
+                "/p:CollectCoverage=true",
+                "/p:CoverletOutputFormat=opencover",
+                "/p:Exclude=\"[NUnit3.TestAdapter]*\"",
+                "/p:ExcludeByFile=\"../Vsts.Net/Models/*.cs\""
+            ]
+        }
+    ]
+}
