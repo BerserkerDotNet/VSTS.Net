@@ -20,3 +20,12 @@ steps:
     testResultsFiles: '**/*.trx'
 
 - task: PublishBuildArtifacts@1
+
+- task: NuGetCommand@2
+  displayName: 'Publish NuGet packages'
+  inputs:
+    command: push
+    packagesToPush: '$(Build.BinariesDirectory)/**/*.nupkg'
+    nuGetFeedType: external
+    publishFeedCredentials: 'NuGet.org feed'
+
