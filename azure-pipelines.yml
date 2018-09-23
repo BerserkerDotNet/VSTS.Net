@@ -8,11 +8,11 @@ steps:
 - script: |
     dotnet build -c $(buildConfiguration)
     dotnet test ./src/VSTS.Net.Tests -c $(buildConfiguration) -l:trx /p:CollectCoverage=true /p:CoverletOutputFormat=opencover /p:Exclude="[NUnit3.TestAdapter]*" /p:ExcludeByFile="../Vsts.Net/Models/*.cs"
-    dotnet publish -c $(buildConfiguration) --output $BUILD_ARTIFACTSTAGINGDIRECTORY
+    dotnet publish -c $(buildConfiguration) --output $(Build.ArtifactStagingDirectory)
 
 - task: PublishTestResults@2
   inputs:
     testRunner: VSTest
     testResultFilters: '**/*.trx'
-    
+
 - task: PublishBuildArtifacts@1
