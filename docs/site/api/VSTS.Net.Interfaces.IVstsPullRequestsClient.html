@@ -10,7 +10,7 @@
     <meta name="viewport" content="width=device-width">
     <meta name="title" content="Interface IVstsPullRequestsClient
    | Vsts.Net Docs ">
-    <meta name="generator" content="docfx 2.36.2.0">
+    <meta name="generator" content="docfx 2.40.0.0">
     
     <link rel="shortcut icon" href="../favicon.ico">
     <link rel="stylesheet" href="../styles/docfx.vendor.css">
@@ -95,19 +95,139 @@
   </h3>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
-    <a href="https://github.com/BerserkerDotNet/VSTS.Net/new/master/apiSpec/new?filename=VSTS_Net_Interfaces_IVstsPullRequestsClient_GetPullRequestIterationsAsync_System_String_System_String_System_Int32_.md&amp;value=---%0Auid%3A%20VSTS.Net.Interfaces.IVstsPullRequestsClient.GetPullRequestIterationsAsync(System.String%2CSystem.String%2CSystem.Int32)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+    <a href="https://github.com/BerserkerDotNet/VSTS.Net/new/master/apiSpec/new?filename=VSTS_Net_Interfaces_IVstsPullRequestsClient_GetPullRequestAsync_System_Int32_System_Threading_CancellationToken_.md&amp;value=---%0Auid%3A%20VSTS.Net.Interfaces.IVstsPullRequestsClient.GetPullRequestAsync(System.Int32%2CSystem.Threading.CancellationToken)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/BerserkerDotNet/VSTS.Net/blob/master/src/VSTS.Net/Interfaces/IVstsPullRequestsClient.cs/#L26">View Source</a>
+    <a href="https://github.com/BerserkerDotNet/VSTS.Net/blob/master/src/VSTS.Net/Interfaces/IVstsPullRequestsClient.cs/#L37">View Source</a>
+  </span>
+  <a id="VSTS_Net_Interfaces_IVstsPullRequestsClient_GetPullRequestAsync_" data-uid="VSTS.Net.Interfaces.IVstsPullRequestsClient.GetPullRequestAsync*"></a>
+  <h4 id="VSTS_Net_Interfaces_IVstsPullRequestsClient_GetPullRequestAsync_System_Int32_System_Threading_CancellationToken_" data-uid="VSTS.Net.Interfaces.IVstsPullRequestsClient.GetPullRequestAsync(System.Int32,System.Threading.CancellationToken)">GetPullRequestAsync(Int32, CancellationToken)</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">Task&lt;PullRequest&gt; GetPullRequestAsync(int id, CancellationToken cancellationToken = default(CancellationToken))</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Int32</span></td>
+        <td><span class="parametername">id</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Threading.CancellationToken</span></td>
+        <td><span class="parametername">cancellationToken</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Threading.Tasks.Task</span>&lt;<a class="xref" href="VSTS.Net.Models.PullRequests.PullRequest.html">PullRequest</a>&gt;</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/BerserkerDotNet/VSTS.Net/new/master/apiSpec/new?filename=VSTS_Net_Interfaces_IVstsPullRequestsClient_GetPullRequestAsync_System_String_System_String_System_Int32_System_Threading_CancellationToken_.md&amp;value=---%0Auid%3A%20VSTS.Net.Interfaces.IVstsPullRequestsClient.GetPullRequestAsync(System.String%2CSystem.String%2CSystem.Int32%2CSystem.Threading.CancellationToken)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/BerserkerDotNet/VSTS.Net/blob/master/src/VSTS.Net/Interfaces/IVstsPullRequestsClient.cs/#L29">View Source</a>
+  </span>
+  <a id="VSTS_Net_Interfaces_IVstsPullRequestsClient_GetPullRequestAsync_" data-uid="VSTS.Net.Interfaces.IVstsPullRequestsClient.GetPullRequestAsync*"></a>
+  <h4 id="VSTS_Net_Interfaces_IVstsPullRequestsClient_GetPullRequestAsync_System_String_System_String_System_Int32_System_Threading_CancellationToken_" data-uid="VSTS.Net.Interfaces.IVstsPullRequestsClient.GetPullRequestAsync(System.String,System.String,System.Int32,System.Threading.CancellationToken)">GetPullRequestAsync(String, String, Int32, CancellationToken)</h4>
+  <div class="markdown level1 summary"><p>Retrieve a pull request.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">Task&lt;PullRequest&gt; GetPullRequestAsync(string project, string repository, int id, CancellationToken cancellationToken = default(CancellationToken))</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.String</span></td>
+        <td><span class="parametername">project</span></td>
+        <td><p>Project ID or project name</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.String</span></td>
+        <td><span class="parametername">repository</span></td>
+        <td><p>The repository ID of the pull request's target branch.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Int32</span></td>
+        <td><span class="parametername">id</span></td>
+        <td><p>The ID of the pull request to retrieve.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Threading.CancellationToken</span></td>
+        <td><span class="parametername">cancellationToken</span></td>
+        <td><p>Cancellation token</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Threading.Tasks.Task</span>&lt;<a class="xref" href="VSTS.Net.Models.PullRequests.PullRequest.html">PullRequest</a>&gt;</td>
+        <td><p>An instance of the <a class="xref" href="VSTS.Net.Models.PullRequests.PullRequest.html">PullRequest</a> fetched from the server</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/BerserkerDotNet/VSTS.Net/new/master/apiSpec/new?filename=VSTS_Net_Interfaces_IVstsPullRequestsClient_GetPullRequestIterationsAsync_System_String_System_String_System_Int32_System_Threading_CancellationToken_.md&amp;value=---%0Auid%3A%20VSTS.Net.Interfaces.IVstsPullRequestsClient.GetPullRequestIterationsAsync(System.String%2CSystem.String%2CSystem.Int32%2CSystem.Threading.CancellationToken)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/BerserkerDotNet/VSTS.Net/blob/master/src/VSTS.Net/Interfaces/IVstsPullRequestsClient.cs/#L47">View Source</a>
   </span>
   <a id="VSTS_Net_Interfaces_IVstsPullRequestsClient_GetPullRequestIterationsAsync_" data-uid="VSTS.Net.Interfaces.IVstsPullRequestsClient.GetPullRequestIterationsAsync*"></a>
-  <h4 id="VSTS_Net_Interfaces_IVstsPullRequestsClient_GetPullRequestIterationsAsync_System_String_System_String_System_Int32_" data-uid="VSTS.Net.Interfaces.IVstsPullRequestsClient.GetPullRequestIterationsAsync(System.String,System.String,System.Int32)">GetPullRequestIterationsAsync(String, String, Int32)</h4>
+  <h4 id="VSTS_Net_Interfaces_IVstsPullRequestsClient_GetPullRequestIterationsAsync_System_String_System_String_System_Int32_System_Threading_CancellationToken_" data-uid="VSTS.Net.Interfaces.IVstsPullRequestsClient.GetPullRequestIterationsAsync(System.String,System.String,System.Int32,System.Threading.CancellationToken)">GetPullRequestIterationsAsync(String, String, Int32, CancellationToken)</h4>
   <div class="markdown level1 summary"><p>Get the list of iterations for the specified pull request.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">Task&lt;IEnumerable&lt;PullRequestIteration&gt;&gt; GetPullRequestIterationsAsync(string project, string repository, int pullRequestId)</code></pre>
+    <pre><code class="lang-csharp hljs">Task&lt;IEnumerable&lt;PullRequestIteration&gt;&gt; GetPullRequestIterationsAsync(string project, string repository, int pullRequestId, CancellationToken cancellationToken = default(CancellationToken))</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
   <table class="table table-bordered table-striped table-condensed">
@@ -137,6 +257,12 @@
         <td><p>ID of the pull request.</p>
 </td>
       </tr>
+      <tr>
+        <td><span class="xref">System.Threading.CancellationToken</span></td>
+        <td><span class="parametername">cancellationToken</span></td>
+        <td><p>Cancellation token</p>
+</td>
+      </tr>
     </tbody>
   </table>
   <h5 class="returns">Returns</h5>
@@ -150,25 +276,26 @@
     <tbody>
       <tr>
         <td><span class="xref">System.Threading.Tasks.Task</span>&lt;<span class="xref">System.Collections.Generic.IEnumerable</span>&lt;<a class="xref" href="VSTS.Net.Models.PullRequests.PullRequestIteration.html">PullRequestIteration</a>&gt;&gt;</td>
-        <td></td>
+        <td><p>List of pull request iterations</p>
+</td>
       </tr>
     </tbody>
   </table>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
-    <a href="https://github.com/BerserkerDotNet/VSTS.Net/new/master/apiSpec/new?filename=VSTS_Net_Interfaces_IVstsPullRequestsClient_GetPullRequestsAsync_System_String_System_String_VSTS_Net_Models_Request_PullRequestQuery_.md&amp;value=---%0Auid%3A%20VSTS.Net.Interfaces.IVstsPullRequestsClient.GetPullRequestsAsync(System.String%2CSystem.String%2CVSTS.Net.Models.Request.PullRequestQuery)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+    <a href="https://github.com/BerserkerDotNet/VSTS.Net/new/master/apiSpec/new?filename=VSTS_Net_Interfaces_IVstsPullRequestsClient_GetPullRequestsAsync_System_String_System_String_VSTS_Net_Models_Request_PullRequestQuery_System_Threading_CancellationToken_.md&amp;value=---%0Auid%3A%20VSTS.Net.Interfaces.IVstsPullRequestsClient.GetPullRequestsAsync(System.String%2CSystem.String%2CVSTS.Net.Models.Request.PullRequestQuery%2CSystem.Threading.CancellationToken)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/BerserkerDotNet/VSTS.Net/blob/master/src/VSTS.Net/Interfaces/IVstsPullRequestsClient.cs/#L17">View Source</a>
+    <a href="https://github.com/BerserkerDotNet/VSTS.Net/blob/master/src/VSTS.Net/Interfaces/IVstsPullRequestsClient.cs/#L19">View Source</a>
   </span>
   <a id="VSTS_Net_Interfaces_IVstsPullRequestsClient_GetPullRequestsAsync_" data-uid="VSTS.Net.Interfaces.IVstsPullRequestsClient.GetPullRequestsAsync*"></a>
-  <h4 id="VSTS_Net_Interfaces_IVstsPullRequestsClient_GetPullRequestsAsync_System_String_System_String_VSTS_Net_Models_Request_PullRequestQuery_" data-uid="VSTS.Net.Interfaces.IVstsPullRequestsClient.GetPullRequestsAsync(System.String,System.String,VSTS.Net.Models.Request.PullRequestQuery)">GetPullRequestsAsync(String, String, PullRequestQuery)</h4>
+  <h4 id="VSTS_Net_Interfaces_IVstsPullRequestsClient_GetPullRequestsAsync_System_String_System_String_VSTS_Net_Models_Request_PullRequestQuery_System_Threading_CancellationToken_" data-uid="VSTS.Net.Interfaces.IVstsPullRequestsClient.GetPullRequestsAsync(System.String,System.String,VSTS.Net.Models.Request.PullRequestQuery,System.Threading.CancellationToken)">GetPullRequestsAsync(String, String, PullRequestQuery, CancellationToken)</h4>
   <div class="markdown level1 summary"><p>Retrieve all pull requests matching a specified criteria.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">Task&lt;IEnumerable&lt;PullRequest&gt;&gt; GetPullRequestsAsync(string project, string repository, PullRequestQuery query)</code></pre>
+    <pre><code class="lang-csharp hljs">Task&lt;IEnumerable&lt;PullRequest&gt;&gt; GetPullRequestsAsync(string project, string repository, PullRequestQuery query, CancellationToken cancellationToken = default(CancellationToken))</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
   <table class="table table-bordered table-striped table-condensed">
@@ -198,6 +325,12 @@
         <td><p>Filter criteria</p>
 </td>
       </tr>
+      <tr>
+        <td><span class="xref">System.Threading.CancellationToken</span></td>
+        <td><span class="parametername">cancellationToken</span></td>
+        <td><p>Cancellation token</p>
+</td>
+      </tr>
     </tbody>
   </table>
   <h5 class="returns">Returns</h5>
@@ -218,19 +351,19 @@
   </table>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
-    <a href="https://github.com/BerserkerDotNet/VSTS.Net/new/master/apiSpec/new?filename=VSTS_Net_Interfaces_IVstsPullRequestsClient_GetPullRequestThreadsAsync_System_String_System_String_System_Int32_.md&amp;value=---%0Auid%3A%20VSTS.Net.Interfaces.IVstsPullRequestsClient.GetPullRequestThreadsAsync(System.String%2CSystem.String%2CSystem.Int32)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+    <a href="https://github.com/BerserkerDotNet/VSTS.Net/new/master/apiSpec/new?filename=VSTS_Net_Interfaces_IVstsPullRequestsClient_GetPullRequestThreadsAsync_System_String_System_String_System_Int32_System_Threading_CancellationToken_.md&amp;value=---%0Auid%3A%20VSTS.Net.Interfaces.IVstsPullRequestsClient.GetPullRequestThreadsAsync(System.String%2CSystem.String%2CSystem.Int32%2CSystem.Threading.CancellationToken)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/BerserkerDotNet/VSTS.Net/blob/master/src/VSTS.Net/Interfaces/IVstsPullRequestsClient.cs/#L35">View Source</a>
+    <a href="https://github.com/BerserkerDotNet/VSTS.Net/blob/master/src/VSTS.Net/Interfaces/IVstsPullRequestsClient.cs/#L57">View Source</a>
   </span>
   <a id="VSTS_Net_Interfaces_IVstsPullRequestsClient_GetPullRequestThreadsAsync_" data-uid="VSTS.Net.Interfaces.IVstsPullRequestsClient.GetPullRequestThreadsAsync*"></a>
-  <h4 id="VSTS_Net_Interfaces_IVstsPullRequestsClient_GetPullRequestThreadsAsync_System_String_System_String_System_Int32_" data-uid="VSTS.Net.Interfaces.IVstsPullRequestsClient.GetPullRequestThreadsAsync(System.String,System.String,System.Int32)">GetPullRequestThreadsAsync(String, String, Int32)</h4>
+  <h4 id="VSTS_Net_Interfaces_IVstsPullRequestsClient_GetPullRequestThreadsAsync_System_String_System_String_System_Int32_System_Threading_CancellationToken_" data-uid="VSTS.Net.Interfaces.IVstsPullRequestsClient.GetPullRequestThreadsAsync(System.String,System.String,System.Int32,System.Threading.CancellationToken)">GetPullRequestThreadsAsync(String, String, Int32, CancellationToken)</h4>
   <div class="markdown level1 summary"><p>Retrieve all threads in a pull request.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">Task&lt;IEnumerable&lt;PullRequestThread&gt;&gt; GetPullRequestThreadsAsync(string project, string repository, int pullRequestId)</code></pre>
+    <pre><code class="lang-csharp hljs">Task&lt;IEnumerable&lt;PullRequestThread&gt;&gt; GetPullRequestThreadsAsync(string project, string repository, int pullRequestId, CancellationToken cancellationToken = default(CancellationToken))</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
   <table class="table table-bordered table-striped table-condensed">
@@ -260,6 +393,12 @@
         <td><p>ID of the pull request.</p>
 </td>
       </tr>
+      <tr>
+        <td><span class="xref">System.Threading.CancellationToken</span></td>
+        <td><span class="parametername">cancellationToken</span></td>
+        <td><p>Cancellation token</p>
+</td>
+      </tr>
     </tbody>
   </table>
   <h5 class="returns">Returns</h5>
@@ -273,7 +412,8 @@
     <tbody>
       <tr>
         <td><span class="xref">System.Threading.Tasks.Task</span>&lt;<span class="xref">System.Collections.Generic.IEnumerable</span>&lt;<a class="xref" href="VSTS.Net.Models.PullRequests.PullRequestThread.html">PullRequestThread</a>&gt;&gt;</td>
-        <td></td>
+        <td><p>List of pull request threads</p>
+</td>
       </tr>
     </tbody>
   </table>
@@ -288,7 +428,7 @@
                     <a href="https://github.com/BerserkerDotNet/VSTS.Net/new/master/apiSpec/new?filename=VSTS_Net_Interfaces_IVstsPullRequestsClient.md&amp;value=---%0Auid%3A%20VSTS.Net.Interfaces.IVstsPullRequestsClient%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A" class="contribution-link">Improve this Doc</a>
                   </li>
                   <li>
-                    <a href="https://github.com/BerserkerDotNet/VSTS.Net/blob/master/src/VSTS.Net/Interfaces/IVstsPullRequestsClient.cs/#L8" class="contribution-link">View Source</a>
+                    <a href="https://github.com/BerserkerDotNet/VSTS.Net/blob/master/src/VSTS.Net/Interfaces/IVstsPullRequestsClient.cs/#L9" class="contribution-link">View Source</a>
                   </li>
                 </ul>
               </div>

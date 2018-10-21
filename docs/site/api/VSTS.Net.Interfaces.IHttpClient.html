@@ -10,7 +10,7 @@
     <meta name="viewport" content="width=device-width">
     <meta name="title" content="Interface IHttpClient
    | Vsts.Net Docs ">
-    <meta name="generator" content="docfx 2.36.2.0">
+    <meta name="generator" content="docfx 2.40.0.0">
     
     <link rel="shortcut icon" href="../favicon.ico">
     <link rel="stylesheet" href="../styles/docfx.vendor.css">
@@ -95,19 +95,19 @@
   </h3>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
-    <a href="https://github.com/BerserkerDotNet/VSTS.Net/new/master/apiSpec/new?filename=VSTS_Net_Interfaces_IHttpClient_ExecuteGet__1_System_String_System_Threading_CancellationToken_.md&amp;value=---%0Auid%3A%20VSTS.Net.Interfaces.IHttpClient.ExecuteGet%60%601(System.String%2CSystem.Threading.CancellationToken)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+    <a href="https://github.com/BerserkerDotNet/VSTS.Net/new/master/apiSpec/new?filename=VSTS_Net_Interfaces_IHttpClient_ExecuteDelete__1_System_String_System_Threading_CancellationToken_.md&amp;value=---%0Auid%3A%20VSTS.Net.Interfaces.IHttpClient.ExecuteDelete%60%601(System.String%2CSystem.Threading.CancellationToken)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/BerserkerDotNet/VSTS.Net/blob/master/src/VSTS.Net/Interfaces/IHttpClient.cs/#L16">View Source</a>
+    <a href="https://github.com/BerserkerDotNet/VSTS.Net/blob/master/src/VSTS.Net/Interfaces/IHttpClient.cs/#L90">View Source</a>
   </span>
-  <a id="VSTS_Net_Interfaces_IHttpClient_ExecuteGet_" data-uid="VSTS.Net.Interfaces.IHttpClient.ExecuteGet*"></a>
-  <h4 id="VSTS_Net_Interfaces_IHttpClient_ExecuteGet__1_System_String_System_Threading_CancellationToken_" data-uid="VSTS.Net.Interfaces.IHttpClient.ExecuteGet``1(System.String,System.Threading.CancellationToken)">ExecuteGet&lt;T&gt;(String, CancellationToken)</h4>
-  <div class="markdown level1 summary"><p>Executes a GET request to the specified URL</p>
+  <a id="VSTS_Net_Interfaces_IHttpClient_ExecuteDelete_" data-uid="VSTS.Net.Interfaces.IHttpClient.ExecuteDelete*"></a>
+  <h4 id="VSTS_Net_Interfaces_IHttpClient_ExecuteDelete__1_System_String_System_Threading_CancellationToken_" data-uid="VSTS.Net.Interfaces.IHttpClient.ExecuteDelete``1(System.String,System.Threading.CancellationToken)">ExecuteDelete&lt;T&gt;(String, CancellationToken)</h4>
+  <div class="markdown level1 summary"><p>Sends a DELETE request to the specified URL</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">Task&lt;T&gt; ExecuteGet&lt;T&gt;(string url, CancellationToken cancellationToken = default(CancellationToken))</code></pre>
+    <pre><code class="lang-csharp hljs">Task&lt;T&gt; ExecuteDelete&lt;T&gt;(string url, CancellationToken cancellationToken = default(CancellationToken))</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
   <table class="table table-bordered table-striped table-condensed">
@@ -122,7 +122,7 @@
       <tr>
         <td><span class="xref">System.String</span></td>
         <td><span class="parametername">url</span></td>
-        <td><p>Url ton reach</p>
+        <td><p>Url to send request to</p>
 </td>
       </tr>
       <tr>
@@ -144,7 +144,332 @@
     <tbody>
       <tr>
         <td><span class="xref">System.Threading.Tasks.Task</span>&lt;T&gt;</td>
-        <td></td>
+        <td><p>A requested object</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="typeParameters">Type Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="parametername">T</span></td>
+        <td><p>Type of the result</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/BerserkerDotNet/VSTS.Net/new/master/apiSpec/new?filename=VSTS_Net_Interfaces_IHttpClient_ExecuteGet__1_System_String_System_Threading_CancellationToken_.md&amp;value=---%0Auid%3A%20VSTS.Net.Interfaces.IHttpClient.ExecuteGet%60%601(System.String%2CSystem.Threading.CancellationToken)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/BerserkerDotNet/VSTS.Net/blob/master/src/VSTS.Net/Interfaces/IHttpClient.cs/#L17">View Source</a>
+  </span>
+  <a id="VSTS_Net_Interfaces_IHttpClient_ExecuteGet_" data-uid="VSTS.Net.Interfaces.IHttpClient.ExecuteGet*"></a>
+  <h4 id="VSTS_Net_Interfaces_IHttpClient_ExecuteGet__1_System_String_System_Threading_CancellationToken_" data-uid="VSTS.Net.Interfaces.IHttpClient.ExecuteGet``1(System.String,System.Threading.CancellationToken)">ExecuteGet&lt;T&gt;(String, CancellationToken)</h4>
+  <div class="markdown level1 summary"><p>Sends a GET request to the specified URL</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">Task&lt;T&gt; ExecuteGet&lt;T&gt;(string url, CancellationToken cancellationToken = default(CancellationToken))</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.String</span></td>
+        <td><span class="parametername">url</span></td>
+        <td><p>Url to send request to</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Threading.CancellationToken</span></td>
+        <td><span class="parametername">cancellationToken</span></td>
+        <td><p>A cancellation token that can be used by other objects or threads to receive notice of cancellation.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Threading.Tasks.Task</span>&lt;T&gt;</td>
+        <td><p>A requested object</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="typeParameters">Type Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="parametername">T</span></td>
+        <td><p>Type of the result</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/BerserkerDotNet/VSTS.Net/new/master/apiSpec/new?filename=VSTS_Net_Interfaces_IHttpClient_ExecutePatch__1_System_String_System_Object_System_String_System_Threading_CancellationToken_.md&amp;value=---%0Auid%3A%20VSTS.Net.Interfaces.IHttpClient.ExecutePatch%60%601(System.String%2CSystem.Object%2CSystem.String%2CSystem.Threading.CancellationToken)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/BerserkerDotNet/VSTS.Net/blob/master/src/VSTS.Net/Interfaces/IHttpClient.cs/#L48">View Source</a>
+  </span>
+  <a id="VSTS_Net_Interfaces_IHttpClient_ExecutePatch_" data-uid="VSTS.Net.Interfaces.IHttpClient.ExecutePatch*"></a>
+  <h4 id="VSTS_Net_Interfaces_IHttpClient_ExecutePatch__1_System_String_System_Object_System_String_System_Threading_CancellationToken_" data-uid="VSTS.Net.Interfaces.IHttpClient.ExecutePatch``1(System.String,System.Object,System.String,System.Threading.CancellationToken)">ExecutePatch&lt;T&gt;(String, Object, String, CancellationToken)</h4>
+  <div class="markdown level1 summary"><p>Sends a PATCH request to the specified URL</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">Task&lt;T&gt; ExecutePatch&lt;T&gt;(string url, object payload, string mimeType, CancellationToken cancellationToken = default(CancellationToken))</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.String</span></td>
+        <td><span class="parametername">url</span></td>
+        <td><p>Url to send request to</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Object</span></td>
+        <td><span class="parametername">payload</span></td>
+        <td><p>content to send</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.String</span></td>
+        <td><span class="parametername">mimeType</span></td>
+        <td><p>Mime type of the content</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Threading.CancellationToken</span></td>
+        <td><span class="parametername">cancellationToken</span></td>
+        <td><p>A cancellation token that can be used by other objects or threads to receive notice of cancellation.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Threading.Tasks.Task</span>&lt;T&gt;</td>
+        <td><p>A requested object</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="typeParameters">Type Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="parametername">T</span></td>
+        <td><p>Type of the result</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/BerserkerDotNet/VSTS.Net/new/master/apiSpec/new?filename=VSTS_Net_Interfaces_IHttpClient_ExecutePatch__1_System_String_System_String_System_String_System_Threading_CancellationToken_.md&amp;value=---%0Auid%3A%20VSTS.Net.Interfaces.IHttpClient.ExecutePatch%60%601(System.String%2CSystem.String%2CSystem.String%2CSystem.Threading.CancellationToken)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/BerserkerDotNet/VSTS.Net/blob/master/src/VSTS.Net/Interfaces/IHttpClient.cs/#L59">View Source</a>
+  </span>
+  <a id="VSTS_Net_Interfaces_IHttpClient_ExecutePatch_" data-uid="VSTS.Net.Interfaces.IHttpClient.ExecutePatch*"></a>
+  <h4 id="VSTS_Net_Interfaces_IHttpClient_ExecutePatch__1_System_String_System_String_System_String_System_Threading_CancellationToken_" data-uid="VSTS.Net.Interfaces.IHttpClient.ExecutePatch``1(System.String,System.String,System.String,System.Threading.CancellationToken)">ExecutePatch&lt;T&gt;(String, String, String, CancellationToken)</h4>
+  <div class="markdown level1 summary"><p>Sends a PATCH request to the specified URL</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">Task&lt;T&gt; ExecutePatch&lt;T&gt;(string url, string payload, string mimeType, CancellationToken cancellationToken = default(CancellationToken))</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.String</span></td>
+        <td><span class="parametername">url</span></td>
+        <td><p>Url to send request to</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.String</span></td>
+        <td><span class="parametername">payload</span></td>
+        <td><p>content to send</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.String</span></td>
+        <td><span class="parametername">mimeType</span></td>
+        <td><p>Mime type of the content</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Threading.CancellationToken</span></td>
+        <td><span class="parametername">cancellationToken</span></td>
+        <td><p>A cancellation token that can be used by other objects or threads to receive notice of cancellation.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Threading.Tasks.Task</span>&lt;T&gt;</td>
+        <td><p>A requested object</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="typeParameters">Type Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="parametername">T</span></td>
+        <td><p>Type of the result</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/BerserkerDotNet/VSTS.Net/new/master/apiSpec/new?filename=VSTS_Net_Interfaces_IHttpClient_ExecutePost__1_System_String_System_Object_System_String_System_Threading_CancellationToken_.md&amp;value=---%0Auid%3A%20VSTS.Net.Interfaces.IHttpClient.ExecutePost%60%601(System.String%2CSystem.Object%2CSystem.String%2CSystem.Threading.CancellationToken)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/BerserkerDotNet/VSTS.Net/blob/master/src/VSTS.Net/Interfaces/IHttpClient.cs/#L70">View Source</a>
+  </span>
+  <a id="VSTS_Net_Interfaces_IHttpClient_ExecutePost_" data-uid="VSTS.Net.Interfaces.IHttpClient.ExecutePost*"></a>
+  <h4 id="VSTS_Net_Interfaces_IHttpClient_ExecutePost__1_System_String_System_Object_System_String_System_Threading_CancellationToken_" data-uid="VSTS.Net.Interfaces.IHttpClient.ExecutePost``1(System.String,System.Object,System.String,System.Threading.CancellationToken)">ExecutePost&lt;T&gt;(String, Object, String, CancellationToken)</h4>
+  <div class="markdown level1 summary"><p>Sends a POST request to the specified URL</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">Task&lt;T&gt; ExecutePost&lt;T&gt;(string url, object payload, string mimeType, CancellationToken cancellationToken = default(CancellationToken))</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.String</span></td>
+        <td><span class="parametername">url</span></td>
+        <td><p>Url to send request to</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Object</span></td>
+        <td><span class="parametername">payload</span></td>
+        <td><p>content to send</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.String</span></td>
+        <td><span class="parametername">mimeType</span></td>
+        <td><p>Mime type of the content</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Threading.CancellationToken</span></td>
+        <td><span class="parametername">cancellationToken</span></td>
+        <td><p>A cancellation token that can be used by other objects or threads to receive notice of cancellation.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Threading.Tasks.Task</span>&lt;T&gt;</td>
+        <td><p>A requested object</p>
+</td>
       </tr>
     </tbody>
   </table>
@@ -169,11 +494,12 @@
     <a href="https://github.com/BerserkerDotNet/VSTS.Net/new/master/apiSpec/new?filename=VSTS_Net_Interfaces_IHttpClient_ExecutePost__1_System_String_System_Object_System_Threading_CancellationToken_.md&amp;value=---%0Auid%3A%20VSTS.Net.Interfaces.IHttpClient.ExecutePost%60%601(System.String%2CSystem.Object%2CSystem.Threading.CancellationToken)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/BerserkerDotNet/VSTS.Net/blob/master/src/VSTS.Net/Interfaces/IHttpClient.cs/#L26">View Source</a>
+    <a href="https://github.com/BerserkerDotNet/VSTS.Net/blob/master/src/VSTS.Net/Interfaces/IHttpClient.cs/#L27">View Source</a>
   </span>
   <a id="VSTS_Net_Interfaces_IHttpClient_ExecutePost_" data-uid="VSTS.Net.Interfaces.IHttpClient.ExecutePost*"></a>
   <h4 id="VSTS_Net_Interfaces_IHttpClient_ExecutePost__1_System_String_System_Object_System_Threading_CancellationToken_" data-uid="VSTS.Net.Interfaces.IHttpClient.ExecutePost``1(System.String,System.Object,System.Threading.CancellationToken)">ExecutePost&lt;T&gt;(String, Object, CancellationToken)</h4>
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary"><p>Sends a POST request to the specified URL</p>
+</div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
@@ -192,12 +518,14 @@
       <tr>
         <td><span class="xref">System.String</span></td>
         <td><span class="parametername">url</span></td>
-        <td></td>
+        <td><p>Url to send request to</p>
+</td>
       </tr>
       <tr>
         <td><span class="xref">System.Object</span></td>
         <td><span class="parametername">payload</span></td>
-        <td></td>
+        <td><p>content to send</p>
+</td>
       </tr>
       <tr>
         <td><span class="xref">System.Threading.CancellationToken</span></td>
@@ -218,7 +546,8 @@
     <tbody>
       <tr>
         <td><span class="xref">System.Threading.Tasks.Task</span>&lt;T&gt;</td>
-        <td></td>
+        <td><p>A requested object</p>
+</td>
       </tr>
     </tbody>
   </table>
@@ -233,7 +562,92 @@
     <tbody>
       <tr>
         <td><span class="parametername">T</span></td>
-        <td></td>
+        <td><p>Type of the result</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/BerserkerDotNet/VSTS.Net/new/master/apiSpec/new?filename=VSTS_Net_Interfaces_IHttpClient_ExecutePost__1_System_String_System_String_System_String_System_Threading_CancellationToken_.md&amp;value=---%0Auid%3A%20VSTS.Net.Interfaces.IHttpClient.ExecutePost%60%601(System.String%2CSystem.String%2CSystem.String%2CSystem.Threading.CancellationToken)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/BerserkerDotNet/VSTS.Net/blob/master/src/VSTS.Net/Interfaces/IHttpClient.cs/#L81">View Source</a>
+  </span>
+  <a id="VSTS_Net_Interfaces_IHttpClient_ExecutePost_" data-uid="VSTS.Net.Interfaces.IHttpClient.ExecutePost*"></a>
+  <h4 id="VSTS_Net_Interfaces_IHttpClient_ExecutePost__1_System_String_System_String_System_String_System_Threading_CancellationToken_" data-uid="VSTS.Net.Interfaces.IHttpClient.ExecutePost``1(System.String,System.String,System.String,System.Threading.CancellationToken)">ExecutePost&lt;T&gt;(String, String, String, CancellationToken)</h4>
+  <div class="markdown level1 summary"><p>Sends a POST request to the specified URL</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">Task&lt;T&gt; ExecutePost&lt;T&gt;(string url, string payload, string mimeType, CancellationToken cancellationToken = default(CancellationToken))</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.String</span></td>
+        <td><span class="parametername">url</span></td>
+        <td><p>Url to send request to</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.String</span></td>
+        <td><span class="parametername">payload</span></td>
+        <td><p>content to send</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.String</span></td>
+        <td><span class="parametername">mimeType</span></td>
+        <td><p>Mime type of the content</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Threading.CancellationToken</span></td>
+        <td><span class="parametername">cancellationToken</span></td>
+        <td><p>A cancellation token that can be used by other objects or threads to receive notice of cancellation.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Threading.Tasks.Task</span>&lt;T&gt;</td>
+        <td><p>A requested object</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="typeParameters">Type Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="parametername">T</span></td>
+        <td><p>Type of the result</p>
+</td>
       </tr>
     </tbody>
   </table>
@@ -242,11 +656,12 @@
     <a href="https://github.com/BerserkerDotNet/VSTS.Net/new/master/apiSpec/new?filename=VSTS_Net_Interfaces_IHttpClient_ExecutePost__1_System_String_System_String_System_Threading_CancellationToken_.md&amp;value=---%0Auid%3A%20VSTS.Net.Interfaces.IHttpClient.ExecutePost%60%601(System.String%2CSystem.String%2CSystem.Threading.CancellationToken)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/BerserkerDotNet/VSTS.Net/blob/master/src/VSTS.Net/Interfaces/IHttpClient.cs/#L36">View Source</a>
+    <a href="https://github.com/BerserkerDotNet/VSTS.Net/blob/master/src/VSTS.Net/Interfaces/IHttpClient.cs/#L37">View Source</a>
   </span>
   <a id="VSTS_Net_Interfaces_IHttpClient_ExecutePost_" data-uid="VSTS.Net.Interfaces.IHttpClient.ExecutePost*"></a>
   <h4 id="VSTS_Net_Interfaces_IHttpClient_ExecutePost__1_System_String_System_String_System_Threading_CancellationToken_" data-uid="VSTS.Net.Interfaces.IHttpClient.ExecutePost``1(System.String,System.String,System.Threading.CancellationToken)">ExecutePost&lt;T&gt;(String, String, CancellationToken)</h4>
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary"><p>Sends a POST request to the specified URL</p>
+</div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
@@ -265,12 +680,14 @@
       <tr>
         <td><span class="xref">System.String</span></td>
         <td><span class="parametername">url</span></td>
-        <td></td>
+        <td><p>Url to send request to</p>
+</td>
       </tr>
       <tr>
         <td><span class="xref">System.String</span></td>
         <td><span class="parametername">payload</span></td>
-        <td></td>
+        <td><p>content to send</p>
+</td>
       </tr>
       <tr>
         <td><span class="xref">System.Threading.CancellationToken</span></td>
@@ -291,7 +708,8 @@
     <tbody>
       <tr>
         <td><span class="xref">System.Threading.Tasks.Task</span>&lt;T&gt;</td>
-        <td></td>
+        <td><p>A requested object</p>
+</td>
       </tr>
     </tbody>
   </table>
@@ -306,7 +724,8 @@
     <tbody>
       <tr>
         <td><span class="parametername">T</span></td>
-        <td></td>
+        <td><p>Type of the result</p>
+</td>
       </tr>
     </tbody>
   </table>
@@ -321,7 +740,7 @@
                     <a href="https://github.com/BerserkerDotNet/VSTS.Net/new/master/apiSpec/new?filename=VSTS_Net_Interfaces_IHttpClient.md&amp;value=---%0Auid%3A%20VSTS.Net.Interfaces.IHttpClient%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A" class="contribution-link">Improve this Doc</a>
                   </li>
                   <li>
-                    <a href="https://github.com/BerserkerDotNet/VSTS.Net/blob/master/src/VSTS.Net/Interfaces/IHttpClient.cs/#L7" class="contribution-link">View Source</a>
+                    <a href="https://github.com/BerserkerDotNet/VSTS.Net/blob/master/src/VSTS.Net/Interfaces/IHttpClient.cs/#L8" class="contribution-link">View Source</a>
                   </li>
                 </ul>
               </div>

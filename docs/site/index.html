@@ -8,7 +8,7 @@
     <title>VSTS.Net | Vsts.Net Docs </title>
     <meta name="viewport" content="width=device-width">
     <meta name="title" content="VSTS.Net | Vsts.Net Docs ">
-    <meta name="generator" content="docfx 2.36.2.0">
+    <meta name="generator" content="docfx 2.40.0.0">
     
     <link rel="shortcut icon" href="favicon.ico">
     <link rel="stylesheet" href="styles/docfx.vendor.css">
@@ -72,20 +72,30 @@
             <article class="content wrap" id="_content" data-uid="">
 <h1 id="vstsnet">VSTS.Net</h1>
 
-<p>.Net client for Visual Studio Team Services API</p>
+<p>.Net client for Azure DevOps Services (Visual Studio Team Services) API</p>
 <p><a href="https://ci.appveyor.com/project/BerserkerDotNet/vsts-net"><img src="https://ci.appveyor.com/api/projects/status/et2718qanpkjf55m?svg=true" alt="Build status"></a></p>
-<p><a href="https://www.nuget.org/packages/VSTS.Net"><img src="https://buildstats.info/nuget/VSTS.Net?v=0.1.0" alt="Nuget"></a></p>
+<p><a href="https://www.nuget.org/packages/VSTS.Net"><img src="https://buildstats.info/nuget/VSTS.Net?v=0.2.2" alt="Nuget"></a></p>
+<p><a href="https://www.nuget.org/packages/VSTS.Net.AspNetCore"><img src="https://buildstats.info/nuget/VSTS.Net.AspNetCore?v=0.2.2" alt="Nuget"></a></p>
+<p><a href="https://berserkerdotnet.github.io/VSTS.Net/site/api/index.html">Api documentation</a></p>
 <h2 id="usage">Usage</h2>
 <h3 id="console-app">Console app</h3>
 <pre><code class="lang-csharp">var query = @&quot;SELECT [System.Id] FROM WorkItems 
         WHERE [System.WorkItemType] IN ('Bug', 'Task') AND [System.AssignedTo] Ever 'foo@bar.com' AND System.ChangedDate &gt;= '01/01/2018'&quot;;
 
-var client = VstsClient.Get(instanceName: &quot;foo&quot;, accessToken: &quot;secure token&quot;);
-var items = await client.GetWorkItemsAsync(&quot;MyProject&quot;, new WorkItemsQuery(query));
+var urlBuilderFactory = new OnlineUrlBuilderFactory(&quot;foo&quot;);
+var client = VstsClient.Get(urlBuilderFactory, accessToken: &quot;secure token&quot;);
+var items = await client.GetWorkItemsAsync(new WorkItemsQuery(query));
 </code></pre>
+<p>For OnPrem (TFS) versions use <code>OnPremUrlBuilderFactory</code> instead of <code>OnlineUrlBuilderFactory</code></p>
 <h3 id="aspnet-core">Asp.Net Core</h3>
 <p>In the <code>Startup.cs</code> add <code>VstsNet</code> to the services collection</p>
-<pre><code class="lang-csharp">services.AddVstsNet(instanceName: &quot;foo&quot;, accessToken: &quot;secure token&quot;);
+<pre><code class="lang-csharp">services.AddAzureDevOpsServices(instanceName: &quot;foo&quot;, accessToken: &quot;secure token&quot;);
+</code></pre>
+<p>or if you have OnPrem (TFS) version:</p>
+<pre><code class="lang-csharp">services.AddAzureDevOpsServices(new Uri(&quot;https://foo.mydomain.com&quot;), accessToken: &quot;secure token&quot;);
+</code></pre>
+<p>To use Azure DevOps Services style url:</p>
+<pre><code class="lang-csharp">services.AddAzureDevOpsServices(new Uri(&quot;https://dev.azure.com/{organization}&quot;), accessToken: &quot;secure token&quot;);
 </code></pre>
 <p>Now you can consume Vsts client through DI:</p>
 <pre><code class="lang-csharp">private readonly IVstsClient client;

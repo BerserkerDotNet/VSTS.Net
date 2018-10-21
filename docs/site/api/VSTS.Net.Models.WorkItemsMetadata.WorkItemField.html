@@ -5,10 +5,10 @@
   <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-    <title>Class PullRequestThread
+    <title>Class WorkItemField
    | Vsts.Net Docs </title>
     <meta name="viewport" content="width=device-width">
-    <meta name="title" content="Class PullRequestThread
+    <meta name="title" content="Class WorkItemField
    | Vsts.Net Docs ">
     <meta name="generator" content="docfx 2.40.0.0">
     
@@ -78,18 +78,17 @@
         </div>
         <div class="article row grid-right">
           <div class="col-md-10">
-            <article class="content wrap" id="_content" data-uid="VSTS.Net.Models.PullRequests.PullRequestThread">
+            <article class="content wrap" id="_content" data-uid="VSTS.Net.Models.WorkItemsMetadata.WorkItemField">
   
   
-  <h1 id="VSTS_Net_Models_PullRequests_PullRequestThread" data-uid="VSTS.Net.Models.PullRequests.PullRequestThread" class="text-break">Class PullRequestThread
+  <h1 id="VSTS_Net_Models_WorkItemsMetadata_WorkItemField" data-uid="VSTS.Net.Models.WorkItemsMetadata.WorkItemField" class="text-break">Class WorkItemField
   </h1>
-  <div class="markdown level0 summary"><p>Represents a comment thread of a pull request.</p>
-</div>
+  <div class="markdown level0 summary"></div>
   <div class="markdown level0 conceptual"></div>
   <div class="inheritance">
     <h5>Inheritance</h5>
     <div class="level0"><span class="xref">System.Object</span></div>
-    <div class="level1"><span class="xref">PullRequestThread</span></div>
+    <div class="level1"><span class="xref">WorkItemField</span></div>
   </div>
   <div class="inheritedMembers">
     <h5>Inherited Members</h5>
@@ -115,29 +114,29 @@
       <span class="xref">System.Object.ToString()</span>
     </div>
   </div>
-  <h6><strong>Namespace</strong>: <a class="xref" href="VSTS.Net.Models.PullRequests.html">VSTS.Net.Models.PullRequests</a></h6>
+  <h6><strong>Namespace</strong>: <a class="xref" href="VSTS.Net.Models.WorkItemsMetadata.html">VSTS.Net.Models.WorkItemsMetadata</a></h6>
   <h6><strong>Assembly</strong>: VSTS.Net.dll</h6>
-  <h5 id="VSTS_Net_Models_PullRequests_PullRequestThread_syntax">Syntax</h5>
+  <h5 id="VSTS_Net_Models_WorkItemsMetadata_WorkItemField_syntax">Syntax</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public class PullRequestThread</code></pre>
+    <pre><code class="lang-csharp hljs">public class WorkItemField</code></pre>
   </div>
   <h3 id="properties">Properties
   </h3>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
-    <a href="https://github.com/BerserkerDotNet/VSTS.Net/new/master/apiSpec/new?filename=VSTS_Net_Models_PullRequests_PullRequestThread_Comments.md&amp;value=---%0Auid%3A%20VSTS.Net.Models.PullRequests.PullRequestThread.Comments%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+    <a href="https://github.com/BerserkerDotNet/VSTS.Net/new/master/apiSpec/new?filename=VSTS_Net_Models_WorkItemsMetadata_WorkItemField_Name.md&amp;value=---%0Auid%3A%20VSTS.Net.Models.WorkItemsMetadata.WorkItemField.Name%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/BerserkerDotNet/VSTS.Net/blob/master/src/VSTS.Net/Models/PullRequests/PullRequestThread.cs/#L39">View Source</a>
+    <a href="https://github.com/BerserkerDotNet/VSTS.Net/blob/master/src/VSTS.Net/Models/WorkItemsMetadata/WorkItemField.cs/#L12">View Source</a>
   </span>
-  <a id="VSTS_Net_Models_PullRequests_PullRequestThread_Comments_" data-uid="VSTS.Net.Models.PullRequests.PullRequestThread.Comments*"></a>
-  <h4 id="VSTS_Net_Models_PullRequests_PullRequestThread_Comments" data-uid="VSTS.Net.Models.PullRequests.PullRequestThread.Comments">Comments</h4>
-  <div class="markdown level1 summary"><p>A list of the comments.</p>
+  <a id="VSTS_Net_Models_WorkItemsMetadata_WorkItemField_Name_" data-uid="VSTS.Net.Models.WorkItemsMetadata.WorkItemField.Name*"></a>
+  <h4 id="VSTS_Net_Models_WorkItemsMetadata_WorkItemField_Name" data-uid="VSTS.Net.Models.WorkItemsMetadata.WorkItemField.Name">Name</h4>
+  <div class="markdown level1 summary"><p>The name of the field.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public IEnumerable&lt;PullRequestComment&gt; Comments { get; set; }</code></pre>
+    <pre><code class="lang-csharp hljs">public string Name { get; set; }</code></pre>
   </div>
   <h5 class="propertyValue">Property Value</h5>
   <table class="table table-bordered table-striped table-condensed">
@@ -149,57 +148,26 @@
     </thead>
     <tbody>
       <tr>
-        <td><span class="xref">System.Collections.Generic.IEnumerable</span>&lt;<a class="xref" href="VSTS.Net.Models.PullRequests.PullRequestComment.html">PullRequestComment</a>&gt;</td>
+        <td><span class="xref">System.String</span></td>
         <td></td>
       </tr>
     </tbody>
   </table>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
-    <a href="https://github.com/BerserkerDotNet/VSTS.Net/new/master/apiSpec/new?filename=VSTS_Net_Models_PullRequests_PullRequestThread_Id.md&amp;value=---%0Auid%3A%20VSTS.Net.Models.PullRequests.PullRequestThread.Id%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+    <a href="https://github.com/BerserkerDotNet/VSTS.Net/new/master/apiSpec/new?filename=VSTS_Net_Models_WorkItemsMetadata_WorkItemField_ReadOnly.md&amp;value=---%0Auid%3A%20VSTS.Net.Models.WorkItemsMetadata.WorkItemField.ReadOnly%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/BerserkerDotNet/VSTS.Net/blob/master/src/VSTS.Net/Models/PullRequests/PullRequestThread.cs/#L14">View Source</a>
+    <a href="https://github.com/BerserkerDotNet/VSTS.Net/blob/master/src/VSTS.Net/Models/WorkItemsMetadata/WorkItemField.cs/#L27">View Source</a>
   </span>
-  <a id="VSTS_Net_Models_PullRequests_PullRequestThread_Id_" data-uid="VSTS.Net.Models.PullRequests.PullRequestThread.Id*"></a>
-  <h4 id="VSTS_Net_Models_PullRequests_PullRequestThread_Id" data-uid="VSTS.Net.Models.PullRequests.PullRequestThread.Id">Id</h4>
-  <div class="markdown level1 summary"><p>The comment thread id.</p>
+  <a id="VSTS_Net_Models_WorkItemsMetadata_WorkItemField_ReadOnly_" data-uid="VSTS.Net.Models.WorkItemsMetadata.WorkItemField.ReadOnly*"></a>
+  <h4 id="VSTS_Net_Models_WorkItemsMetadata_WorkItemField_ReadOnly" data-uid="VSTS.Net.Models.WorkItemsMetadata.WorkItemField.ReadOnly">ReadOnly</h4>
+  <div class="markdown level1 summary"><p>Indicates whether the field is read only.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public int Id { get; set; }</code></pre>
-  </div>
-  <h5 class="propertyValue">Property Value</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><span class="xref">System.Int32</span></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
-  <span class="small pull-right mobile-hide">
-    <span class="divider">|</span>
-    <a href="https://github.com/BerserkerDotNet/VSTS.Net/new/master/apiSpec/new?filename=VSTS_Net_Models_PullRequests_PullRequestThread_IsDeleted.md&amp;value=---%0Auid%3A%20VSTS.Net.Models.PullRequests.PullRequestThread.IsDeleted%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
-  </span>
-  <span class="small pull-right mobile-hide">
-    <a href="https://github.com/BerserkerDotNet/VSTS.Net/blob/master/src/VSTS.Net/Models/PullRequests/PullRequestThread.cs/#L19">View Source</a>
-  </span>
-  <a id="VSTS_Net_Models_PullRequests_PullRequestThread_IsDeleted_" data-uid="VSTS.Net.Models.PullRequests.PullRequestThread.IsDeleted*"></a>
-  <h4 id="VSTS_Net_Models_PullRequests_PullRequestThread_IsDeleted" data-uid="VSTS.Net.Models.PullRequests.PullRequestThread.IsDeleted">IsDeleted</h4>
-  <div class="markdown level1 summary"><p>Specify if the thread is deleted which happens when all comments are deleted.</p>
-</div>
-  <div class="markdown level1 conceptual"></div>
-  <h5 class="decalaration">Declaration</h5>
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public bool IsDeleted { get; set; }</code></pre>
+    <pre><code class="lang-csharp hljs">public bool ReadOnly { get; set; }</code></pre>
   </div>
   <h5 class="propertyValue">Property Value</h5>
   <table class="table table-bordered table-striped table-condensed">
@@ -218,81 +186,19 @@
   </table>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
-    <a href="https://github.com/BerserkerDotNet/VSTS.Net/new/master/apiSpec/new?filename=VSTS_Net_Models_PullRequests_PullRequestThread_LastUpdatedDate.md&amp;value=---%0Auid%3A%20VSTS.Net.Models.PullRequests.PullRequestThread.LastUpdatedDate%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+    <a href="https://github.com/BerserkerDotNet/VSTS.Net/new/master/apiSpec/new?filename=VSTS_Net_Models_WorkItemsMetadata_WorkItemField_ReferenceName.md&amp;value=---%0Auid%3A%20VSTS.Net.Models.WorkItemsMetadata.WorkItemField.ReferenceName%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/BerserkerDotNet/VSTS.Net/blob/master/src/VSTS.Net/Models/PullRequests/PullRequestThread.cs/#L24">View Source</a>
+    <a href="https://github.com/BerserkerDotNet/VSTS.Net/blob/master/src/VSTS.Net/Models/WorkItemsMetadata/WorkItemField.cs/#L17">View Source</a>
   </span>
-  <a id="VSTS_Net_Models_PullRequests_PullRequestThread_LastUpdatedDate_" data-uid="VSTS.Net.Models.PullRequests.PullRequestThread.LastUpdatedDate*"></a>
-  <h4 id="VSTS_Net_Models_PullRequests_PullRequestThread_LastUpdatedDate" data-uid="VSTS.Net.Models.PullRequests.PullRequestThread.LastUpdatedDate">LastUpdatedDate</h4>
-  <div class="markdown level1 summary"><p>The time this thread was last updated.</p>
+  <a id="VSTS_Net_Models_WorkItemsMetadata_WorkItemField_ReferenceName_" data-uid="VSTS.Net.Models.WorkItemsMetadata.WorkItemField.ReferenceName*"></a>
+  <h4 id="VSTS_Net_Models_WorkItemsMetadata_WorkItemField_ReferenceName" data-uid="VSTS.Net.Models.WorkItemsMetadata.WorkItemField.ReferenceName">ReferenceName</h4>
+  <div class="markdown level1 summary"><p>The reference name of the field.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public DateTime LastUpdatedDate { get; set; }</code></pre>
-  </div>
-  <h5 class="propertyValue">Property Value</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><span class="xref">System.DateTime</span></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
-  <span class="small pull-right mobile-hide">
-    <span class="divider">|</span>
-    <a href="https://github.com/BerserkerDotNet/VSTS.Net/new/master/apiSpec/new?filename=VSTS_Net_Models_PullRequests_PullRequestThread_PublishedDate.md&amp;value=---%0Auid%3A%20VSTS.Net.Models.PullRequests.PullRequestThread.PublishedDate%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
-  </span>
-  <span class="small pull-right mobile-hide">
-    <a href="https://github.com/BerserkerDotNet/VSTS.Net/blob/master/src/VSTS.Net/Models/PullRequests/PullRequestThread.cs/#L29">View Source</a>
-  </span>
-  <a id="VSTS_Net_Models_PullRequests_PullRequestThread_PublishedDate_" data-uid="VSTS.Net.Models.PullRequests.PullRequestThread.PublishedDate*"></a>
-  <h4 id="VSTS_Net_Models_PullRequests_PullRequestThread_PublishedDate" data-uid="VSTS.Net.Models.PullRequests.PullRequestThread.PublishedDate">PublishedDate</h4>
-  <div class="markdown level1 summary"><p>The time this thread was published.</p>
-</div>
-  <div class="markdown level1 conceptual"></div>
-  <h5 class="decalaration">Declaration</h5>
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public DateTime PublishedDate { get; set; }</code></pre>
-  </div>
-  <h5 class="propertyValue">Property Value</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><span class="xref">System.DateTime</span></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
-  <span class="small pull-right mobile-hide">
-    <span class="divider">|</span>
-    <a href="https://github.com/BerserkerDotNet/VSTS.Net/new/master/apiSpec/new?filename=VSTS_Net_Models_PullRequests_PullRequestThread_Status.md&amp;value=---%0Auid%3A%20VSTS.Net.Models.PullRequests.PullRequestThread.Status%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
-  </span>
-  <span class="small pull-right mobile-hide">
-    <a href="https://github.com/BerserkerDotNet/VSTS.Net/blob/master/src/VSTS.Net/Models/PullRequests/PullRequestThread.cs/#L34">View Source</a>
-  </span>
-  <a id="VSTS_Net_Models_PullRequests_PullRequestThread_Status_" data-uid="VSTS.Net.Models.PullRequests.PullRequestThread.Status*"></a>
-  <h4 id="VSTS_Net_Models_PullRequests_PullRequestThread_Status" data-uid="VSTS.Net.Models.PullRequests.PullRequestThread.Status">Status</h4>
-  <div class="markdown level1 summary"><p>The status of the comment thread.</p>
-</div>
-  <div class="markdown level1 conceptual"></div>
-  <h5 class="decalaration">Declaration</h5>
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public string Status { get; set; }</code></pre>
+    <pre><code class="lang-csharp hljs">public string ReferenceName { get; set; }</code></pre>
   </div>
   <h5 class="propertyValue">Property Value</h5>
   <table class="table table-bordered table-striped table-condensed">
@@ -309,6 +215,99 @@
       </tr>
     </tbody>
   </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/BerserkerDotNet/VSTS.Net/new/master/apiSpec/new?filename=VSTS_Net_Models_WorkItemsMetadata_WorkItemField_SupportedOperations.md&amp;value=---%0Auid%3A%20VSTS.Net.Models.WorkItemsMetadata.WorkItemField.SupportedOperations%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/BerserkerDotNet/VSTS.Net/blob/master/src/VSTS.Net/Models/WorkItemsMetadata/WorkItemField.cs/#L32">View Source</a>
+  </span>
+  <a id="VSTS_Net_Models_WorkItemsMetadata_WorkItemField_SupportedOperations_" data-uid="VSTS.Net.Models.WorkItemsMetadata.WorkItemField.SupportedOperations*"></a>
+  <h4 id="VSTS_Net_Models_WorkItemsMetadata_WorkItemField_SupportedOperations" data-uid="VSTS.Net.Models.WorkItemsMetadata.WorkItemField.SupportedOperations">SupportedOperations</h4>
+  <div class="markdown level1 summary"><p>The supported operations on this field.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public IEnumerable&lt;OperationReference&gt; SupportedOperations { get; set; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Collections.Generic.IEnumerable</span>&lt;<a class="xref" href="VSTS.Net.Models.Response.OperationReference.html">OperationReference</a>&gt;</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/BerserkerDotNet/VSTS.Net/new/master/apiSpec/new?filename=VSTS_Net_Models_WorkItemsMetadata_WorkItemField_Type.md&amp;value=---%0Auid%3A%20VSTS.Net.Models.WorkItemsMetadata.WorkItemField.Type%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/BerserkerDotNet/VSTS.Net/blob/master/src/VSTS.Net/Models/WorkItemsMetadata/WorkItemField.cs/#L22">View Source</a>
+  </span>
+  <a id="VSTS_Net_Models_WorkItemsMetadata_WorkItemField_Type_" data-uid="VSTS.Net.Models.WorkItemsMetadata.WorkItemField.Type*"></a>
+  <h4 id="VSTS_Net_Models_WorkItemsMetadata_WorkItemField_Type" data-uid="VSTS.Net.Models.WorkItemsMetadata.WorkItemField.Type">Type</h4>
+  <div class="markdown level1 summary"><p>The type of the field.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public string Type { get; set; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.String</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/BerserkerDotNet/VSTS.Net/new/master/apiSpec/new?filename=VSTS_Net_Models_WorkItemsMetadata_WorkItemField_Url.md&amp;value=---%0Auid%3A%20VSTS.Net.Models.WorkItemsMetadata.WorkItemField.Url%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/BerserkerDotNet/VSTS.Net/blob/master/src/VSTS.Net/Models/WorkItemsMetadata/WorkItemField.cs/#L37">View Source</a>
+  </span>
+  <a id="VSTS_Net_Models_WorkItemsMetadata_WorkItemField_Url_" data-uid="VSTS.Net.Models.WorkItemsMetadata.WorkItemField.Url*"></a>
+  <h4 id="VSTS_Net_Models_WorkItemsMetadata_WorkItemField_Url" data-uid="VSTS.Net.Models.WorkItemsMetadata.WorkItemField.Url">Url</h4>
+  <div class="markdown level1 summary"><p>API link of the field</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public Uri Url { get; set; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Uri</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
 </article>
           </div>
           
@@ -317,10 +316,10 @@
               <div class="contribution">
                 <ul class="nav">
                   <li>
-                    <a href="https://github.com/BerserkerDotNet/VSTS.Net/new/master/apiSpec/new?filename=VSTS_Net_Models_PullRequests_PullRequestThread.md&amp;value=---%0Auid%3A%20VSTS.Net.Models.PullRequests.PullRequestThread%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A" class="contribution-link">Improve this Doc</a>
+                    <a href="https://github.com/BerserkerDotNet/VSTS.Net/new/master/apiSpec/new?filename=VSTS_Net_Models_WorkItemsMetadata_WorkItemField.md&amp;value=---%0Auid%3A%20VSTS.Net.Models.WorkItemsMetadata.WorkItemField%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A" class="contribution-link">Improve this Doc</a>
                   </li>
                   <li>
-                    <a href="https://github.com/BerserkerDotNet/VSTS.Net/blob/master/src/VSTS.Net/Models/PullRequests/PullRequestThread.cs/#L9" class="contribution-link">View Source</a>
+                    <a href="https://github.com/BerserkerDotNet/VSTS.Net/blob/master/src/VSTS.Net/Models/WorkItemsMetadata/WorkItemField.cs/#L7" class="contribution-link">View Source</a>
                   </li>
                 </ul>
               </div>

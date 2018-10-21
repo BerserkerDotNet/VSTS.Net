@@ -10,7 +10,7 @@
     <meta name="viewport" content="width=device-width">
     <meta name="title" content="Interface IVstsClient
    | Vsts.Net Docs ">
-    <meta name="generator" content="docfx 2.36.2.0">
+    <meta name="generator" content="docfx 2.40.0.0">
     
     <link rel="shortcut icon" href="../favicon.ico">
     <link rel="stylesheet" href="../styles/docfx.vendor.css">
@@ -88,29 +88,71 @@
   <div class="inheritedMembers">
     <h5>Inherited Members</h5>
     <div>
-      <a class="xref" href="VSTS.Net.Interfaces.IVstsWorkItemsClient.html#VSTS_Net_Interfaces_IVstsWorkItemsClient_ExecuteQueryAsync_System_String_VSTS_Net_Models_Request_WorkItemsQuery_">IVstsWorkItemsClient.ExecuteQueryAsync(String, WorkItemsQuery)</a>
+      <a class="xref" href="VSTS.Net.Interfaces.IVstsWorkItemsClient.html#VSTS_Net_Interfaces_IVstsWorkItemsClient_GetWorkItemAsync_System_Int32_System_Nullable_System_DateTime__System_String___System_Threading_CancellationToken_">IVstsWorkItemsClient.GetWorkItemAsync(Int32, Nullable&lt;DateTime&gt;, String[], CancellationToken)</a>
     </div>
     <div>
-      <a class="xref" href="VSTS.Net.Interfaces.IVstsWorkItemsClient.html#VSTS_Net_Interfaces_IVstsWorkItemsClient_GetWorkItemsAsync_System_String_VSTS_Net_Models_Request_WorkItemsQuery_">IVstsWorkItemsClient.GetWorkItemsAsync(String, WorkItemsQuery)</a>
+      <a class="xref" href="VSTS.Net.Interfaces.IVstsWorkItemsClient.html#VSTS_Net_Interfaces_IVstsWorkItemsClient_GetWorkItemExpandedAsync_System_Int32_System_Nullable_System_DateTime__System_Threading_CancellationToken_">IVstsWorkItemsClient.GetWorkItemExpandedAsync(Int32, Nullable&lt;DateTime&gt;, CancellationToken)</a>
     </div>
     <div>
-      <a class="xref" href="VSTS.Net.Interfaces.IVstsWorkItemsClient.html#VSTS_Net_Interfaces_IVstsWorkItemsClient_GetWorkItemUpdatesAsync_System_Int32_">IVstsWorkItemsClient.GetWorkItemUpdatesAsync(Int32)</a>
+      <a class="xref" href="VSTS.Net.Interfaces.IVstsWorkItemsClient.html#VSTS_Net_Interfaces_IVstsWorkItemsClient_GetWorkItemsAsync_System_Int32___System_Nullable_System_DateTime__System_String___System_Threading_CancellationToken_">IVstsWorkItemsClient.GetWorkItemsAsync(Int32[], Nullable&lt;DateTime&gt;, String[], CancellationToken)</a>
     </div>
     <div>
-      <a class="xref" href="VSTS.Net.Interfaces.IVstsPullRequestsClient.html#VSTS_Net_Interfaces_IVstsPullRequestsClient_GetPullRequestsAsync_System_String_System_String_VSTS_Net_Models_Request_PullRequestQuery_">IVstsPullRequestsClient.GetPullRequestsAsync(String, String, PullRequestQuery)</a>
+      <a class="xref" href="VSTS.Net.Interfaces.IVstsWorkItemsClient.html#VSTS_Net_Interfaces_IVstsWorkItemsClient_GetWorkItemsExpandedAsync_System_Int32___System_Nullable_System_DateTime__System_Threading_CancellationToken_">IVstsWorkItemsClient.GetWorkItemsExpandedAsync(Int32[], Nullable&lt;DateTime&gt;, CancellationToken)</a>
     </div>
     <div>
-      <a class="xref" href="VSTS.Net.Interfaces.IVstsPullRequestsClient.html#VSTS_Net_Interfaces_IVstsPullRequestsClient_GetPullRequestIterationsAsync_System_String_System_String_System_Int32_">IVstsPullRequestsClient.GetPullRequestIterationsAsync(String, String, Int32)</a>
+      <a class="xref" href="VSTS.Net.Interfaces.IVstsWorkItemsClient.html#VSTS_Net_Interfaces_IVstsWorkItemsClient_CreateWorkItemAsync_System_String_System_String_VSTS_Net_Models_WorkItems_WorkItem_System_Threading_CancellationToken_">IVstsWorkItemsClient.CreateWorkItemAsync(String, String, WorkItem, CancellationToken)</a>
     </div>
     <div>
-      <a class="xref" href="VSTS.Net.Interfaces.IVstsPullRequestsClient.html#VSTS_Net_Interfaces_IVstsPullRequestsClient_GetPullRequestThreadsAsync_System_String_System_String_System_Int32_">IVstsPullRequestsClient.GetPullRequestThreadsAsync(String, String, Int32)</a>
+      <a class="xref" href="VSTS.Net.Interfaces.IVstsWorkItemsClient.html#VSTS_Net_Interfaces_IVstsWorkItemsClient_DeleteWorkItemAsync_System_Int32_System_Boolean_System_Threading_CancellationToken_">IVstsWorkItemsClient.DeleteWorkItemAsync(Int32, Boolean, CancellationToken)</a>
+    </div>
+    <div>
+      <a class="xref" href="VSTS.Net.Interfaces.IVstsWorkItemsClient.html#VSTS_Net_Interfaces_IVstsWorkItemsClient_UpdateWorkItemAsync_VSTS_Net_Models_Request_UpdateWorkitemRequest_System_Threading_CancellationToken_">IVstsWorkItemsClient.UpdateWorkItemAsync(UpdateWorkitemRequest, CancellationToken)</a>
+    </div>
+    <div>
+      <a class="xref" href="VSTS.Net.Interfaces.IVstsWorkItemsClient.html#VSTS_Net_Interfaces_IVstsWorkItemsClient_ExecuteQueryAsync_VSTS_Net_Models_Request_WorkItemsQuery_System_Threading_CancellationToken_">IVstsWorkItemsClient.ExecuteQueryAsync(WorkItemsQuery, CancellationToken)</a>
+    </div>
+    <div>
+      <a class="xref" href="VSTS.Net.Interfaces.IVstsWorkItemsClient.html#VSTS_Net_Interfaces_IVstsWorkItemsClient_ExecuteQueryAsync__1_System_Guid_System_Threading_CancellationToken_">IVstsWorkItemsClient.ExecuteQueryAsync&lt;T&gt;(Guid, CancellationToken)</a>
+    </div>
+    <div>
+      <a class="xref" href="VSTS.Net.Interfaces.IVstsWorkItemsClient.html#VSTS_Net_Interfaces_IVstsWorkItemsClient_ExecuteFlatQueryAsync_System_String_System_Threading_CancellationToken_">IVstsWorkItemsClient.ExecuteFlatQueryAsync(String, CancellationToken)</a>
+    </div>
+    <div>
+      <a class="xref" href="VSTS.Net.Interfaces.IVstsWorkItemsClient.html#VSTS_Net_Interfaces_IVstsWorkItemsClient_ExecuteHierarchicalQueryAsync_System_String_System_Threading_CancellationToken_">IVstsWorkItemsClient.ExecuteHierarchicalQueryAsync(String, CancellationToken)</a>
+    </div>
+    <div>
+      <a class="xref" href="VSTS.Net.Interfaces.IVstsWorkItemsClient.html#VSTS_Net_Interfaces_IVstsWorkItemsClient_GetWorkItemsAsync_VSTS_Net_Models_Request_WorkItemsQuery_System_Boolean_System_Threading_CancellationToken_">IVstsWorkItemsClient.GetWorkItemsAsync(WorkItemsQuery, Boolean, CancellationToken)</a>
+    </div>
+    <div>
+      <a class="xref" href="VSTS.Net.Interfaces.IVstsWorkItemsClient.html#VSTS_Net_Interfaces_IVstsWorkItemsClient_GetWorkItemsAsync_System_Guid_System_Boolean_System_Threading_CancellationToken_">IVstsWorkItemsClient.GetWorkItemsAsync(Guid, Boolean, CancellationToken)</a>
+    </div>
+    <div>
+      <a class="xref" href="VSTS.Net.Interfaces.IVstsWorkItemsClient.html#VSTS_Net_Interfaces_IVstsWorkItemsClient_GetWorkItemUpdatesAsync_System_Int32_System_Threading_CancellationToken_">IVstsWorkItemsClient.GetWorkItemUpdatesAsync(Int32, CancellationToken)</a>
+    </div>
+    <div>
+      <a class="xref" href="VSTS.Net.Interfaces.IVstsPullRequestsClient.html#VSTS_Net_Interfaces_IVstsPullRequestsClient_GetPullRequestsAsync_System_String_System_String_VSTS_Net_Models_Request_PullRequestQuery_System_Threading_CancellationToken_">IVstsPullRequestsClient.GetPullRequestsAsync(String, String, PullRequestQuery, CancellationToken)</a>
+    </div>
+    <div>
+      <a class="xref" href="VSTS.Net.Interfaces.IVstsPullRequestsClient.html#VSTS_Net_Interfaces_IVstsPullRequestsClient_GetPullRequestAsync_System_String_System_String_System_Int32_System_Threading_CancellationToken_">IVstsPullRequestsClient.GetPullRequestAsync(String, String, Int32, CancellationToken)</a>
+    </div>
+    <div>
+      <a class="xref" href="VSTS.Net.Interfaces.IVstsPullRequestsClient.html#VSTS_Net_Interfaces_IVstsPullRequestsClient_GetPullRequestAsync_System_Int32_System_Threading_CancellationToken_">IVstsPullRequestsClient.GetPullRequestAsync(Int32, CancellationToken)</a>
+    </div>
+    <div>
+      <a class="xref" href="VSTS.Net.Interfaces.IVstsPullRequestsClient.html#VSTS_Net_Interfaces_IVstsPullRequestsClient_GetPullRequestIterationsAsync_System_String_System_String_System_Int32_System_Threading_CancellationToken_">IVstsPullRequestsClient.GetPullRequestIterationsAsync(String, String, Int32, CancellationToken)</a>
+    </div>
+    <div>
+      <a class="xref" href="VSTS.Net.Interfaces.IVstsPullRequestsClient.html#VSTS_Net_Interfaces_IVstsPullRequestsClient_GetPullRequestThreadsAsync_System_String_System_String_System_Int32_System_Threading_CancellationToken_">IVstsPullRequestsClient.GetPullRequestThreadsAsync(String, String, Int32, CancellationToken)</a>
+    </div>
+    <div>
+      <a class="xref" href="VSTS.Net.Interfaces.IVstsWorkItemsMetadataClient.html#VSTS_Net_Interfaces_IVstsWorkItemsMetadataClient_GetWorkItemFieldsAsync_System_Threading_CancellationToken_">IVstsWorkItemsMetadataClient.GetWorkItemFieldsAsync(CancellationToken)</a>
     </div>
   </div>
   <h6><strong>Namespace</strong>: <a class="xref" href="VSTS.Net.Interfaces.html">VSTS.Net.Interfaces</a></h6>
   <h6><strong>Assembly</strong>: VSTS.Net.dll</h6>
   <h5 id="VSTS_Net_Interfaces_IVstsClient_syntax">Syntax</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public interface IVstsClient : IVstsWorkItemsClient, IVstsPullRequestsClient</code></pre>
+    <pre><code class="lang-csharp hljs">public interface IVstsClient : IVstsWorkItemsClient, IVstsPullRequestsClient, IVstsWorkItemsMetadataClient</code></pre>
   </div>
 </article>
           </div>

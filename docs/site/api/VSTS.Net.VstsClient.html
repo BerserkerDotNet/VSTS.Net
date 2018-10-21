@@ -10,7 +10,7 @@
     <meta name="viewport" content="width=device-width">
     <meta name="title" content="Class VstsClient
    | Vsts.Net Docs ">
-    <meta name="generator" content="docfx 2.36.2.0">
+    <meta name="generator" content="docfx 2.40.0.0">
     
     <link rel="shortcut icon" href="../favicon.ico">
     <link rel="stylesheet" href="../styles/docfx.vendor.css">
@@ -95,6 +95,7 @@
     <div><a class="xref" href="VSTS.Net.Interfaces.IVstsClient.html">IVstsClient</a></div>
     <div><a class="xref" href="VSTS.Net.Interfaces.IVstsWorkItemsClient.html">IVstsWorkItemsClient</a></div>
     <div><a class="xref" href="VSTS.Net.Interfaces.IVstsPullRequestsClient.html">IVstsPullRequestsClient</a></div>
+    <div><a class="xref" href="VSTS.Net.Interfaces.IVstsWorkItemsMetadataClient.html">IVstsWorkItemsMetadataClient</a></div>
   </div>
   <div class="inheritedMembers">
     <h5>Inherited Members</h5>
@@ -124,24 +125,24 @@
   <h6><strong>Assembly</strong>: VSTS.Net.dll</h6>
   <h5 id="VSTS_Net_VstsClient_syntax">Syntax</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public class VstsClient : IVstsClient, IVstsWorkItemsClient, IVstsPullRequestsClient</code></pre>
+    <pre><code class="lang-csharp hljs">public class VstsClient : IVstsClient, IVstsWorkItemsClient, IVstsPullRequestsClient, IVstsWorkItemsMetadataClient</code></pre>
   </div>
   <h3 id="constructors">Constructors
   </h3>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
-    <a href="https://github.com/BerserkerDotNet/VSTS.Net/new/master/apiSpec/new?filename=VSTS_Net_VstsClient__ctor_System_String_VSTS_Net_Interfaces_IHttpClient_.md&amp;value=---%0Auid%3A%20VSTS.Net.VstsClient.%23ctor(System.String%2CVSTS.Net.Interfaces.IHttpClient)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+    <a href="https://github.com/BerserkerDotNet/VSTS.Net/new/master/apiSpec/new?filename=VSTS_Net_VstsClient__ctor_VSTS_Net_Interfaces_IVstsUrlBuilderFactory_VSTS_Net_Interfaces_IHttpClient_.md&amp;value=---%0Auid%3A%20VSTS.Net.VstsClient.%23ctor(VSTS.Net.Interfaces.IVstsUrlBuilderFactory%2CVSTS.Net.Interfaces.IHttpClient)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/BerserkerDotNet/VSTS.Net/blob/master/src/VSTS.Net/VstsClient.cs/#L30">View Source</a>
+    <a href="https://github.com/BerserkerDotNet/VSTS.Net/blob/master/src/VSTS.Net/VstsClient.Common.cs/#L27">View Source</a>
   </span>
   <a id="VSTS_Net_VstsClient__ctor_" data-uid="VSTS.Net.VstsClient.#ctor*"></a>
-  <h4 id="VSTS_Net_VstsClient__ctor_System_String_VSTS_Net_Interfaces_IHttpClient_" data-uid="VSTS.Net.VstsClient.#ctor(System.String,VSTS.Net.Interfaces.IHttpClient)">VstsClient(String, IHttpClient)</h4>
+  <h4 id="VSTS_Net_VstsClient__ctor_VSTS_Net_Interfaces_IVstsUrlBuilderFactory_VSTS_Net_Interfaces_IHttpClient_" data-uid="VSTS.Net.VstsClient.#ctor(VSTS.Net.Interfaces.IVstsUrlBuilderFactory,VSTS.Net.Interfaces.IHttpClient)">VstsClient(IVstsUrlBuilderFactory, IHttpClient)</h4>
   <div class="markdown level1 summary"></div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public VstsClient(string instanceName, IHttpClient client)</code></pre>
+    <pre><code class="lang-csharp hljs">public VstsClient(IVstsUrlBuilderFactory urlBuilderFactory, IHttpClient client)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
   <table class="table table-bordered table-striped table-condensed">
@@ -154,8 +155,8 @@
     </thead>
     <tbody>
       <tr>
-        <td><span class="xref">System.String</span></td>
-        <td><span class="parametername">instanceName</span></td>
+        <td><a class="xref" href="VSTS.Net.Interfaces.IVstsUrlBuilderFactory.html">IVstsUrlBuilderFactory</a></td>
+        <td><span class="parametername">urlBuilderFactory</span></td>
         <td></td>
       </tr>
       <tr>
@@ -167,18 +168,18 @@
   </table>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
-    <a href="https://github.com/BerserkerDotNet/VSTS.Net/new/master/apiSpec/new?filename=VSTS_Net_VstsClient__ctor_System_String_VSTS_Net_Interfaces_IHttpClient_Microsoft_Extensions_Logging_ILogger_VSTS_Net_VstsClient__.md&amp;value=---%0Auid%3A%20VSTS.Net.VstsClient.%23ctor(System.String%2CVSTS.Net.Interfaces.IHttpClient%2CMicrosoft.Extensions.Logging.ILogger%7BVSTS.Net.VstsClient%7D)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+    <a href="https://github.com/BerserkerDotNet/VSTS.Net/new/master/apiSpec/new?filename=VSTS_Net_VstsClient__ctor_VSTS_Net_Interfaces_IVstsUrlBuilderFactory_VSTS_Net_Interfaces_IHttpClient_VSTS_Net_Types_VstsClientConfiguration_.md&amp;value=---%0Auid%3A%20VSTS.Net.VstsClient.%23ctor(VSTS.Net.Interfaces.IVstsUrlBuilderFactory%2CVSTS.Net.Interfaces.IHttpClient%2CVSTS.Net.Types.VstsClientConfiguration)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/BerserkerDotNet/VSTS.Net/blob/master/src/VSTS.Net/VstsClient.cs/#L23">View Source</a>
+    <a href="https://github.com/BerserkerDotNet/VSTS.Net/blob/master/src/VSTS.Net/VstsClient.Common.cs/#L22">View Source</a>
   </span>
   <a id="VSTS_Net_VstsClient__ctor_" data-uid="VSTS.Net.VstsClient.#ctor*"></a>
-  <h4 id="VSTS_Net_VstsClient__ctor_System_String_VSTS_Net_Interfaces_IHttpClient_Microsoft_Extensions_Logging_ILogger_VSTS_Net_VstsClient__" data-uid="VSTS.Net.VstsClient.#ctor(System.String,VSTS.Net.Interfaces.IHttpClient,Microsoft.Extensions.Logging.ILogger{VSTS.Net.VstsClient})">VstsClient(String, IHttpClient, ILogger&lt;VstsClient&gt;)</h4>
+  <h4 id="VSTS_Net_VstsClient__ctor_VSTS_Net_Interfaces_IVstsUrlBuilderFactory_VSTS_Net_Interfaces_IHttpClient_VSTS_Net_Types_VstsClientConfiguration_" data-uid="VSTS.Net.VstsClient.#ctor(VSTS.Net.Interfaces.IVstsUrlBuilderFactory,VSTS.Net.Interfaces.IHttpClient,VSTS.Net.Types.VstsClientConfiguration)">VstsClient(IVstsUrlBuilderFactory, IHttpClient, VstsClientConfiguration)</h4>
   <div class="markdown level1 summary"></div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public VstsClient(string instanceName, IHttpClient client, ILogger&lt;VstsClient&gt; logger)</code></pre>
+    <pre><code class="lang-csharp hljs">public VstsClient(IVstsUrlBuilderFactory urlBuilderFactory, IHttpClient client, VstsClientConfiguration configuration)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
   <table class="table table-bordered table-striped table-condensed">
@@ -191,13 +192,60 @@
     </thead>
     <tbody>
       <tr>
-        <td><span class="xref">System.String</span></td>
-        <td><span class="parametername">instanceName</span></td>
+        <td><a class="xref" href="VSTS.Net.Interfaces.IVstsUrlBuilderFactory.html">IVstsUrlBuilderFactory</a></td>
+        <td><span class="parametername">urlBuilderFactory</span></td>
         <td></td>
       </tr>
       <tr>
         <td><a class="xref" href="VSTS.Net.Interfaces.IHttpClient.html">IHttpClient</a></td>
         <td><span class="parametername">client</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="VSTS.Net.Types.VstsClientConfiguration.html">VstsClientConfiguration</a></td>
+        <td><span class="parametername">configuration</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/BerserkerDotNet/VSTS.Net/new/master/apiSpec/new?filename=VSTS_Net_VstsClient__ctor_VSTS_Net_Interfaces_IVstsUrlBuilderFactory_VSTS_Net_Interfaces_IHttpClient_VSTS_Net_Types_VstsClientConfiguration_Microsoft_Extensions_Logging_ILogger_VSTS_Net_VstsClient__.md&amp;value=---%0Auid%3A%20VSTS.Net.VstsClient.%23ctor(VSTS.Net.Interfaces.IVstsUrlBuilderFactory%2CVSTS.Net.Interfaces.IHttpClient%2CVSTS.Net.Types.VstsClientConfiguration%2CMicrosoft.Extensions.Logging.ILogger%7BVSTS.Net.VstsClient%7D)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/BerserkerDotNet/VSTS.Net/blob/master/src/VSTS.Net/VstsClient.Common.cs/#L14">View Source</a>
+  </span>
+  <a id="VSTS_Net_VstsClient__ctor_" data-uid="VSTS.Net.VstsClient.#ctor*"></a>
+  <h4 id="VSTS_Net_VstsClient__ctor_VSTS_Net_Interfaces_IVstsUrlBuilderFactory_VSTS_Net_Interfaces_IHttpClient_VSTS_Net_Types_VstsClientConfiguration_Microsoft_Extensions_Logging_ILogger_VSTS_Net_VstsClient__" data-uid="VSTS.Net.VstsClient.#ctor(VSTS.Net.Interfaces.IVstsUrlBuilderFactory,VSTS.Net.Interfaces.IHttpClient,VSTS.Net.Types.VstsClientConfiguration,Microsoft.Extensions.Logging.ILogger{VSTS.Net.VstsClient})">VstsClient(IVstsUrlBuilderFactory, IHttpClient, VstsClientConfiguration, ILogger&lt;VstsClient&gt;)</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public VstsClient(IVstsUrlBuilderFactory urlBuilderFactory, IHttpClient client, VstsClientConfiguration configuration, ILogger&lt;VstsClient&gt; logger)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="VSTS.Net.Interfaces.IVstsUrlBuilderFactory.html">IVstsUrlBuilderFactory</a></td>
+        <td><span class="parametername">urlBuilderFactory</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="VSTS.Net.Interfaces.IHttpClient.html">IHttpClient</a></td>
+        <td><span class="parametername">client</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="VSTS.Net.Types.VstsClientConfiguration.html">VstsClientConfiguration</a></td>
+        <td><span class="parametername">configuration</span></td>
         <td></td>
       </tr>
       <tr>
@@ -207,22 +255,55 @@
       </tr>
     </tbody>
   </table>
+  <h3 id="properties">Properties
+  </h3>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/BerserkerDotNet/VSTS.Net/new/master/apiSpec/new?filename=VSTS_Net_VstsClient_Configuration.md&amp;value=---%0Auid%3A%20VSTS.Net.VstsClient.Configuration%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/BerserkerDotNet/VSTS.Net/blob/master/src/VSTS.Net/VstsClient.Common.cs/#L35">View Source</a>
+  </span>
+  <a id="VSTS_Net_VstsClient_Configuration_" data-uid="VSTS.Net.VstsClient.Configuration*"></a>
+  <h4 id="VSTS_Net_VstsClient_Configuration" data-uid="VSTS.Net.VstsClient.Configuration">Configuration</h4>
+  <div class="markdown level1 summary"><p>Client configuration</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public VstsClientConfiguration Configuration { get; set; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="VSTS.Net.Types.VstsClientConfiguration.html">VstsClientConfiguration</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
   <h3 id="methods">Methods
   </h3>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
-    <a href="https://github.com/BerserkerDotNet/VSTS.Net/new/master/apiSpec/new?filename=VSTS_Net_VstsClient_ExecuteQueryAsync_System_String_VSTS_Net_Models_Request_WorkItemsQuery_.md&amp;value=---%0Auid%3A%20VSTS.Net.VstsClient.ExecuteQueryAsync(System.String%2CVSTS.Net.Models.Request.WorkItemsQuery)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+    <a href="https://github.com/BerserkerDotNet/VSTS.Net/new/master/apiSpec/new?filename=VSTS_Net_VstsClient_CreateWorkItemAsync_System_String_System_String_VSTS_Net_Models_WorkItems_WorkItem_System_Threading_CancellationToken_.md&amp;value=---%0Auid%3A%20VSTS.Net.VstsClient.CreateWorkItemAsync(System.String%2CSystem.String%2CVSTS.Net.Models.WorkItems.WorkItem%2CSystem.Threading.CancellationToken)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/BerserkerDotNet/VSTS.Net/blob/master/src/VSTS.Net/VstsClient.cs/#L36">View Source</a>
+    <a href="https://github.com/BerserkerDotNet/VSTS.Net/blob/master/src/VSTS.Net/VstsClient.WorkItems.cs/#L229">View Source</a>
   </span>
-  <a id="VSTS_Net_VstsClient_ExecuteQueryAsync_" data-uid="VSTS.Net.VstsClient.ExecuteQueryAsync*"></a>
-  <h4 id="VSTS_Net_VstsClient_ExecuteQueryAsync_System_String_VSTS_Net_Models_Request_WorkItemsQuery_" data-uid="VSTS.Net.VstsClient.ExecuteQueryAsync(System.String,VSTS.Net.Models.Request.WorkItemsQuery)">ExecuteQueryAsync(String, WorkItemsQuery)</h4>
+  <a id="VSTS_Net_VstsClient_CreateWorkItemAsync_" data-uid="VSTS.Net.VstsClient.CreateWorkItemAsync*"></a>
+  <h4 id="VSTS_Net_VstsClient_CreateWorkItemAsync_System_String_System_String_VSTS_Net_Models_WorkItems_WorkItem_System_Threading_CancellationToken_" data-uid="VSTS.Net.VstsClient.CreateWorkItemAsync(System.String,System.String,VSTS.Net.Models.WorkItems.WorkItem,System.Threading.CancellationToken)">CreateWorkItemAsync(String, String, WorkItem, CancellationToken)</h4>
   <div class="markdown level1 summary"></div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public Task&lt;WorkItemsQueryResult&gt; ExecuteQueryAsync(string project, WorkItemsQuery query)</code></pre>
+    <pre><code class="lang-csharp hljs">public Task&lt;WorkItem&gt; CreateWorkItemAsync(string project, string type, WorkItem item, CancellationToken cancellationToken = default(CancellationToken))</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
   <table class="table table-bordered table-striped table-condensed">
@@ -240,8 +321,231 @@
         <td></td>
       </tr>
       <tr>
+        <td><span class="xref">System.String</span></td>
+        <td><span class="parametername">type</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="VSTS.Net.Models.WorkItems.WorkItem.html">WorkItem</a></td>
+        <td><span class="parametername">item</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Threading.CancellationToken</span></td>
+        <td><span class="parametername">cancellationToken</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Threading.Tasks.Task</span>&lt;<a class="xref" href="VSTS.Net.Models.WorkItems.WorkItem.html">WorkItem</a>&gt;</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/BerserkerDotNet/VSTS.Net/new/master/apiSpec/new?filename=VSTS_Net_VstsClient_DeleteWorkItemAsync_System_Int32_System_Boolean_System_Threading_CancellationToken_.md&amp;value=---%0Auid%3A%20VSTS.Net.VstsClient.DeleteWorkItemAsync(System.Int32%2CSystem.Boolean%2CSystem.Threading.CancellationToken)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/BerserkerDotNet/VSTS.Net/blob/master/src/VSTS.Net/VstsClient.WorkItems.cs/#L217">View Source</a>
+  </span>
+  <a id="VSTS_Net_VstsClient_DeleteWorkItemAsync_" data-uid="VSTS.Net.VstsClient.DeleteWorkItemAsync*"></a>
+  <h4 id="VSTS_Net_VstsClient_DeleteWorkItemAsync_System_Int32_System_Boolean_System_Threading_CancellationToken_" data-uid="VSTS.Net.VstsClient.DeleteWorkItemAsync(System.Int32,System.Boolean,System.Threading.CancellationToken)">DeleteWorkItemAsync(Int32, Boolean, CancellationToken)</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public Task&lt;bool&gt; DeleteWorkItemAsync(int id, bool destroy = false, CancellationToken cancellationToken = default(CancellationToken))</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Int32</span></td>
+        <td><span class="parametername">id</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Boolean</span></td>
+        <td><span class="parametername">destroy</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Threading.CancellationToken</span></td>
+        <td><span class="parametername">cancellationToken</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Threading.Tasks.Task</span>&lt;<span class="xref">System.Boolean</span>&gt;</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/BerserkerDotNet/VSTS.Net/new/master/apiSpec/new?filename=VSTS_Net_VstsClient_ExecuteFlatQueryAsync_System_String_System_Threading_CancellationToken_.md&amp;value=---%0Auid%3A%20VSTS.Net.VstsClient.ExecuteFlatQueryAsync(System.String%2CSystem.Threading.CancellationToken)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/BerserkerDotNet/VSTS.Net/blob/master/src/VSTS.Net/VstsClient.WorkItems.cs/#L50">View Source</a>
+  </span>
+  <a id="VSTS_Net_VstsClient_ExecuteFlatQueryAsync_" data-uid="VSTS.Net.VstsClient.ExecuteFlatQueryAsync*"></a>
+  <h4 id="VSTS_Net_VstsClient_ExecuteFlatQueryAsync_System_String_System_Threading_CancellationToken_" data-uid="VSTS.Net.VstsClient.ExecuteFlatQueryAsync(System.String,System.Threading.CancellationToken)">ExecuteFlatQueryAsync(String, CancellationToken)</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public Task&lt;FlatWorkItemsQueryResult&gt; ExecuteFlatQueryAsync(string query, CancellationToken cancellationToken = default(CancellationToken))</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.String</span></td>
+        <td><span class="parametername">query</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Threading.CancellationToken</span></td>
+        <td><span class="parametername">cancellationToken</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Threading.Tasks.Task</span>&lt;<a class="xref" href="VSTS.Net.Models.WorkItems.FlatWorkItemsQueryResult.html">FlatWorkItemsQueryResult</a>&gt;</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/BerserkerDotNet/VSTS.Net/new/master/apiSpec/new?filename=VSTS_Net_VstsClient_ExecuteHierarchicalQueryAsync_System_String_System_Threading_CancellationToken_.md&amp;value=---%0Auid%3A%20VSTS.Net.VstsClient.ExecuteHierarchicalQueryAsync(System.String%2CSystem.Threading.CancellationToken)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/BerserkerDotNet/VSTS.Net/blob/master/src/VSTS.Net/VstsClient.WorkItems.cs/#L57">View Source</a>
+  </span>
+  <a id="VSTS_Net_VstsClient_ExecuteHierarchicalQueryAsync_" data-uid="VSTS.Net.VstsClient.ExecuteHierarchicalQueryAsync*"></a>
+  <h4 id="VSTS_Net_VstsClient_ExecuteHierarchicalQueryAsync_System_String_System_Threading_CancellationToken_" data-uid="VSTS.Net.VstsClient.ExecuteHierarchicalQueryAsync(System.String,System.Threading.CancellationToken)">ExecuteHierarchicalQueryAsync(String, CancellationToken)</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public Task&lt;HierarchicalWorkItemsQueryResult&gt; ExecuteHierarchicalQueryAsync(string query, CancellationToken cancellationToken = default(CancellationToken))</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.String</span></td>
+        <td><span class="parametername">query</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Threading.CancellationToken</span></td>
+        <td><span class="parametername">cancellationToken</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Threading.Tasks.Task</span>&lt;<a class="xref" href="VSTS.Net.Models.WorkItems.HierarchicalWorkItemsQueryResult.html">HierarchicalWorkItemsQueryResult</a>&gt;</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/BerserkerDotNet/VSTS.Net/new/master/apiSpec/new?filename=VSTS_Net_VstsClient_ExecuteQueryAsync_VSTS_Net_Models_Request_WorkItemsQuery_System_Threading_CancellationToken_.md&amp;value=---%0Auid%3A%20VSTS.Net.VstsClient.ExecuteQueryAsync(VSTS.Net.Models.Request.WorkItemsQuery%2CSystem.Threading.CancellationToken)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/BerserkerDotNet/VSTS.Net/blob/master/src/VSTS.Net/VstsClient.WorkItems.cs/#L23">View Source</a>
+  </span>
+  <a id="VSTS_Net_VstsClient_ExecuteQueryAsync_" data-uid="VSTS.Net.VstsClient.ExecuteQueryAsync*"></a>
+  <h4 id="VSTS_Net_VstsClient_ExecuteQueryAsync_VSTS_Net_Models_Request_WorkItemsQuery_System_Threading_CancellationToken_" data-uid="VSTS.Net.VstsClient.ExecuteQueryAsync(VSTS.Net.Models.Request.WorkItemsQuery,System.Threading.CancellationToken)">ExecuteQueryAsync(WorkItemsQuery, CancellationToken)</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public Task&lt;WorkItemsQueryResult&gt; ExecuteQueryAsync(WorkItemsQuery query, CancellationToken cancellationToken = default(CancellationToken))</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
         <td><a class="xref" href="VSTS.Net.Models.Request.WorkItemsQuery.html">WorkItemsQuery</a></td>
         <td><span class="parametername">query</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Threading.CancellationToken</span></td>
+        <td><span class="parametername">cancellationToken</span></td>
         <td></td>
       </tr>
     </tbody>
@@ -263,18 +567,20 @@
   </table>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
-    <a href="https://github.com/BerserkerDotNet/VSTS.Net/new/master/apiSpec/new?filename=VSTS_Net_VstsClient_Get_System_String_System_String_Microsoft_Extensions_Logging_ILogger_VSTS_Net_VstsClient__.md&amp;value=---%0Auid%3A%20VSTS.Net.VstsClient.Get(System.String%2CSystem.String%2CMicrosoft.Extensions.Logging.ILogger%7BVSTS.Net.VstsClient%7D)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+    <a href="https://github.com/BerserkerDotNet/VSTS.Net/new/master/apiSpec/new?filename=VSTS_Net_VstsClient_ExecuteQueryAsync__1_System_Guid_System_Threading_CancellationToken_.md&amp;value=---%0Auid%3A%20VSTS.Net.VstsClient.ExecuteQueryAsync%60%601(System.Guid%2CSystem.Threading.CancellationToken)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/BerserkerDotNet/VSTS.Net/blob/master/src/VSTS.Net/VstsClient.cs/#L189">View Source</a>
+    <a href="https://github.com/BerserkerDotNet/VSTS.Net/blob/master/src/VSTS.Net/VstsClient.WorkItems.cs/#L43">View Source</a>
   </span>
-  <a id="VSTS_Net_VstsClient_Get_" data-uid="VSTS.Net.VstsClient.Get*"></a>
-  <h4 id="VSTS_Net_VstsClient_Get_System_String_System_String_Microsoft_Extensions_Logging_ILogger_VSTS_Net_VstsClient__" data-uid="VSTS.Net.VstsClient.Get(System.String,System.String,Microsoft.Extensions.Logging.ILogger{VSTS.Net.VstsClient})">Get(String, String, ILogger&lt;VstsClient&gt;)</h4>
+  <a id="VSTS_Net_VstsClient_ExecuteQueryAsync_" data-uid="VSTS.Net.VstsClient.ExecuteQueryAsync*"></a>
+  <h4 id="VSTS_Net_VstsClient_ExecuteQueryAsync__1_System_Guid_System_Threading_CancellationToken_" data-uid="VSTS.Net.VstsClient.ExecuteQueryAsync``1(System.Guid,System.Threading.CancellationToken)">ExecuteQueryAsync&lt;T&gt;(Guid, CancellationToken)</h4>
   <div class="markdown level1 summary"></div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public static VstsClient Get(string instanceName, string accessToken, ILogger&lt;VstsClient&gt; logger = null)</code></pre>
+    <pre><code class="lang-csharp hljs">public Task&lt;T&gt; ExecuteQueryAsync&lt;T&gt;(Guid queryId, CancellationToken cancellationToken = default(CancellationToken))
+
+    where T : WorkItemsQueryResult</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
   <table class="table table-bordered table-striped table-condensed">
@@ -287,13 +593,85 @@
     </thead>
     <tbody>
       <tr>
-        <td><span class="xref">System.String</span></td>
-        <td><span class="parametername">instanceName</span></td>
+        <td><span class="xref">System.Guid</span></td>
+        <td><span class="parametername">queryId</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Threading.CancellationToken</span></td>
+        <td><span class="parametername">cancellationToken</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Threading.Tasks.Task</span>&lt;T&gt;</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="typeParameters">Type Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="parametername">T</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/BerserkerDotNet/VSTS.Net/new/master/apiSpec/new?filename=VSTS_Net_VstsClient_Get_VSTS_Net_Interfaces_IVstsUrlBuilderFactory_System_String_VSTS_Net_Types_VstsClientConfiguration_Microsoft_Extensions_Logging_ILogger_VSTS_Net_VstsClient__.md&amp;value=---%0Auid%3A%20VSTS.Net.VstsClient.Get(VSTS.Net.Interfaces.IVstsUrlBuilderFactory%2CSystem.String%2CVSTS.Net.Types.VstsClientConfiguration%2CMicrosoft.Extensions.Logging.ILogger%7BVSTS.Net.VstsClient%7D)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/BerserkerDotNet/VSTS.Net/blob/master/src/VSTS.Net/VstsClient.Common.cs/#L37">View Source</a>
+  </span>
+  <a id="VSTS_Net_VstsClient_Get_" data-uid="VSTS.Net.VstsClient.Get*"></a>
+  <h4 id="VSTS_Net_VstsClient_Get_VSTS_Net_Interfaces_IVstsUrlBuilderFactory_System_String_VSTS_Net_Types_VstsClientConfiguration_Microsoft_Extensions_Logging_ILogger_VSTS_Net_VstsClient__" data-uid="VSTS.Net.VstsClient.Get(VSTS.Net.Interfaces.IVstsUrlBuilderFactory,System.String,VSTS.Net.Types.VstsClientConfiguration,Microsoft.Extensions.Logging.ILogger{VSTS.Net.VstsClient})">Get(IVstsUrlBuilderFactory, String, VstsClientConfiguration, ILogger&lt;VstsClient&gt;)</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static VstsClient Get(IVstsUrlBuilderFactory urlBuilderFactory, string accessToken, VstsClientConfiguration configuration = null, ILogger&lt;VstsClient&gt; logger = null)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="VSTS.Net.Interfaces.IVstsUrlBuilderFactory.html">IVstsUrlBuilderFactory</a></td>
+        <td><span class="parametername">urlBuilderFactory</span></td>
         <td></td>
       </tr>
       <tr>
         <td><span class="xref">System.String</span></td>
         <td><span class="parametername">accessToken</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="VSTS.Net.Types.VstsClientConfiguration.html">VstsClientConfiguration</a></td>
+        <td><span class="parametername">configuration</span></td>
         <td></td>
       </tr>
       <tr>
@@ -320,18 +698,132 @@
   </table>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
-    <a href="https://github.com/BerserkerDotNet/VSTS.Net/new/master/apiSpec/new?filename=VSTS_Net_VstsClient_GetPullRequestIterationsAsync_System_String_System_String_System_Int32_.md&amp;value=---%0Auid%3A%20VSTS.Net.VstsClient.GetPullRequestIterationsAsync(System.String%2CSystem.String%2CSystem.Int32)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+    <a href="https://github.com/BerserkerDotNet/VSTS.Net/new/master/apiSpec/new?filename=VSTS_Net_VstsClient_GetPullRequestAsync_System_Int32_System_Threading_CancellationToken_.md&amp;value=---%0Auid%3A%20VSTS.Net.VstsClient.GetPullRequestAsync(System.Int32%2CSystem.Threading.CancellationToken)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/BerserkerDotNet/VSTS.Net/blob/master/src/VSTS.Net/VstsClient.cs/#L144">View Source</a>
+    <a href="https://github.com/BerserkerDotNet/VSTS.Net/blob/master/src/VSTS.Net/VstsClient.PullRequests.cs/#L77">View Source</a>
   </span>
-  <a id="VSTS_Net_VstsClient_GetPullRequestIterationsAsync_" data-uid="VSTS.Net.VstsClient.GetPullRequestIterationsAsync*"></a>
-  <h4 id="VSTS_Net_VstsClient_GetPullRequestIterationsAsync_System_String_System_String_System_Int32_" data-uid="VSTS.Net.VstsClient.GetPullRequestIterationsAsync(System.String,System.String,System.Int32)">GetPullRequestIterationsAsync(String, String, Int32)</h4>
+  <a id="VSTS_Net_VstsClient_GetPullRequestAsync_" data-uid="VSTS.Net.VstsClient.GetPullRequestAsync*"></a>
+  <h4 id="VSTS_Net_VstsClient_GetPullRequestAsync_System_Int32_System_Threading_CancellationToken_" data-uid="VSTS.Net.VstsClient.GetPullRequestAsync(System.Int32,System.Threading.CancellationToken)">GetPullRequestAsync(Int32, CancellationToken)</h4>
   <div class="markdown level1 summary"></div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public Task&lt;IEnumerable&lt;PullRequestIteration&gt;&gt; GetPullRequestIterationsAsync(string project, string repository, int pullRequestId)</code></pre>
+    <pre><code class="lang-csharp hljs">public Task&lt;PullRequest&gt; GetPullRequestAsync(int id, CancellationToken cancellationToken = default(CancellationToken))</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Int32</span></td>
+        <td><span class="parametername">id</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Threading.CancellationToken</span></td>
+        <td><span class="parametername">cancellationToken</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Threading.Tasks.Task</span>&lt;<a class="xref" href="VSTS.Net.Models.PullRequests.PullRequest.html">PullRequest</a>&gt;</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/BerserkerDotNet/VSTS.Net/new/master/apiSpec/new?filename=VSTS_Net_VstsClient_GetPullRequestAsync_System_String_System_String_System_Int32_System_Threading_CancellationToken_.md&amp;value=---%0Auid%3A%20VSTS.Net.VstsClient.GetPullRequestAsync(System.String%2CSystem.String%2CSystem.Int32%2CSystem.Threading.CancellationToken)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/BerserkerDotNet/VSTS.Net/blob/master/src/VSTS.Net/VstsClient.PullRequests.cs/#L63">View Source</a>
+  </span>
+  <a id="VSTS_Net_VstsClient_GetPullRequestAsync_" data-uid="VSTS.Net.VstsClient.GetPullRequestAsync*"></a>
+  <h4 id="VSTS_Net_VstsClient_GetPullRequestAsync_System_String_System_String_System_Int32_System_Threading_CancellationToken_" data-uid="VSTS.Net.VstsClient.GetPullRequestAsync(System.String,System.String,System.Int32,System.Threading.CancellationToken)">GetPullRequestAsync(String, String, Int32, CancellationToken)</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public Task&lt;PullRequest&gt; GetPullRequestAsync(string project, string repository, int id, CancellationToken cancellationToken = default(CancellationToken))</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.String</span></td>
+        <td><span class="parametername">project</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.String</span></td>
+        <td><span class="parametername">repository</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Int32</span></td>
+        <td><span class="parametername">id</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Threading.CancellationToken</span></td>
+        <td><span class="parametername">cancellationToken</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Threading.Tasks.Task</span>&lt;<a class="xref" href="VSTS.Net.Models.PullRequests.PullRequest.html">PullRequest</a>&gt;</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/BerserkerDotNet/VSTS.Net/new/master/apiSpec/new?filename=VSTS_Net_VstsClient_GetPullRequestIterationsAsync_System_String_System_String_System_Int32_System_Threading_CancellationToken_.md&amp;value=---%0Auid%3A%20VSTS.Net.VstsClient.GetPullRequestIterationsAsync(System.String%2CSystem.String%2CSystem.Int32%2CSystem.Threading.CancellationToken)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/BerserkerDotNet/VSTS.Net/blob/master/src/VSTS.Net/VstsClient.PullRequests.cs/#L87">View Source</a>
+  </span>
+  <a id="VSTS_Net_VstsClient_GetPullRequestIterationsAsync_" data-uid="VSTS.Net.VstsClient.GetPullRequestIterationsAsync*"></a>
+  <h4 id="VSTS_Net_VstsClient_GetPullRequestIterationsAsync_System_String_System_String_System_Int32_System_Threading_CancellationToken_" data-uid="VSTS.Net.VstsClient.GetPullRequestIterationsAsync(System.String,System.String,System.Int32,System.Threading.CancellationToken)">GetPullRequestIterationsAsync(String, String, Int32, CancellationToken)</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public Task&lt;IEnumerable&lt;PullRequestIteration&gt;&gt; GetPullRequestIterationsAsync(string project, string repository, int pullRequestId, CancellationToken cancellationToken = default(CancellationToken))</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
   <table class="table table-bordered table-striped table-condensed">
@@ -358,6 +850,11 @@
         <td><span class="parametername">pullRequestId</span></td>
         <td></td>
       </tr>
+      <tr>
+        <td><span class="xref">System.Threading.CancellationToken</span></td>
+        <td><span class="parametername">cancellationToken</span></td>
+        <td></td>
+      </tr>
     </tbody>
   </table>
   <h5 class="returns">Returns</h5>
@@ -377,18 +874,18 @@
   </table>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
-    <a href="https://github.com/BerserkerDotNet/VSTS.Net/new/master/apiSpec/new?filename=VSTS_Net_VstsClient_GetPullRequestsAsync_System_String_System_String_VSTS_Net_Models_Request_PullRequestQuery_.md&amp;value=---%0Auid%3A%20VSTS.Net.VstsClient.GetPullRequestsAsync(System.String%2CSystem.String%2CVSTS.Net.Models.Request.PullRequestQuery)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+    <a href="https://github.com/BerserkerDotNet/VSTS.Net/new/master/apiSpec/new?filename=VSTS_Net_VstsClient_GetPullRequestsAsync_System_String_System_String_VSTS_Net_Models_Request_PullRequestQuery_System_Threading_CancellationToken_.md&amp;value=---%0Auid%3A%20VSTS.Net.VstsClient.GetPullRequestsAsync(System.String%2CSystem.String%2CVSTS.Net.Models.Request.PullRequestQuery%2CSystem.Threading.CancellationToken)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/BerserkerDotNet/VSTS.Net/blob/master/src/VSTS.Net/VstsClient.cs/#L103">View Source</a>
+    <a href="https://github.com/BerserkerDotNet/VSTS.Net/blob/master/src/VSTS.Net/VstsClient.PullRequests.cs/#L17">View Source</a>
   </span>
   <a id="VSTS_Net_VstsClient_GetPullRequestsAsync_" data-uid="VSTS.Net.VstsClient.GetPullRequestsAsync*"></a>
-  <h4 id="VSTS_Net_VstsClient_GetPullRequestsAsync_System_String_System_String_VSTS_Net_Models_Request_PullRequestQuery_" data-uid="VSTS.Net.VstsClient.GetPullRequestsAsync(System.String,System.String,VSTS.Net.Models.Request.PullRequestQuery)">GetPullRequestsAsync(String, String, PullRequestQuery)</h4>
+  <h4 id="VSTS_Net_VstsClient_GetPullRequestsAsync_System_String_System_String_VSTS_Net_Models_Request_PullRequestQuery_System_Threading_CancellationToken_" data-uid="VSTS.Net.VstsClient.GetPullRequestsAsync(System.String,System.String,VSTS.Net.Models.Request.PullRequestQuery,System.Threading.CancellationToken)">GetPullRequestsAsync(String, String, PullRequestQuery, CancellationToken)</h4>
   <div class="markdown level1 summary"></div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public Task&lt;IEnumerable&lt;PullRequest&gt;&gt; GetPullRequestsAsync(string project, string repository, PullRequestQuery query)</code></pre>
+    <pre><code class="lang-csharp hljs">public Task&lt;IEnumerable&lt;PullRequest&gt;&gt; GetPullRequestsAsync(string project, string repository, PullRequestQuery query, CancellationToken cancellationToken = default(CancellationToken))</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
   <table class="table table-bordered table-striped table-condensed">
@@ -415,6 +912,11 @@
         <td><span class="parametername">query</span></td>
         <td></td>
       </tr>
+      <tr>
+        <td><span class="xref">System.Threading.CancellationToken</span></td>
+        <td><span class="parametername">cancellationToken</span></td>
+        <td></td>
+      </tr>
     </tbody>
   </table>
   <h5 class="returns">Returns</h5>
@@ -434,18 +936,18 @@
   </table>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
-    <a href="https://github.com/BerserkerDotNet/VSTS.Net/new/master/apiSpec/new?filename=VSTS_Net_VstsClient_GetPullRequestThreadsAsync_System_String_System_String_System_Int32_.md&amp;value=---%0Auid%3A%20VSTS.Net.VstsClient.GetPullRequestThreadsAsync(System.String%2CSystem.String%2CSystem.Int32)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+    <a href="https://github.com/BerserkerDotNet/VSTS.Net/new/master/apiSpec/new?filename=VSTS_Net_VstsClient_GetPullRequestThreadsAsync_System_String_System_String_System_Int32_System_Threading_CancellationToken_.md&amp;value=---%0Auid%3A%20VSTS.Net.VstsClient.GetPullRequestThreadsAsync(System.String%2CSystem.String%2CSystem.Int32%2CSystem.Threading.CancellationToken)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/BerserkerDotNet/VSTS.Net/blob/master/src/VSTS.Net/VstsClient.cs/#L160">View Source</a>
+    <a href="https://github.com/BerserkerDotNet/VSTS.Net/blob/master/src/VSTS.Net/VstsClient.PullRequests.cs/#L103">View Source</a>
   </span>
   <a id="VSTS_Net_VstsClient_GetPullRequestThreadsAsync_" data-uid="VSTS.Net.VstsClient.GetPullRequestThreadsAsync*"></a>
-  <h4 id="VSTS_Net_VstsClient_GetPullRequestThreadsAsync_System_String_System_String_System_Int32_" data-uid="VSTS.Net.VstsClient.GetPullRequestThreadsAsync(System.String,System.String,System.Int32)">GetPullRequestThreadsAsync(String, String, Int32)</h4>
+  <h4 id="VSTS_Net_VstsClient_GetPullRequestThreadsAsync_System_String_System_String_System_Int32_System_Threading_CancellationToken_" data-uid="VSTS.Net.VstsClient.GetPullRequestThreadsAsync(System.String,System.String,System.Int32,System.Threading.CancellationToken)">GetPullRequestThreadsAsync(String, String, Int32, CancellationToken)</h4>
   <div class="markdown level1 summary"></div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public Task&lt;IEnumerable&lt;PullRequestThread&gt;&gt; GetPullRequestThreadsAsync(string project, string repository, int pullRequestId)</code></pre>
+    <pre><code class="lang-csharp hljs">public Task&lt;IEnumerable&lt;PullRequestThread&gt;&gt; GetPullRequestThreadsAsync(string project, string repository, int pullRequestId, CancellationToken cancellationToken = default(CancellationToken))</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
   <table class="table table-bordered table-striped table-condensed">
@@ -472,6 +974,11 @@
         <td><span class="parametername">pullRequestId</span></td>
         <td></td>
       </tr>
+      <tr>
+        <td><span class="xref">System.Threading.CancellationToken</span></td>
+        <td><span class="parametername">cancellationToken</span></td>
+        <td></td>
+      </tr>
     </tbody>
   </table>
   <h5 class="returns">Returns</h5>
@@ -491,18 +998,18 @@
   </table>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
-    <a href="https://github.com/BerserkerDotNet/VSTS.Net/new/master/apiSpec/new?filename=VSTS_Net_VstsClient_GetWorkItemsAsync_System_String_VSTS_Net_Models_Request_WorkItemsQuery_.md&amp;value=---%0Auid%3A%20VSTS.Net.VstsClient.GetWorkItemsAsync(System.String%2CVSTS.Net.Models.Request.WorkItemsQuery)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+    <a href="https://github.com/BerserkerDotNet/VSTS.Net/new/master/apiSpec/new?filename=VSTS_Net_VstsClient_GetWorkItemAsync_System_Int32_System_Nullable_System_DateTime__System_String___System_Threading_CancellationToken_.md&amp;value=---%0Auid%3A%20VSTS.Net.VstsClient.GetWorkItemAsync(System.Int32%2CSystem.Nullable%7BSystem.DateTime%7D%2CSystem.String%5B%5D%2CSystem.Threading.CancellationToken)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/BerserkerDotNet/VSTS.Net/blob/master/src/VSTS.Net/VstsClient.cs/#L56">View Source</a>
+    <a href="https://github.com/BerserkerDotNet/VSTS.Net/blob/master/src/VSTS.Net/VstsClient.WorkItems.cs/#L114">View Source</a>
   </span>
-  <a id="VSTS_Net_VstsClient_GetWorkItemsAsync_" data-uid="VSTS.Net.VstsClient.GetWorkItemsAsync*"></a>
-  <h4 id="VSTS_Net_VstsClient_GetWorkItemsAsync_System_String_VSTS_Net_Models_Request_WorkItemsQuery_" data-uid="VSTS.Net.VstsClient.GetWorkItemsAsync(System.String,VSTS.Net.Models.Request.WorkItemsQuery)">GetWorkItemsAsync(String, WorkItemsQuery)</h4>
+  <a id="VSTS_Net_VstsClient_GetWorkItemAsync_" data-uid="VSTS.Net.VstsClient.GetWorkItemAsync*"></a>
+  <h4 id="VSTS_Net_VstsClient_GetWorkItemAsync_System_Int32_System_Nullable_System_DateTime__System_String___System_Threading_CancellationToken_" data-uid="VSTS.Net.VstsClient.GetWorkItemAsync(System.Int32,System.Nullable{System.DateTime},System.String[],System.Threading.CancellationToken)">GetWorkItemAsync(Int32, Nullable&lt;DateTime&gt;, String[], CancellationToken)</h4>
   <div class="markdown level1 summary"></div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public Task&lt;IEnumerable&lt;WorkItem&gt;&gt; GetWorkItemsAsync(string project, WorkItemsQuery query)</code></pre>
+    <pre><code class="lang-csharp hljs">public Task&lt;WorkItem&gt; GetWorkItemAsync(int workItemId, DateTime? asOf = default(DateTime? ), string[] fields = null, CancellationToken cancellationToken = default(CancellationToken))</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
   <table class="table table-bordered table-striped table-condensed">
@@ -515,13 +1022,184 @@
     </thead>
     <tbody>
       <tr>
-        <td><span class="xref">System.String</span></td>
-        <td><span class="parametername">project</span></td>
+        <td><span class="xref">System.Int32</span></td>
+        <td><span class="parametername">workItemId</span></td>
         <td></td>
       </tr>
       <tr>
-        <td><a class="xref" href="VSTS.Net.Models.Request.WorkItemsQuery.html">WorkItemsQuery</a></td>
-        <td><span class="parametername">query</span></td>
+        <td><span class="xref">System.Nullable</span>&lt;<span class="xref">System.DateTime</span>&gt;</td>
+        <td><span class="parametername">asOf</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.String</span>[]</td>
+        <td><span class="parametername">fields</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Threading.CancellationToken</span></td>
+        <td><span class="parametername">cancellationToken</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Threading.Tasks.Task</span>&lt;<a class="xref" href="VSTS.Net.Models.WorkItems.WorkItem.html">WorkItem</a>&gt;</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/BerserkerDotNet/VSTS.Net/new/master/apiSpec/new?filename=VSTS_Net_VstsClient_GetWorkItemExpandedAsync_System_Int32_System_Nullable_System_DateTime__System_Threading_CancellationToken_.md&amp;value=---%0Auid%3A%20VSTS.Net.VstsClient.GetWorkItemExpandedAsync(System.Int32%2CSystem.Nullable%7BSystem.DateTime%7D%2CSystem.Threading.CancellationToken)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/BerserkerDotNet/VSTS.Net/blob/master/src/VSTS.Net/VstsClient.WorkItems.cs/#L131">View Source</a>
+  </span>
+  <a id="VSTS_Net_VstsClient_GetWorkItemExpandedAsync_" data-uid="VSTS.Net.VstsClient.GetWorkItemExpandedAsync*"></a>
+  <h4 id="VSTS_Net_VstsClient_GetWorkItemExpandedAsync_System_Int32_System_Nullable_System_DateTime__System_Threading_CancellationToken_" data-uid="VSTS.Net.VstsClient.GetWorkItemExpandedAsync(System.Int32,System.Nullable{System.DateTime},System.Threading.CancellationToken)">GetWorkItemExpandedAsync(Int32, Nullable&lt;DateTime&gt;, CancellationToken)</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public Task&lt;WorkItem&gt; GetWorkItemExpandedAsync(int workItemId, DateTime? asOf = default(DateTime? ), CancellationToken cancellationToken = default(CancellationToken))</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Int32</span></td>
+        <td><span class="parametername">workItemId</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Nullable</span>&lt;<span class="xref">System.DateTime</span>&gt;</td>
+        <td><span class="parametername">asOf</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Threading.CancellationToken</span></td>
+        <td><span class="parametername">cancellationToken</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Threading.Tasks.Task</span>&lt;<a class="xref" href="VSTS.Net.Models.WorkItems.WorkItem.html">WorkItem</a>&gt;</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/BerserkerDotNet/VSTS.Net/new/master/apiSpec/new?filename=VSTS_Net_VstsClient_GetWorkItemFieldsAsync_System_Threading_CancellationToken_.md&amp;value=---%0Auid%3A%20VSTS.Net.VstsClient.GetWorkItemFieldsAsync(System.Threading.CancellationToken)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/BerserkerDotNet/VSTS.Net/blob/master/src/VSTS.Net/VstsClient.WorkItemsMetadata.cs/#L12">View Source</a>
+  </span>
+  <a id="VSTS_Net_VstsClient_GetWorkItemFieldsAsync_" data-uid="VSTS.Net.VstsClient.GetWorkItemFieldsAsync*"></a>
+  <h4 id="VSTS_Net_VstsClient_GetWorkItemFieldsAsync_System_Threading_CancellationToken_" data-uid="VSTS.Net.VstsClient.GetWorkItemFieldsAsync(System.Threading.CancellationToken)">GetWorkItemFieldsAsync(CancellationToken)</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public Task&lt;IEnumerable&lt;WorkItemField&gt;&gt; GetWorkItemFieldsAsync(CancellationToken cancellationToken = default(CancellationToken))</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Threading.CancellationToken</span></td>
+        <td><span class="parametername">cancellationToken</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Threading.Tasks.Task</span>&lt;<span class="xref">System.Collections.Generic.IEnumerable</span>&lt;<a class="xref" href="VSTS.Net.Models.WorkItemsMetadata.WorkItemField.html">WorkItemField</a>&gt;&gt;</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/BerserkerDotNet/VSTS.Net/new/master/apiSpec/new?filename=VSTS_Net_VstsClient_GetWorkItemsAsync_System_Guid_System_Boolean_System_Threading_CancellationToken_.md&amp;value=---%0Auid%3A%20VSTS.Net.VstsClient.GetWorkItemsAsync(System.Guid%2CSystem.Boolean%2CSystem.Threading.CancellationToken)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/BerserkerDotNet/VSTS.Net/blob/master/src/VSTS.Net/VstsClient.WorkItems.cs/#L170">View Source</a>
+  </span>
+  <a id="VSTS_Net_VstsClient_GetWorkItemsAsync_" data-uid="VSTS.Net.VstsClient.GetWorkItemsAsync*"></a>
+  <h4 id="VSTS_Net_VstsClient_GetWorkItemsAsync_System_Guid_System_Boolean_System_Threading_CancellationToken_" data-uid="VSTS.Net.VstsClient.GetWorkItemsAsync(System.Guid,System.Boolean,System.Threading.CancellationToken)">GetWorkItemsAsync(Guid, Boolean, CancellationToken)</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public Task&lt;IEnumerable&lt;WorkItem&gt;&gt; GetWorkItemsAsync(Guid queryId, bool expand, CancellationToken cancellationToken = default(CancellationToken))</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Guid</span></td>
+        <td><span class="parametername">queryId</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Boolean</span></td>
+        <td><span class="parametername">expand</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Threading.CancellationToken</span></td>
+        <td><span class="parametername">cancellationToken</span></td>
         <td></td>
       </tr>
     </tbody>
@@ -543,18 +1221,194 @@
   </table>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
-    <a href="https://github.com/BerserkerDotNet/VSTS.Net/new/master/apiSpec/new?filename=VSTS_Net_VstsClient_GetWorkItemUpdatesAsync_System_Int32_.md&amp;value=---%0Auid%3A%20VSTS.Net.VstsClient.GetWorkItemUpdatesAsync(System.Int32)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+    <a href="https://github.com/BerserkerDotNet/VSTS.Net/new/master/apiSpec/new?filename=VSTS_Net_VstsClient_GetWorkItemsAsync_System_Int32___System_Nullable_System_DateTime__System_String___System_Threading_CancellationToken_.md&amp;value=---%0Auid%3A%20VSTS.Net.VstsClient.GetWorkItemsAsync(System.Int32%5B%5D%2CSystem.Nullable%7BSystem.DateTime%7D%2CSystem.String%5B%5D%2CSystem.Threading.CancellationToken)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/BerserkerDotNet/VSTS.Net/blob/master/src/VSTS.Net/VstsClient.cs/#L88">View Source</a>
+    <a href="https://github.com/BerserkerDotNet/VSTS.Net/blob/master/src/VSTS.Net/VstsClient.WorkItems.cs/#L137">View Source</a>
   </span>
-  <a id="VSTS_Net_VstsClient_GetWorkItemUpdatesAsync_" data-uid="VSTS.Net.VstsClient.GetWorkItemUpdatesAsync*"></a>
-  <h4 id="VSTS_Net_VstsClient_GetWorkItemUpdatesAsync_System_Int32_" data-uid="VSTS.Net.VstsClient.GetWorkItemUpdatesAsync(System.Int32)">GetWorkItemUpdatesAsync(Int32)</h4>
+  <a id="VSTS_Net_VstsClient_GetWorkItemsAsync_" data-uid="VSTS.Net.VstsClient.GetWorkItemsAsync*"></a>
+  <h4 id="VSTS_Net_VstsClient_GetWorkItemsAsync_System_Int32___System_Nullable_System_DateTime__System_String___System_Threading_CancellationToken_" data-uid="VSTS.Net.VstsClient.GetWorkItemsAsync(System.Int32[],System.Nullable{System.DateTime},System.String[],System.Threading.CancellationToken)">GetWorkItemsAsync(Int32[], Nullable&lt;DateTime&gt;, String[], CancellationToken)</h4>
   <div class="markdown level1 summary"></div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public Task&lt;IEnumerable&lt;WorkItemUpdate&gt;&gt; GetWorkItemUpdatesAsync(int workitemId)</code></pre>
+    <pre><code class="lang-csharp hljs">public Task&lt;IEnumerable&lt;WorkItem&gt;&gt; GetWorkItemsAsync(int[] ids, DateTime? asOf = default(DateTime? ), string[] fields = null, CancellationToken cancellationToken = default(CancellationToken))</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Int32</span>[]</td>
+        <td><span class="parametername">ids</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Nullable</span>&lt;<span class="xref">System.DateTime</span>&gt;</td>
+        <td><span class="parametername">asOf</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.String</span>[]</td>
+        <td><span class="parametername">fields</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Threading.CancellationToken</span></td>
+        <td><span class="parametername">cancellationToken</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Threading.Tasks.Task</span>&lt;<span class="xref">System.Collections.Generic.IEnumerable</span>&lt;<a class="xref" href="VSTS.Net.Models.WorkItems.WorkItem.html">WorkItem</a>&gt;&gt;</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/BerserkerDotNet/VSTS.Net/new/master/apiSpec/new?filename=VSTS_Net_VstsClient_GetWorkItemsAsync_VSTS_Net_Models_Request_WorkItemsQuery_System_Boolean_System_Threading_CancellationToken_.md&amp;value=---%0Auid%3A%20VSTS.Net.VstsClient.GetWorkItemsAsync(VSTS.Net.Models.Request.WorkItemsQuery%2CSystem.Boolean%2CSystem.Threading.CancellationToken)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/BerserkerDotNet/VSTS.Net/blob/master/src/VSTS.Net/VstsClient.WorkItems.cs/#L64">View Source</a>
+  </span>
+  <a id="VSTS_Net_VstsClient_GetWorkItemsAsync_" data-uid="VSTS.Net.VstsClient.GetWorkItemsAsync*"></a>
+  <h4 id="VSTS_Net_VstsClient_GetWorkItemsAsync_VSTS_Net_Models_Request_WorkItemsQuery_System_Boolean_System_Threading_CancellationToken_" data-uid="VSTS.Net.VstsClient.GetWorkItemsAsync(VSTS.Net.Models.Request.WorkItemsQuery,System.Boolean,System.Threading.CancellationToken)">GetWorkItemsAsync(WorkItemsQuery, Boolean, CancellationToken)</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public Task&lt;IEnumerable&lt;WorkItem&gt;&gt; GetWorkItemsAsync(WorkItemsQuery query, bool expand = false, CancellationToken cancellationToken = default(CancellationToken))</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="VSTS.Net.Models.Request.WorkItemsQuery.html">WorkItemsQuery</a></td>
+        <td><span class="parametername">query</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Boolean</span></td>
+        <td><span class="parametername">expand</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Threading.CancellationToken</span></td>
+        <td><span class="parametername">cancellationToken</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Threading.Tasks.Task</span>&lt;<span class="xref">System.Collections.Generic.IEnumerable</span>&lt;<a class="xref" href="VSTS.Net.Models.WorkItems.WorkItem.html">WorkItem</a>&gt;&gt;</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/BerserkerDotNet/VSTS.Net/new/master/apiSpec/new?filename=VSTS_Net_VstsClient_GetWorkItemsExpandedAsync_System_Int32___System_Nullable_System_DateTime__System_Threading_CancellationToken_.md&amp;value=---%0Auid%3A%20VSTS.Net.VstsClient.GetWorkItemsExpandedAsync(System.Int32%5B%5D%2CSystem.Nullable%7BSystem.DateTime%7D%2CSystem.Threading.CancellationToken)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/BerserkerDotNet/VSTS.Net/blob/master/src/VSTS.Net/VstsClient.WorkItems.cs/#L211">View Source</a>
+  </span>
+  <a id="VSTS_Net_VstsClient_GetWorkItemsExpandedAsync_" data-uid="VSTS.Net.VstsClient.GetWorkItemsExpandedAsync*"></a>
+  <h4 id="VSTS_Net_VstsClient_GetWorkItemsExpandedAsync_System_Int32___System_Nullable_System_DateTime__System_Threading_CancellationToken_" data-uid="VSTS.Net.VstsClient.GetWorkItemsExpandedAsync(System.Int32[],System.Nullable{System.DateTime},System.Threading.CancellationToken)">GetWorkItemsExpandedAsync(Int32[], Nullable&lt;DateTime&gt;, CancellationToken)</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public Task&lt;IEnumerable&lt;WorkItem&gt;&gt; GetWorkItemsExpandedAsync(int[] ids, DateTime? asOf = default(DateTime? ), CancellationToken cancellationToken = default(CancellationToken))</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Int32</span>[]</td>
+        <td><span class="parametername">ids</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Nullable</span>&lt;<span class="xref">System.DateTime</span>&gt;</td>
+        <td><span class="parametername">asOf</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Threading.CancellationToken</span></td>
+        <td><span class="parametername">cancellationToken</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Threading.Tasks.Task</span>&lt;<span class="xref">System.Collections.Generic.IEnumerable</span>&lt;<a class="xref" href="VSTS.Net.Models.WorkItems.WorkItem.html">WorkItem</a>&gt;&gt;</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/BerserkerDotNet/VSTS.Net/new/master/apiSpec/new?filename=VSTS_Net_VstsClient_GetWorkItemUpdatesAsync_System_Int32_System_Threading_CancellationToken_.md&amp;value=---%0Auid%3A%20VSTS.Net.VstsClient.GetWorkItemUpdatesAsync(System.Int32%2CSystem.Threading.CancellationToken)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/BerserkerDotNet/VSTS.Net/blob/master/src/VSTS.Net/VstsClient.WorkItems.cs/#L97">View Source</a>
+  </span>
+  <a id="VSTS_Net_VstsClient_GetWorkItemUpdatesAsync_" data-uid="VSTS.Net.VstsClient.GetWorkItemUpdatesAsync*"></a>
+  <h4 id="VSTS_Net_VstsClient_GetWorkItemUpdatesAsync_System_Int32_System_Threading_CancellationToken_" data-uid="VSTS.Net.VstsClient.GetWorkItemUpdatesAsync(System.Int32,System.Threading.CancellationToken)">GetWorkItemUpdatesAsync(Int32, CancellationToken)</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public Task&lt;IEnumerable&lt;WorkItemUpdate&gt;&gt; GetWorkItemUpdatesAsync(int workitemId, CancellationToken cancellationToken = default(CancellationToken))</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
   <table class="table table-bordered table-striped table-condensed">
@@ -569,6 +1423,11 @@
       <tr>
         <td><span class="xref">System.Int32</span></td>
         <td><span class="parametername">workitemId</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Threading.CancellationToken</span></td>
+        <td><span class="parametername">cancellationToken</span></td>
         <td></td>
       </tr>
     </tbody>
@@ -588,6 +1447,58 @@
       </tr>
     </tbody>
   </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/BerserkerDotNet/VSTS.Net/new/master/apiSpec/new?filename=VSTS_Net_VstsClient_UpdateWorkItemAsync_VSTS_Net_Models_Request_UpdateWorkitemRequest_System_Threading_CancellationToken_.md&amp;value=---%0Auid%3A%20VSTS.Net.VstsClient.UpdateWorkItemAsync(VSTS.Net.Models.Request.UpdateWorkitemRequest%2CSystem.Threading.CancellationToken)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/BerserkerDotNet/VSTS.Net/blob/master/src/VSTS.Net/VstsClient.WorkItems.cs/#L252">View Source</a>
+  </span>
+  <a id="VSTS_Net_VstsClient_UpdateWorkItemAsync_" data-uid="VSTS.Net.VstsClient.UpdateWorkItemAsync*"></a>
+  <h4 id="VSTS_Net_VstsClient_UpdateWorkItemAsync_VSTS_Net_Models_Request_UpdateWorkitemRequest_System_Threading_CancellationToken_" data-uid="VSTS.Net.VstsClient.UpdateWorkItemAsync(VSTS.Net.Models.Request.UpdateWorkitemRequest,System.Threading.CancellationToken)">UpdateWorkItemAsync(UpdateWorkitemRequest, CancellationToken)</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public Task&lt;WorkItem&gt; UpdateWorkItemAsync(UpdateWorkitemRequest request, CancellationToken cancellationToken = default(CancellationToken))</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="VSTS.Net.Models.Request.UpdateWorkitemRequest.html">UpdateWorkitemRequest</a></td>
+        <td><span class="parametername">request</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Threading.CancellationToken</span></td>
+        <td><span class="parametername">cancellationToken</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Threading.Tasks.Task</span>&lt;<a class="xref" href="VSTS.Net.Models.WorkItems.WorkItem.html">WorkItem</a>&gt;</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
   <h3 id="implements">Implements</h3>
   <div>
       <a class="xref" href="VSTS.Net.Interfaces.IVstsClient.html">IVstsClient</a>
@@ -597,6 +1508,9 @@
   </div>
   <div>
       <a class="xref" href="VSTS.Net.Interfaces.IVstsPullRequestsClient.html">IVstsPullRequestsClient</a>
+  </div>
+  <div>
+      <a class="xref" href="VSTS.Net.Interfaces.IVstsWorkItemsMetadataClient.html">IVstsWorkItemsMetadataClient</a>
   </div>
 </article>
           </div>
@@ -609,7 +1523,7 @@
                     <a href="https://github.com/BerserkerDotNet/VSTS.Net/new/master/apiSpec/new?filename=VSTS_Net_VstsClient.md&amp;value=---%0Auid%3A%20VSTS.Net.VstsClient%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A" class="contribution-link">Improve this Doc</a>
                   </li>
                   <li>
-                    <a href="https://github.com/BerserkerDotNet/VSTS.Net/blob/master/src/VSTS.Net/VstsClient.cs/#L17" class="contribution-link">View Source</a>
+                    <a href="https://github.com/BerserkerDotNet/VSTS.Net/blob/master/src/VSTS.Net/VstsClient.WorkItemsMetadata.cs/#L10" class="contribution-link">View Source</a>
                   </li>
                 </ul>
               </div>

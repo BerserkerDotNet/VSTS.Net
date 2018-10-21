@@ -5,10 +5,10 @@
   <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-    <title>Class WorkItemsQuery
+    <title>Class UpdateWorkitemRequest
    | Vsts.Net Docs </title>
     <meta name="viewport" content="width=device-width">
-    <meta name="title" content="Class WorkItemsQuery
+    <meta name="title" content="Class UpdateWorkitemRequest
    | Vsts.Net Docs ">
     <meta name="generator" content="docfx 2.40.0.0">
     
@@ -78,17 +78,17 @@
         </div>
         <div class="article row grid-right">
           <div class="col-md-10">
-            <article class="content wrap" id="_content" data-uid="VSTS.Net.Models.Request.WorkItemsQuery">
+            <article class="content wrap" id="_content" data-uid="VSTS.Net.Models.Request.UpdateWorkitemRequest">
   
   
-  <h1 id="VSTS_Net_Models_Request_WorkItemsQuery" data-uid="VSTS.Net.Models.Request.WorkItemsQuery" class="text-break">Class WorkItemsQuery
+  <h1 id="VSTS_Net_Models_Request_UpdateWorkitemRequest" data-uid="VSTS.Net.Models.Request.UpdateWorkitemRequest" class="text-break">Class UpdateWorkitemRequest
   </h1>
   <div class="markdown level0 summary"></div>
   <div class="markdown level0 conceptual"></div>
   <div class="inheritance">
     <h5>Inheritance</h5>
     <div class="level0"><span class="xref">System.Object</span></div>
-    <div class="level1"><span class="xref">WorkItemsQuery</span></div>
+    <div class="level1"><span class="xref">UpdateWorkitemRequest</span></div>
   </div>
   <div class="inheritedMembers">
     <h5>Inherited Members</h5>
@@ -116,27 +116,26 @@
   </div>
   <h6><strong>Namespace</strong>: <a class="xref" href="VSTS.Net.Models.Request.html">VSTS.Net.Models.Request</a></h6>
   <h6><strong>Assembly</strong>: VSTS.Net.dll</h6>
-  <h5 id="VSTS_Net_Models_Request_WorkItemsQuery_syntax">Syntax</h5>
+  <h5 id="VSTS_Net_Models_Request_UpdateWorkitemRequest_syntax">Syntax</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public class WorkItemsQuery</code></pre>
+    <pre><code class="lang-csharp hljs">public class UpdateWorkitemRequest</code></pre>
   </div>
   <h3 id="constructors">Constructors
   </h3>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
-    <a href="https://github.com/BerserkerDotNet/VSTS.Net/new/master/apiSpec/new?filename=VSTS_Net_Models_Request_WorkItemsQuery__ctor_System_String_System_Boolean_.md&amp;value=---%0Auid%3A%20VSTS.Net.Models.Request.WorkItemsQuery.%23ctor(System.String%2CSystem.Boolean)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+    <a href="https://github.com/BerserkerDotNet/VSTS.Net/new/master/apiSpec/new?filename=VSTS_Net_Models_Request_UpdateWorkitemRequest__ctor_System_Nullable_System_Int32__.md&amp;value=---%0Auid%3A%20VSTS.Net.Models.Request.UpdateWorkitemRequest.%23ctor(System.Nullable%7BSystem.Int32%7D)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/BerserkerDotNet/VSTS.Net/blob/master/src/VSTS.Net/Models/Request/WorkItemsQuery.cs/#L7">View Source</a>
+    <a href="https://github.com/BerserkerDotNet/VSTS.Net/blob/master/src/VSTS.Net/Models/Request/UpdateWorkitemRequest.cs/#L10">View Source</a>
   </span>
-  <a id="VSTS_Net_Models_Request_WorkItemsQuery__ctor_" data-uid="VSTS.Net.Models.Request.WorkItemsQuery.#ctor*"></a>
-  <h4 id="VSTS_Net_Models_Request_WorkItemsQuery__ctor_System_String_System_Boolean_" data-uid="VSTS.Net.Models.Request.WorkItemsQuery.#ctor(System.String,System.Boolean)">WorkItemsQuery(String, Boolean)</h4>
+  <a id="VSTS_Net_Models_Request_UpdateWorkitemRequest__ctor_" data-uid="VSTS.Net.Models.Request.UpdateWorkitemRequest.#ctor*"></a>
+  <h4 id="VSTS_Net_Models_Request_UpdateWorkitemRequest__ctor_System_Nullable_System_Int32__" data-uid="VSTS.Net.Models.Request.UpdateWorkitemRequest.#ctor(System.Nullable{System.Int32})">UpdateWorkitemRequest(Nullable&lt;Int32&gt;)</h4>
   <div class="markdown level1 summary"></div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">[Obsolete(&quot;Use WorkItemsQuery.Get instead&quot;, false)]
-public WorkItemsQuery(string query, bool isHierarchical = false)</code></pre>
+    <pre><code class="lang-csharp hljs">public UpdateWorkitemRequest(int? id = default(int? ))</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
   <table class="table table-bordered table-striped table-condensed">
@@ -149,13 +148,39 @@ public WorkItemsQuery(string query, bool isHierarchical = false)</code></pre>
     </thead>
     <tbody>
       <tr>
-        <td><span class="xref">System.String</span></td>
-        <td><span class="parametername">query</span></td>
+        <td><span class="xref">System.Nullable</span>&lt;<span class="xref">System.Int32</span>&gt;</td>
+        <td><span class="parametername">id</span></td>
         <td></td>
       </tr>
+    </tbody>
+  </table>
+  <h3 id="fields">Fields
+  </h3>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/BerserkerDotNet/VSTS.Net/new/master/apiSpec/new?filename=VSTS_Net_Models_Request_UpdateWorkitemRequest_OperationAdd.md&amp;value=---%0Auid%3A%20VSTS.Net.Models.Request.UpdateWorkitemRequest.OperationAdd%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/BerserkerDotNet/VSTS.Net/blob/master/src/VSTS.Net/Models/Request/UpdateWorkitemRequest.cs/#L8">View Source</a>
+  </span>
+  <h4 id="VSTS_Net_Models_Request_UpdateWorkitemRequest_OperationAdd" data-uid="VSTS.Net.Models.Request.UpdateWorkitemRequest.OperationAdd">OperationAdd</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public const string OperationAdd = &quot;add&quot;</code></pre>
+  </div>
+  <h5 class="fieldValue">Field Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
       <tr>
-        <td><span class="xref">System.Boolean</span></td>
-        <td><span class="parametername">isHierarchical</span></td>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.String</span></td>
         <td></td>
       </tr>
     </tbody>
@@ -164,18 +189,18 @@ public WorkItemsQuery(string query, bool isHierarchical = false)</code></pre>
   </h3>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
-    <a href="https://github.com/BerserkerDotNet/VSTS.Net/new/master/apiSpec/new?filename=VSTS_Net_Models_Request_WorkItemsQuery_IsHierarchical.md&amp;value=---%0Auid%3A%20VSTS.Net.Models.Request.WorkItemsQuery.IsHierarchical%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+    <a href="https://github.com/BerserkerDotNet/VSTS.Net/new/master/apiSpec/new?filename=VSTS_Net_Models_Request_UpdateWorkitemRequest_Id.md&amp;value=---%0Auid%3A%20VSTS.Net.Models.Request.UpdateWorkitemRequest.Id%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/BerserkerDotNet/VSTS.Net/blob/master/src/VSTS.Net/Models/Request/WorkItemsQuery.cs/#L16">View Source</a>
+    <a href="https://github.com/BerserkerDotNet/VSTS.Net/blob/master/src/VSTS.Net/Models/Request/UpdateWorkitemRequest.cs/#L16">View Source</a>
   </span>
-  <a id="VSTS_Net_Models_Request_WorkItemsQuery_IsHierarchical_" data-uid="VSTS.Net.Models.Request.WorkItemsQuery.IsHierarchical*"></a>
-  <h4 id="VSTS_Net_Models_Request_WorkItemsQuery_IsHierarchical" data-uid="VSTS.Net.Models.Request.WorkItemsQuery.IsHierarchical">IsHierarchical</h4>
+  <a id="VSTS_Net_Models_Request_UpdateWorkitemRequest_Id_" data-uid="VSTS.Net.Models.Request.UpdateWorkitemRequest.Id*"></a>
+  <h4 id="VSTS_Net_Models_Request_UpdateWorkitemRequest_Id" data-uid="VSTS.Net.Models.Request.UpdateWorkitemRequest.Id">Id</h4>
   <div class="markdown level1 summary"></div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public bool IsHierarchical { get; }</code></pre>
+    <pre><code class="lang-csharp hljs">public int? Id { get; set; }</code></pre>
   </div>
   <h5 class="propertyValue">Property Value</h5>
   <table class="table table-bordered table-striped table-condensed">
@@ -187,25 +212,25 @@ public WorkItemsQuery(string query, bool isHierarchical = false)</code></pre>
     </thead>
     <tbody>
       <tr>
-        <td><span class="xref">System.Boolean</span></td>
+        <td><span class="xref">System.Nullable</span>&lt;<span class="xref">System.Int32</span>&gt;</td>
         <td></td>
       </tr>
     </tbody>
   </table>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
-    <a href="https://github.com/BerserkerDotNet/VSTS.Net/new/master/apiSpec/new?filename=VSTS_Net_Models_Request_WorkItemsQuery_Query.md&amp;value=---%0Auid%3A%20VSTS.Net.Models.Request.WorkItemsQuery.Query%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+    <a href="https://github.com/BerserkerDotNet/VSTS.Net/new/master/apiSpec/new?filename=VSTS_Net_Models_Request_UpdateWorkitemRequest_Updates.md&amp;value=---%0Auid%3A%20VSTS.Net.Models.Request.UpdateWorkitemRequest.Updates%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/BerserkerDotNet/VSTS.Net/blob/master/src/VSTS.Net/Models/Request/WorkItemsQuery.cs/#L14">View Source</a>
+    <a href="https://github.com/BerserkerDotNet/VSTS.Net/blob/master/src/VSTS.Net/Models/Request/UpdateWorkitemRequest.cs/#L18">View Source</a>
   </span>
-  <a id="VSTS_Net_Models_Request_WorkItemsQuery_Query_" data-uid="VSTS.Net.Models.Request.WorkItemsQuery.Query*"></a>
-  <h4 id="VSTS_Net_Models_Request_WorkItemsQuery_Query" data-uid="VSTS.Net.Models.Request.WorkItemsQuery.Query">Query</h4>
+  <a id="VSTS_Net_Models_Request_UpdateWorkitemRequest_Updates_" data-uid="VSTS.Net.Models.Request.UpdateWorkitemRequest.Updates*"></a>
+  <h4 id="VSTS_Net_Models_Request_UpdateWorkitemRequest_Updates" data-uid="VSTS.Net.Models.Request.UpdateWorkitemRequest.Updates">Updates</h4>
   <div class="markdown level1 summary"></div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public string Query { get; }</code></pre>
+    <pre><code class="lang-csharp hljs">public List&lt;UpdateWorkitemRequest.Update&gt; Updates { get; set; }</code></pre>
   </div>
   <h5 class="propertyValue">Property Value</h5>
   <table class="table table-bordered table-striped table-condensed">
@@ -217,7 +242,7 @@ public WorkItemsQuery(string query, bool isHierarchical = false)</code></pre>
     </thead>
     <tbody>
       <tr>
-        <td><span class="xref">System.String</span></td>
+        <td><span class="xref">System.Collections.Generic.List</span>&lt;<a class="xref" href="VSTS.Net.Models.Request.UpdateWorkitemRequest.Update.html">UpdateWorkitemRequest.Update</a>&gt;</td>
         <td></td>
       </tr>
     </tbody>
@@ -226,18 +251,18 @@ public WorkItemsQuery(string query, bool isHierarchical = false)</code></pre>
   </h3>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
-    <a href="https://github.com/BerserkerDotNet/VSTS.Net/new/master/apiSpec/new?filename=VSTS_Net_Models_Request_WorkItemsQuery_Get_System_String_System_Boolean_.md&amp;value=---%0Auid%3A%20VSTS.Net.Models.Request.WorkItemsQuery.Get(System.String%2CSystem.Boolean)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+    <a href="https://github.com/BerserkerDotNet/VSTS.Net/new/master/apiSpec/new?filename=VSTS_Net_Models_Request_UpdateWorkitemRequest_AddFieldValue_System_String_System_String_.md&amp;value=---%0Auid%3A%20VSTS.Net.Models.Request.UpdateWorkitemRequest.AddFieldValue(System.String%2CSystem.String)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/BerserkerDotNet/VSTS.Net/blob/master/src/VSTS.Net/Models/Request/WorkItemsQuery.cs/#L18">View Source</a>
+    <a href="https://github.com/BerserkerDotNet/VSTS.Net/blob/master/src/VSTS.Net/Models/Request/UpdateWorkitemRequest.cs/#L20">View Source</a>
   </span>
-  <a id="VSTS_Net_Models_Request_WorkItemsQuery_Get_" data-uid="VSTS.Net.Models.Request.WorkItemsQuery.Get*"></a>
-  <h4 id="VSTS_Net_Models_Request_WorkItemsQuery_Get_System_String_System_Boolean_" data-uid="VSTS.Net.Models.Request.WorkItemsQuery.Get(System.String,System.Boolean)">Get(String, Boolean)</h4>
+  <a id="VSTS_Net_Models_Request_UpdateWorkitemRequest_AddFieldValue_" data-uid="VSTS.Net.Models.Request.UpdateWorkitemRequest.AddFieldValue*"></a>
+  <h4 id="VSTS_Net_Models_Request_UpdateWorkitemRequest_AddFieldValue_System_String_System_String_" data-uid="VSTS.Net.Models.Request.UpdateWorkitemRequest.AddFieldValue(System.String,System.String)">AddFieldValue(String, String)</h4>
   <div class="markdown level1 summary"></div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public static WorkItemsQuery Get(string query, bool isHierarchical = false)</code></pre>
+    <pre><code class="lang-csharp hljs">public void AddFieldValue(string fieldName, string value)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
   <table class="table table-bordered table-striped table-condensed">
@@ -251,27 +276,12 @@ public WorkItemsQuery(string query, bool isHierarchical = false)</code></pre>
     <tbody>
       <tr>
         <td><span class="xref">System.String</span></td>
-        <td><span class="parametername">query</span></td>
+        <td><span class="parametername">fieldName</span></td>
         <td></td>
       </tr>
       <tr>
-        <td><span class="xref">System.Boolean</span></td>
-        <td><span class="parametername">isHierarchical</span></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
-  <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="VSTS.Net.Models.Request.WorkItemsQuery.html">WorkItemsQuery</a></td>
+        <td><span class="xref">System.String</span></td>
+        <td><span class="parametername">value</span></td>
         <td></td>
       </tr>
     </tbody>
@@ -284,10 +294,10 @@ public WorkItemsQuery(string query, bool isHierarchical = false)</code></pre>
               <div class="contribution">
                 <ul class="nav">
                   <li>
-                    <a href="https://github.com/BerserkerDotNet/VSTS.Net/new/master/apiSpec/new?filename=VSTS_Net_Models_Request_WorkItemsQuery.md&amp;value=---%0Auid%3A%20VSTS.Net.Models.Request.WorkItemsQuery%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A" class="contribution-link">Improve this Doc</a>
+                    <a href="https://github.com/BerserkerDotNet/VSTS.Net/new/master/apiSpec/new?filename=VSTS_Net_Models_Request_UpdateWorkitemRequest.md&amp;value=---%0Auid%3A%20VSTS.Net.Models.Request.UpdateWorkitemRequest%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A" class="contribution-link">Improve this Doc</a>
                   </li>
                   <li>
-                    <a href="https://github.com/BerserkerDotNet/VSTS.Net/blob/master/src/VSTS.Net/Models/Request/WorkItemsQuery.cs/#L5" class="contribution-link">View Source</a>
+                    <a href="https://github.com/BerserkerDotNet/VSTS.Net/blob/master/src/VSTS.Net/Models/Request/UpdateWorkitemRequest.cs/#L6" class="contribution-link">View Source</a>
                   </li>
                 </ul>
               </div>

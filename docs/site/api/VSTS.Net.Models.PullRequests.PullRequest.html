@@ -10,7 +10,7 @@
     <meta name="viewport" content="width=device-width">
     <meta name="title" content="Class PullRequest
    | Vsts.Net Docs ">
-    <meta name="generator" content="docfx 2.36.2.0">
+    <meta name="generator" content="docfx 2.40.0.0">
     
     <link rel="shortcut icon" href="../favicon.ico">
     <link rel="stylesheet" href="../styles/docfx.vendor.css">
@@ -90,16 +90,14 @@
     <div class="level0"><span class="xref">System.Object</span></div>
     <div class="level1"><span class="xref">PullRequest</span></div>
   </div>
+  <div classs="implements">
+    <h5>Implements</h5>
+    <div><span class="xref">System.IEquatable</span>&lt;<a class="xref" href="VSTS.Net.Models.PullRequests.PullRequest.html">PullRequest</a>&gt;</div>
+  </div>
   <div class="inheritedMembers">
     <h5>Inherited Members</h5>
     <div>
-      <span class="xref">System.Object.Equals(System.Object)</span>
-    </div>
-    <div>
       <span class="xref">System.Object.Equals(System.Object, System.Object)</span>
-    </div>
-    <div>
-      <span class="xref">System.Object.GetHashCode()</span>
     </div>
     <div>
       <span class="xref">System.Object.GetType()</span>
@@ -118,7 +116,7 @@
   <h6><strong>Assembly</strong>: VSTS.Net.dll</h6>
   <h5 id="VSTS_Net_Models_PullRequests_PullRequest_syntax">Syntax</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public class PullRequest</code></pre>
+    <pre><code class="lang-csharp hljs">public class PullRequest : IEquatable&lt;PullRequest&gt;</code></pre>
   </div>
   <h3 id="properties">Properties
   </h3>
@@ -127,7 +125,7 @@
     <a href="https://github.com/BerserkerDotNet/VSTS.Net/new/master/apiSpec/new?filename=VSTS_Net_Models_PullRequests_PullRequest_ClosedDate.md&amp;value=---%0Auid%3A%20VSTS.Net.Models.PullRequests.PullRequest.ClosedDate%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/BerserkerDotNet/VSTS.Net/blob/master/src/VSTS.Net/Models/PullRequests/PullRequest.cs/#L33">View Source</a>
+    <a href="https://github.com/BerserkerDotNet/VSTS.Net/blob/master/src/VSTS.Net/Models/PullRequests/PullRequest.cs/#L35">View Source</a>
   </span>
   <a id="VSTS_Net_Models_PullRequests_PullRequest_ClosedDate_" data-uid="VSTS.Net.Models.PullRequests.PullRequest.ClosedDate*"></a>
   <h4 id="VSTS_Net_Models_PullRequests_PullRequest_ClosedDate" data-uid="VSTS.Net.Models.PullRequests.PullRequest.ClosedDate">ClosedDate</h4>
@@ -136,7 +134,7 @@
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public DateTime ClosedDate { get; set; }</code></pre>
+    <pre><code class="lang-csharp hljs">public DateTime? ClosedDate { get; set; }</code></pre>
   </div>
   <h5 class="propertyValue">Property Value</h5>
   <table class="table table-bordered table-striped table-condensed">
@@ -148,7 +146,7 @@
     </thead>
     <tbody>
       <tr>
-        <td><span class="xref">System.DateTime</span></td>
+        <td><span class="xref">System.Nullable</span>&lt;<span class="xref">System.DateTime</span>&gt;</td>
         <td></td>
       </tr>
     </tbody>
@@ -158,7 +156,7 @@
     <a href="https://github.com/BerserkerDotNet/VSTS.Net/new/master/apiSpec/new?filename=VSTS_Net_Models_PullRequests_PullRequest_CreatedBy.md&amp;value=---%0Auid%3A%20VSTS.Net.Models.PullRequests.PullRequest.CreatedBy%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/BerserkerDotNet/VSTS.Net/blob/master/src/VSTS.Net/Models/PullRequests/PullRequest.cs/#L23">View Source</a>
+    <a href="https://github.com/BerserkerDotNet/VSTS.Net/blob/master/src/VSTS.Net/Models/PullRequests/PullRequest.cs/#L25">View Source</a>
   </span>
   <a id="VSTS_Net_Models_PullRequests_PullRequest_CreatedBy_" data-uid="VSTS.Net.Models.PullRequests.PullRequest.CreatedBy*"></a>
   <h4 id="VSTS_Net_Models_PullRequests_PullRequest_CreatedBy" data-uid="VSTS.Net.Models.PullRequests.PullRequest.CreatedBy">CreatedBy</h4>
@@ -189,7 +187,7 @@
     <a href="https://github.com/BerserkerDotNet/VSTS.Net/new/master/apiSpec/new?filename=VSTS_Net_Models_PullRequests_PullRequest_CreationDate.md&amp;value=---%0Auid%3A%20VSTS.Net.Models.PullRequests.PullRequest.CreationDate%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/BerserkerDotNet/VSTS.Net/blob/master/src/VSTS.Net/Models/PullRequests/PullRequest.cs/#L28">View Source</a>
+    <a href="https://github.com/BerserkerDotNet/VSTS.Net/blob/master/src/VSTS.Net/Models/PullRequests/PullRequest.cs/#L30">View Source</a>
   </span>
   <a id="VSTS_Net_Models_PullRequests_PullRequest_CreationDate_" data-uid="VSTS.Net.Models.PullRequests.PullRequest.CreationDate*"></a>
   <h4 id="VSTS_Net_Models_PullRequests_PullRequest_CreationDate" data-uid="VSTS.Net.Models.PullRequests.PullRequest.CreationDate">CreationDate</h4>
@@ -220,7 +218,7 @@
     <a href="https://github.com/BerserkerDotNet/VSTS.Net/new/master/apiSpec/new?filename=VSTS_Net_Models_PullRequests_PullRequest_Description.md&amp;value=---%0Auid%3A%20VSTS.Net.Models.PullRequests.PullRequest.Description%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/BerserkerDotNet/VSTS.Net/blob/master/src/VSTS.Net/Models/PullRequests/PullRequest.cs/#L43">View Source</a>
+    <a href="https://github.com/BerserkerDotNet/VSTS.Net/blob/master/src/VSTS.Net/Models/PullRequests/PullRequest.cs/#L45">View Source</a>
   </span>
   <a id="VSTS_Net_Models_PullRequests_PullRequest_Description_" data-uid="VSTS.Net.Models.PullRequests.PullRequest.Description*"></a>
   <h4 id="VSTS_Net_Models_PullRequests_PullRequest_Description" data-uid="VSTS.Net.Models.PullRequests.PullRequest.Description">Description</h4>
@@ -251,7 +249,7 @@
     <a href="https://github.com/BerserkerDotNet/VSTS.Net/new/master/apiSpec/new?filename=VSTS_Net_Models_PullRequests_PullRequest_MergeId.md&amp;value=---%0Auid%3A%20VSTS.Net.Models.PullRequests.PullRequest.MergeId%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/BerserkerDotNet/VSTS.Net/blob/master/src/VSTS.Net/Models/PullRequests/PullRequest.cs/#L63">View Source</a>
+    <a href="https://github.com/BerserkerDotNet/VSTS.Net/blob/master/src/VSTS.Net/Models/PullRequests/PullRequest.cs/#L65">View Source</a>
   </span>
   <a id="VSTS_Net_Models_PullRequests_PullRequest_MergeId_" data-uid="VSTS.Net.Models.PullRequests.PullRequest.MergeId*"></a>
   <h4 id="VSTS_Net_Models_PullRequests_PullRequest_MergeId" data-uid="VSTS.Net.Models.PullRequests.PullRequest.MergeId">MergeId</h4>
@@ -282,7 +280,7 @@
     <a href="https://github.com/BerserkerDotNet/VSTS.Net/new/master/apiSpec/new?filename=VSTS_Net_Models_PullRequests_PullRequest_MergeStatus.md&amp;value=---%0Auid%3A%20VSTS.Net.Models.PullRequests.PullRequest.MergeStatus%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/BerserkerDotNet/VSTS.Net/blob/master/src/VSTS.Net/Models/PullRequests/PullRequest.cs/#L58">View Source</a>
+    <a href="https://github.com/BerserkerDotNet/VSTS.Net/blob/master/src/VSTS.Net/Models/PullRequests/PullRequest.cs/#L60">View Source</a>
   </span>
   <a id="VSTS_Net_Models_PullRequests_PullRequest_MergeStatus_" data-uid="VSTS.Net.Models.PullRequests.PullRequest.MergeStatus*"></a>
   <h4 id="VSTS_Net_Models_PullRequests_PullRequest_MergeStatus" data-uid="VSTS.Net.Models.PullRequests.PullRequest.MergeStatus">MergeStatus</h4>
@@ -313,7 +311,7 @@
     <a href="https://github.com/BerserkerDotNet/VSTS.Net/new/master/apiSpec/new?filename=VSTS_Net_Models_PullRequests_PullRequest_PullRequestId.md&amp;value=---%0Auid%3A%20VSTS.Net.Models.PullRequests.PullRequest.PullRequestId%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/BerserkerDotNet/VSTS.Net/blob/master/src/VSTS.Net/Models/PullRequests/PullRequest.cs/#L13">View Source</a>
+    <a href="https://github.com/BerserkerDotNet/VSTS.Net/blob/master/src/VSTS.Net/Models/PullRequests/PullRequest.cs/#L15">View Source</a>
   </span>
   <a id="VSTS_Net_Models_PullRequests_PullRequest_PullRequestId_" data-uid="VSTS.Net.Models.PullRequests.PullRequest.PullRequestId*"></a>
   <h4 id="VSTS_Net_Models_PullRequests_PullRequest_PullRequestId" data-uid="VSTS.Net.Models.PullRequests.PullRequest.PullRequestId">PullRequestId</h4>
@@ -344,7 +342,7 @@
     <a href="https://github.com/BerserkerDotNet/VSTS.Net/new/master/apiSpec/new?filename=VSTS_Net_Models_PullRequests_PullRequest_Repository.md&amp;value=---%0Auid%3A%20VSTS.Net.Models.PullRequests.PullRequest.Repository%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/BerserkerDotNet/VSTS.Net/blob/master/src/VSTS.Net/Models/PullRequests/PullRequest.cs/#L73">View Source</a>
+    <a href="https://github.com/BerserkerDotNet/VSTS.Net/blob/master/src/VSTS.Net/Models/PullRequests/PullRequest.cs/#L75">View Source</a>
   </span>
   <a id="VSTS_Net_Models_PullRequests_PullRequest_Repository_" data-uid="VSTS.Net.Models.PullRequests.PullRequest.Repository*"></a>
   <h4 id="VSTS_Net_Models_PullRequests_PullRequest_Repository" data-uid="VSTS.Net.Models.PullRequests.PullRequest.Repository">Repository</h4>
@@ -375,7 +373,7 @@
     <a href="https://github.com/BerserkerDotNet/VSTS.Net/new/master/apiSpec/new?filename=VSTS_Net_Models_PullRequests_PullRequest_Reviewers.md&amp;value=---%0Auid%3A%20VSTS.Net.Models.PullRequests.PullRequest.Reviewers%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/BerserkerDotNet/VSTS.Net/blob/master/src/VSTS.Net/Models/PullRequests/PullRequest.cs/#L78">View Source</a>
+    <a href="https://github.com/BerserkerDotNet/VSTS.Net/blob/master/src/VSTS.Net/Models/PullRequests/PullRequest.cs/#L80">View Source</a>
   </span>
   <a id="VSTS_Net_Models_PullRequests_PullRequest_Reviewers_" data-uid="VSTS.Net.Models.PullRequests.PullRequest.Reviewers*"></a>
   <h4 id="VSTS_Net_Models_PullRequests_PullRequest_Reviewers" data-uid="VSTS.Net.Models.PullRequests.PullRequest.Reviewers">Reviewers</h4>
@@ -406,7 +404,7 @@
     <a href="https://github.com/BerserkerDotNet/VSTS.Net/new/master/apiSpec/new?filename=VSTS_Net_Models_PullRequests_PullRequest_SourceRefName.md&amp;value=---%0Auid%3A%20VSTS.Net.Models.PullRequests.PullRequest.SourceRefName%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/BerserkerDotNet/VSTS.Net/blob/master/src/VSTS.Net/Models/PullRequests/PullRequest.cs/#L48">View Source</a>
+    <a href="https://github.com/BerserkerDotNet/VSTS.Net/blob/master/src/VSTS.Net/Models/PullRequests/PullRequest.cs/#L50">View Source</a>
   </span>
   <a id="VSTS_Net_Models_PullRequests_PullRequest_SourceRefName_" data-uid="VSTS.Net.Models.PullRequests.PullRequest.SourceRefName*"></a>
   <h4 id="VSTS_Net_Models_PullRequests_PullRequest_SourceRefName" data-uid="VSTS.Net.Models.PullRequests.PullRequest.SourceRefName">SourceRefName</h4>
@@ -437,7 +435,7 @@
     <a href="https://github.com/BerserkerDotNet/VSTS.Net/new/master/apiSpec/new?filename=VSTS_Net_Models_PullRequests_PullRequest_Status.md&amp;value=---%0Auid%3A%20VSTS.Net.Models.PullRequests.PullRequest.Status%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/BerserkerDotNet/VSTS.Net/blob/master/src/VSTS.Net/Models/PullRequests/PullRequest.cs/#L18">View Source</a>
+    <a href="https://github.com/BerserkerDotNet/VSTS.Net/blob/master/src/VSTS.Net/Models/PullRequests/PullRequest.cs/#L20">View Source</a>
   </span>
   <a id="VSTS_Net_Models_PullRequests_PullRequest_Status_" data-uid="VSTS.Net.Models.PullRequests.PullRequest.Status*"></a>
   <h4 id="VSTS_Net_Models_PullRequests_PullRequest_Status" data-uid="VSTS.Net.Models.PullRequests.PullRequest.Status">Status</h4>
@@ -468,7 +466,7 @@
     <a href="https://github.com/BerserkerDotNet/VSTS.Net/new/master/apiSpec/new?filename=VSTS_Net_Models_PullRequests_PullRequest_TargetRefName.md&amp;value=---%0Auid%3A%20VSTS.Net.Models.PullRequests.PullRequest.TargetRefName%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/BerserkerDotNet/VSTS.Net/blob/master/src/VSTS.Net/Models/PullRequests/PullRequest.cs/#L53">View Source</a>
+    <a href="https://github.com/BerserkerDotNet/VSTS.Net/blob/master/src/VSTS.Net/Models/PullRequests/PullRequest.cs/#L55">View Source</a>
   </span>
   <a id="VSTS_Net_Models_PullRequests_PullRequest_TargetRefName_" data-uid="VSTS.Net.Models.PullRequests.PullRequest.TargetRefName*"></a>
   <h4 id="VSTS_Net_Models_PullRequests_PullRequest_TargetRefName" data-uid="VSTS.Net.Models.PullRequests.PullRequest.TargetRefName">TargetRefName</h4>
@@ -499,7 +497,7 @@
     <a href="https://github.com/BerserkerDotNet/VSTS.Net/new/master/apiSpec/new?filename=VSTS_Net_Models_PullRequests_PullRequest_Title.md&amp;value=---%0Auid%3A%20VSTS.Net.Models.PullRequests.PullRequest.Title%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/BerserkerDotNet/VSTS.Net/blob/master/src/VSTS.Net/Models/PullRequests/PullRequest.cs/#L38">View Source</a>
+    <a href="https://github.com/BerserkerDotNet/VSTS.Net/blob/master/src/VSTS.Net/Models/PullRequests/PullRequest.cs/#L40">View Source</a>
   </span>
   <a id="VSTS_Net_Models_PullRequests_PullRequest_Title_" data-uid="VSTS.Net.Models.PullRequests.PullRequest.Title*"></a>
   <h4 id="VSTS_Net_Models_PullRequests_PullRequest_Title" data-uid="VSTS.Net.Models.PullRequests.PullRequest.Title">Title</h4>
@@ -530,7 +528,7 @@
     <a href="https://github.com/BerserkerDotNet/VSTS.Net/new/master/apiSpec/new?filename=VSTS_Net_Models_PullRequests_PullRequest_Url.md&amp;value=---%0Auid%3A%20VSTS.Net.Models.PullRequests.PullRequest.Url%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/BerserkerDotNet/VSTS.Net/blob/master/src/VSTS.Net/Models/PullRequests/PullRequest.cs/#L68">View Source</a>
+    <a href="https://github.com/BerserkerDotNet/VSTS.Net/blob/master/src/VSTS.Net/Models/PullRequests/PullRequest.cs/#L70">View Source</a>
   </span>
   <a id="VSTS_Net_Models_PullRequests_PullRequest_Url_" data-uid="VSTS.Net.Models.PullRequests.PullRequest.Url*"></a>
   <h4 id="VSTS_Net_Models_PullRequests_PullRequest_Url" data-uid="VSTS.Net.Models.PullRequests.PullRequest.Url">Url</h4>
@@ -556,6 +554,140 @@
       </tr>
     </tbody>
   </table>
+  <h3 id="methods">Methods
+  </h3>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/BerserkerDotNet/VSTS.Net/new/master/apiSpec/new?filename=VSTS_Net_Models_PullRequests_PullRequest_Equals_System_Object_.md&amp;value=---%0Auid%3A%20VSTS.Net.Models.PullRequests.PullRequest.Equals(System.Object)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/BerserkerDotNet/VSTS.Net/blob/master/src/VSTS.Net/Models/PullRequests/PullRequest.cs/#L97">View Source</a>
+  </span>
+  <a id="VSTS_Net_Models_PullRequests_PullRequest_Equals_" data-uid="VSTS.Net.Models.PullRequests.PullRequest.Equals*"></a>
+  <h4 id="VSTS_Net_Models_PullRequests_PullRequest_Equals_System_Object_" data-uid="VSTS.Net.Models.PullRequests.PullRequest.Equals(System.Object)">Equals(Object)</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public override bool Equals(object obj)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Object</span></td>
+        <td><span class="parametername">obj</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Boolean</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="overrides">Overrides</h5>
+  <div><span class="xref">System.Object.Equals(System.Object)</span></div>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/BerserkerDotNet/VSTS.Net/new/master/apiSpec/new?filename=VSTS_Net_Models_PullRequests_PullRequest_Equals_VSTS_Net_Models_PullRequests_PullRequest_.md&amp;value=---%0Auid%3A%20VSTS.Net.Models.PullRequests.PullRequest.Equals(VSTS.Net.Models.PullRequests.PullRequest)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/BerserkerDotNet/VSTS.Net/blob/master/src/VSTS.Net/Models/PullRequests/PullRequest.cs/#L82">View Source</a>
+  </span>
+  <a id="VSTS_Net_Models_PullRequests_PullRequest_Equals_" data-uid="VSTS.Net.Models.PullRequests.PullRequest.Equals*"></a>
+  <h4 id="VSTS_Net_Models_PullRequests_PullRequest_Equals_VSTS_Net_Models_PullRequests_PullRequest_" data-uid="VSTS.Net.Models.PullRequests.PullRequest.Equals(VSTS.Net.Models.PullRequests.PullRequest)">Equals(PullRequest)</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public virtual bool Equals(PullRequest other)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="VSTS.Net.Models.PullRequests.PullRequest.html">PullRequest</a></td>
+        <td><span class="parametername">other</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Boolean</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/BerserkerDotNet/VSTS.Net/new/master/apiSpec/new?filename=VSTS_Net_Models_PullRequests_PullRequest_GetHashCode.md&amp;value=---%0Auid%3A%20VSTS.Net.Models.PullRequests.PullRequest.GetHashCode%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/BerserkerDotNet/VSTS.Net/blob/master/src/VSTS.Net/Models/PullRequests/PullRequest.cs/#L102">View Source</a>
+  </span>
+  <a id="VSTS_Net_Models_PullRequests_PullRequest_GetHashCode_" data-uid="VSTS.Net.Models.PullRequests.PullRequest.GetHashCode*"></a>
+  <h4 id="VSTS_Net_Models_PullRequests_PullRequest_GetHashCode" data-uid="VSTS.Net.Models.PullRequests.PullRequest.GetHashCode">GetHashCode()</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public override int GetHashCode()</code></pre>
+  </div>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Int32</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="overrides">Overrides</h5>
+  <div><span class="xref">System.Object.GetHashCode()</span></div>
+  <h3 id="implements">Implements</h3>
+  <div>
+      <span class="xref">System.IEquatable&lt;T&gt;</span>
+  </div>
 </article>
           </div>
           
@@ -567,7 +699,7 @@
                     <a href="https://github.com/BerserkerDotNet/VSTS.Net/new/master/apiSpec/new?filename=VSTS_Net_Models_PullRequests_PullRequest.md&amp;value=---%0Auid%3A%20VSTS.Net.Models.PullRequests.PullRequest%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A" class="contribution-link">Improve this Doc</a>
                   </li>
                   <li>
-                    <a href="https://github.com/BerserkerDotNet/VSTS.Net/blob/master/src/VSTS.Net/Models/PullRequests/PullRequest.cs/#L8" class="contribution-link">View Source</a>
+                    <a href="https://github.com/BerserkerDotNet/VSTS.Net/blob/master/src/VSTS.Net/Models/PullRequests/PullRequest.cs/#L9" class="contribution-link">View Source</a>
                   </li>
                 </ul>
               </div>

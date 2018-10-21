@@ -7,6 +7,49 @@ references:
   commentId: N:VSTS.Net
   fullName: VSTS.Net
   nameWithType: VSTS.Net
+- uid: VSTS.Net.Exceptions
+  name: VSTS.Net.Exceptions
+  href: api/VSTS.Net.Exceptions.html
+  commentId: N:VSTS.Net.Exceptions
+  fullName: VSTS.Net.Exceptions
+  nameWithType: VSTS.Net.Exceptions
+- uid: VSTS.Net.Exceptions.UnknownWorkItemQueryTypeException
+  name: UnknownWorkItemQueryTypeException
+  href: api/VSTS.Net.Exceptions.UnknownWorkItemQueryTypeException.html
+  commentId: T:VSTS.Net.Exceptions.UnknownWorkItemQueryTypeException
+  fullName: VSTS.Net.Exceptions.UnknownWorkItemQueryTypeException
+  nameWithType: UnknownWorkItemQueryTypeException
+- uid: VSTS.Net.Exceptions.UnknownWorkItemQueryTypeException.#ctor
+  name: UnknownWorkItemQueryTypeException()
+  href: api/VSTS.Net.Exceptions.UnknownWorkItemQueryTypeException.html#VSTS_Net_Exceptions_UnknownWorkItemQueryTypeException__ctor
+  commentId: M:VSTS.Net.Exceptions.UnknownWorkItemQueryTypeException.#ctor
+  fullName: VSTS.Net.Exceptions.UnknownWorkItemQueryTypeException.UnknownWorkItemQueryTypeException()
+  nameWithType: UnknownWorkItemQueryTypeException.UnknownWorkItemQueryTypeException()
+- uid: VSTS.Net.Exceptions.UnknownWorkItemQueryTypeException.#ctor(System.Runtime.Serialization.SerializationInfo,System.Runtime.Serialization.StreamingContext)
+  name: UnknownWorkItemQueryTypeException(SerializationInfo, StreamingContext)
+  href: api/VSTS.Net.Exceptions.UnknownWorkItemQueryTypeException.html#VSTS_Net_Exceptions_UnknownWorkItemQueryTypeException__ctor_System_Runtime_Serialization_SerializationInfo_System_Runtime_Serialization_StreamingContext_
+  commentId: M:VSTS.Net.Exceptions.UnknownWorkItemQueryTypeException.#ctor(System.Runtime.Serialization.SerializationInfo,System.Runtime.Serialization.StreamingContext)
+  fullName: VSTS.Net.Exceptions.UnknownWorkItemQueryTypeException.UnknownWorkItemQueryTypeException(System.Runtime.Serialization.SerializationInfo, System.Runtime.Serialization.StreamingContext)
+  nameWithType: UnknownWorkItemQueryTypeException.UnknownWorkItemQueryTypeException(SerializationInfo, StreamingContext)
+- uid: VSTS.Net.Exceptions.UnknownWorkItemQueryTypeException.#ctor(System.String)
+  name: UnknownWorkItemQueryTypeException(String)
+  href: api/VSTS.Net.Exceptions.UnknownWorkItemQueryTypeException.html#VSTS_Net_Exceptions_UnknownWorkItemQueryTypeException__ctor_System_String_
+  commentId: M:VSTS.Net.Exceptions.UnknownWorkItemQueryTypeException.#ctor(System.String)
+  fullName: VSTS.Net.Exceptions.UnknownWorkItemQueryTypeException.UnknownWorkItemQueryTypeException(System.String)
+  nameWithType: UnknownWorkItemQueryTypeException.UnknownWorkItemQueryTypeException(String)
+- uid: VSTS.Net.Exceptions.UnknownWorkItemQueryTypeException.#ctor(System.String,System.Exception)
+  name: UnknownWorkItemQueryTypeException(String, Exception)
+  href: api/VSTS.Net.Exceptions.UnknownWorkItemQueryTypeException.html#VSTS_Net_Exceptions_UnknownWorkItemQueryTypeException__ctor_System_String_System_Exception_
+  commentId: M:VSTS.Net.Exceptions.UnknownWorkItemQueryTypeException.#ctor(System.String,System.Exception)
+  fullName: VSTS.Net.Exceptions.UnknownWorkItemQueryTypeException.UnknownWorkItemQueryTypeException(System.String, System.Exception)
+  nameWithType: UnknownWorkItemQueryTypeException.UnknownWorkItemQueryTypeException(String, Exception)
+- uid: VSTS.Net.Exceptions.UnknownWorkItemQueryTypeException.#ctor*
+  name: UnknownWorkItemQueryTypeException
+  href: api/VSTS.Net.Exceptions.UnknownWorkItemQueryTypeException.html#VSTS_Net_Exceptions_UnknownWorkItemQueryTypeException__ctor_
+  commentId: Overload:VSTS.Net.Exceptions.UnknownWorkItemQueryTypeException.#ctor
+  isSpec: "True"
+  fullName: VSTS.Net.Exceptions.UnknownWorkItemQueryTypeException.UnknownWorkItemQueryTypeException
+  nameWithType: UnknownWorkItemQueryTypeException.UnknownWorkItemQueryTypeException
 - uid: VSTS.Net.Extensions
   name: VSTS.Net.Extensions
   href: api/VSTS.Net.Extensions.html
@@ -19,12 +62,73 @@ references:
   commentId: T:VSTS.Net.Extensions.AspNetServiceCollectionExtensions
   fullName: VSTS.Net.Extensions.AspNetServiceCollectionExtensions
   nameWithType: AspNetServiceCollectionExtensions
+- uid: VSTS.Net.Extensions.AspNetServiceCollectionExtensions.AddAzureDevOpsServices(Microsoft.Extensions.DependencyInjection.IServiceCollection,System.String,System.String)
+  name: AddAzureDevOpsServices(IServiceCollection, String, String)
+  href: api/VSTS.Net.Extensions.AspNetServiceCollectionExtensions.html#VSTS_Net_Extensions_AspNetServiceCollectionExtensions_AddAzureDevOpsServices_Microsoft_Extensions_DependencyInjection_IServiceCollection_System_String_System_String_
+  commentId: M:VSTS.Net.Extensions.AspNetServiceCollectionExtensions.AddAzureDevOpsServices(Microsoft.Extensions.DependencyInjection.IServiceCollection,System.String,System.String)
+  fullName: VSTS.Net.Extensions.AspNetServiceCollectionExtensions.AddAzureDevOpsServices(Microsoft.Extensions.DependencyInjection.IServiceCollection, System.String, System.String)
+  nameWithType: AspNetServiceCollectionExtensions.AddAzureDevOpsServices(IServiceCollection, String, String)
+- uid: VSTS.Net.Extensions.AspNetServiceCollectionExtensions.AddAzureDevOpsServices(Microsoft.Extensions.DependencyInjection.IServiceCollection,System.String,System.String,System.Action{VSTS.Net.Types.VstsClientConfiguration})
+  name: AddAzureDevOpsServices(IServiceCollection, String, String, Action<VstsClientConfiguration>)
+  href: api/VSTS.Net.Extensions.AspNetServiceCollectionExtensions.html#VSTS_Net_Extensions_AspNetServiceCollectionExtensions_AddAzureDevOpsServices_Microsoft_Extensions_DependencyInjection_IServiceCollection_System_String_System_String_System_Action_VSTS_Net_Types_VstsClientConfiguration__
+  commentId: M:VSTS.Net.Extensions.AspNetServiceCollectionExtensions.AddAzureDevOpsServices(Microsoft.Extensions.DependencyInjection.IServiceCollection,System.String,System.String,System.Action{VSTS.Net.Types.VstsClientConfiguration})
+  name.vb: AddAzureDevOpsServices(IServiceCollection, String, String, Action(Of VstsClientConfiguration))
+  fullName: VSTS.Net.Extensions.AspNetServiceCollectionExtensions.AddAzureDevOpsServices(Microsoft.Extensions.DependencyInjection.IServiceCollection, System.String, System.String, System.Action<VSTS.Net.Types.VstsClientConfiguration>)
+  fullName.vb: VSTS.Net.Extensions.AspNetServiceCollectionExtensions.AddAzureDevOpsServices(Microsoft.Extensions.DependencyInjection.IServiceCollection, System.String, System.String, System.Action(Of VSTS.Net.Types.VstsClientConfiguration))
+  nameWithType: AspNetServiceCollectionExtensions.AddAzureDevOpsServices(IServiceCollection, String, String, Action<VstsClientConfiguration>)
+  nameWithType.vb: AspNetServiceCollectionExtensions.AddAzureDevOpsServices(IServiceCollection, String, String, Action(Of VstsClientConfiguration))
+- uid: VSTS.Net.Extensions.AspNetServiceCollectionExtensions.AddAzureDevOpsServices(Microsoft.Extensions.DependencyInjection.IServiceCollection,System.Uri,System.String)
+  name: AddAzureDevOpsServices(IServiceCollection, Uri, String)
+  href: api/VSTS.Net.Extensions.AspNetServiceCollectionExtensions.html#VSTS_Net_Extensions_AspNetServiceCollectionExtensions_AddAzureDevOpsServices_Microsoft_Extensions_DependencyInjection_IServiceCollection_System_Uri_System_String_
+  commentId: M:VSTS.Net.Extensions.AspNetServiceCollectionExtensions.AddAzureDevOpsServices(Microsoft.Extensions.DependencyInjection.IServiceCollection,System.Uri,System.String)
+  fullName: VSTS.Net.Extensions.AspNetServiceCollectionExtensions.AddAzureDevOpsServices(Microsoft.Extensions.DependencyInjection.IServiceCollection, System.Uri, System.String)
+  nameWithType: AspNetServiceCollectionExtensions.AddAzureDevOpsServices(IServiceCollection, Uri, String)
+- uid: VSTS.Net.Extensions.AspNetServiceCollectionExtensions.AddAzureDevOpsServices(Microsoft.Extensions.DependencyInjection.IServiceCollection,System.Uri,System.String,System.Action{VSTS.Net.Types.VstsClientConfiguration})
+  name: AddAzureDevOpsServices(IServiceCollection, Uri, String, Action<VstsClientConfiguration>)
+  href: api/VSTS.Net.Extensions.AspNetServiceCollectionExtensions.html#VSTS_Net_Extensions_AspNetServiceCollectionExtensions_AddAzureDevOpsServices_Microsoft_Extensions_DependencyInjection_IServiceCollection_System_Uri_System_String_System_Action_VSTS_Net_Types_VstsClientConfiguration__
+  commentId: M:VSTS.Net.Extensions.AspNetServiceCollectionExtensions.AddAzureDevOpsServices(Microsoft.Extensions.DependencyInjection.IServiceCollection,System.Uri,System.String,System.Action{VSTS.Net.Types.VstsClientConfiguration})
+  name.vb: AddAzureDevOpsServices(IServiceCollection, Uri, String, Action(Of VstsClientConfiguration))
+  fullName: VSTS.Net.Extensions.AspNetServiceCollectionExtensions.AddAzureDevOpsServices(Microsoft.Extensions.DependencyInjection.IServiceCollection, System.Uri, System.String, System.Action<VSTS.Net.Types.VstsClientConfiguration>)
+  fullName.vb: VSTS.Net.Extensions.AspNetServiceCollectionExtensions.AddAzureDevOpsServices(Microsoft.Extensions.DependencyInjection.IServiceCollection, System.Uri, System.String, System.Action(Of VSTS.Net.Types.VstsClientConfiguration))
+  nameWithType: AspNetServiceCollectionExtensions.AddAzureDevOpsServices(IServiceCollection, Uri, String, Action<VstsClientConfiguration>)
+  nameWithType.vb: AspNetServiceCollectionExtensions.AddAzureDevOpsServices(IServiceCollection, Uri, String, Action(Of VstsClientConfiguration))
+- uid: VSTS.Net.Extensions.AspNetServiceCollectionExtensions.AddAzureDevOpsServices*
+  name: AddAzureDevOpsServices
+  href: api/VSTS.Net.Extensions.AspNetServiceCollectionExtensions.html#VSTS_Net_Extensions_AspNetServiceCollectionExtensions_AddAzureDevOpsServices_
+  commentId: Overload:VSTS.Net.Extensions.AspNetServiceCollectionExtensions.AddAzureDevOpsServices
+  isSpec: "True"
+  fullName: VSTS.Net.Extensions.AspNetServiceCollectionExtensions.AddAzureDevOpsServices
+  nameWithType: AspNetServiceCollectionExtensions.AddAzureDevOpsServices
 - uid: VSTS.Net.Extensions.AspNetServiceCollectionExtensions.AddVstsNet(Microsoft.Extensions.DependencyInjection.IServiceCollection,System.String,System.String)
   name: AddVstsNet(IServiceCollection, String, String)
   href: api/VSTS.Net.Extensions.AspNetServiceCollectionExtensions.html#VSTS_Net_Extensions_AspNetServiceCollectionExtensions_AddVstsNet_Microsoft_Extensions_DependencyInjection_IServiceCollection_System_String_System_String_
   commentId: M:VSTS.Net.Extensions.AspNetServiceCollectionExtensions.AddVstsNet(Microsoft.Extensions.DependencyInjection.IServiceCollection,System.String,System.String)
   fullName: VSTS.Net.Extensions.AspNetServiceCollectionExtensions.AddVstsNet(Microsoft.Extensions.DependencyInjection.IServiceCollection, System.String, System.String)
   nameWithType: AspNetServiceCollectionExtensions.AddVstsNet(IServiceCollection, String, String)
+- uid: VSTS.Net.Extensions.AspNetServiceCollectionExtensions.AddVstsNet(Microsoft.Extensions.DependencyInjection.IServiceCollection,System.String,System.String,System.Action{VSTS.Net.Types.VstsClientConfiguration})
+  name: AddVstsNet(IServiceCollection, String, String, Action<VstsClientConfiguration>)
+  href: api/VSTS.Net.Extensions.AspNetServiceCollectionExtensions.html#VSTS_Net_Extensions_AspNetServiceCollectionExtensions_AddVstsNet_Microsoft_Extensions_DependencyInjection_IServiceCollection_System_String_System_String_System_Action_VSTS_Net_Types_VstsClientConfiguration__
+  commentId: M:VSTS.Net.Extensions.AspNetServiceCollectionExtensions.AddVstsNet(Microsoft.Extensions.DependencyInjection.IServiceCollection,System.String,System.String,System.Action{VSTS.Net.Types.VstsClientConfiguration})
+  name.vb: AddVstsNet(IServiceCollection, String, String, Action(Of VstsClientConfiguration))
+  fullName: VSTS.Net.Extensions.AspNetServiceCollectionExtensions.AddVstsNet(Microsoft.Extensions.DependencyInjection.IServiceCollection, System.String, System.String, System.Action<VSTS.Net.Types.VstsClientConfiguration>)
+  fullName.vb: VSTS.Net.Extensions.AspNetServiceCollectionExtensions.AddVstsNet(Microsoft.Extensions.DependencyInjection.IServiceCollection, System.String, System.String, System.Action(Of VSTS.Net.Types.VstsClientConfiguration))
+  nameWithType: AspNetServiceCollectionExtensions.AddVstsNet(IServiceCollection, String, String, Action<VstsClientConfiguration>)
+  nameWithType.vb: AspNetServiceCollectionExtensions.AddVstsNet(IServiceCollection, String, String, Action(Of VstsClientConfiguration))
+- uid: VSTS.Net.Extensions.AspNetServiceCollectionExtensions.AddVstsNet(Microsoft.Extensions.DependencyInjection.IServiceCollection,System.Uri,System.String)
+  name: AddVstsNet(IServiceCollection, Uri, String)
+  href: api/VSTS.Net.Extensions.AspNetServiceCollectionExtensions.html#VSTS_Net_Extensions_AspNetServiceCollectionExtensions_AddVstsNet_Microsoft_Extensions_DependencyInjection_IServiceCollection_System_Uri_System_String_
+  commentId: M:VSTS.Net.Extensions.AspNetServiceCollectionExtensions.AddVstsNet(Microsoft.Extensions.DependencyInjection.IServiceCollection,System.Uri,System.String)
+  fullName: VSTS.Net.Extensions.AspNetServiceCollectionExtensions.AddVstsNet(Microsoft.Extensions.DependencyInjection.IServiceCollection, System.Uri, System.String)
+  nameWithType: AspNetServiceCollectionExtensions.AddVstsNet(IServiceCollection, Uri, String)
+- uid: VSTS.Net.Extensions.AspNetServiceCollectionExtensions.AddVstsNet(Microsoft.Extensions.DependencyInjection.IServiceCollection,System.Uri,System.String,System.Action{VSTS.Net.Types.VstsClientConfiguration})
+  name: AddVstsNet(IServiceCollection, Uri, String, Action<VstsClientConfiguration>)
+  href: api/VSTS.Net.Extensions.AspNetServiceCollectionExtensions.html#VSTS_Net_Extensions_AspNetServiceCollectionExtensions_AddVstsNet_Microsoft_Extensions_DependencyInjection_IServiceCollection_System_Uri_System_String_System_Action_VSTS_Net_Types_VstsClientConfiguration__
+  commentId: M:VSTS.Net.Extensions.AspNetServiceCollectionExtensions.AddVstsNet(Microsoft.Extensions.DependencyInjection.IServiceCollection,System.Uri,System.String,System.Action{VSTS.Net.Types.VstsClientConfiguration})
+  name.vb: AddVstsNet(IServiceCollection, Uri, String, Action(Of VstsClientConfiguration))
+  fullName: VSTS.Net.Extensions.AspNetServiceCollectionExtensions.AddVstsNet(Microsoft.Extensions.DependencyInjection.IServiceCollection, System.Uri, System.String, System.Action<VSTS.Net.Types.VstsClientConfiguration>)
+  fullName.vb: VSTS.Net.Extensions.AspNetServiceCollectionExtensions.AddVstsNet(Microsoft.Extensions.DependencyInjection.IServiceCollection, System.Uri, System.String, System.Action(Of VSTS.Net.Types.VstsClientConfiguration))
+  nameWithType: AspNetServiceCollectionExtensions.AddVstsNet(IServiceCollection, Uri, String, Action<VstsClientConfiguration>)
+  nameWithType.vb: AspNetServiceCollectionExtensions.AddVstsNet(IServiceCollection, Uri, String, Action(Of VstsClientConfiguration))
 - uid: VSTS.Net.Extensions.AspNetServiceCollectionExtensions.AddVstsNet*
   name: AddVstsNet
   href: api/VSTS.Net.Extensions.AspNetServiceCollectionExtensions.html#VSTS_Net_Extensions_AspNetServiceCollectionExtensions_AddVstsNet_
@@ -44,6 +148,22 @@ references:
   commentId: T:VSTS.Net.Interfaces.IHttpClient
   fullName: VSTS.Net.Interfaces.IHttpClient
   nameWithType: IHttpClient
+- uid: VSTS.Net.Interfaces.IHttpClient.ExecuteDelete*
+  name: ExecuteDelete
+  href: api/VSTS.Net.Interfaces.IHttpClient.html#VSTS_Net_Interfaces_IHttpClient_ExecuteDelete_
+  commentId: Overload:VSTS.Net.Interfaces.IHttpClient.ExecuteDelete
+  isSpec: "True"
+  fullName: VSTS.Net.Interfaces.IHttpClient.ExecuteDelete
+  nameWithType: IHttpClient.ExecuteDelete
+- uid: VSTS.Net.Interfaces.IHttpClient.ExecuteDelete``1(System.String,System.Threading.CancellationToken)
+  name: ExecuteDelete<T>(String, CancellationToken)
+  href: api/VSTS.Net.Interfaces.IHttpClient.html#VSTS_Net_Interfaces_IHttpClient_ExecuteDelete__1_System_String_System_Threading_CancellationToken_
+  commentId: M:VSTS.Net.Interfaces.IHttpClient.ExecuteDelete``1(System.String,System.Threading.CancellationToken)
+  name.vb: ExecuteDelete(Of T)(String, CancellationToken)
+  fullName: VSTS.Net.Interfaces.IHttpClient.ExecuteDelete<T>(System.String, System.Threading.CancellationToken)
+  fullName.vb: VSTS.Net.Interfaces.IHttpClient.ExecuteDelete(Of T)(System.String, System.Threading.CancellationToken)
+  nameWithType: IHttpClient.ExecuteDelete<T>(String, CancellationToken)
+  nameWithType.vb: IHttpClient.ExecuteDelete(Of T)(String, CancellationToken)
 - uid: VSTS.Net.Interfaces.IHttpClient.ExecuteGet*
   name: ExecuteGet
   href: api/VSTS.Net.Interfaces.IHttpClient.html#VSTS_Net_Interfaces_IHttpClient_ExecuteGet_
@@ -60,6 +180,31 @@ references:
   fullName.vb: VSTS.Net.Interfaces.IHttpClient.ExecuteGet(Of T)(System.String, System.Threading.CancellationToken)
   nameWithType: IHttpClient.ExecuteGet<T>(String, CancellationToken)
   nameWithType.vb: IHttpClient.ExecuteGet(Of T)(String, CancellationToken)
+- uid: VSTS.Net.Interfaces.IHttpClient.ExecutePatch*
+  name: ExecutePatch
+  href: api/VSTS.Net.Interfaces.IHttpClient.html#VSTS_Net_Interfaces_IHttpClient_ExecutePatch_
+  commentId: Overload:VSTS.Net.Interfaces.IHttpClient.ExecutePatch
+  isSpec: "True"
+  fullName: VSTS.Net.Interfaces.IHttpClient.ExecutePatch
+  nameWithType: IHttpClient.ExecutePatch
+- uid: VSTS.Net.Interfaces.IHttpClient.ExecutePatch``1(System.String,System.Object,System.String,System.Threading.CancellationToken)
+  name: ExecutePatch<T>(String, Object, String, CancellationToken)
+  href: api/VSTS.Net.Interfaces.IHttpClient.html#VSTS_Net_Interfaces_IHttpClient_ExecutePatch__1_System_String_System_Object_System_String_System_Threading_CancellationToken_
+  commentId: M:VSTS.Net.Interfaces.IHttpClient.ExecutePatch``1(System.String,System.Object,System.String,System.Threading.CancellationToken)
+  name.vb: ExecutePatch(Of T)(String, Object, String, CancellationToken)
+  fullName: VSTS.Net.Interfaces.IHttpClient.ExecutePatch<T>(System.String, System.Object, System.String, System.Threading.CancellationToken)
+  fullName.vb: VSTS.Net.Interfaces.IHttpClient.ExecutePatch(Of T)(System.String, System.Object, System.String, System.Threading.CancellationToken)
+  nameWithType: IHttpClient.ExecutePatch<T>(String, Object, String, CancellationToken)
+  nameWithType.vb: IHttpClient.ExecutePatch(Of T)(String, Object, String, CancellationToken)
+- uid: VSTS.Net.Interfaces.IHttpClient.ExecutePatch``1(System.String,System.String,System.String,System.Threading.CancellationToken)
+  name: ExecutePatch<T>(String, String, String, CancellationToken)
+  href: api/VSTS.Net.Interfaces.IHttpClient.html#VSTS_Net_Interfaces_IHttpClient_ExecutePatch__1_System_String_System_String_System_String_System_Threading_CancellationToken_
+  commentId: M:VSTS.Net.Interfaces.IHttpClient.ExecutePatch``1(System.String,System.String,System.String,System.Threading.CancellationToken)
+  name.vb: ExecutePatch(Of T)(String, String, String, CancellationToken)
+  fullName: VSTS.Net.Interfaces.IHttpClient.ExecutePatch<T>(System.String, System.String, System.String, System.Threading.CancellationToken)
+  fullName.vb: VSTS.Net.Interfaces.IHttpClient.ExecutePatch(Of T)(System.String, System.String, System.String, System.Threading.CancellationToken)
+  nameWithType: IHttpClient.ExecutePatch<T>(String, String, String, CancellationToken)
+  nameWithType.vb: IHttpClient.ExecutePatch(Of T)(String, String, String, CancellationToken)
 - uid: VSTS.Net.Interfaces.IHttpClient.ExecutePost*
   name: ExecutePost
   href: api/VSTS.Net.Interfaces.IHttpClient.html#VSTS_Net_Interfaces_IHttpClient_ExecutePost_
@@ -67,6 +212,15 @@ references:
   isSpec: "True"
   fullName: VSTS.Net.Interfaces.IHttpClient.ExecutePost
   nameWithType: IHttpClient.ExecutePost
+- uid: VSTS.Net.Interfaces.IHttpClient.ExecutePost``1(System.String,System.Object,System.String,System.Threading.CancellationToken)
+  name: ExecutePost<T>(String, Object, String, CancellationToken)
+  href: api/VSTS.Net.Interfaces.IHttpClient.html#VSTS_Net_Interfaces_IHttpClient_ExecutePost__1_System_String_System_Object_System_String_System_Threading_CancellationToken_
+  commentId: M:VSTS.Net.Interfaces.IHttpClient.ExecutePost``1(System.String,System.Object,System.String,System.Threading.CancellationToken)
+  name.vb: ExecutePost(Of T)(String, Object, String, CancellationToken)
+  fullName: VSTS.Net.Interfaces.IHttpClient.ExecutePost<T>(System.String, System.Object, System.String, System.Threading.CancellationToken)
+  fullName.vb: VSTS.Net.Interfaces.IHttpClient.ExecutePost(Of T)(System.String, System.Object, System.String, System.Threading.CancellationToken)
+  nameWithType: IHttpClient.ExecutePost<T>(String, Object, String, CancellationToken)
+  nameWithType.vb: IHttpClient.ExecutePost(Of T)(String, Object, String, CancellationToken)
 - uid: VSTS.Net.Interfaces.IHttpClient.ExecutePost``1(System.String,System.Object,System.Threading.CancellationToken)
   name: ExecutePost<T>(String, Object, CancellationToken)
   href: api/VSTS.Net.Interfaces.IHttpClient.html#VSTS_Net_Interfaces_IHttpClient_ExecutePost__1_System_String_System_Object_System_Threading_CancellationToken_
@@ -76,6 +230,15 @@ references:
   fullName.vb: VSTS.Net.Interfaces.IHttpClient.ExecutePost(Of T)(System.String, System.Object, System.Threading.CancellationToken)
   nameWithType: IHttpClient.ExecutePost<T>(String, Object, CancellationToken)
   nameWithType.vb: IHttpClient.ExecutePost(Of T)(String, Object, CancellationToken)
+- uid: VSTS.Net.Interfaces.IHttpClient.ExecutePost``1(System.String,System.String,System.String,System.Threading.CancellationToken)
+  name: ExecutePost<T>(String, String, String, CancellationToken)
+  href: api/VSTS.Net.Interfaces.IHttpClient.html#VSTS_Net_Interfaces_IHttpClient_ExecutePost__1_System_String_System_String_System_String_System_Threading_CancellationToken_
+  commentId: M:VSTS.Net.Interfaces.IHttpClient.ExecutePost``1(System.String,System.String,System.String,System.Threading.CancellationToken)
+  name.vb: ExecutePost(Of T)(String, String, String, CancellationToken)
+  fullName: VSTS.Net.Interfaces.IHttpClient.ExecutePost<T>(System.String, System.String, System.String, System.Threading.CancellationToken)
+  fullName.vb: VSTS.Net.Interfaces.IHttpClient.ExecutePost(Of T)(System.String, System.String, System.String, System.Threading.CancellationToken)
+  nameWithType: IHttpClient.ExecutePost<T>(String, String, String, CancellationToken)
+  nameWithType.vb: IHttpClient.ExecutePost(Of T)(String, String, String, CancellationToken)
 - uid: VSTS.Net.Interfaces.IHttpClient.ExecutePost``1(System.String,System.String,System.Threading.CancellationToken)
   name: ExecutePost<T>(String, String, CancellationToken)
   href: api/VSTS.Net.Interfaces.IHttpClient.html#VSTS_Net_Interfaces_IHttpClient_ExecutePost__1_System_String_System_String_System_Threading_CancellationToken_
@@ -97,12 +260,31 @@ references:
   commentId: T:VSTS.Net.Interfaces.IVstsPullRequestsClient
   fullName: VSTS.Net.Interfaces.IVstsPullRequestsClient
   nameWithType: IVstsPullRequestsClient
-- uid: VSTS.Net.Interfaces.IVstsPullRequestsClient.GetPullRequestIterationsAsync(System.String,System.String,System.Int32)
-  name: GetPullRequestIterationsAsync(String, String, Int32)
-  href: api/VSTS.Net.Interfaces.IVstsPullRequestsClient.html#VSTS_Net_Interfaces_IVstsPullRequestsClient_GetPullRequestIterationsAsync_System_String_System_String_System_Int32_
-  commentId: M:VSTS.Net.Interfaces.IVstsPullRequestsClient.GetPullRequestIterationsAsync(System.String,System.String,System.Int32)
-  fullName: VSTS.Net.Interfaces.IVstsPullRequestsClient.GetPullRequestIterationsAsync(System.String, System.String, System.Int32)
-  nameWithType: IVstsPullRequestsClient.GetPullRequestIterationsAsync(String, String, Int32)
+- uid: VSTS.Net.Interfaces.IVstsPullRequestsClient.GetPullRequestAsync(System.Int32,System.Threading.CancellationToken)
+  name: GetPullRequestAsync(Int32, CancellationToken)
+  href: api/VSTS.Net.Interfaces.IVstsPullRequestsClient.html#VSTS_Net_Interfaces_IVstsPullRequestsClient_GetPullRequestAsync_System_Int32_System_Threading_CancellationToken_
+  commentId: M:VSTS.Net.Interfaces.IVstsPullRequestsClient.GetPullRequestAsync(System.Int32,System.Threading.CancellationToken)
+  fullName: VSTS.Net.Interfaces.IVstsPullRequestsClient.GetPullRequestAsync(System.Int32, System.Threading.CancellationToken)
+  nameWithType: IVstsPullRequestsClient.GetPullRequestAsync(Int32, CancellationToken)
+- uid: VSTS.Net.Interfaces.IVstsPullRequestsClient.GetPullRequestAsync(System.String,System.String,System.Int32,System.Threading.CancellationToken)
+  name: GetPullRequestAsync(String, String, Int32, CancellationToken)
+  href: api/VSTS.Net.Interfaces.IVstsPullRequestsClient.html#VSTS_Net_Interfaces_IVstsPullRequestsClient_GetPullRequestAsync_System_String_System_String_System_Int32_System_Threading_CancellationToken_
+  commentId: M:VSTS.Net.Interfaces.IVstsPullRequestsClient.GetPullRequestAsync(System.String,System.String,System.Int32,System.Threading.CancellationToken)
+  fullName: VSTS.Net.Interfaces.IVstsPullRequestsClient.GetPullRequestAsync(System.String, System.String, System.Int32, System.Threading.CancellationToken)
+  nameWithType: IVstsPullRequestsClient.GetPullRequestAsync(String, String, Int32, CancellationToken)
+- uid: VSTS.Net.Interfaces.IVstsPullRequestsClient.GetPullRequestAsync*
+  name: GetPullRequestAsync
+  href: api/VSTS.Net.Interfaces.IVstsPullRequestsClient.html#VSTS_Net_Interfaces_IVstsPullRequestsClient_GetPullRequestAsync_
+  commentId: Overload:VSTS.Net.Interfaces.IVstsPullRequestsClient.GetPullRequestAsync
+  isSpec: "True"
+  fullName: VSTS.Net.Interfaces.IVstsPullRequestsClient.GetPullRequestAsync
+  nameWithType: IVstsPullRequestsClient.GetPullRequestAsync
+- uid: VSTS.Net.Interfaces.IVstsPullRequestsClient.GetPullRequestIterationsAsync(System.String,System.String,System.Int32,System.Threading.CancellationToken)
+  name: GetPullRequestIterationsAsync(String, String, Int32, CancellationToken)
+  href: api/VSTS.Net.Interfaces.IVstsPullRequestsClient.html#VSTS_Net_Interfaces_IVstsPullRequestsClient_GetPullRequestIterationsAsync_System_String_System_String_System_Int32_System_Threading_CancellationToken_
+  commentId: M:VSTS.Net.Interfaces.IVstsPullRequestsClient.GetPullRequestIterationsAsync(System.String,System.String,System.Int32,System.Threading.CancellationToken)
+  fullName: VSTS.Net.Interfaces.IVstsPullRequestsClient.GetPullRequestIterationsAsync(System.String, System.String, System.Int32, System.Threading.CancellationToken)
+  nameWithType: IVstsPullRequestsClient.GetPullRequestIterationsAsync(String, String, Int32, CancellationToken)
 - uid: VSTS.Net.Interfaces.IVstsPullRequestsClient.GetPullRequestIterationsAsync*
   name: GetPullRequestIterationsAsync
   href: api/VSTS.Net.Interfaces.IVstsPullRequestsClient.html#VSTS_Net_Interfaces_IVstsPullRequestsClient_GetPullRequestIterationsAsync_
@@ -110,12 +292,12 @@ references:
   isSpec: "True"
   fullName: VSTS.Net.Interfaces.IVstsPullRequestsClient.GetPullRequestIterationsAsync
   nameWithType: IVstsPullRequestsClient.GetPullRequestIterationsAsync
-- uid: VSTS.Net.Interfaces.IVstsPullRequestsClient.GetPullRequestsAsync(System.String,System.String,VSTS.Net.Models.Request.PullRequestQuery)
-  name: GetPullRequestsAsync(String, String, PullRequestQuery)
-  href: api/VSTS.Net.Interfaces.IVstsPullRequestsClient.html#VSTS_Net_Interfaces_IVstsPullRequestsClient_GetPullRequestsAsync_System_String_System_String_VSTS_Net_Models_Request_PullRequestQuery_
-  commentId: M:VSTS.Net.Interfaces.IVstsPullRequestsClient.GetPullRequestsAsync(System.String,System.String,VSTS.Net.Models.Request.PullRequestQuery)
-  fullName: VSTS.Net.Interfaces.IVstsPullRequestsClient.GetPullRequestsAsync(System.String, System.String, VSTS.Net.Models.Request.PullRequestQuery)
-  nameWithType: IVstsPullRequestsClient.GetPullRequestsAsync(String, String, PullRequestQuery)
+- uid: VSTS.Net.Interfaces.IVstsPullRequestsClient.GetPullRequestsAsync(System.String,System.String,VSTS.Net.Models.Request.PullRequestQuery,System.Threading.CancellationToken)
+  name: GetPullRequestsAsync(String, String, PullRequestQuery, CancellationToken)
+  href: api/VSTS.Net.Interfaces.IVstsPullRequestsClient.html#VSTS_Net_Interfaces_IVstsPullRequestsClient_GetPullRequestsAsync_System_String_System_String_VSTS_Net_Models_Request_PullRequestQuery_System_Threading_CancellationToken_
+  commentId: M:VSTS.Net.Interfaces.IVstsPullRequestsClient.GetPullRequestsAsync(System.String,System.String,VSTS.Net.Models.Request.PullRequestQuery,System.Threading.CancellationToken)
+  fullName: VSTS.Net.Interfaces.IVstsPullRequestsClient.GetPullRequestsAsync(System.String, System.String, VSTS.Net.Models.Request.PullRequestQuery, System.Threading.CancellationToken)
+  nameWithType: IVstsPullRequestsClient.GetPullRequestsAsync(String, String, PullRequestQuery, CancellationToken)
 - uid: VSTS.Net.Interfaces.IVstsPullRequestsClient.GetPullRequestsAsync*
   name: GetPullRequestsAsync
   href: api/VSTS.Net.Interfaces.IVstsPullRequestsClient.html#VSTS_Net_Interfaces_IVstsPullRequestsClient_GetPullRequestsAsync_
@@ -123,12 +305,12 @@ references:
   isSpec: "True"
   fullName: VSTS.Net.Interfaces.IVstsPullRequestsClient.GetPullRequestsAsync
   nameWithType: IVstsPullRequestsClient.GetPullRequestsAsync
-- uid: VSTS.Net.Interfaces.IVstsPullRequestsClient.GetPullRequestThreadsAsync(System.String,System.String,System.Int32)
-  name: GetPullRequestThreadsAsync(String, String, Int32)
-  href: api/VSTS.Net.Interfaces.IVstsPullRequestsClient.html#VSTS_Net_Interfaces_IVstsPullRequestsClient_GetPullRequestThreadsAsync_System_String_System_String_System_Int32_
-  commentId: M:VSTS.Net.Interfaces.IVstsPullRequestsClient.GetPullRequestThreadsAsync(System.String,System.String,System.Int32)
-  fullName: VSTS.Net.Interfaces.IVstsPullRequestsClient.GetPullRequestThreadsAsync(System.String, System.String, System.Int32)
-  nameWithType: IVstsPullRequestsClient.GetPullRequestThreadsAsync(String, String, Int32)
+- uid: VSTS.Net.Interfaces.IVstsPullRequestsClient.GetPullRequestThreadsAsync(System.String,System.String,System.Int32,System.Threading.CancellationToken)
+  name: GetPullRequestThreadsAsync(String, String, Int32, CancellationToken)
+  href: api/VSTS.Net.Interfaces.IVstsPullRequestsClient.html#VSTS_Net_Interfaces_IVstsPullRequestsClient_GetPullRequestThreadsAsync_System_String_System_String_System_Int32_System_Threading_CancellationToken_
+  commentId: M:VSTS.Net.Interfaces.IVstsPullRequestsClient.GetPullRequestThreadsAsync(System.String,System.String,System.Int32,System.Threading.CancellationToken)
+  fullName: VSTS.Net.Interfaces.IVstsPullRequestsClient.GetPullRequestThreadsAsync(System.String, System.String, System.Int32, System.Threading.CancellationToken)
+  nameWithType: IVstsPullRequestsClient.GetPullRequestThreadsAsync(String, String, Int32, CancellationToken)
 - uid: VSTS.Net.Interfaces.IVstsPullRequestsClient.GetPullRequestThreadsAsync*
   name: GetPullRequestThreadsAsync
   href: api/VSTS.Net.Interfaces.IVstsPullRequestsClient.html#VSTS_Net_Interfaces_IVstsPullRequestsClient_GetPullRequestThreadsAsync_
@@ -136,18 +318,89 @@ references:
   isSpec: "True"
   fullName: VSTS.Net.Interfaces.IVstsPullRequestsClient.GetPullRequestThreadsAsync
   nameWithType: IVstsPullRequestsClient.GetPullRequestThreadsAsync
+- uid: VSTS.Net.Interfaces.IVstsUrlBuilderFactory
+  name: IVstsUrlBuilderFactory
+  href: api/VSTS.Net.Interfaces.IVstsUrlBuilderFactory.html
+  commentId: T:VSTS.Net.Interfaces.IVstsUrlBuilderFactory
+  fullName: VSTS.Net.Interfaces.IVstsUrlBuilderFactory
+  nameWithType: IVstsUrlBuilderFactory
+- uid: VSTS.Net.Interfaces.IVstsUrlBuilderFactory.Create
+  name: Create()
+  href: api/VSTS.Net.Interfaces.IVstsUrlBuilderFactory.html#VSTS_Net_Interfaces_IVstsUrlBuilderFactory_Create
+  commentId: M:VSTS.Net.Interfaces.IVstsUrlBuilderFactory.Create
+  fullName: VSTS.Net.Interfaces.IVstsUrlBuilderFactory.Create()
+  nameWithType: IVstsUrlBuilderFactory.Create()
+- uid: VSTS.Net.Interfaces.IVstsUrlBuilderFactory.Create*
+  name: Create
+  href: api/VSTS.Net.Interfaces.IVstsUrlBuilderFactory.html#VSTS_Net_Interfaces_IVstsUrlBuilderFactory_Create_
+  commentId: Overload:VSTS.Net.Interfaces.IVstsUrlBuilderFactory.Create
+  isSpec: "True"
+  fullName: VSTS.Net.Interfaces.IVstsUrlBuilderFactory.Create
+  nameWithType: IVstsUrlBuilderFactory.Create
 - uid: VSTS.Net.Interfaces.IVstsWorkItemsClient
   name: IVstsWorkItemsClient
   href: api/VSTS.Net.Interfaces.IVstsWorkItemsClient.html
   commentId: T:VSTS.Net.Interfaces.IVstsWorkItemsClient
   fullName: VSTS.Net.Interfaces.IVstsWorkItemsClient
   nameWithType: IVstsWorkItemsClient
-- uid: VSTS.Net.Interfaces.IVstsWorkItemsClient.ExecuteQueryAsync(System.String,VSTS.Net.Models.Request.WorkItemsQuery)
-  name: ExecuteQueryAsync(String, WorkItemsQuery)
-  href: api/VSTS.Net.Interfaces.IVstsWorkItemsClient.html#VSTS_Net_Interfaces_IVstsWorkItemsClient_ExecuteQueryAsync_System_String_VSTS_Net_Models_Request_WorkItemsQuery_
-  commentId: M:VSTS.Net.Interfaces.IVstsWorkItemsClient.ExecuteQueryAsync(System.String,VSTS.Net.Models.Request.WorkItemsQuery)
-  fullName: VSTS.Net.Interfaces.IVstsWorkItemsClient.ExecuteQueryAsync(System.String, VSTS.Net.Models.Request.WorkItemsQuery)
-  nameWithType: IVstsWorkItemsClient.ExecuteQueryAsync(String, WorkItemsQuery)
+- uid: VSTS.Net.Interfaces.IVstsWorkItemsClient.CreateWorkItemAsync(System.String,System.String,VSTS.Net.Models.WorkItems.WorkItem,System.Threading.CancellationToken)
+  name: CreateWorkItemAsync(String, String, WorkItem, CancellationToken)
+  href: api/VSTS.Net.Interfaces.IVstsWorkItemsClient.html#VSTS_Net_Interfaces_IVstsWorkItemsClient_CreateWorkItemAsync_System_String_System_String_VSTS_Net_Models_WorkItems_WorkItem_System_Threading_CancellationToken_
+  commentId: M:VSTS.Net.Interfaces.IVstsWorkItemsClient.CreateWorkItemAsync(System.String,System.String,VSTS.Net.Models.WorkItems.WorkItem,System.Threading.CancellationToken)
+  fullName: VSTS.Net.Interfaces.IVstsWorkItemsClient.CreateWorkItemAsync(System.String, System.String, VSTS.Net.Models.WorkItems.WorkItem, System.Threading.CancellationToken)
+  nameWithType: IVstsWorkItemsClient.CreateWorkItemAsync(String, String, WorkItem, CancellationToken)
+- uid: VSTS.Net.Interfaces.IVstsWorkItemsClient.CreateWorkItemAsync*
+  name: CreateWorkItemAsync
+  href: api/VSTS.Net.Interfaces.IVstsWorkItemsClient.html#VSTS_Net_Interfaces_IVstsWorkItemsClient_CreateWorkItemAsync_
+  commentId: Overload:VSTS.Net.Interfaces.IVstsWorkItemsClient.CreateWorkItemAsync
+  isSpec: "True"
+  fullName: VSTS.Net.Interfaces.IVstsWorkItemsClient.CreateWorkItemAsync
+  nameWithType: IVstsWorkItemsClient.CreateWorkItemAsync
+- uid: VSTS.Net.Interfaces.IVstsWorkItemsClient.DeleteWorkItemAsync(System.Int32,System.Boolean,System.Threading.CancellationToken)
+  name: DeleteWorkItemAsync(Int32, Boolean, CancellationToken)
+  href: api/VSTS.Net.Interfaces.IVstsWorkItemsClient.html#VSTS_Net_Interfaces_IVstsWorkItemsClient_DeleteWorkItemAsync_System_Int32_System_Boolean_System_Threading_CancellationToken_
+  commentId: M:VSTS.Net.Interfaces.IVstsWorkItemsClient.DeleteWorkItemAsync(System.Int32,System.Boolean,System.Threading.CancellationToken)
+  fullName: VSTS.Net.Interfaces.IVstsWorkItemsClient.DeleteWorkItemAsync(System.Int32, System.Boolean, System.Threading.CancellationToken)
+  nameWithType: IVstsWorkItemsClient.DeleteWorkItemAsync(Int32, Boolean, CancellationToken)
+- uid: VSTS.Net.Interfaces.IVstsWorkItemsClient.DeleteWorkItemAsync*
+  name: DeleteWorkItemAsync
+  href: api/VSTS.Net.Interfaces.IVstsWorkItemsClient.html#VSTS_Net_Interfaces_IVstsWorkItemsClient_DeleteWorkItemAsync_
+  commentId: Overload:VSTS.Net.Interfaces.IVstsWorkItemsClient.DeleteWorkItemAsync
+  isSpec: "True"
+  fullName: VSTS.Net.Interfaces.IVstsWorkItemsClient.DeleteWorkItemAsync
+  nameWithType: IVstsWorkItemsClient.DeleteWorkItemAsync
+- uid: VSTS.Net.Interfaces.IVstsWorkItemsClient.ExecuteFlatQueryAsync(System.String,System.Threading.CancellationToken)
+  name: ExecuteFlatQueryAsync(String, CancellationToken)
+  href: api/VSTS.Net.Interfaces.IVstsWorkItemsClient.html#VSTS_Net_Interfaces_IVstsWorkItemsClient_ExecuteFlatQueryAsync_System_String_System_Threading_CancellationToken_
+  commentId: M:VSTS.Net.Interfaces.IVstsWorkItemsClient.ExecuteFlatQueryAsync(System.String,System.Threading.CancellationToken)
+  fullName: VSTS.Net.Interfaces.IVstsWorkItemsClient.ExecuteFlatQueryAsync(System.String, System.Threading.CancellationToken)
+  nameWithType: IVstsWorkItemsClient.ExecuteFlatQueryAsync(String, CancellationToken)
+- uid: VSTS.Net.Interfaces.IVstsWorkItemsClient.ExecuteFlatQueryAsync*
+  name: ExecuteFlatQueryAsync
+  href: api/VSTS.Net.Interfaces.IVstsWorkItemsClient.html#VSTS_Net_Interfaces_IVstsWorkItemsClient_ExecuteFlatQueryAsync_
+  commentId: Overload:VSTS.Net.Interfaces.IVstsWorkItemsClient.ExecuteFlatQueryAsync
+  isSpec: "True"
+  fullName: VSTS.Net.Interfaces.IVstsWorkItemsClient.ExecuteFlatQueryAsync
+  nameWithType: IVstsWorkItemsClient.ExecuteFlatQueryAsync
+- uid: VSTS.Net.Interfaces.IVstsWorkItemsClient.ExecuteHierarchicalQueryAsync(System.String,System.Threading.CancellationToken)
+  name: ExecuteHierarchicalQueryAsync(String, CancellationToken)
+  href: api/VSTS.Net.Interfaces.IVstsWorkItemsClient.html#VSTS_Net_Interfaces_IVstsWorkItemsClient_ExecuteHierarchicalQueryAsync_System_String_System_Threading_CancellationToken_
+  commentId: M:VSTS.Net.Interfaces.IVstsWorkItemsClient.ExecuteHierarchicalQueryAsync(System.String,System.Threading.CancellationToken)
+  fullName: VSTS.Net.Interfaces.IVstsWorkItemsClient.ExecuteHierarchicalQueryAsync(System.String, System.Threading.CancellationToken)
+  nameWithType: IVstsWorkItemsClient.ExecuteHierarchicalQueryAsync(String, CancellationToken)
+- uid: VSTS.Net.Interfaces.IVstsWorkItemsClient.ExecuteHierarchicalQueryAsync*
+  name: ExecuteHierarchicalQueryAsync
+  href: api/VSTS.Net.Interfaces.IVstsWorkItemsClient.html#VSTS_Net_Interfaces_IVstsWorkItemsClient_ExecuteHierarchicalQueryAsync_
+  commentId: Overload:VSTS.Net.Interfaces.IVstsWorkItemsClient.ExecuteHierarchicalQueryAsync
+  isSpec: "True"
+  fullName: VSTS.Net.Interfaces.IVstsWorkItemsClient.ExecuteHierarchicalQueryAsync
+  nameWithType: IVstsWorkItemsClient.ExecuteHierarchicalQueryAsync
+- uid: VSTS.Net.Interfaces.IVstsWorkItemsClient.ExecuteQueryAsync(VSTS.Net.Models.Request.WorkItemsQuery,System.Threading.CancellationToken)
+  name: ExecuteQueryAsync(WorkItemsQuery, CancellationToken)
+  href: api/VSTS.Net.Interfaces.IVstsWorkItemsClient.html#VSTS_Net_Interfaces_IVstsWorkItemsClient_ExecuteQueryAsync_VSTS_Net_Models_Request_WorkItemsQuery_System_Threading_CancellationToken_
+  commentId: M:VSTS.Net.Interfaces.IVstsWorkItemsClient.ExecuteQueryAsync(VSTS.Net.Models.Request.WorkItemsQuery,System.Threading.CancellationToken)
+  fullName: VSTS.Net.Interfaces.IVstsWorkItemsClient.ExecuteQueryAsync(VSTS.Net.Models.Request.WorkItemsQuery, System.Threading.CancellationToken)
+  nameWithType: IVstsWorkItemsClient.ExecuteQueryAsync(WorkItemsQuery, CancellationToken)
 - uid: VSTS.Net.Interfaces.IVstsWorkItemsClient.ExecuteQueryAsync*
   name: ExecuteQueryAsync
   href: api/VSTS.Net.Interfaces.IVstsWorkItemsClient.html#VSTS_Net_Interfaces_IVstsWorkItemsClient_ExecuteQueryAsync_
@@ -155,12 +408,68 @@ references:
   isSpec: "True"
   fullName: VSTS.Net.Interfaces.IVstsWorkItemsClient.ExecuteQueryAsync
   nameWithType: IVstsWorkItemsClient.ExecuteQueryAsync
-- uid: VSTS.Net.Interfaces.IVstsWorkItemsClient.GetWorkItemsAsync(System.String,VSTS.Net.Models.Request.WorkItemsQuery)
-  name: GetWorkItemsAsync(String, WorkItemsQuery)
-  href: api/VSTS.Net.Interfaces.IVstsWorkItemsClient.html#VSTS_Net_Interfaces_IVstsWorkItemsClient_GetWorkItemsAsync_System_String_VSTS_Net_Models_Request_WorkItemsQuery_
-  commentId: M:VSTS.Net.Interfaces.IVstsWorkItemsClient.GetWorkItemsAsync(System.String,VSTS.Net.Models.Request.WorkItemsQuery)
-  fullName: VSTS.Net.Interfaces.IVstsWorkItemsClient.GetWorkItemsAsync(System.String, VSTS.Net.Models.Request.WorkItemsQuery)
-  nameWithType: IVstsWorkItemsClient.GetWorkItemsAsync(String, WorkItemsQuery)
+- uid: VSTS.Net.Interfaces.IVstsWorkItemsClient.ExecuteQueryAsync``1(System.Guid,System.Threading.CancellationToken)
+  name: ExecuteQueryAsync<T>(Guid, CancellationToken)
+  href: api/VSTS.Net.Interfaces.IVstsWorkItemsClient.html#VSTS_Net_Interfaces_IVstsWorkItemsClient_ExecuteQueryAsync__1_System_Guid_System_Threading_CancellationToken_
+  commentId: M:VSTS.Net.Interfaces.IVstsWorkItemsClient.ExecuteQueryAsync``1(System.Guid,System.Threading.CancellationToken)
+  name.vb: ExecuteQueryAsync(Of T)(Guid, CancellationToken)
+  fullName: VSTS.Net.Interfaces.IVstsWorkItemsClient.ExecuteQueryAsync<T>(System.Guid, System.Threading.CancellationToken)
+  fullName.vb: VSTS.Net.Interfaces.IVstsWorkItemsClient.ExecuteQueryAsync(Of T)(System.Guid, System.Threading.CancellationToken)
+  nameWithType: IVstsWorkItemsClient.ExecuteQueryAsync<T>(Guid, CancellationToken)
+  nameWithType.vb: IVstsWorkItemsClient.ExecuteQueryAsync(Of T)(Guid, CancellationToken)
+- uid: VSTS.Net.Interfaces.IVstsWorkItemsClient.GetWorkItemAsync(System.Int32,System.Nullable{System.DateTime},System.String[],System.Threading.CancellationToken)
+  name: GetWorkItemAsync(Int32, Nullable<DateTime>, String[], CancellationToken)
+  href: api/VSTS.Net.Interfaces.IVstsWorkItemsClient.html#VSTS_Net_Interfaces_IVstsWorkItemsClient_GetWorkItemAsync_System_Int32_System_Nullable_System_DateTime__System_String___System_Threading_CancellationToken_
+  commentId: M:VSTS.Net.Interfaces.IVstsWorkItemsClient.GetWorkItemAsync(System.Int32,System.Nullable{System.DateTime},System.String[],System.Threading.CancellationToken)
+  name.vb: GetWorkItemAsync(Int32, Nullable(Of DateTime), String(), CancellationToken)
+  fullName: VSTS.Net.Interfaces.IVstsWorkItemsClient.GetWorkItemAsync(System.Int32, System.Nullable<System.DateTime>, System.String[], System.Threading.CancellationToken)
+  fullName.vb: VSTS.Net.Interfaces.IVstsWorkItemsClient.GetWorkItemAsync(System.Int32, System.Nullable(Of System.DateTime), System.String(), System.Threading.CancellationToken)
+  nameWithType: IVstsWorkItemsClient.GetWorkItemAsync(Int32, Nullable<DateTime>, String[], CancellationToken)
+  nameWithType.vb: IVstsWorkItemsClient.GetWorkItemAsync(Int32, Nullable(Of DateTime), String(), CancellationToken)
+- uid: VSTS.Net.Interfaces.IVstsWorkItemsClient.GetWorkItemAsync*
+  name: GetWorkItemAsync
+  href: api/VSTS.Net.Interfaces.IVstsWorkItemsClient.html#VSTS_Net_Interfaces_IVstsWorkItemsClient_GetWorkItemAsync_
+  commentId: Overload:VSTS.Net.Interfaces.IVstsWorkItemsClient.GetWorkItemAsync
+  isSpec: "True"
+  fullName: VSTS.Net.Interfaces.IVstsWorkItemsClient.GetWorkItemAsync
+  nameWithType: IVstsWorkItemsClient.GetWorkItemAsync
+- uid: VSTS.Net.Interfaces.IVstsWorkItemsClient.GetWorkItemExpandedAsync(System.Int32,System.Nullable{System.DateTime},System.Threading.CancellationToken)
+  name: GetWorkItemExpandedAsync(Int32, Nullable<DateTime>, CancellationToken)
+  href: api/VSTS.Net.Interfaces.IVstsWorkItemsClient.html#VSTS_Net_Interfaces_IVstsWorkItemsClient_GetWorkItemExpandedAsync_System_Int32_System_Nullable_System_DateTime__System_Threading_CancellationToken_
+  commentId: M:VSTS.Net.Interfaces.IVstsWorkItemsClient.GetWorkItemExpandedAsync(System.Int32,System.Nullable{System.DateTime},System.Threading.CancellationToken)
+  name.vb: GetWorkItemExpandedAsync(Int32, Nullable(Of DateTime), CancellationToken)
+  fullName: VSTS.Net.Interfaces.IVstsWorkItemsClient.GetWorkItemExpandedAsync(System.Int32, System.Nullable<System.DateTime>, System.Threading.CancellationToken)
+  fullName.vb: VSTS.Net.Interfaces.IVstsWorkItemsClient.GetWorkItemExpandedAsync(System.Int32, System.Nullable(Of System.DateTime), System.Threading.CancellationToken)
+  nameWithType: IVstsWorkItemsClient.GetWorkItemExpandedAsync(Int32, Nullable<DateTime>, CancellationToken)
+  nameWithType.vb: IVstsWorkItemsClient.GetWorkItemExpandedAsync(Int32, Nullable(Of DateTime), CancellationToken)
+- uid: VSTS.Net.Interfaces.IVstsWorkItemsClient.GetWorkItemExpandedAsync*
+  name: GetWorkItemExpandedAsync
+  href: api/VSTS.Net.Interfaces.IVstsWorkItemsClient.html#VSTS_Net_Interfaces_IVstsWorkItemsClient_GetWorkItemExpandedAsync_
+  commentId: Overload:VSTS.Net.Interfaces.IVstsWorkItemsClient.GetWorkItemExpandedAsync
+  isSpec: "True"
+  fullName: VSTS.Net.Interfaces.IVstsWorkItemsClient.GetWorkItemExpandedAsync
+  nameWithType: IVstsWorkItemsClient.GetWorkItemExpandedAsync
+- uid: VSTS.Net.Interfaces.IVstsWorkItemsClient.GetWorkItemsAsync(System.Guid,System.Boolean,System.Threading.CancellationToken)
+  name: GetWorkItemsAsync(Guid, Boolean, CancellationToken)
+  href: api/VSTS.Net.Interfaces.IVstsWorkItemsClient.html#VSTS_Net_Interfaces_IVstsWorkItemsClient_GetWorkItemsAsync_System_Guid_System_Boolean_System_Threading_CancellationToken_
+  commentId: M:VSTS.Net.Interfaces.IVstsWorkItemsClient.GetWorkItemsAsync(System.Guid,System.Boolean,System.Threading.CancellationToken)
+  fullName: VSTS.Net.Interfaces.IVstsWorkItemsClient.GetWorkItemsAsync(System.Guid, System.Boolean, System.Threading.CancellationToken)
+  nameWithType: IVstsWorkItemsClient.GetWorkItemsAsync(Guid, Boolean, CancellationToken)
+- uid: VSTS.Net.Interfaces.IVstsWorkItemsClient.GetWorkItemsAsync(System.Int32[],System.Nullable{System.DateTime},System.String[],System.Threading.CancellationToken)
+  name: GetWorkItemsAsync(Int32[], Nullable<DateTime>, String[], CancellationToken)
+  href: api/VSTS.Net.Interfaces.IVstsWorkItemsClient.html#VSTS_Net_Interfaces_IVstsWorkItemsClient_GetWorkItemsAsync_System_Int32___System_Nullable_System_DateTime__System_String___System_Threading_CancellationToken_
+  commentId: M:VSTS.Net.Interfaces.IVstsWorkItemsClient.GetWorkItemsAsync(System.Int32[],System.Nullable{System.DateTime},System.String[],System.Threading.CancellationToken)
+  name.vb: GetWorkItemsAsync(Int32(), Nullable(Of DateTime), String(), CancellationToken)
+  fullName: VSTS.Net.Interfaces.IVstsWorkItemsClient.GetWorkItemsAsync(System.Int32[], System.Nullable<System.DateTime>, System.String[], System.Threading.CancellationToken)
+  fullName.vb: VSTS.Net.Interfaces.IVstsWorkItemsClient.GetWorkItemsAsync(System.Int32(), System.Nullable(Of System.DateTime), System.String(), System.Threading.CancellationToken)
+  nameWithType: IVstsWorkItemsClient.GetWorkItemsAsync(Int32[], Nullable<DateTime>, String[], CancellationToken)
+  nameWithType.vb: IVstsWorkItemsClient.GetWorkItemsAsync(Int32(), Nullable(Of DateTime), String(), CancellationToken)
+- uid: VSTS.Net.Interfaces.IVstsWorkItemsClient.GetWorkItemsAsync(VSTS.Net.Models.Request.WorkItemsQuery,System.Boolean,System.Threading.CancellationToken)
+  name: GetWorkItemsAsync(WorkItemsQuery, Boolean, CancellationToken)
+  href: api/VSTS.Net.Interfaces.IVstsWorkItemsClient.html#VSTS_Net_Interfaces_IVstsWorkItemsClient_GetWorkItemsAsync_VSTS_Net_Models_Request_WorkItemsQuery_System_Boolean_System_Threading_CancellationToken_
+  commentId: M:VSTS.Net.Interfaces.IVstsWorkItemsClient.GetWorkItemsAsync(VSTS.Net.Models.Request.WorkItemsQuery,System.Boolean,System.Threading.CancellationToken)
+  fullName: VSTS.Net.Interfaces.IVstsWorkItemsClient.GetWorkItemsAsync(VSTS.Net.Models.Request.WorkItemsQuery, System.Boolean, System.Threading.CancellationToken)
+  nameWithType: IVstsWorkItemsClient.GetWorkItemsAsync(WorkItemsQuery, Boolean, CancellationToken)
 - uid: VSTS.Net.Interfaces.IVstsWorkItemsClient.GetWorkItemsAsync*
   name: GetWorkItemsAsync
   href: api/VSTS.Net.Interfaces.IVstsWorkItemsClient.html#VSTS_Net_Interfaces_IVstsWorkItemsClient_GetWorkItemsAsync_
@@ -168,12 +477,28 @@ references:
   isSpec: "True"
   fullName: VSTS.Net.Interfaces.IVstsWorkItemsClient.GetWorkItemsAsync
   nameWithType: IVstsWorkItemsClient.GetWorkItemsAsync
-- uid: VSTS.Net.Interfaces.IVstsWorkItemsClient.GetWorkItemUpdatesAsync(System.Int32)
-  name: GetWorkItemUpdatesAsync(Int32)
-  href: api/VSTS.Net.Interfaces.IVstsWorkItemsClient.html#VSTS_Net_Interfaces_IVstsWorkItemsClient_GetWorkItemUpdatesAsync_System_Int32_
-  commentId: M:VSTS.Net.Interfaces.IVstsWorkItemsClient.GetWorkItemUpdatesAsync(System.Int32)
-  fullName: VSTS.Net.Interfaces.IVstsWorkItemsClient.GetWorkItemUpdatesAsync(System.Int32)
-  nameWithType: IVstsWorkItemsClient.GetWorkItemUpdatesAsync(Int32)
+- uid: VSTS.Net.Interfaces.IVstsWorkItemsClient.GetWorkItemsExpandedAsync(System.Int32[],System.Nullable{System.DateTime},System.Threading.CancellationToken)
+  name: GetWorkItemsExpandedAsync(Int32[], Nullable<DateTime>, CancellationToken)
+  href: api/VSTS.Net.Interfaces.IVstsWorkItemsClient.html#VSTS_Net_Interfaces_IVstsWorkItemsClient_GetWorkItemsExpandedAsync_System_Int32___System_Nullable_System_DateTime__System_Threading_CancellationToken_
+  commentId: M:VSTS.Net.Interfaces.IVstsWorkItemsClient.GetWorkItemsExpandedAsync(System.Int32[],System.Nullable{System.DateTime},System.Threading.CancellationToken)
+  name.vb: GetWorkItemsExpandedAsync(Int32(), Nullable(Of DateTime), CancellationToken)
+  fullName: VSTS.Net.Interfaces.IVstsWorkItemsClient.GetWorkItemsExpandedAsync(System.Int32[], System.Nullable<System.DateTime>, System.Threading.CancellationToken)
+  fullName.vb: VSTS.Net.Interfaces.IVstsWorkItemsClient.GetWorkItemsExpandedAsync(System.Int32(), System.Nullable(Of System.DateTime), System.Threading.CancellationToken)
+  nameWithType: IVstsWorkItemsClient.GetWorkItemsExpandedAsync(Int32[], Nullable<DateTime>, CancellationToken)
+  nameWithType.vb: IVstsWorkItemsClient.GetWorkItemsExpandedAsync(Int32(), Nullable(Of DateTime), CancellationToken)
+- uid: VSTS.Net.Interfaces.IVstsWorkItemsClient.GetWorkItemsExpandedAsync*
+  name: GetWorkItemsExpandedAsync
+  href: api/VSTS.Net.Interfaces.IVstsWorkItemsClient.html#VSTS_Net_Interfaces_IVstsWorkItemsClient_GetWorkItemsExpandedAsync_
+  commentId: Overload:VSTS.Net.Interfaces.IVstsWorkItemsClient.GetWorkItemsExpandedAsync
+  isSpec: "True"
+  fullName: VSTS.Net.Interfaces.IVstsWorkItemsClient.GetWorkItemsExpandedAsync
+  nameWithType: IVstsWorkItemsClient.GetWorkItemsExpandedAsync
+- uid: VSTS.Net.Interfaces.IVstsWorkItemsClient.GetWorkItemUpdatesAsync(System.Int32,System.Threading.CancellationToken)
+  name: GetWorkItemUpdatesAsync(Int32, CancellationToken)
+  href: api/VSTS.Net.Interfaces.IVstsWorkItemsClient.html#VSTS_Net_Interfaces_IVstsWorkItemsClient_GetWorkItemUpdatesAsync_System_Int32_System_Threading_CancellationToken_
+  commentId: M:VSTS.Net.Interfaces.IVstsWorkItemsClient.GetWorkItemUpdatesAsync(System.Int32,System.Threading.CancellationToken)
+  fullName: VSTS.Net.Interfaces.IVstsWorkItemsClient.GetWorkItemUpdatesAsync(System.Int32, System.Threading.CancellationToken)
+  nameWithType: IVstsWorkItemsClient.GetWorkItemUpdatesAsync(Int32, CancellationToken)
 - uid: VSTS.Net.Interfaces.IVstsWorkItemsClient.GetWorkItemUpdatesAsync*
   name: GetWorkItemUpdatesAsync
   href: api/VSTS.Net.Interfaces.IVstsWorkItemsClient.html#VSTS_Net_Interfaces_IVstsWorkItemsClient_GetWorkItemUpdatesAsync_
@@ -181,6 +506,38 @@ references:
   isSpec: "True"
   fullName: VSTS.Net.Interfaces.IVstsWorkItemsClient.GetWorkItemUpdatesAsync
   nameWithType: IVstsWorkItemsClient.GetWorkItemUpdatesAsync
+- uid: VSTS.Net.Interfaces.IVstsWorkItemsClient.UpdateWorkItemAsync(VSTS.Net.Models.Request.UpdateWorkitemRequest,System.Threading.CancellationToken)
+  name: UpdateWorkItemAsync(UpdateWorkitemRequest, CancellationToken)
+  href: api/VSTS.Net.Interfaces.IVstsWorkItemsClient.html#VSTS_Net_Interfaces_IVstsWorkItemsClient_UpdateWorkItemAsync_VSTS_Net_Models_Request_UpdateWorkitemRequest_System_Threading_CancellationToken_
+  commentId: M:VSTS.Net.Interfaces.IVstsWorkItemsClient.UpdateWorkItemAsync(VSTS.Net.Models.Request.UpdateWorkitemRequest,System.Threading.CancellationToken)
+  fullName: VSTS.Net.Interfaces.IVstsWorkItemsClient.UpdateWorkItemAsync(VSTS.Net.Models.Request.UpdateWorkitemRequest, System.Threading.CancellationToken)
+  nameWithType: IVstsWorkItemsClient.UpdateWorkItemAsync(UpdateWorkitemRequest, CancellationToken)
+- uid: VSTS.Net.Interfaces.IVstsWorkItemsClient.UpdateWorkItemAsync*
+  name: UpdateWorkItemAsync
+  href: api/VSTS.Net.Interfaces.IVstsWorkItemsClient.html#VSTS_Net_Interfaces_IVstsWorkItemsClient_UpdateWorkItemAsync_
+  commentId: Overload:VSTS.Net.Interfaces.IVstsWorkItemsClient.UpdateWorkItemAsync
+  isSpec: "True"
+  fullName: VSTS.Net.Interfaces.IVstsWorkItemsClient.UpdateWorkItemAsync
+  nameWithType: IVstsWorkItemsClient.UpdateWorkItemAsync
+- uid: VSTS.Net.Interfaces.IVstsWorkItemsMetadataClient
+  name: IVstsWorkItemsMetadataClient
+  href: api/VSTS.Net.Interfaces.IVstsWorkItemsMetadataClient.html
+  commentId: T:VSTS.Net.Interfaces.IVstsWorkItemsMetadataClient
+  fullName: VSTS.Net.Interfaces.IVstsWorkItemsMetadataClient
+  nameWithType: IVstsWorkItemsMetadataClient
+- uid: VSTS.Net.Interfaces.IVstsWorkItemsMetadataClient.GetWorkItemFieldsAsync(System.Threading.CancellationToken)
+  name: GetWorkItemFieldsAsync(CancellationToken)
+  href: api/VSTS.Net.Interfaces.IVstsWorkItemsMetadataClient.html#VSTS_Net_Interfaces_IVstsWorkItemsMetadataClient_GetWorkItemFieldsAsync_System_Threading_CancellationToken_
+  commentId: M:VSTS.Net.Interfaces.IVstsWorkItemsMetadataClient.GetWorkItemFieldsAsync(System.Threading.CancellationToken)
+  fullName: VSTS.Net.Interfaces.IVstsWorkItemsMetadataClient.GetWorkItemFieldsAsync(System.Threading.CancellationToken)
+  nameWithType: IVstsWorkItemsMetadataClient.GetWorkItemFieldsAsync(CancellationToken)
+- uid: VSTS.Net.Interfaces.IVstsWorkItemsMetadataClient.GetWorkItemFieldsAsync*
+  name: GetWorkItemFieldsAsync
+  href: api/VSTS.Net.Interfaces.IVstsWorkItemsMetadataClient.html#VSTS_Net_Interfaces_IVstsWorkItemsMetadataClient_GetWorkItemFieldsAsync_
+  commentId: Overload:VSTS.Net.Interfaces.IVstsWorkItemsMetadataClient.GetWorkItemFieldsAsync
+  isSpec: "True"
+  fullName: VSTS.Net.Interfaces.IVstsWorkItemsMetadataClient.GetWorkItemFieldsAsync
+  nameWithType: IVstsWorkItemsMetadataClient.GetWorkItemFieldsAsync
 - uid: VSTS.Net.Models.Common
   name: VSTS.Net.Models.Common
   href: api/VSTS.Net.Models.Common.html
@@ -328,6 +685,38 @@ references:
   isSpec: "True"
   fullName: VSTS.Net.Models.Identity.IdentityReference.DisplayName
   nameWithType: IdentityReference.DisplayName
+- uid: VSTS.Net.Models.Identity.IdentityReference.Equals(System.Object)
+  name: Equals(Object)
+  href: api/VSTS.Net.Models.Identity.IdentityReference.html#VSTS_Net_Models_Identity_IdentityReference_Equals_System_Object_
+  commentId: M:VSTS.Net.Models.Identity.IdentityReference.Equals(System.Object)
+  fullName: VSTS.Net.Models.Identity.IdentityReference.Equals(System.Object)
+  nameWithType: IdentityReference.Equals(Object)
+- uid: VSTS.Net.Models.Identity.IdentityReference.Equals(VSTS.Net.Models.Identity.IdentityReference)
+  name: Equals(IdentityReference)
+  href: api/VSTS.Net.Models.Identity.IdentityReference.html#VSTS_Net_Models_Identity_IdentityReference_Equals_VSTS_Net_Models_Identity_IdentityReference_
+  commentId: M:VSTS.Net.Models.Identity.IdentityReference.Equals(VSTS.Net.Models.Identity.IdentityReference)
+  fullName: VSTS.Net.Models.Identity.IdentityReference.Equals(VSTS.Net.Models.Identity.IdentityReference)
+  nameWithType: IdentityReference.Equals(IdentityReference)
+- uid: VSTS.Net.Models.Identity.IdentityReference.Equals*
+  name: Equals
+  href: api/VSTS.Net.Models.Identity.IdentityReference.html#VSTS_Net_Models_Identity_IdentityReference_Equals_
+  commentId: Overload:VSTS.Net.Models.Identity.IdentityReference.Equals
+  isSpec: "True"
+  fullName: VSTS.Net.Models.Identity.IdentityReference.Equals
+  nameWithType: IdentityReference.Equals
+- uid: VSTS.Net.Models.Identity.IdentityReference.GetHashCode
+  name: GetHashCode()
+  href: api/VSTS.Net.Models.Identity.IdentityReference.html#VSTS_Net_Models_Identity_IdentityReference_GetHashCode
+  commentId: M:VSTS.Net.Models.Identity.IdentityReference.GetHashCode
+  fullName: VSTS.Net.Models.Identity.IdentityReference.GetHashCode()
+  nameWithType: IdentityReference.GetHashCode()
+- uid: VSTS.Net.Models.Identity.IdentityReference.GetHashCode*
+  name: GetHashCode
+  href: api/VSTS.Net.Models.Identity.IdentityReference.html#VSTS_Net_Models_Identity_IdentityReference_GetHashCode_
+  commentId: Overload:VSTS.Net.Models.Identity.IdentityReference.GetHashCode
+  isSpec: "True"
+  fullName: VSTS.Net.Models.Identity.IdentityReference.GetHashCode
+  nameWithType: IdentityReference.GetHashCode
 - uid: VSTS.Net.Models.Identity.IdentityReference.Id
   name: Id
   href: api/VSTS.Net.Models.Identity.IdentityReference.html#VSTS_Net_Models_Identity_IdentityReference_Id
@@ -354,6 +743,19 @@ references:
   isSpec: "True"
   fullName: VSTS.Net.Models.Identity.IdentityReference.ImageUrl
   nameWithType: IdentityReference.ImageUrl
+- uid: VSTS.Net.Models.Identity.IdentityReference.IsContainer
+  name: IsContainer
+  href: api/VSTS.Net.Models.Identity.IdentityReference.html#VSTS_Net_Models_Identity_IdentityReference_IsContainer
+  commentId: P:VSTS.Net.Models.Identity.IdentityReference.IsContainer
+  fullName: VSTS.Net.Models.Identity.IdentityReference.IsContainer
+  nameWithType: IdentityReference.IsContainer
+- uid: VSTS.Net.Models.Identity.IdentityReference.IsContainer*
+  name: IsContainer
+  href: api/VSTS.Net.Models.Identity.IdentityReference.html#VSTS_Net_Models_Identity_IdentityReference_IsContainer_
+  commentId: Overload:VSTS.Net.Models.Identity.IdentityReference.IsContainer
+  isSpec: "True"
+  fullName: VSTS.Net.Models.Identity.IdentityReference.IsContainer
+  nameWithType: IdentityReference.IsContainer
 - uid: VSTS.Net.Models.Identity.IdentityReference.Name
   name: Name
   href: api/VSTS.Net.Models.Identity.IdentityReference.html#VSTS_Net_Models_Identity_IdentityReference_Name
@@ -399,19 +801,6 @@ references:
   commentId: T:VSTS.Net.Models.Identity.IdentityReferenceWithVote
   fullName: VSTS.Net.Models.Identity.IdentityReferenceWithVote
   nameWithType: IdentityReferenceWithVote
-- uid: VSTS.Net.Models.Identity.IdentityReferenceWithVote.IsContainer
-  name: IsContainer
-  href: api/VSTS.Net.Models.Identity.IdentityReferenceWithVote.html#VSTS_Net_Models_Identity_IdentityReferenceWithVote_IsContainer
-  commentId: P:VSTS.Net.Models.Identity.IdentityReferenceWithVote.IsContainer
-  fullName: VSTS.Net.Models.Identity.IdentityReferenceWithVote.IsContainer
-  nameWithType: IdentityReferenceWithVote.IsContainer
-- uid: VSTS.Net.Models.Identity.IdentityReferenceWithVote.IsContainer*
-  name: IsContainer
-  href: api/VSTS.Net.Models.Identity.IdentityReferenceWithVote.html#VSTS_Net_Models_Identity_IdentityReferenceWithVote_IsContainer_
-  commentId: Overload:VSTS.Net.Models.Identity.IdentityReferenceWithVote.IsContainer
-  isSpec: "True"
-  fullName: VSTS.Net.Models.Identity.IdentityReferenceWithVote.IsContainer
-  nameWithType: IdentityReferenceWithVote.IsContainer
 - uid: VSTS.Net.Models.Identity.IdentityReferenceWithVote.IsRequired
   name: IsRequired
   href: api/VSTS.Net.Models.Identity.IdentityReferenceWithVote.html#VSTS_Net_Models_Identity_IdentityReferenceWithVote_IsRequired
@@ -515,6 +904,38 @@ references:
   isSpec: "True"
   fullName: VSTS.Net.Models.PullRequests.PullRequest.Description
   nameWithType: PullRequest.Description
+- uid: VSTS.Net.Models.PullRequests.PullRequest.Equals(System.Object)
+  name: Equals(Object)
+  href: api/VSTS.Net.Models.PullRequests.PullRequest.html#VSTS_Net_Models_PullRequests_PullRequest_Equals_System_Object_
+  commentId: M:VSTS.Net.Models.PullRequests.PullRequest.Equals(System.Object)
+  fullName: VSTS.Net.Models.PullRequests.PullRequest.Equals(System.Object)
+  nameWithType: PullRequest.Equals(Object)
+- uid: VSTS.Net.Models.PullRequests.PullRequest.Equals(VSTS.Net.Models.PullRequests.PullRequest)
+  name: Equals(PullRequest)
+  href: api/VSTS.Net.Models.PullRequests.PullRequest.html#VSTS_Net_Models_PullRequests_PullRequest_Equals_VSTS_Net_Models_PullRequests_PullRequest_
+  commentId: M:VSTS.Net.Models.PullRequests.PullRequest.Equals(VSTS.Net.Models.PullRequests.PullRequest)
+  fullName: VSTS.Net.Models.PullRequests.PullRequest.Equals(VSTS.Net.Models.PullRequests.PullRequest)
+  nameWithType: PullRequest.Equals(PullRequest)
+- uid: VSTS.Net.Models.PullRequests.PullRequest.Equals*
+  name: Equals
+  href: api/VSTS.Net.Models.PullRequests.PullRequest.html#VSTS_Net_Models_PullRequests_PullRequest_Equals_
+  commentId: Overload:VSTS.Net.Models.PullRequests.PullRequest.Equals
+  isSpec: "True"
+  fullName: VSTS.Net.Models.PullRequests.PullRequest.Equals
+  nameWithType: PullRequest.Equals
+- uid: VSTS.Net.Models.PullRequests.PullRequest.GetHashCode
+  name: GetHashCode()
+  href: api/VSTS.Net.Models.PullRequests.PullRequest.html#VSTS_Net_Models_PullRequests_PullRequest_GetHashCode
+  commentId: M:VSTS.Net.Models.PullRequests.PullRequest.GetHashCode
+  fullName: VSTS.Net.Models.PullRequests.PullRequest.GetHashCode()
+  nameWithType: PullRequest.GetHashCode()
+- uid: VSTS.Net.Models.PullRequests.PullRequest.GetHashCode*
+  name: GetHashCode
+  href: api/VSTS.Net.Models.PullRequests.PullRequest.html#VSTS_Net_Models_PullRequests_PullRequest_GetHashCode_
+  commentId: Overload:VSTS.Net.Models.PullRequests.PullRequest.GetHashCode
+  isSpec: "True"
+  fullName: VSTS.Net.Models.PullRequests.PullRequest.GetHashCode
+  nameWithType: PullRequest.GetHashCode
 - uid: VSTS.Net.Models.PullRequests.PullRequest.MergeId
   name: MergeId
   href: api/VSTS.Net.Models.PullRequests.PullRequest.html#VSTS_Net_Models_PullRequests_PullRequest_MergeId
@@ -1013,6 +1434,144 @@ references:
   isSpec: "True"
   fullName: VSTS.Net.Models.Request.PullRequestQuery.Status
   nameWithType: PullRequestQuery.Status
+- uid: VSTS.Net.Models.Request.UpdateWorkitemRequest
+  name: UpdateWorkitemRequest
+  href: api/VSTS.Net.Models.Request.UpdateWorkitemRequest.html
+  commentId: T:VSTS.Net.Models.Request.UpdateWorkitemRequest
+  fullName: VSTS.Net.Models.Request.UpdateWorkitemRequest
+  nameWithType: UpdateWorkitemRequest
+- uid: VSTS.Net.Models.Request.UpdateWorkitemRequest.#ctor(System.Nullable{System.Int32})
+  name: UpdateWorkitemRequest(Nullable<Int32>)
+  href: api/VSTS.Net.Models.Request.UpdateWorkitemRequest.html#VSTS_Net_Models_Request_UpdateWorkitemRequest__ctor_System_Nullable_System_Int32__
+  commentId: M:VSTS.Net.Models.Request.UpdateWorkitemRequest.#ctor(System.Nullable{System.Int32})
+  name.vb: UpdateWorkitemRequest(Nullable(Of Int32))
+  fullName: VSTS.Net.Models.Request.UpdateWorkitemRequest.UpdateWorkitemRequest(System.Nullable<System.Int32>)
+  fullName.vb: VSTS.Net.Models.Request.UpdateWorkitemRequest.UpdateWorkitemRequest(System.Nullable(Of System.Int32))
+  nameWithType: UpdateWorkitemRequest.UpdateWorkitemRequest(Nullable<Int32>)
+  nameWithType.vb: UpdateWorkitemRequest.UpdateWorkitemRequest(Nullable(Of Int32))
+- uid: VSTS.Net.Models.Request.UpdateWorkitemRequest.#ctor*
+  name: UpdateWorkitemRequest
+  href: api/VSTS.Net.Models.Request.UpdateWorkitemRequest.html#VSTS_Net_Models_Request_UpdateWorkitemRequest__ctor_
+  commentId: Overload:VSTS.Net.Models.Request.UpdateWorkitemRequest.#ctor
+  isSpec: "True"
+  fullName: VSTS.Net.Models.Request.UpdateWorkitemRequest.UpdateWorkitemRequest
+  nameWithType: UpdateWorkitemRequest.UpdateWorkitemRequest
+- uid: VSTS.Net.Models.Request.UpdateWorkitemRequest.AddFieldValue(System.String,System.String)
+  name: AddFieldValue(String, String)
+  href: api/VSTS.Net.Models.Request.UpdateWorkitemRequest.html#VSTS_Net_Models_Request_UpdateWorkitemRequest_AddFieldValue_System_String_System_String_
+  commentId: M:VSTS.Net.Models.Request.UpdateWorkitemRequest.AddFieldValue(System.String,System.String)
+  fullName: VSTS.Net.Models.Request.UpdateWorkitemRequest.AddFieldValue(System.String, System.String)
+  nameWithType: UpdateWorkitemRequest.AddFieldValue(String, String)
+- uid: VSTS.Net.Models.Request.UpdateWorkitemRequest.AddFieldValue*
+  name: AddFieldValue
+  href: api/VSTS.Net.Models.Request.UpdateWorkitemRequest.html#VSTS_Net_Models_Request_UpdateWorkitemRequest_AddFieldValue_
+  commentId: Overload:VSTS.Net.Models.Request.UpdateWorkitemRequest.AddFieldValue
+  isSpec: "True"
+  fullName: VSTS.Net.Models.Request.UpdateWorkitemRequest.AddFieldValue
+  nameWithType: UpdateWorkitemRequest.AddFieldValue
+- uid: VSTS.Net.Models.Request.UpdateWorkitemRequest.Id
+  name: Id
+  href: api/VSTS.Net.Models.Request.UpdateWorkitemRequest.html#VSTS_Net_Models_Request_UpdateWorkitemRequest_Id
+  commentId: P:VSTS.Net.Models.Request.UpdateWorkitemRequest.Id
+  fullName: VSTS.Net.Models.Request.UpdateWorkitemRequest.Id
+  nameWithType: UpdateWorkitemRequest.Id
+- uid: VSTS.Net.Models.Request.UpdateWorkitemRequest.Id*
+  name: Id
+  href: api/VSTS.Net.Models.Request.UpdateWorkitemRequest.html#VSTS_Net_Models_Request_UpdateWorkitemRequest_Id_
+  commentId: Overload:VSTS.Net.Models.Request.UpdateWorkitemRequest.Id
+  isSpec: "True"
+  fullName: VSTS.Net.Models.Request.UpdateWorkitemRequest.Id
+  nameWithType: UpdateWorkitemRequest.Id
+- uid: VSTS.Net.Models.Request.UpdateWorkitemRequest.OperationAdd
+  name: OperationAdd
+  href: api/VSTS.Net.Models.Request.UpdateWorkitemRequest.html#VSTS_Net_Models_Request_UpdateWorkitemRequest_OperationAdd
+  commentId: F:VSTS.Net.Models.Request.UpdateWorkitemRequest.OperationAdd
+  fullName: VSTS.Net.Models.Request.UpdateWorkitemRequest.OperationAdd
+  nameWithType: UpdateWorkitemRequest.OperationAdd
+- uid: VSTS.Net.Models.Request.UpdateWorkitemRequest.Update
+  name: UpdateWorkitemRequest.Update
+  href: api/VSTS.Net.Models.Request.UpdateWorkitemRequest.Update.html
+  commentId: T:VSTS.Net.Models.Request.UpdateWorkitemRequest.Update
+  fullName: VSTS.Net.Models.Request.UpdateWorkitemRequest.Update
+  nameWithType: UpdateWorkitemRequest.Update
+- uid: VSTS.Net.Models.Request.UpdateWorkitemRequest.Update.#ctor(System.String,System.String,System.String)
+  name: Update(String, String, String)
+  href: api/VSTS.Net.Models.Request.UpdateWorkitemRequest.Update.html#VSTS_Net_Models_Request_UpdateWorkitemRequest_Update__ctor_System_String_System_String_System_String_
+  commentId: M:VSTS.Net.Models.Request.UpdateWorkitemRequest.Update.#ctor(System.String,System.String,System.String)
+  fullName: VSTS.Net.Models.Request.UpdateWorkitemRequest.Update.Update(System.String, System.String, System.String)
+  nameWithType: UpdateWorkitemRequest.Update.Update(String, String, String)
+- uid: VSTS.Net.Models.Request.UpdateWorkitemRequest.Update.#ctor*
+  name: Update
+  href: api/VSTS.Net.Models.Request.UpdateWorkitemRequest.Update.html#VSTS_Net_Models_Request_UpdateWorkitemRequest_Update__ctor_
+  commentId: Overload:VSTS.Net.Models.Request.UpdateWorkitemRequest.Update.#ctor
+  isSpec: "True"
+  fullName: VSTS.Net.Models.Request.UpdateWorkitemRequest.Update.Update
+  nameWithType: UpdateWorkitemRequest.Update.Update
+- uid: VSTS.Net.Models.Request.UpdateWorkitemRequest.Update.From
+  name: From
+  href: api/VSTS.Net.Models.Request.UpdateWorkitemRequest.Update.html#VSTS_Net_Models_Request_UpdateWorkitemRequest_Update_From
+  commentId: P:VSTS.Net.Models.Request.UpdateWorkitemRequest.Update.From
+  fullName: VSTS.Net.Models.Request.UpdateWorkitemRequest.Update.From
+  nameWithType: UpdateWorkitemRequest.Update.From
+- uid: VSTS.Net.Models.Request.UpdateWorkitemRequest.Update.From*
+  name: From
+  href: api/VSTS.Net.Models.Request.UpdateWorkitemRequest.Update.html#VSTS_Net_Models_Request_UpdateWorkitemRequest_Update_From_
+  commentId: Overload:VSTS.Net.Models.Request.UpdateWorkitemRequest.Update.From
+  isSpec: "True"
+  fullName: VSTS.Net.Models.Request.UpdateWorkitemRequest.Update.From
+  nameWithType: UpdateWorkitemRequest.Update.From
+- uid: VSTS.Net.Models.Request.UpdateWorkitemRequest.Update.Operation
+  name: Operation
+  href: api/VSTS.Net.Models.Request.UpdateWorkitemRequest.Update.html#VSTS_Net_Models_Request_UpdateWorkitemRequest_Update_Operation
+  commentId: P:VSTS.Net.Models.Request.UpdateWorkitemRequest.Update.Operation
+  fullName: VSTS.Net.Models.Request.UpdateWorkitemRequest.Update.Operation
+  nameWithType: UpdateWorkitemRequest.Update.Operation
+- uid: VSTS.Net.Models.Request.UpdateWorkitemRequest.Update.Operation*
+  name: Operation
+  href: api/VSTS.Net.Models.Request.UpdateWorkitemRequest.Update.html#VSTS_Net_Models_Request_UpdateWorkitemRequest_Update_Operation_
+  commentId: Overload:VSTS.Net.Models.Request.UpdateWorkitemRequest.Update.Operation
+  isSpec: "True"
+  fullName: VSTS.Net.Models.Request.UpdateWorkitemRequest.Update.Operation
+  nameWithType: UpdateWorkitemRequest.Update.Operation
+- uid: VSTS.Net.Models.Request.UpdateWorkitemRequest.Update.Path
+  name: Path
+  href: api/VSTS.Net.Models.Request.UpdateWorkitemRequest.Update.html#VSTS_Net_Models_Request_UpdateWorkitemRequest_Update_Path
+  commentId: P:VSTS.Net.Models.Request.UpdateWorkitemRequest.Update.Path
+  fullName: VSTS.Net.Models.Request.UpdateWorkitemRequest.Update.Path
+  nameWithType: UpdateWorkitemRequest.Update.Path
+- uid: VSTS.Net.Models.Request.UpdateWorkitemRequest.Update.Path*
+  name: Path
+  href: api/VSTS.Net.Models.Request.UpdateWorkitemRequest.Update.html#VSTS_Net_Models_Request_UpdateWorkitemRequest_Update_Path_
+  commentId: Overload:VSTS.Net.Models.Request.UpdateWorkitemRequest.Update.Path
+  isSpec: "True"
+  fullName: VSTS.Net.Models.Request.UpdateWorkitemRequest.Update.Path
+  nameWithType: UpdateWorkitemRequest.Update.Path
+- uid: VSTS.Net.Models.Request.UpdateWorkitemRequest.Update.Value
+  name: Value
+  href: api/VSTS.Net.Models.Request.UpdateWorkitemRequest.Update.html#VSTS_Net_Models_Request_UpdateWorkitemRequest_Update_Value
+  commentId: P:VSTS.Net.Models.Request.UpdateWorkitemRequest.Update.Value
+  fullName: VSTS.Net.Models.Request.UpdateWorkitemRequest.Update.Value
+  nameWithType: UpdateWorkitemRequest.Update.Value
+- uid: VSTS.Net.Models.Request.UpdateWorkitemRequest.Update.Value*
+  name: Value
+  href: api/VSTS.Net.Models.Request.UpdateWorkitemRequest.Update.html#VSTS_Net_Models_Request_UpdateWorkitemRequest_Update_Value_
+  commentId: Overload:VSTS.Net.Models.Request.UpdateWorkitemRequest.Update.Value
+  isSpec: "True"
+  fullName: VSTS.Net.Models.Request.UpdateWorkitemRequest.Update.Value
+  nameWithType: UpdateWorkitemRequest.Update.Value
+- uid: VSTS.Net.Models.Request.UpdateWorkitemRequest.Updates
+  name: Updates
+  href: api/VSTS.Net.Models.Request.UpdateWorkitemRequest.html#VSTS_Net_Models_Request_UpdateWorkitemRequest_Updates
+  commentId: P:VSTS.Net.Models.Request.UpdateWorkitemRequest.Updates
+  fullName: VSTS.Net.Models.Request.UpdateWorkitemRequest.Updates
+  nameWithType: UpdateWorkitemRequest.Updates
+- uid: VSTS.Net.Models.Request.UpdateWorkitemRequest.Updates*
+  name: Updates
+  href: api/VSTS.Net.Models.Request.UpdateWorkitemRequest.html#VSTS_Net_Models_Request_UpdateWorkitemRequest_Updates_
+  commentId: Overload:VSTS.Net.Models.Request.UpdateWorkitemRequest.Updates
+  isSpec: "True"
+  fullName: VSTS.Net.Models.Request.UpdateWorkitemRequest.Updates
+  nameWithType: UpdateWorkitemRequest.Updates
 - uid: VSTS.Net.Models.Request.WorkItemsQuery
   name: WorkItemsQuery
   href: api/VSTS.Net.Models.Request.WorkItemsQuery.html
@@ -1032,6 +1591,19 @@ references:
   isSpec: "True"
   fullName: VSTS.Net.Models.Request.WorkItemsQuery.WorkItemsQuery
   nameWithType: WorkItemsQuery.WorkItemsQuery
+- uid: VSTS.Net.Models.Request.WorkItemsQuery.Get(System.String,System.Boolean)
+  name: Get(String, Boolean)
+  href: api/VSTS.Net.Models.Request.WorkItemsQuery.html#VSTS_Net_Models_Request_WorkItemsQuery_Get_System_String_System_Boolean_
+  commentId: M:VSTS.Net.Models.Request.WorkItemsQuery.Get(System.String,System.Boolean)
+  fullName: VSTS.Net.Models.Request.WorkItemsQuery.Get(System.String, System.Boolean)
+  nameWithType: WorkItemsQuery.Get(String, Boolean)
+- uid: VSTS.Net.Models.Request.WorkItemsQuery.Get*
+  name: Get
+  href: api/VSTS.Net.Models.Request.WorkItemsQuery.html#VSTS_Net_Models_Request_WorkItemsQuery_Get_
+  commentId: Overload:VSTS.Net.Models.Request.WorkItemsQuery.Get
+  isSpec: "True"
+  fullName: VSTS.Net.Models.Request.WorkItemsQuery.Get
+  nameWithType: WorkItemsQuery.Get
 - uid: VSTS.Net.Models.Request.WorkItemsQuery.IsHierarchical
   name: IsHierarchical
   href: api/VSTS.Net.Models.Request.WorkItemsQuery.html#VSTS_Net_Models_Request_WorkItemsQuery_IsHierarchical
@@ -1165,6 +1737,38 @@ references:
   isSpec: "True"
   fullName: VSTS.Net.Models.Response.ColumnReference.Url
   nameWithType: ColumnReference.Url
+- uid: VSTS.Net.Models.Response.OperationReference
+  name: OperationReference
+  href: api/VSTS.Net.Models.Response.OperationReference.html
+  commentId: T:VSTS.Net.Models.Response.OperationReference
+  fullName: VSTS.Net.Models.Response.OperationReference
+  nameWithType: OperationReference
+- uid: VSTS.Net.Models.Response.OperationReference.Name
+  name: Name
+  href: api/VSTS.Net.Models.Response.OperationReference.html#VSTS_Net_Models_Response_OperationReference_Name
+  commentId: P:VSTS.Net.Models.Response.OperationReference.Name
+  fullName: VSTS.Net.Models.Response.OperationReference.Name
+  nameWithType: OperationReference.Name
+- uid: VSTS.Net.Models.Response.OperationReference.Name*
+  name: Name
+  href: api/VSTS.Net.Models.Response.OperationReference.html#VSTS_Net_Models_Response_OperationReference_Name_
+  commentId: Overload:VSTS.Net.Models.Response.OperationReference.Name
+  isSpec: "True"
+  fullName: VSTS.Net.Models.Response.OperationReference.Name
+  nameWithType: OperationReference.Name
+- uid: VSTS.Net.Models.Response.OperationReference.ReferenceName
+  name: ReferenceName
+  href: api/VSTS.Net.Models.Response.OperationReference.html#VSTS_Net_Models_Response_OperationReference_ReferenceName
+  commentId: P:VSTS.Net.Models.Response.OperationReference.ReferenceName
+  fullName: VSTS.Net.Models.Response.OperationReference.ReferenceName
+  nameWithType: OperationReference.ReferenceName
+- uid: VSTS.Net.Models.Response.OperationReference.ReferenceName*
+  name: ReferenceName
+  href: api/VSTS.Net.Models.Response.OperationReference.html#VSTS_Net_Models_Response_OperationReference_ReferenceName_
+  commentId: Overload:VSTS.Net.Models.Response.OperationReference.ReferenceName
+  isSpec: "True"
+  fullName: VSTS.Net.Models.Response.OperationReference.ReferenceName
+  nameWithType: OperationReference.ReferenceName
 - uid: VSTS.Net.Models.Response.SortColumn
   name: SortColumn
   href: api/VSTS.Net.Models.Response.SortColumn.html
@@ -1197,6 +1801,64 @@ references:
   isSpec: "True"
   fullName: VSTS.Net.Models.Response.SortColumn.Field
   nameWithType: SortColumn.Field
+- uid: VSTS.Net.Models.Response.WorkItemDeleteResponse
+  name: WorkItemDeleteResponse
+  href: api/VSTS.Net.Models.Response.WorkItemDeleteResponse.html
+  commentId: T:VSTS.Net.Models.Response.WorkItemDeleteResponse
+  fullName: VSTS.Net.Models.Response.WorkItemDeleteResponse
+  nameWithType: WorkItemDeleteResponse
+- uid: VSTS.Net.Models.Response.WorkItemDeleteResponse.Code
+  name: Code
+  href: api/VSTS.Net.Models.Response.WorkItemDeleteResponse.html#VSTS_Net_Models_Response_WorkItemDeleteResponse_Code
+  commentId: P:VSTS.Net.Models.Response.WorkItemDeleteResponse.Code
+  fullName: VSTS.Net.Models.Response.WorkItemDeleteResponse.Code
+  nameWithType: WorkItemDeleteResponse.Code
+- uid: VSTS.Net.Models.Response.WorkItemDeleteResponse.Code*
+  name: Code
+  href: api/VSTS.Net.Models.Response.WorkItemDeleteResponse.html#VSTS_Net_Models_Response_WorkItemDeleteResponse_Code_
+  commentId: Overload:VSTS.Net.Models.Response.WorkItemDeleteResponse.Code
+  isSpec: "True"
+  fullName: VSTS.Net.Models.Response.WorkItemDeleteResponse.Code
+  nameWithType: WorkItemDeleteResponse.Code
+- uid: VSTS.Net.Models.Response.WorkItemDeleteResponse.DeletedBy
+  name: DeletedBy
+  href: api/VSTS.Net.Models.Response.WorkItemDeleteResponse.html#VSTS_Net_Models_Response_WorkItemDeleteResponse_DeletedBy
+  commentId: P:VSTS.Net.Models.Response.WorkItemDeleteResponse.DeletedBy
+  fullName: VSTS.Net.Models.Response.WorkItemDeleteResponse.DeletedBy
+  nameWithType: WorkItemDeleteResponse.DeletedBy
+- uid: VSTS.Net.Models.Response.WorkItemDeleteResponse.DeletedBy*
+  name: DeletedBy
+  href: api/VSTS.Net.Models.Response.WorkItemDeleteResponse.html#VSTS_Net_Models_Response_WorkItemDeleteResponse_DeletedBy_
+  commentId: Overload:VSTS.Net.Models.Response.WorkItemDeleteResponse.DeletedBy
+  isSpec: "True"
+  fullName: VSTS.Net.Models.Response.WorkItemDeleteResponse.DeletedBy
+  nameWithType: WorkItemDeleteResponse.DeletedBy
+- uid: VSTS.Net.Models.Response.WorkItemDeleteResponse.DeletedDate
+  name: DeletedDate
+  href: api/VSTS.Net.Models.Response.WorkItemDeleteResponse.html#VSTS_Net_Models_Response_WorkItemDeleteResponse_DeletedDate
+  commentId: P:VSTS.Net.Models.Response.WorkItemDeleteResponse.DeletedDate
+  fullName: VSTS.Net.Models.Response.WorkItemDeleteResponse.DeletedDate
+  nameWithType: WorkItemDeleteResponse.DeletedDate
+- uid: VSTS.Net.Models.Response.WorkItemDeleteResponse.DeletedDate*
+  name: DeletedDate
+  href: api/VSTS.Net.Models.Response.WorkItemDeleteResponse.html#VSTS_Net_Models_Response_WorkItemDeleteResponse_DeletedDate_
+  commentId: Overload:VSTS.Net.Models.Response.WorkItemDeleteResponse.DeletedDate
+  isSpec: "True"
+  fullName: VSTS.Net.Models.Response.WorkItemDeleteResponse.DeletedDate
+  nameWithType: WorkItemDeleteResponse.DeletedDate
+- uid: VSTS.Net.Models.Response.WorkItemDeleteResponse.Id
+  name: Id
+  href: api/VSTS.Net.Models.Response.WorkItemDeleteResponse.html#VSTS_Net_Models_Response_WorkItemDeleteResponse_Id
+  commentId: P:VSTS.Net.Models.Response.WorkItemDeleteResponse.Id
+  fullName: VSTS.Net.Models.Response.WorkItemDeleteResponse.Id
+  nameWithType: WorkItemDeleteResponse.Id
+- uid: VSTS.Net.Models.Response.WorkItemDeleteResponse.Id*
+  name: Id
+  href: api/VSTS.Net.Models.Response.WorkItemDeleteResponse.html#VSTS_Net_Models_Response_WorkItemDeleteResponse_Id_
+  commentId: Overload:VSTS.Net.Models.Response.WorkItemDeleteResponse.Id
+  isSpec: "True"
+  fullName: VSTS.Net.Models.Response.WorkItemDeleteResponse.Id
+  nameWithType: WorkItemDeleteResponse.Id
 - uid: VSTS.Net.Models.WorkItems
   name: VSTS.Net.Models.WorkItems
   href: api/VSTS.Net.Models.WorkItems.html
@@ -1247,6 +1909,25 @@ references:
   commentId: T:VSTS.Net.Models.WorkItems.WorkItem
   fullName: VSTS.Net.Models.WorkItems.WorkItem
   nameWithType: WorkItem
+- uid: VSTS.Net.Models.WorkItems.WorkItem.Equals(System.Object)
+  name: Equals(Object)
+  href: api/VSTS.Net.Models.WorkItems.WorkItem.html#VSTS_Net_Models_WorkItems_WorkItem_Equals_System_Object_
+  commentId: M:VSTS.Net.Models.WorkItems.WorkItem.Equals(System.Object)
+  fullName: VSTS.Net.Models.WorkItems.WorkItem.Equals(System.Object)
+  nameWithType: WorkItem.Equals(Object)
+- uid: VSTS.Net.Models.WorkItems.WorkItem.Equals(VSTS.Net.Models.WorkItems.WorkItem)
+  name: Equals(WorkItem)
+  href: api/VSTS.Net.Models.WorkItems.WorkItem.html#VSTS_Net_Models_WorkItems_WorkItem_Equals_VSTS_Net_Models_WorkItems_WorkItem_
+  commentId: M:VSTS.Net.Models.WorkItems.WorkItem.Equals(VSTS.Net.Models.WorkItems.WorkItem)
+  fullName: VSTS.Net.Models.WorkItems.WorkItem.Equals(VSTS.Net.Models.WorkItems.WorkItem)
+  nameWithType: WorkItem.Equals(WorkItem)
+- uid: VSTS.Net.Models.WorkItems.WorkItem.Equals*
+  name: Equals
+  href: api/VSTS.Net.Models.WorkItems.WorkItem.html#VSTS_Net_Models_WorkItems_WorkItem_Equals_
+  commentId: Overload:VSTS.Net.Models.WorkItems.WorkItem.Equals
+  isSpec: "True"
+  fullName: VSTS.Net.Models.WorkItems.WorkItem.Equals
+  nameWithType: WorkItem.Equals
 - uid: VSTS.Net.Models.WorkItems.WorkItem.Fields
   name: Fields
   href: api/VSTS.Net.Models.WorkItems.WorkItem.html#VSTS_Net_Models_WorkItems_WorkItem_Fields
@@ -1260,6 +1941,19 @@ references:
   isSpec: "True"
   fullName: VSTS.Net.Models.WorkItems.WorkItem.Fields
   nameWithType: WorkItem.Fields
+- uid: VSTS.Net.Models.WorkItems.WorkItem.GetHashCode
+  name: GetHashCode()
+  href: api/VSTS.Net.Models.WorkItems.WorkItem.html#VSTS_Net_Models_WorkItems_WorkItem_GetHashCode
+  commentId: M:VSTS.Net.Models.WorkItems.WorkItem.GetHashCode
+  fullName: VSTS.Net.Models.WorkItems.WorkItem.GetHashCode()
+  nameWithType: WorkItem.GetHashCode()
+- uid: VSTS.Net.Models.WorkItems.WorkItem.GetHashCode*
+  name: GetHashCode
+  href: api/VSTS.Net.Models.WorkItems.WorkItem.html#VSTS_Net_Models_WorkItems_WorkItem_GetHashCode_
+  commentId: Overload:VSTS.Net.Models.WorkItems.WorkItem.GetHashCode
+  isSpec: "True"
+  fullName: VSTS.Net.Models.WorkItems.WorkItem.GetHashCode
+  nameWithType: WorkItem.GetHashCode
 - uid: VSTS.Net.Models.WorkItems.WorkItem.Id
   name: Id
   href: api/VSTS.Net.Models.WorkItems.WorkItem.html#VSTS_Net_Models_WorkItems_WorkItem_Id
@@ -1318,6 +2012,45 @@ references:
   commentId: T:VSTS.Net.Models.WorkItems.WorkItemFieldUpdate
   fullName: VSTS.Net.Models.WorkItems.WorkItemFieldUpdate
   nameWithType: WorkItemFieldUpdate
+- uid: VSTS.Net.Models.WorkItems.WorkItemFieldUpdate.IsEmpty
+  name: IsEmpty()
+  href: api/VSTS.Net.Models.WorkItems.WorkItemFieldUpdate.html#VSTS_Net_Models_WorkItems_WorkItemFieldUpdate_IsEmpty
+  commentId: M:VSTS.Net.Models.WorkItems.WorkItemFieldUpdate.IsEmpty
+  fullName: VSTS.Net.Models.WorkItems.WorkItemFieldUpdate.IsEmpty()
+  nameWithType: WorkItemFieldUpdate.IsEmpty()
+- uid: VSTS.Net.Models.WorkItems.WorkItemFieldUpdate.IsEmpty*
+  name: IsEmpty
+  href: api/VSTS.Net.Models.WorkItems.WorkItemFieldUpdate.html#VSTS_Net_Models_WorkItems_WorkItemFieldUpdate_IsEmpty_
+  commentId: Overload:VSTS.Net.Models.WorkItems.WorkItemFieldUpdate.IsEmpty
+  isSpec: "True"
+  fullName: VSTS.Net.Models.WorkItems.WorkItemFieldUpdate.IsEmpty
+  nameWithType: WorkItemFieldUpdate.IsEmpty
+- uid: VSTS.Net.Models.WorkItems.WorkItemFieldUpdate.IsValueChanged
+  name: IsValueChanged()
+  href: api/VSTS.Net.Models.WorkItems.WorkItemFieldUpdate.html#VSTS_Net_Models_WorkItems_WorkItemFieldUpdate_IsValueChanged
+  commentId: M:VSTS.Net.Models.WorkItems.WorkItemFieldUpdate.IsValueChanged
+  fullName: VSTS.Net.Models.WorkItems.WorkItemFieldUpdate.IsValueChanged()
+  nameWithType: WorkItemFieldUpdate.IsValueChanged()
+- uid: VSTS.Net.Models.WorkItems.WorkItemFieldUpdate.IsValueChanged*
+  name: IsValueChanged
+  href: api/VSTS.Net.Models.WorkItems.WorkItemFieldUpdate.html#VSTS_Net_Models_WorkItems_WorkItemFieldUpdate_IsValueChanged_
+  commentId: Overload:VSTS.Net.Models.WorkItems.WorkItemFieldUpdate.IsValueChanged
+  isSpec: "True"
+  fullName: VSTS.Net.Models.WorkItems.WorkItemFieldUpdate.IsValueChanged
+  nameWithType: WorkItemFieldUpdate.IsValueChanged
+- uid: VSTS.Net.Models.WorkItems.WorkItemFieldUpdate.IsValueCleared
+  name: IsValueCleared()
+  href: api/VSTS.Net.Models.WorkItems.WorkItemFieldUpdate.html#VSTS_Net_Models_WorkItems_WorkItemFieldUpdate_IsValueCleared
+  commentId: M:VSTS.Net.Models.WorkItems.WorkItemFieldUpdate.IsValueCleared
+  fullName: VSTS.Net.Models.WorkItems.WorkItemFieldUpdate.IsValueCleared()
+  nameWithType: WorkItemFieldUpdate.IsValueCleared()
+- uid: VSTS.Net.Models.WorkItems.WorkItemFieldUpdate.IsValueCleared*
+  name: IsValueCleared
+  href: api/VSTS.Net.Models.WorkItems.WorkItemFieldUpdate.html#VSTS_Net_Models_WorkItems_WorkItemFieldUpdate_IsValueCleared_
+  commentId: Overload:VSTS.Net.Models.WorkItems.WorkItemFieldUpdate.IsValueCleared
+  isSpec: "True"
+  fullName: VSTS.Net.Models.WorkItems.WorkItemFieldUpdate.IsValueCleared
+  nameWithType: WorkItemFieldUpdate.IsValueCleared
 - uid: VSTS.Net.Models.WorkItems.WorkItemFieldUpdate.NewValue
   name: NewValue
   href: api/VSTS.Net.Models.WorkItems.WorkItemFieldUpdate.html#VSTS_Net_Models_WorkItems_WorkItemFieldUpdate_NewValue
@@ -1614,6 +2347,22 @@ references:
   isSpec: "True"
   fullName: VSTS.Net.Models.WorkItems.WorkItemUpdate.Id
   nameWithType: WorkItemUpdate.Id
+- uid: VSTS.Net.Models.WorkItems.WorkItemUpdate.Item(System.String)
+  name: Item[String]
+  href: api/VSTS.Net.Models.WorkItems.WorkItemUpdate.html#VSTS_Net_Models_WorkItems_WorkItemUpdate_Item_System_String_
+  commentId: P:VSTS.Net.Models.WorkItems.WorkItemUpdate.Item(System.String)
+  name.vb: Item(String)
+  fullName: VSTS.Net.Models.WorkItems.WorkItemUpdate.Item[System.String]
+  fullName.vb: VSTS.Net.Models.WorkItems.WorkItemUpdate.Item(System.String)
+  nameWithType: WorkItemUpdate.Item[String]
+  nameWithType.vb: WorkItemUpdate.Item(String)
+- uid: VSTS.Net.Models.WorkItems.WorkItemUpdate.Item*
+  name: Item
+  href: api/VSTS.Net.Models.WorkItems.WorkItemUpdate.html#VSTS_Net_Models_WorkItems_WorkItemUpdate_Item_
+  commentId: Overload:VSTS.Net.Models.WorkItems.WorkItemUpdate.Item
+  isSpec: "True"
+  fullName: VSTS.Net.Models.WorkItems.WorkItemUpdate.Item
+  nameWithType: WorkItemUpdate.Item
 - uid: VSTS.Net.Models.WorkItems.WorkItemUpdate.RevisedBy
   name: RevisedBy
   href: api/VSTS.Net.Models.WorkItems.WorkItemUpdate.html#VSTS_Net_Models_WorkItems_WorkItemUpdate_RevisedBy
@@ -1679,6 +2428,96 @@ references:
   isSpec: "True"
   fullName: VSTS.Net.Models.WorkItems.WorkItemUpdate.WorkItemId
   nameWithType: WorkItemUpdate.WorkItemId
+- uid: VSTS.Net.Models.WorkItemsMetadata
+  name: VSTS.Net.Models.WorkItemsMetadata
+  href: api/VSTS.Net.Models.WorkItemsMetadata.html
+  commentId: N:VSTS.Net.Models.WorkItemsMetadata
+  fullName: VSTS.Net.Models.WorkItemsMetadata
+  nameWithType: VSTS.Net.Models.WorkItemsMetadata
+- uid: VSTS.Net.Models.WorkItemsMetadata.WorkItemField
+  name: WorkItemField
+  href: api/VSTS.Net.Models.WorkItemsMetadata.WorkItemField.html
+  commentId: T:VSTS.Net.Models.WorkItemsMetadata.WorkItemField
+  fullName: VSTS.Net.Models.WorkItemsMetadata.WorkItemField
+  nameWithType: WorkItemField
+- uid: VSTS.Net.Models.WorkItemsMetadata.WorkItemField.Name
+  name: Name
+  href: api/VSTS.Net.Models.WorkItemsMetadata.WorkItemField.html#VSTS_Net_Models_WorkItemsMetadata_WorkItemField_Name
+  commentId: P:VSTS.Net.Models.WorkItemsMetadata.WorkItemField.Name
+  fullName: VSTS.Net.Models.WorkItemsMetadata.WorkItemField.Name
+  nameWithType: WorkItemField.Name
+- uid: VSTS.Net.Models.WorkItemsMetadata.WorkItemField.Name*
+  name: Name
+  href: api/VSTS.Net.Models.WorkItemsMetadata.WorkItemField.html#VSTS_Net_Models_WorkItemsMetadata_WorkItemField_Name_
+  commentId: Overload:VSTS.Net.Models.WorkItemsMetadata.WorkItemField.Name
+  isSpec: "True"
+  fullName: VSTS.Net.Models.WorkItemsMetadata.WorkItemField.Name
+  nameWithType: WorkItemField.Name
+- uid: VSTS.Net.Models.WorkItemsMetadata.WorkItemField.ReadOnly
+  name: ReadOnly
+  href: api/VSTS.Net.Models.WorkItemsMetadata.WorkItemField.html#VSTS_Net_Models_WorkItemsMetadata_WorkItemField_ReadOnly
+  commentId: P:VSTS.Net.Models.WorkItemsMetadata.WorkItemField.ReadOnly
+  fullName: VSTS.Net.Models.WorkItemsMetadata.WorkItemField.ReadOnly
+  nameWithType: WorkItemField.ReadOnly
+- uid: VSTS.Net.Models.WorkItemsMetadata.WorkItemField.ReadOnly*
+  name: ReadOnly
+  href: api/VSTS.Net.Models.WorkItemsMetadata.WorkItemField.html#VSTS_Net_Models_WorkItemsMetadata_WorkItemField_ReadOnly_
+  commentId: Overload:VSTS.Net.Models.WorkItemsMetadata.WorkItemField.ReadOnly
+  isSpec: "True"
+  fullName: VSTS.Net.Models.WorkItemsMetadata.WorkItemField.ReadOnly
+  nameWithType: WorkItemField.ReadOnly
+- uid: VSTS.Net.Models.WorkItemsMetadata.WorkItemField.ReferenceName
+  name: ReferenceName
+  href: api/VSTS.Net.Models.WorkItemsMetadata.WorkItemField.html#VSTS_Net_Models_WorkItemsMetadata_WorkItemField_ReferenceName
+  commentId: P:VSTS.Net.Models.WorkItemsMetadata.WorkItemField.ReferenceName
+  fullName: VSTS.Net.Models.WorkItemsMetadata.WorkItemField.ReferenceName
+  nameWithType: WorkItemField.ReferenceName
+- uid: VSTS.Net.Models.WorkItemsMetadata.WorkItemField.ReferenceName*
+  name: ReferenceName
+  href: api/VSTS.Net.Models.WorkItemsMetadata.WorkItemField.html#VSTS_Net_Models_WorkItemsMetadata_WorkItemField_ReferenceName_
+  commentId: Overload:VSTS.Net.Models.WorkItemsMetadata.WorkItemField.ReferenceName
+  isSpec: "True"
+  fullName: VSTS.Net.Models.WorkItemsMetadata.WorkItemField.ReferenceName
+  nameWithType: WorkItemField.ReferenceName
+- uid: VSTS.Net.Models.WorkItemsMetadata.WorkItemField.SupportedOperations
+  name: SupportedOperations
+  href: api/VSTS.Net.Models.WorkItemsMetadata.WorkItemField.html#VSTS_Net_Models_WorkItemsMetadata_WorkItemField_SupportedOperations
+  commentId: P:VSTS.Net.Models.WorkItemsMetadata.WorkItemField.SupportedOperations
+  fullName: VSTS.Net.Models.WorkItemsMetadata.WorkItemField.SupportedOperations
+  nameWithType: WorkItemField.SupportedOperations
+- uid: VSTS.Net.Models.WorkItemsMetadata.WorkItemField.SupportedOperations*
+  name: SupportedOperations
+  href: api/VSTS.Net.Models.WorkItemsMetadata.WorkItemField.html#VSTS_Net_Models_WorkItemsMetadata_WorkItemField_SupportedOperations_
+  commentId: Overload:VSTS.Net.Models.WorkItemsMetadata.WorkItemField.SupportedOperations
+  isSpec: "True"
+  fullName: VSTS.Net.Models.WorkItemsMetadata.WorkItemField.SupportedOperations
+  nameWithType: WorkItemField.SupportedOperations
+- uid: VSTS.Net.Models.WorkItemsMetadata.WorkItemField.Type
+  name: Type
+  href: api/VSTS.Net.Models.WorkItemsMetadata.WorkItemField.html#VSTS_Net_Models_WorkItemsMetadata_WorkItemField_Type
+  commentId: P:VSTS.Net.Models.WorkItemsMetadata.WorkItemField.Type
+  fullName: VSTS.Net.Models.WorkItemsMetadata.WorkItemField.Type
+  nameWithType: WorkItemField.Type
+- uid: VSTS.Net.Models.WorkItemsMetadata.WorkItemField.Type*
+  name: Type
+  href: api/VSTS.Net.Models.WorkItemsMetadata.WorkItemField.html#VSTS_Net_Models_WorkItemsMetadata_WorkItemField_Type_
+  commentId: Overload:VSTS.Net.Models.WorkItemsMetadata.WorkItemField.Type
+  isSpec: "True"
+  fullName: VSTS.Net.Models.WorkItemsMetadata.WorkItemField.Type
+  nameWithType: WorkItemField.Type
+- uid: VSTS.Net.Models.WorkItemsMetadata.WorkItemField.Url
+  name: Url
+  href: api/VSTS.Net.Models.WorkItemsMetadata.WorkItemField.html#VSTS_Net_Models_WorkItemsMetadata_WorkItemField_Url
+  commentId: P:VSTS.Net.Models.WorkItemsMetadata.WorkItemField.Url
+  fullName: VSTS.Net.Models.WorkItemsMetadata.WorkItemField.Url
+  nameWithType: WorkItemField.Url
+- uid: VSTS.Net.Models.WorkItemsMetadata.WorkItemField.Url*
+  name: Url
+  href: api/VSTS.Net.Models.WorkItemsMetadata.WorkItemField.html#VSTS_Net_Models_WorkItemsMetadata_WorkItemField_Url_
+  commentId: Overload:VSTS.Net.Models.WorkItemsMetadata.WorkItemField.Url
+  isSpec: "True"
+  fullName: VSTS.Net.Models.WorkItemsMetadata.WorkItemField.Url
+  nameWithType: WorkItemField.Url
 - uid: VSTS.Net.Types
   name: VSTS.Net.Types
   href: api/VSTS.Net.Types.html
@@ -1703,12 +2542,24 @@ references:
   commentId: F:VSTS.Net.Types.Constants.CurrentWorkItemsApiVersion
   fullName: VSTS.Net.Types.Constants.CurrentWorkItemsApiVersion
   nameWithType: Constants.CurrentWorkItemsApiVersion
+- uid: VSTS.Net.Types.Constants.HttpMethodPatch
+  name: HttpMethodPatch
+  href: api/VSTS.Net.Types.Constants.html#VSTS_Net_Types_Constants_HttpMethodPatch
+  commentId: F:VSTS.Net.Types.Constants.HttpMethodPatch
+  fullName: VSTS.Net.Types.Constants.HttpMethodPatch
+  nameWithType: Constants.HttpMethodPatch
 - uid: VSTS.Net.Types.Constants.JsonMimeType
   name: JsonMimeType
   href: api/VSTS.Net.Types.Constants.html#VSTS_Net_Types_Constants_JsonMimeType
   commentId: F:VSTS.Net.Types.Constants.JsonMimeType
   fullName: VSTS.Net.Types.Constants.JsonMimeType
   nameWithType: Constants.JsonMimeType
+- uid: VSTS.Net.Types.Constants.JsonPatchMimeType
+  name: JsonPatchMimeType
+  href: api/VSTS.Net.Types.Constants.html#VSTS_Net_Types_Constants_JsonPatchMimeType
+  commentId: F:VSTS.Net.Types.Constants.JsonPatchMimeType
+  fullName: VSTS.Net.Types.Constants.JsonPatchMimeType
+  nameWithType: Constants.JsonPatchMimeType
 - uid: VSTS.Net.Types.DefaultHttpClient
   name: DefaultHttpClient
   href: api/VSTS.Net.Types.DefaultHttpClient.html
@@ -1731,6 +2582,22 @@ references:
   isSpec: "True"
   fullName: VSTS.Net.Types.DefaultHttpClient.DefaultHttpClient
   nameWithType: DefaultHttpClient.DefaultHttpClient
+- uid: VSTS.Net.Types.DefaultHttpClient.ExecuteDelete*
+  name: ExecuteDelete
+  href: api/VSTS.Net.Types.DefaultHttpClient.html#VSTS_Net_Types_DefaultHttpClient_ExecuteDelete_
+  commentId: Overload:VSTS.Net.Types.DefaultHttpClient.ExecuteDelete
+  isSpec: "True"
+  fullName: VSTS.Net.Types.DefaultHttpClient.ExecuteDelete
+  nameWithType: DefaultHttpClient.ExecuteDelete
+- uid: VSTS.Net.Types.DefaultHttpClient.ExecuteDelete``1(System.String,System.Threading.CancellationToken)
+  name: ExecuteDelete<T>(String, CancellationToken)
+  href: api/VSTS.Net.Types.DefaultHttpClient.html#VSTS_Net_Types_DefaultHttpClient_ExecuteDelete__1_System_String_System_Threading_CancellationToken_
+  commentId: M:VSTS.Net.Types.DefaultHttpClient.ExecuteDelete``1(System.String,System.Threading.CancellationToken)
+  name.vb: ExecuteDelete(Of T)(String, CancellationToken)
+  fullName: VSTS.Net.Types.DefaultHttpClient.ExecuteDelete<T>(System.String, System.Threading.CancellationToken)
+  fullName.vb: VSTS.Net.Types.DefaultHttpClient.ExecuteDelete(Of T)(System.String, System.Threading.CancellationToken)
+  nameWithType: DefaultHttpClient.ExecuteDelete<T>(String, CancellationToken)
+  nameWithType.vb: DefaultHttpClient.ExecuteDelete(Of T)(String, CancellationToken)
 - uid: VSTS.Net.Types.DefaultHttpClient.ExecuteGet*
   name: ExecuteGet
   href: api/VSTS.Net.Types.DefaultHttpClient.html#VSTS_Net_Types_DefaultHttpClient_ExecuteGet_
@@ -1747,6 +2614,31 @@ references:
   fullName.vb: VSTS.Net.Types.DefaultHttpClient.ExecuteGet(Of T)(System.String, System.Threading.CancellationToken)
   nameWithType: DefaultHttpClient.ExecuteGet<T>(String, CancellationToken)
   nameWithType.vb: DefaultHttpClient.ExecuteGet(Of T)(String, CancellationToken)
+- uid: VSTS.Net.Types.DefaultHttpClient.ExecutePatch*
+  name: ExecutePatch
+  href: api/VSTS.Net.Types.DefaultHttpClient.html#VSTS_Net_Types_DefaultHttpClient_ExecutePatch_
+  commentId: Overload:VSTS.Net.Types.DefaultHttpClient.ExecutePatch
+  isSpec: "True"
+  fullName: VSTS.Net.Types.DefaultHttpClient.ExecutePatch
+  nameWithType: DefaultHttpClient.ExecutePatch
+- uid: VSTS.Net.Types.DefaultHttpClient.ExecutePatch``1(System.String,System.Object,System.String,System.Threading.CancellationToken)
+  name: ExecutePatch<T>(String, Object, String, CancellationToken)
+  href: api/VSTS.Net.Types.DefaultHttpClient.html#VSTS_Net_Types_DefaultHttpClient_ExecutePatch__1_System_String_System_Object_System_String_System_Threading_CancellationToken_
+  commentId: M:VSTS.Net.Types.DefaultHttpClient.ExecutePatch``1(System.String,System.Object,System.String,System.Threading.CancellationToken)
+  name.vb: ExecutePatch(Of T)(String, Object, String, CancellationToken)
+  fullName: VSTS.Net.Types.DefaultHttpClient.ExecutePatch<T>(System.String, System.Object, System.String, System.Threading.CancellationToken)
+  fullName.vb: VSTS.Net.Types.DefaultHttpClient.ExecutePatch(Of T)(System.String, System.Object, System.String, System.Threading.CancellationToken)
+  nameWithType: DefaultHttpClient.ExecutePatch<T>(String, Object, String, CancellationToken)
+  nameWithType.vb: DefaultHttpClient.ExecutePatch(Of T)(String, Object, String, CancellationToken)
+- uid: VSTS.Net.Types.DefaultHttpClient.ExecutePatch``1(System.String,System.String,System.String,System.Threading.CancellationToken)
+  name: ExecutePatch<T>(String, String, String, CancellationToken)
+  href: api/VSTS.Net.Types.DefaultHttpClient.html#VSTS_Net_Types_DefaultHttpClient_ExecutePatch__1_System_String_System_String_System_String_System_Threading_CancellationToken_
+  commentId: M:VSTS.Net.Types.DefaultHttpClient.ExecutePatch``1(System.String,System.String,System.String,System.Threading.CancellationToken)
+  name.vb: ExecutePatch(Of T)(String, String, String, CancellationToken)
+  fullName: VSTS.Net.Types.DefaultHttpClient.ExecutePatch<T>(System.String, System.String, System.String, System.Threading.CancellationToken)
+  fullName.vb: VSTS.Net.Types.DefaultHttpClient.ExecutePatch(Of T)(System.String, System.String, System.String, System.Threading.CancellationToken)
+  nameWithType: DefaultHttpClient.ExecutePatch<T>(String, String, String, CancellationToken)
+  nameWithType.vb: DefaultHttpClient.ExecutePatch(Of T)(String, String, String, CancellationToken)
 - uid: VSTS.Net.Types.DefaultHttpClient.ExecutePost*
   name: ExecutePost
   href: api/VSTS.Net.Types.DefaultHttpClient.html#VSTS_Net_Types_DefaultHttpClient_ExecutePost_
@@ -1754,6 +2646,15 @@ references:
   isSpec: "True"
   fullName: VSTS.Net.Types.DefaultHttpClient.ExecutePost
   nameWithType: DefaultHttpClient.ExecutePost
+- uid: VSTS.Net.Types.DefaultHttpClient.ExecutePost``1(System.String,System.Object,System.String,System.Threading.CancellationToken)
+  name: ExecutePost<T>(String, Object, String, CancellationToken)
+  href: api/VSTS.Net.Types.DefaultHttpClient.html#VSTS_Net_Types_DefaultHttpClient_ExecutePost__1_System_String_System_Object_System_String_System_Threading_CancellationToken_
+  commentId: M:VSTS.Net.Types.DefaultHttpClient.ExecutePost``1(System.String,System.Object,System.String,System.Threading.CancellationToken)
+  name.vb: ExecutePost(Of T)(String, Object, String, CancellationToken)
+  fullName: VSTS.Net.Types.DefaultHttpClient.ExecutePost<T>(System.String, System.Object, System.String, System.Threading.CancellationToken)
+  fullName.vb: VSTS.Net.Types.DefaultHttpClient.ExecutePost(Of T)(System.String, System.Object, System.String, System.Threading.CancellationToken)
+  nameWithType: DefaultHttpClient.ExecutePost<T>(String, Object, String, CancellationToken)
+  nameWithType.vb: DefaultHttpClient.ExecutePost(Of T)(String, Object, String, CancellationToken)
 - uid: VSTS.Net.Types.DefaultHttpClient.ExecutePost``1(System.String,System.Object,System.Threading.CancellationToken)
   name: ExecutePost<T>(String, Object, CancellationToken)
   href: api/VSTS.Net.Types.DefaultHttpClient.html#VSTS_Net_Types_DefaultHttpClient_ExecutePost__1_System_String_System_Object_System_Threading_CancellationToken_
@@ -1763,6 +2664,15 @@ references:
   fullName.vb: VSTS.Net.Types.DefaultHttpClient.ExecutePost(Of T)(System.String, System.Object, System.Threading.CancellationToken)
   nameWithType: DefaultHttpClient.ExecutePost<T>(String, Object, CancellationToken)
   nameWithType.vb: DefaultHttpClient.ExecutePost(Of T)(String, Object, CancellationToken)
+- uid: VSTS.Net.Types.DefaultHttpClient.ExecutePost``1(System.String,System.String,System.String,System.Threading.CancellationToken)
+  name: ExecutePost<T>(String, String, String, CancellationToken)
+  href: api/VSTS.Net.Types.DefaultHttpClient.html#VSTS_Net_Types_DefaultHttpClient_ExecutePost__1_System_String_System_String_System_String_System_Threading_CancellationToken_
+  commentId: M:VSTS.Net.Types.DefaultHttpClient.ExecutePost``1(System.String,System.String,System.String,System.Threading.CancellationToken)
+  name.vb: ExecutePost(Of T)(String, String, String, CancellationToken)
+  fullName: VSTS.Net.Types.DefaultHttpClient.ExecutePost<T>(System.String, System.String, System.String, System.Threading.CancellationToken)
+  fullName.vb: VSTS.Net.Types.DefaultHttpClient.ExecutePost(Of T)(System.String, System.String, System.String, System.Threading.CancellationToken)
+  nameWithType: DefaultHttpClient.ExecutePost<T>(String, String, String, CancellationToken)
+  nameWithType.vb: DefaultHttpClient.ExecutePost(Of T)(String, String, String, CancellationToken)
 - uid: VSTS.Net.Types.DefaultHttpClient.ExecutePost``1(System.String,System.String,System.Threading.CancellationToken)
   name: ExecutePost<T>(String, String, CancellationToken)
   href: api/VSTS.Net.Types.DefaultHttpClient.html#VSTS_Net_Types_DefaultHttpClient_ExecutePost__1_System_String_System_String_System_Threading_CancellationToken_
@@ -1778,6 +2688,19 @@ references:
   commentId: T:VSTS.Net.Types.HttpClientUtil
   fullName: VSTS.Net.Types.HttpClientUtil
   nameWithType: HttpClientUtil
+- uid: VSTS.Net.Types.HttpClientUtil.ConfigureHttpClient(System.Net.Http.HttpClient,System.String)
+  name: ConfigureHttpClient(HttpClient, String)
+  href: api/VSTS.Net.Types.HttpClientUtil.html#VSTS_Net_Types_HttpClientUtil_ConfigureHttpClient_System_Net_Http_HttpClient_System_String_
+  commentId: M:VSTS.Net.Types.HttpClientUtil.ConfigureHttpClient(System.Net.Http.HttpClient,System.String)
+  fullName: VSTS.Net.Types.HttpClientUtil.ConfigureHttpClient(System.Net.Http.HttpClient, System.String)
+  nameWithType: HttpClientUtil.ConfigureHttpClient(HttpClient, String)
+- uid: VSTS.Net.Types.HttpClientUtil.ConfigureHttpClient*
+  name: ConfigureHttpClient
+  href: api/VSTS.Net.Types.HttpClientUtil.html#VSTS_Net_Types_HttpClientUtil_ConfigureHttpClient_
+  commentId: Overload:VSTS.Net.Types.HttpClientUtil.ConfigureHttpClient
+  isSpec: "True"
+  fullName: VSTS.Net.Types.HttpClientUtil.ConfigureHttpClient
+  nameWithType: HttpClientUtil.ConfigureHttpClient
 - uid: VSTS.Net.Types.HttpClientUtil.Create(System.String)
   name: Create(String)
   href: api/VSTS.Net.Types.HttpClientUtil.html#VSTS_Net_Types_HttpClientUtil_Create_System_String_
@@ -1791,6 +2714,128 @@ references:
   isSpec: "True"
   fullName: VSTS.Net.Types.HttpClientUtil.Create
   nameWithType: HttpClientUtil.Create
+- uid: VSTS.Net.Types.OnlineUrlBuilderFactory
+  name: OnlineUrlBuilderFactory
+  href: api/VSTS.Net.Types.OnlineUrlBuilderFactory.html
+  commentId: T:VSTS.Net.Types.OnlineUrlBuilderFactory
+  fullName: VSTS.Net.Types.OnlineUrlBuilderFactory
+  nameWithType: OnlineUrlBuilderFactory
+- uid: VSTS.Net.Types.OnlineUrlBuilderFactory.#ctor(System.String,System.String)
+  name: OnlineUrlBuilderFactory(String, String)
+  href: api/VSTS.Net.Types.OnlineUrlBuilderFactory.html#VSTS_Net_Types_OnlineUrlBuilderFactory__ctor_System_String_System_String_
+  commentId: M:VSTS.Net.Types.OnlineUrlBuilderFactory.#ctor(System.String,System.String)
+  fullName: VSTS.Net.Types.OnlineUrlBuilderFactory.OnlineUrlBuilderFactory(System.String, System.String)
+  nameWithType: OnlineUrlBuilderFactory.OnlineUrlBuilderFactory(String, String)
+- uid: VSTS.Net.Types.OnlineUrlBuilderFactory.#ctor*
+  name: OnlineUrlBuilderFactory
+  href: api/VSTS.Net.Types.OnlineUrlBuilderFactory.html#VSTS_Net_Types_OnlineUrlBuilderFactory__ctor_
+  commentId: Overload:VSTS.Net.Types.OnlineUrlBuilderFactory.#ctor
+  isSpec: "True"
+  fullName: VSTS.Net.Types.OnlineUrlBuilderFactory.OnlineUrlBuilderFactory
+  nameWithType: OnlineUrlBuilderFactory.OnlineUrlBuilderFactory
+- uid: VSTS.Net.Types.OnlineUrlBuilderFactory.Create
+  name: Create()
+  href: api/VSTS.Net.Types.OnlineUrlBuilderFactory.html#VSTS_Net_Types_OnlineUrlBuilderFactory_Create
+  commentId: M:VSTS.Net.Types.OnlineUrlBuilderFactory.Create
+  fullName: VSTS.Net.Types.OnlineUrlBuilderFactory.Create()
+  nameWithType: OnlineUrlBuilderFactory.Create()
+- uid: VSTS.Net.Types.OnlineUrlBuilderFactory.Create*
+  name: Create
+  href: api/VSTS.Net.Types.OnlineUrlBuilderFactory.html#VSTS_Net_Types_OnlineUrlBuilderFactory_Create_
+  commentId: Overload:VSTS.Net.Types.OnlineUrlBuilderFactory.Create
+  isSpec: "True"
+  fullName: VSTS.Net.Types.OnlineUrlBuilderFactory.Create
+  nameWithType: OnlineUrlBuilderFactory.Create
+- uid: VSTS.Net.Types.OnPremUrlBuilderFactory
+  name: OnPremUrlBuilderFactory
+  href: api/VSTS.Net.Types.OnPremUrlBuilderFactory.html
+  commentId: T:VSTS.Net.Types.OnPremUrlBuilderFactory
+  fullName: VSTS.Net.Types.OnPremUrlBuilderFactory
+  nameWithType: OnPremUrlBuilderFactory
+- uid: VSTS.Net.Types.OnPremUrlBuilderFactory.#ctor(System.Uri)
+  name: OnPremUrlBuilderFactory(Uri)
+  href: api/VSTS.Net.Types.OnPremUrlBuilderFactory.html#VSTS_Net_Types_OnPremUrlBuilderFactory__ctor_System_Uri_
+  commentId: M:VSTS.Net.Types.OnPremUrlBuilderFactory.#ctor(System.Uri)
+  fullName: VSTS.Net.Types.OnPremUrlBuilderFactory.OnPremUrlBuilderFactory(System.Uri)
+  nameWithType: OnPremUrlBuilderFactory.OnPremUrlBuilderFactory(Uri)
+- uid: VSTS.Net.Types.OnPremUrlBuilderFactory.#ctor*
+  name: OnPremUrlBuilderFactory
+  href: api/VSTS.Net.Types.OnPremUrlBuilderFactory.html#VSTS_Net_Types_OnPremUrlBuilderFactory__ctor_
+  commentId: Overload:VSTS.Net.Types.OnPremUrlBuilderFactory.#ctor
+  isSpec: "True"
+  fullName: VSTS.Net.Types.OnPremUrlBuilderFactory.OnPremUrlBuilderFactory
+  nameWithType: OnPremUrlBuilderFactory.OnPremUrlBuilderFactory
+- uid: VSTS.Net.Types.OnPremUrlBuilderFactory.Create
+  name: Create()
+  href: api/VSTS.Net.Types.OnPremUrlBuilderFactory.html#VSTS_Net_Types_OnPremUrlBuilderFactory_Create
+  commentId: M:VSTS.Net.Types.OnPremUrlBuilderFactory.Create
+  fullName: VSTS.Net.Types.OnPremUrlBuilderFactory.Create()
+  nameWithType: OnPremUrlBuilderFactory.Create()
+- uid: VSTS.Net.Types.OnPremUrlBuilderFactory.Create*
+  name: Create
+  href: api/VSTS.Net.Types.OnPremUrlBuilderFactory.html#VSTS_Net_Types_OnPremUrlBuilderFactory_Create_
+  commentId: Overload:VSTS.Net.Types.OnPremUrlBuilderFactory.Create
+  isSpec: "True"
+  fullName: VSTS.Net.Types.OnPremUrlBuilderFactory.Create
+  nameWithType: OnPremUrlBuilderFactory.Create
+- uid: VSTS.Net.Types.VstsClientConfiguration
+  name: VstsClientConfiguration
+  href: api/VSTS.Net.Types.VstsClientConfiguration.html
+  commentId: T:VSTS.Net.Types.VstsClientConfiguration
+  fullName: VSTS.Net.Types.VstsClientConfiguration
+  nameWithType: VstsClientConfiguration
+- uid: VSTS.Net.Types.VstsClientConfiguration.Default
+  name: Default
+  href: api/VSTS.Net.Types.VstsClientConfiguration.html#VSTS_Net_Types_VstsClientConfiguration_Default
+  commentId: P:VSTS.Net.Types.VstsClientConfiguration.Default
+  fullName: VSTS.Net.Types.VstsClientConfiguration.Default
+  nameWithType: VstsClientConfiguration.Default
+- uid: VSTS.Net.Types.VstsClientConfiguration.Default*
+  name: Default
+  href: api/VSTS.Net.Types.VstsClientConfiguration.html#VSTS_Net_Types_VstsClientConfiguration_Default_
+  commentId: Overload:VSTS.Net.Types.VstsClientConfiguration.Default
+  isSpec: "True"
+  fullName: VSTS.Net.Types.VstsClientConfiguration.Default
+  nameWithType: VstsClientConfiguration.Default
+- uid: VSTS.Net.Types.VstsClientConfiguration.PullRequestsApiVersion
+  name: PullRequestsApiVersion
+  href: api/VSTS.Net.Types.VstsClientConfiguration.html#VSTS_Net_Types_VstsClientConfiguration_PullRequestsApiVersion
+  commentId: P:VSTS.Net.Types.VstsClientConfiguration.PullRequestsApiVersion
+  fullName: VSTS.Net.Types.VstsClientConfiguration.PullRequestsApiVersion
+  nameWithType: VstsClientConfiguration.PullRequestsApiVersion
+- uid: VSTS.Net.Types.VstsClientConfiguration.PullRequestsApiVersion*
+  name: PullRequestsApiVersion
+  href: api/VSTS.Net.Types.VstsClientConfiguration.html#VSTS_Net_Types_VstsClientConfiguration_PullRequestsApiVersion_
+  commentId: Overload:VSTS.Net.Types.VstsClientConfiguration.PullRequestsApiVersion
+  isSpec: "True"
+  fullName: VSTS.Net.Types.VstsClientConfiguration.PullRequestsApiVersion
+  nameWithType: VstsClientConfiguration.PullRequestsApiVersion
+- uid: VSTS.Net.Types.VstsClientConfiguration.WorkItemsApiVersion
+  name: WorkItemsApiVersion
+  href: api/VSTS.Net.Types.VstsClientConfiguration.html#VSTS_Net_Types_VstsClientConfiguration_WorkItemsApiVersion
+  commentId: P:VSTS.Net.Types.VstsClientConfiguration.WorkItemsApiVersion
+  fullName: VSTS.Net.Types.VstsClientConfiguration.WorkItemsApiVersion
+  nameWithType: VstsClientConfiguration.WorkItemsApiVersion
+- uid: VSTS.Net.Types.VstsClientConfiguration.WorkItemsApiVersion*
+  name: WorkItemsApiVersion
+  href: api/VSTS.Net.Types.VstsClientConfiguration.html#VSTS_Net_Types_VstsClientConfiguration_WorkItemsApiVersion_
+  commentId: Overload:VSTS.Net.Types.VstsClientConfiguration.WorkItemsApiVersion
+  isSpec: "True"
+  fullName: VSTS.Net.Types.VstsClientConfiguration.WorkItemsApiVersion
+  nameWithType: VstsClientConfiguration.WorkItemsApiVersion
+- uid: VSTS.Net.Types.VstsClientConfiguration.WorkitemsBatchSize
+  name: WorkitemsBatchSize
+  href: api/VSTS.Net.Types.VstsClientConfiguration.html#VSTS_Net_Types_VstsClientConfiguration_WorkitemsBatchSize
+  commentId: P:VSTS.Net.Types.VstsClientConfiguration.WorkitemsBatchSize
+  fullName: VSTS.Net.Types.VstsClientConfiguration.WorkitemsBatchSize
+  nameWithType: VstsClientConfiguration.WorkitemsBatchSize
+- uid: VSTS.Net.Types.VstsClientConfiguration.WorkitemsBatchSize*
+  name: WorkitemsBatchSize
+  href: api/VSTS.Net.Types.VstsClientConfiguration.html#VSTS_Net_Types_VstsClientConfiguration_WorkitemsBatchSize_
+  commentId: Overload:VSTS.Net.Types.VstsClientConfiguration.WorkitemsBatchSize
+  isSpec: "True"
+  fullName: VSTS.Net.Types.VstsClientConfiguration.WorkitemsBatchSize
+  nameWithType: VstsClientConfiguration.WorkitemsBatchSize
 - uid: VSTS.Net.Types.VstsUrlBuilder
   name: VstsUrlBuilder
   href: api/VSTS.Net.Types.VstsUrlBuilder.html
@@ -1816,6 +2861,12 @@ references:
   commentId: M:VSTS.Net.Types.VstsUrlBuilder.Create(System.String,System.String)
   fullName: VSTS.Net.Types.VstsUrlBuilder.Create(System.String, System.String)
   nameWithType: VstsUrlBuilder.Create(String, String)
+- uid: VSTS.Net.Types.VstsUrlBuilder.Create(System.Uri)
+  name: Create(Uri)
+  href: api/VSTS.Net.Types.VstsUrlBuilder.html#VSTS_Net_Types_VstsUrlBuilder_Create_System_Uri_
+  commentId: M:VSTS.Net.Types.VstsUrlBuilder.Create(System.Uri)
+  fullName: VSTS.Net.Types.VstsUrlBuilder.Create(System.Uri)
+  nameWithType: VstsUrlBuilder.Create(Uri)
 - uid: VSTS.Net.Types.VstsUrlBuilder.Create*
   name: Create
   href: api/VSTS.Net.Types.VstsUrlBuilder.html#VSTS_Net_Types_VstsUrlBuilder_Create_
@@ -1836,6 +2887,19 @@ references:
   isSpec: "True"
   fullName: VSTS.Net.Types.VstsUrlBuilder.ForIdentities
   nameWithType: VstsUrlBuilder.ForIdentities
+- uid: VSTS.Net.Types.VstsUrlBuilder.ForPullRequestId(System.Int32)
+  name: ForPullRequestId(Int32)
+  href: api/VSTS.Net.Types.VstsUrlBuilder.html#VSTS_Net_Types_VstsUrlBuilder_ForPullRequestId_System_Int32_
+  commentId: M:VSTS.Net.Types.VstsUrlBuilder.ForPullRequestId(System.Int32)
+  fullName: VSTS.Net.Types.VstsUrlBuilder.ForPullRequestId(System.Int32)
+  nameWithType: VstsUrlBuilder.ForPullRequestId(Int32)
+- uid: VSTS.Net.Types.VstsUrlBuilder.ForPullRequestId*
+  name: ForPullRequestId
+  href: api/VSTS.Net.Types.VstsUrlBuilder.html#VSTS_Net_Types_VstsUrlBuilder_ForPullRequestId_
+  commentId: Overload:VSTS.Net.Types.VstsUrlBuilder.ForPullRequestId
+  isSpec: "True"
+  fullName: VSTS.Net.Types.VstsUrlBuilder.ForPullRequestId
+  nameWithType: VstsUrlBuilder.ForPullRequestId
 - uid: VSTS.Net.Types.VstsUrlBuilder.ForPullRequests(System.String,System.String)
   name: ForPullRequests(String, String)
   href: api/VSTS.Net.Types.VstsUrlBuilder.html#VSTS_Net_Types_VstsUrlBuilder_ForPullRequests_System_String_System_String_
@@ -1875,12 +2939,12 @@ references:
   isSpec: "True"
   fullName: VSTS.Net.Types.VstsUrlBuilder.ForRepository
   nameWithType: VstsUrlBuilder.ForRepository
-- uid: VSTS.Net.Types.VstsUrlBuilder.ForWIQL(System.String)
-  name: ForWIQL(String)
-  href: api/VSTS.Net.Types.VstsUrlBuilder.html#VSTS_Net_Types_VstsUrlBuilder_ForWIQL_System_String_
-  commentId: M:VSTS.Net.Types.VstsUrlBuilder.ForWIQL(System.String)
-  fullName: VSTS.Net.Types.VstsUrlBuilder.ForWIQL(System.String)
-  nameWithType: VstsUrlBuilder.ForWIQL(String)
+- uid: VSTS.Net.Types.VstsUrlBuilder.ForWIQL
+  name: ForWIQL()
+  href: api/VSTS.Net.Types.VstsUrlBuilder.html#VSTS_Net_Types_VstsUrlBuilder_ForWIQL
+  commentId: M:VSTS.Net.Types.VstsUrlBuilder.ForWIQL
+  fullName: VSTS.Net.Types.VstsUrlBuilder.ForWIQL()
+  nameWithType: VstsUrlBuilder.ForWIQL()
 - uid: VSTS.Net.Types.VstsUrlBuilder.ForWIQL*
   name: ForWIQL
   href: api/VSTS.Net.Types.VstsUrlBuilder.html#VSTS_Net_Types_VstsUrlBuilder_ForWIQL_
@@ -1888,6 +2952,25 @@ references:
   isSpec: "True"
   fullName: VSTS.Net.Types.VstsUrlBuilder.ForWIQL
   nameWithType: VstsUrlBuilder.ForWIQL
+- uid: VSTS.Net.Types.VstsUrlBuilder.ForWorkItemFields
+  name: ForWorkItemFields()
+  href: api/VSTS.Net.Types.VstsUrlBuilder.html#VSTS_Net_Types_VstsUrlBuilder_ForWorkItemFields
+  commentId: M:VSTS.Net.Types.VstsUrlBuilder.ForWorkItemFields
+  fullName: VSTS.Net.Types.VstsUrlBuilder.ForWorkItemFields()
+  nameWithType: VstsUrlBuilder.ForWorkItemFields()
+- uid: VSTS.Net.Types.VstsUrlBuilder.ForWorkItemFields*
+  name: ForWorkItemFields
+  href: api/VSTS.Net.Types.VstsUrlBuilder.html#VSTS_Net_Types_VstsUrlBuilder_ForWorkItemFields_
+  commentId: Overload:VSTS.Net.Types.VstsUrlBuilder.ForWorkItemFields
+  isSpec: "True"
+  fullName: VSTS.Net.Types.VstsUrlBuilder.ForWorkItemFields
+  nameWithType: VstsUrlBuilder.ForWorkItemFields
+- uid: VSTS.Net.Types.VstsUrlBuilder.ForWorkItems
+  name: ForWorkItems()
+  href: api/VSTS.Net.Types.VstsUrlBuilder.html#VSTS_Net_Types_VstsUrlBuilder_ForWorkItems
+  commentId: M:VSTS.Net.Types.VstsUrlBuilder.ForWorkItems
+  fullName: VSTS.Net.Types.VstsUrlBuilder.ForWorkItems()
+  nameWithType: VstsUrlBuilder.ForWorkItems()
 - uid: VSTS.Net.Types.VstsUrlBuilder.ForWorkItems(System.Int32)
   name: ForWorkItems(Int32)
   href: api/VSTS.Net.Types.VstsUrlBuilder.html#VSTS_Net_Types_VstsUrlBuilder_ForWorkItems_System_Int32_
@@ -1901,12 +2984,12 @@ references:
   isSpec: "True"
   fullName: VSTS.Net.Types.VstsUrlBuilder.ForWorkItems
   nameWithType: VstsUrlBuilder.ForWorkItems
-- uid: VSTS.Net.Types.VstsUrlBuilder.ForWorkItemsBatch(System.String,System.String)
-  name: ForWorkItemsBatch(String, String)
-  href: api/VSTS.Net.Types.VstsUrlBuilder.html#VSTS_Net_Types_VstsUrlBuilder_ForWorkItemsBatch_System_String_System_String_
-  commentId: M:VSTS.Net.Types.VstsUrlBuilder.ForWorkItemsBatch(System.String,System.String)
-  fullName: VSTS.Net.Types.VstsUrlBuilder.ForWorkItemsBatch(System.String, System.String)
-  nameWithType: VstsUrlBuilder.ForWorkItemsBatch(String, String)
+- uid: VSTS.Net.Types.VstsUrlBuilder.ForWorkItemsBatch(System.String)
+  name: ForWorkItemsBatch(String)
+  href: api/VSTS.Net.Types.VstsUrlBuilder.html#VSTS_Net_Types_VstsUrlBuilder_ForWorkItemsBatch_System_String_
+  commentId: M:VSTS.Net.Types.VstsUrlBuilder.ForWorkItemsBatch(System.String)
+  fullName: VSTS.Net.Types.VstsUrlBuilder.ForWorkItemsBatch(System.String)
+  nameWithType: VstsUrlBuilder.ForWorkItemsBatch(String)
 - uid: VSTS.Net.Types.VstsUrlBuilder.ForWorkItemsBatch*
   name: ForWorkItemsBatch
   href: api/VSTS.Net.Types.VstsUrlBuilder.html#VSTS_Net_Types_VstsUrlBuilder_ForWorkItemsBatch_
@@ -1943,6 +3026,22 @@ references:
   fullName.vb: VSTS.Net.Types.VstsUrlBuilder.WithQueryParameter(Of T)(System.String, T)
   nameWithType: VstsUrlBuilder.WithQueryParameter<T>(String, T)
   nameWithType.vb: VstsUrlBuilder.WithQueryParameter(Of T)(String, T)
+- uid: VSTS.Net.Types.VstsUrlBuilder.WithQueryParameterIfNotDefault*
+  name: WithQueryParameterIfNotDefault
+  href: api/VSTS.Net.Types.VstsUrlBuilder.html#VSTS_Net_Types_VstsUrlBuilder_WithQueryParameterIfNotDefault_
+  commentId: Overload:VSTS.Net.Types.VstsUrlBuilder.WithQueryParameterIfNotDefault
+  isSpec: "True"
+  fullName: VSTS.Net.Types.VstsUrlBuilder.WithQueryParameterIfNotDefault
+  nameWithType: VstsUrlBuilder.WithQueryParameterIfNotDefault
+- uid: VSTS.Net.Types.VstsUrlBuilder.WithQueryParameterIfNotDefault``1(System.String,``0)
+  name: WithQueryParameterIfNotDefault<T>(String, T)
+  href: api/VSTS.Net.Types.VstsUrlBuilder.html#VSTS_Net_Types_VstsUrlBuilder_WithQueryParameterIfNotDefault__1_System_String___0_
+  commentId: M:VSTS.Net.Types.VstsUrlBuilder.WithQueryParameterIfNotDefault``1(System.String,``0)
+  name.vb: WithQueryParameterIfNotDefault(Of T)(String, T)
+  fullName: VSTS.Net.Types.VstsUrlBuilder.WithQueryParameterIfNotDefault<T>(System.String, T)
+  fullName.vb: VSTS.Net.Types.VstsUrlBuilder.WithQueryParameterIfNotDefault(Of T)(System.String, T)
+  nameWithType: VstsUrlBuilder.WithQueryParameterIfNotDefault<T>(String, T)
+  nameWithType.vb: VstsUrlBuilder.WithQueryParameterIfNotDefault(Of T)(String, T)
 - uid: VSTS.Net.Types.VstsUrlBuilder.WithQueryParameterIfNotEmpty*
   name: WithQueryParameterIfNotEmpty
   href: api/VSTS.Net.Types.VstsUrlBuilder.html#VSTS_Net_Types_VstsUrlBuilder_WithQueryParameterIfNotEmpty_
@@ -1978,21 +3077,27 @@ references:
   commentId: T:VSTS.Net.VstsClient
   fullName: VSTS.Net.VstsClient
   nameWithType: VstsClient
-- uid: VSTS.Net.VstsClient.#ctor(System.String,VSTS.Net.Interfaces.IHttpClient)
-  name: VstsClient(String, IHttpClient)
-  href: api/VSTS.Net.VstsClient.html#VSTS_Net_VstsClient__ctor_System_String_VSTS_Net_Interfaces_IHttpClient_
-  commentId: M:VSTS.Net.VstsClient.#ctor(System.String,VSTS.Net.Interfaces.IHttpClient)
-  fullName: VSTS.Net.VstsClient.VstsClient(System.String, VSTS.Net.Interfaces.IHttpClient)
-  nameWithType: VstsClient.VstsClient(String, IHttpClient)
-- uid: VSTS.Net.VstsClient.#ctor(System.String,VSTS.Net.Interfaces.IHttpClient,Microsoft.Extensions.Logging.ILogger{VSTS.Net.VstsClient})
-  name: VstsClient(String, IHttpClient, ILogger<VstsClient>)
-  href: api/VSTS.Net.VstsClient.html#VSTS_Net_VstsClient__ctor_System_String_VSTS_Net_Interfaces_IHttpClient_Microsoft_Extensions_Logging_ILogger_VSTS_Net_VstsClient__
-  commentId: M:VSTS.Net.VstsClient.#ctor(System.String,VSTS.Net.Interfaces.IHttpClient,Microsoft.Extensions.Logging.ILogger{VSTS.Net.VstsClient})
-  name.vb: VstsClient(String, IHttpClient, ILogger(Of VstsClient))
-  fullName: VSTS.Net.VstsClient.VstsClient(System.String, VSTS.Net.Interfaces.IHttpClient, Microsoft.Extensions.Logging.ILogger<VSTS.Net.VstsClient>)
-  fullName.vb: VSTS.Net.VstsClient.VstsClient(System.String, VSTS.Net.Interfaces.IHttpClient, Microsoft.Extensions.Logging.ILogger(Of VSTS.Net.VstsClient))
-  nameWithType: VstsClient.VstsClient(String, IHttpClient, ILogger<VstsClient>)
-  nameWithType.vb: VstsClient.VstsClient(String, IHttpClient, ILogger(Of VstsClient))
+- uid: VSTS.Net.VstsClient.#ctor(VSTS.Net.Interfaces.IVstsUrlBuilderFactory,VSTS.Net.Interfaces.IHttpClient)
+  name: VstsClient(IVstsUrlBuilderFactory, IHttpClient)
+  href: api/VSTS.Net.VstsClient.html#VSTS_Net_VstsClient__ctor_VSTS_Net_Interfaces_IVstsUrlBuilderFactory_VSTS_Net_Interfaces_IHttpClient_
+  commentId: M:VSTS.Net.VstsClient.#ctor(VSTS.Net.Interfaces.IVstsUrlBuilderFactory,VSTS.Net.Interfaces.IHttpClient)
+  fullName: VSTS.Net.VstsClient.VstsClient(VSTS.Net.Interfaces.IVstsUrlBuilderFactory, VSTS.Net.Interfaces.IHttpClient)
+  nameWithType: VstsClient.VstsClient(IVstsUrlBuilderFactory, IHttpClient)
+- uid: VSTS.Net.VstsClient.#ctor(VSTS.Net.Interfaces.IVstsUrlBuilderFactory,VSTS.Net.Interfaces.IHttpClient,VSTS.Net.Types.VstsClientConfiguration)
+  name: VstsClient(IVstsUrlBuilderFactory, IHttpClient, VstsClientConfiguration)
+  href: api/VSTS.Net.VstsClient.html#VSTS_Net_VstsClient__ctor_VSTS_Net_Interfaces_IVstsUrlBuilderFactory_VSTS_Net_Interfaces_IHttpClient_VSTS_Net_Types_VstsClientConfiguration_
+  commentId: M:VSTS.Net.VstsClient.#ctor(VSTS.Net.Interfaces.IVstsUrlBuilderFactory,VSTS.Net.Interfaces.IHttpClient,VSTS.Net.Types.VstsClientConfiguration)
+  fullName: VSTS.Net.VstsClient.VstsClient(VSTS.Net.Interfaces.IVstsUrlBuilderFactory, VSTS.Net.Interfaces.IHttpClient, VSTS.Net.Types.VstsClientConfiguration)
+  nameWithType: VstsClient.VstsClient(IVstsUrlBuilderFactory, IHttpClient, VstsClientConfiguration)
+- uid: VSTS.Net.VstsClient.#ctor(VSTS.Net.Interfaces.IVstsUrlBuilderFactory,VSTS.Net.Interfaces.IHttpClient,VSTS.Net.Types.VstsClientConfiguration,Microsoft.Extensions.Logging.ILogger{VSTS.Net.VstsClient})
+  name: VstsClient(IVstsUrlBuilderFactory, IHttpClient, VstsClientConfiguration, ILogger<VstsClient>)
+  href: api/VSTS.Net.VstsClient.html#VSTS_Net_VstsClient__ctor_VSTS_Net_Interfaces_IVstsUrlBuilderFactory_VSTS_Net_Interfaces_IHttpClient_VSTS_Net_Types_VstsClientConfiguration_Microsoft_Extensions_Logging_ILogger_VSTS_Net_VstsClient__
+  commentId: M:VSTS.Net.VstsClient.#ctor(VSTS.Net.Interfaces.IVstsUrlBuilderFactory,VSTS.Net.Interfaces.IHttpClient,VSTS.Net.Types.VstsClientConfiguration,Microsoft.Extensions.Logging.ILogger{VSTS.Net.VstsClient})
+  name.vb: VstsClient(IVstsUrlBuilderFactory, IHttpClient, VstsClientConfiguration, ILogger(Of VstsClient))
+  fullName: VSTS.Net.VstsClient.VstsClient(VSTS.Net.Interfaces.IVstsUrlBuilderFactory, VSTS.Net.Interfaces.IHttpClient, VSTS.Net.Types.VstsClientConfiguration, Microsoft.Extensions.Logging.ILogger<VSTS.Net.VstsClient>)
+  fullName.vb: VSTS.Net.VstsClient.VstsClient(VSTS.Net.Interfaces.IVstsUrlBuilderFactory, VSTS.Net.Interfaces.IHttpClient, VSTS.Net.Types.VstsClientConfiguration, Microsoft.Extensions.Logging.ILogger(Of VSTS.Net.VstsClient))
+  nameWithType: VstsClient.VstsClient(IVstsUrlBuilderFactory, IHttpClient, VstsClientConfiguration, ILogger<VstsClient>)
+  nameWithType.vb: VstsClient.VstsClient(IVstsUrlBuilderFactory, IHttpClient, VstsClientConfiguration, ILogger(Of VstsClient))
 - uid: VSTS.Net.VstsClient.#ctor*
   name: VstsClient
   href: api/VSTS.Net.VstsClient.html#VSTS_Net_VstsClient__ctor_
@@ -2000,12 +3105,77 @@ references:
   isSpec: "True"
   fullName: VSTS.Net.VstsClient.VstsClient
   nameWithType: VstsClient.VstsClient
-- uid: VSTS.Net.VstsClient.ExecuteQueryAsync(System.String,VSTS.Net.Models.Request.WorkItemsQuery)
-  name: ExecuteQueryAsync(String, WorkItemsQuery)
-  href: api/VSTS.Net.VstsClient.html#VSTS_Net_VstsClient_ExecuteQueryAsync_System_String_VSTS_Net_Models_Request_WorkItemsQuery_
-  commentId: M:VSTS.Net.VstsClient.ExecuteQueryAsync(System.String,VSTS.Net.Models.Request.WorkItemsQuery)
-  fullName: VSTS.Net.VstsClient.ExecuteQueryAsync(System.String, VSTS.Net.Models.Request.WorkItemsQuery)
-  nameWithType: VstsClient.ExecuteQueryAsync(String, WorkItemsQuery)
+- uid: VSTS.Net.VstsClient.Configuration
+  name: Configuration
+  href: api/VSTS.Net.VstsClient.html#VSTS_Net_VstsClient_Configuration
+  commentId: P:VSTS.Net.VstsClient.Configuration
+  fullName: VSTS.Net.VstsClient.Configuration
+  nameWithType: VstsClient.Configuration
+- uid: VSTS.Net.VstsClient.Configuration*
+  name: Configuration
+  href: api/VSTS.Net.VstsClient.html#VSTS_Net_VstsClient_Configuration_
+  commentId: Overload:VSTS.Net.VstsClient.Configuration
+  isSpec: "True"
+  fullName: VSTS.Net.VstsClient.Configuration
+  nameWithType: VstsClient.Configuration
+- uid: VSTS.Net.VstsClient.CreateWorkItemAsync(System.String,System.String,VSTS.Net.Models.WorkItems.WorkItem,System.Threading.CancellationToken)
+  name: CreateWorkItemAsync(String, String, WorkItem, CancellationToken)
+  href: api/VSTS.Net.VstsClient.html#VSTS_Net_VstsClient_CreateWorkItemAsync_System_String_System_String_VSTS_Net_Models_WorkItems_WorkItem_System_Threading_CancellationToken_
+  commentId: M:VSTS.Net.VstsClient.CreateWorkItemAsync(System.String,System.String,VSTS.Net.Models.WorkItems.WorkItem,System.Threading.CancellationToken)
+  fullName: VSTS.Net.VstsClient.CreateWorkItemAsync(System.String, System.String, VSTS.Net.Models.WorkItems.WorkItem, System.Threading.CancellationToken)
+  nameWithType: VstsClient.CreateWorkItemAsync(String, String, WorkItem, CancellationToken)
+- uid: VSTS.Net.VstsClient.CreateWorkItemAsync*
+  name: CreateWorkItemAsync
+  href: api/VSTS.Net.VstsClient.html#VSTS_Net_VstsClient_CreateWorkItemAsync_
+  commentId: Overload:VSTS.Net.VstsClient.CreateWorkItemAsync
+  isSpec: "True"
+  fullName: VSTS.Net.VstsClient.CreateWorkItemAsync
+  nameWithType: VstsClient.CreateWorkItemAsync
+- uid: VSTS.Net.VstsClient.DeleteWorkItemAsync(System.Int32,System.Boolean,System.Threading.CancellationToken)
+  name: DeleteWorkItemAsync(Int32, Boolean, CancellationToken)
+  href: api/VSTS.Net.VstsClient.html#VSTS_Net_VstsClient_DeleteWorkItemAsync_System_Int32_System_Boolean_System_Threading_CancellationToken_
+  commentId: M:VSTS.Net.VstsClient.DeleteWorkItemAsync(System.Int32,System.Boolean,System.Threading.CancellationToken)
+  fullName: VSTS.Net.VstsClient.DeleteWorkItemAsync(System.Int32, System.Boolean, System.Threading.CancellationToken)
+  nameWithType: VstsClient.DeleteWorkItemAsync(Int32, Boolean, CancellationToken)
+- uid: VSTS.Net.VstsClient.DeleteWorkItemAsync*
+  name: DeleteWorkItemAsync
+  href: api/VSTS.Net.VstsClient.html#VSTS_Net_VstsClient_DeleteWorkItemAsync_
+  commentId: Overload:VSTS.Net.VstsClient.DeleteWorkItemAsync
+  isSpec: "True"
+  fullName: VSTS.Net.VstsClient.DeleteWorkItemAsync
+  nameWithType: VstsClient.DeleteWorkItemAsync
+- uid: VSTS.Net.VstsClient.ExecuteFlatQueryAsync(System.String,System.Threading.CancellationToken)
+  name: ExecuteFlatQueryAsync(String, CancellationToken)
+  href: api/VSTS.Net.VstsClient.html#VSTS_Net_VstsClient_ExecuteFlatQueryAsync_System_String_System_Threading_CancellationToken_
+  commentId: M:VSTS.Net.VstsClient.ExecuteFlatQueryAsync(System.String,System.Threading.CancellationToken)
+  fullName: VSTS.Net.VstsClient.ExecuteFlatQueryAsync(System.String, System.Threading.CancellationToken)
+  nameWithType: VstsClient.ExecuteFlatQueryAsync(String, CancellationToken)
+- uid: VSTS.Net.VstsClient.ExecuteFlatQueryAsync*
+  name: ExecuteFlatQueryAsync
+  href: api/VSTS.Net.VstsClient.html#VSTS_Net_VstsClient_ExecuteFlatQueryAsync_
+  commentId: Overload:VSTS.Net.VstsClient.ExecuteFlatQueryAsync
+  isSpec: "True"
+  fullName: VSTS.Net.VstsClient.ExecuteFlatQueryAsync
+  nameWithType: VstsClient.ExecuteFlatQueryAsync
+- uid: VSTS.Net.VstsClient.ExecuteHierarchicalQueryAsync(System.String,System.Threading.CancellationToken)
+  name: ExecuteHierarchicalQueryAsync(String, CancellationToken)
+  href: api/VSTS.Net.VstsClient.html#VSTS_Net_VstsClient_ExecuteHierarchicalQueryAsync_System_String_System_Threading_CancellationToken_
+  commentId: M:VSTS.Net.VstsClient.ExecuteHierarchicalQueryAsync(System.String,System.Threading.CancellationToken)
+  fullName: VSTS.Net.VstsClient.ExecuteHierarchicalQueryAsync(System.String, System.Threading.CancellationToken)
+  nameWithType: VstsClient.ExecuteHierarchicalQueryAsync(String, CancellationToken)
+- uid: VSTS.Net.VstsClient.ExecuteHierarchicalQueryAsync*
+  name: ExecuteHierarchicalQueryAsync
+  href: api/VSTS.Net.VstsClient.html#VSTS_Net_VstsClient_ExecuteHierarchicalQueryAsync_
+  commentId: Overload:VSTS.Net.VstsClient.ExecuteHierarchicalQueryAsync
+  isSpec: "True"
+  fullName: VSTS.Net.VstsClient.ExecuteHierarchicalQueryAsync
+  nameWithType: VstsClient.ExecuteHierarchicalQueryAsync
+- uid: VSTS.Net.VstsClient.ExecuteQueryAsync(VSTS.Net.Models.Request.WorkItemsQuery,System.Threading.CancellationToken)
+  name: ExecuteQueryAsync(WorkItemsQuery, CancellationToken)
+  href: api/VSTS.Net.VstsClient.html#VSTS_Net_VstsClient_ExecuteQueryAsync_VSTS_Net_Models_Request_WorkItemsQuery_System_Threading_CancellationToken_
+  commentId: M:VSTS.Net.VstsClient.ExecuteQueryAsync(VSTS.Net.Models.Request.WorkItemsQuery,System.Threading.CancellationToken)
+  fullName: VSTS.Net.VstsClient.ExecuteQueryAsync(VSTS.Net.Models.Request.WorkItemsQuery, System.Threading.CancellationToken)
+  nameWithType: VstsClient.ExecuteQueryAsync(WorkItemsQuery, CancellationToken)
 - uid: VSTS.Net.VstsClient.ExecuteQueryAsync*
   name: ExecuteQueryAsync
   href: api/VSTS.Net.VstsClient.html#VSTS_Net_VstsClient_ExecuteQueryAsync_
@@ -2013,15 +3183,24 @@ references:
   isSpec: "True"
   fullName: VSTS.Net.VstsClient.ExecuteQueryAsync
   nameWithType: VstsClient.ExecuteQueryAsync
-- uid: VSTS.Net.VstsClient.Get(System.String,System.String,Microsoft.Extensions.Logging.ILogger{VSTS.Net.VstsClient})
-  name: Get(String, String, ILogger<VstsClient>)
-  href: api/VSTS.Net.VstsClient.html#VSTS_Net_VstsClient_Get_System_String_System_String_Microsoft_Extensions_Logging_ILogger_VSTS_Net_VstsClient__
-  commentId: M:VSTS.Net.VstsClient.Get(System.String,System.String,Microsoft.Extensions.Logging.ILogger{VSTS.Net.VstsClient})
-  name.vb: Get(String, String, ILogger(Of VstsClient))
-  fullName: VSTS.Net.VstsClient.Get(System.String, System.String, Microsoft.Extensions.Logging.ILogger<VSTS.Net.VstsClient>)
-  fullName.vb: VSTS.Net.VstsClient.Get(System.String, System.String, Microsoft.Extensions.Logging.ILogger(Of VSTS.Net.VstsClient))
-  nameWithType: VstsClient.Get(String, String, ILogger<VstsClient>)
-  nameWithType.vb: VstsClient.Get(String, String, ILogger(Of VstsClient))
+- uid: VSTS.Net.VstsClient.ExecuteQueryAsync``1(System.Guid,System.Threading.CancellationToken)
+  name: ExecuteQueryAsync<T>(Guid, CancellationToken)
+  href: api/VSTS.Net.VstsClient.html#VSTS_Net_VstsClient_ExecuteQueryAsync__1_System_Guid_System_Threading_CancellationToken_
+  commentId: M:VSTS.Net.VstsClient.ExecuteQueryAsync``1(System.Guid,System.Threading.CancellationToken)
+  name.vb: ExecuteQueryAsync(Of T)(Guid, CancellationToken)
+  fullName: VSTS.Net.VstsClient.ExecuteQueryAsync<T>(System.Guid, System.Threading.CancellationToken)
+  fullName.vb: VSTS.Net.VstsClient.ExecuteQueryAsync(Of T)(System.Guid, System.Threading.CancellationToken)
+  nameWithType: VstsClient.ExecuteQueryAsync<T>(Guid, CancellationToken)
+  nameWithType.vb: VstsClient.ExecuteQueryAsync(Of T)(Guid, CancellationToken)
+- uid: VSTS.Net.VstsClient.Get(VSTS.Net.Interfaces.IVstsUrlBuilderFactory,System.String,VSTS.Net.Types.VstsClientConfiguration,Microsoft.Extensions.Logging.ILogger{VSTS.Net.VstsClient})
+  name: Get(IVstsUrlBuilderFactory, String, VstsClientConfiguration, ILogger<VstsClient>)
+  href: api/VSTS.Net.VstsClient.html#VSTS_Net_VstsClient_Get_VSTS_Net_Interfaces_IVstsUrlBuilderFactory_System_String_VSTS_Net_Types_VstsClientConfiguration_Microsoft_Extensions_Logging_ILogger_VSTS_Net_VstsClient__
+  commentId: M:VSTS.Net.VstsClient.Get(VSTS.Net.Interfaces.IVstsUrlBuilderFactory,System.String,VSTS.Net.Types.VstsClientConfiguration,Microsoft.Extensions.Logging.ILogger{VSTS.Net.VstsClient})
+  name.vb: Get(IVstsUrlBuilderFactory, String, VstsClientConfiguration, ILogger(Of VstsClient))
+  fullName: VSTS.Net.VstsClient.Get(VSTS.Net.Interfaces.IVstsUrlBuilderFactory, System.String, VSTS.Net.Types.VstsClientConfiguration, Microsoft.Extensions.Logging.ILogger<VSTS.Net.VstsClient>)
+  fullName.vb: VSTS.Net.VstsClient.Get(VSTS.Net.Interfaces.IVstsUrlBuilderFactory, System.String, VSTS.Net.Types.VstsClientConfiguration, Microsoft.Extensions.Logging.ILogger(Of VSTS.Net.VstsClient))
+  nameWithType: VstsClient.Get(IVstsUrlBuilderFactory, String, VstsClientConfiguration, ILogger<VstsClient>)
+  nameWithType.vb: VstsClient.Get(IVstsUrlBuilderFactory, String, VstsClientConfiguration, ILogger(Of VstsClient))
 - uid: VSTS.Net.VstsClient.Get*
   name: Get
   href: api/VSTS.Net.VstsClient.html#VSTS_Net_VstsClient_Get_
@@ -2029,12 +3208,31 @@ references:
   isSpec: "True"
   fullName: VSTS.Net.VstsClient.Get
   nameWithType: VstsClient.Get
-- uid: VSTS.Net.VstsClient.GetPullRequestIterationsAsync(System.String,System.String,System.Int32)
-  name: GetPullRequestIterationsAsync(String, String, Int32)
-  href: api/VSTS.Net.VstsClient.html#VSTS_Net_VstsClient_GetPullRequestIterationsAsync_System_String_System_String_System_Int32_
-  commentId: M:VSTS.Net.VstsClient.GetPullRequestIterationsAsync(System.String,System.String,System.Int32)
-  fullName: VSTS.Net.VstsClient.GetPullRequestIterationsAsync(System.String, System.String, System.Int32)
-  nameWithType: VstsClient.GetPullRequestIterationsAsync(String, String, Int32)
+- uid: VSTS.Net.VstsClient.GetPullRequestAsync(System.Int32,System.Threading.CancellationToken)
+  name: GetPullRequestAsync(Int32, CancellationToken)
+  href: api/VSTS.Net.VstsClient.html#VSTS_Net_VstsClient_GetPullRequestAsync_System_Int32_System_Threading_CancellationToken_
+  commentId: M:VSTS.Net.VstsClient.GetPullRequestAsync(System.Int32,System.Threading.CancellationToken)
+  fullName: VSTS.Net.VstsClient.GetPullRequestAsync(System.Int32, System.Threading.CancellationToken)
+  nameWithType: VstsClient.GetPullRequestAsync(Int32, CancellationToken)
+- uid: VSTS.Net.VstsClient.GetPullRequestAsync(System.String,System.String,System.Int32,System.Threading.CancellationToken)
+  name: GetPullRequestAsync(String, String, Int32, CancellationToken)
+  href: api/VSTS.Net.VstsClient.html#VSTS_Net_VstsClient_GetPullRequestAsync_System_String_System_String_System_Int32_System_Threading_CancellationToken_
+  commentId: M:VSTS.Net.VstsClient.GetPullRequestAsync(System.String,System.String,System.Int32,System.Threading.CancellationToken)
+  fullName: VSTS.Net.VstsClient.GetPullRequestAsync(System.String, System.String, System.Int32, System.Threading.CancellationToken)
+  nameWithType: VstsClient.GetPullRequestAsync(String, String, Int32, CancellationToken)
+- uid: VSTS.Net.VstsClient.GetPullRequestAsync*
+  name: GetPullRequestAsync
+  href: api/VSTS.Net.VstsClient.html#VSTS_Net_VstsClient_GetPullRequestAsync_
+  commentId: Overload:VSTS.Net.VstsClient.GetPullRequestAsync
+  isSpec: "True"
+  fullName: VSTS.Net.VstsClient.GetPullRequestAsync
+  nameWithType: VstsClient.GetPullRequestAsync
+- uid: VSTS.Net.VstsClient.GetPullRequestIterationsAsync(System.String,System.String,System.Int32,System.Threading.CancellationToken)
+  name: GetPullRequestIterationsAsync(String, String, Int32, CancellationToken)
+  href: api/VSTS.Net.VstsClient.html#VSTS_Net_VstsClient_GetPullRequestIterationsAsync_System_String_System_String_System_Int32_System_Threading_CancellationToken_
+  commentId: M:VSTS.Net.VstsClient.GetPullRequestIterationsAsync(System.String,System.String,System.Int32,System.Threading.CancellationToken)
+  fullName: VSTS.Net.VstsClient.GetPullRequestIterationsAsync(System.String, System.String, System.Int32, System.Threading.CancellationToken)
+  nameWithType: VstsClient.GetPullRequestIterationsAsync(String, String, Int32, CancellationToken)
 - uid: VSTS.Net.VstsClient.GetPullRequestIterationsAsync*
   name: GetPullRequestIterationsAsync
   href: api/VSTS.Net.VstsClient.html#VSTS_Net_VstsClient_GetPullRequestIterationsAsync_
@@ -2042,12 +3240,12 @@ references:
   isSpec: "True"
   fullName: VSTS.Net.VstsClient.GetPullRequestIterationsAsync
   nameWithType: VstsClient.GetPullRequestIterationsAsync
-- uid: VSTS.Net.VstsClient.GetPullRequestsAsync(System.String,System.String,VSTS.Net.Models.Request.PullRequestQuery)
-  name: GetPullRequestsAsync(String, String, PullRequestQuery)
-  href: api/VSTS.Net.VstsClient.html#VSTS_Net_VstsClient_GetPullRequestsAsync_System_String_System_String_VSTS_Net_Models_Request_PullRequestQuery_
-  commentId: M:VSTS.Net.VstsClient.GetPullRequestsAsync(System.String,System.String,VSTS.Net.Models.Request.PullRequestQuery)
-  fullName: VSTS.Net.VstsClient.GetPullRequestsAsync(System.String, System.String, VSTS.Net.Models.Request.PullRequestQuery)
-  nameWithType: VstsClient.GetPullRequestsAsync(String, String, PullRequestQuery)
+- uid: VSTS.Net.VstsClient.GetPullRequestsAsync(System.String,System.String,VSTS.Net.Models.Request.PullRequestQuery,System.Threading.CancellationToken)
+  name: GetPullRequestsAsync(String, String, PullRequestQuery, CancellationToken)
+  href: api/VSTS.Net.VstsClient.html#VSTS_Net_VstsClient_GetPullRequestsAsync_System_String_System_String_VSTS_Net_Models_Request_PullRequestQuery_System_Threading_CancellationToken_
+  commentId: M:VSTS.Net.VstsClient.GetPullRequestsAsync(System.String,System.String,VSTS.Net.Models.Request.PullRequestQuery,System.Threading.CancellationToken)
+  fullName: VSTS.Net.VstsClient.GetPullRequestsAsync(System.String, System.String, VSTS.Net.Models.Request.PullRequestQuery, System.Threading.CancellationToken)
+  nameWithType: VstsClient.GetPullRequestsAsync(String, String, PullRequestQuery, CancellationToken)
 - uid: VSTS.Net.VstsClient.GetPullRequestsAsync*
   name: GetPullRequestsAsync
   href: api/VSTS.Net.VstsClient.html#VSTS_Net_VstsClient_GetPullRequestsAsync_
@@ -2055,12 +3253,12 @@ references:
   isSpec: "True"
   fullName: VSTS.Net.VstsClient.GetPullRequestsAsync
   nameWithType: VstsClient.GetPullRequestsAsync
-- uid: VSTS.Net.VstsClient.GetPullRequestThreadsAsync(System.String,System.String,System.Int32)
-  name: GetPullRequestThreadsAsync(String, String, Int32)
-  href: api/VSTS.Net.VstsClient.html#VSTS_Net_VstsClient_GetPullRequestThreadsAsync_System_String_System_String_System_Int32_
-  commentId: M:VSTS.Net.VstsClient.GetPullRequestThreadsAsync(System.String,System.String,System.Int32)
-  fullName: VSTS.Net.VstsClient.GetPullRequestThreadsAsync(System.String, System.String, System.Int32)
-  nameWithType: VstsClient.GetPullRequestThreadsAsync(String, String, Int32)
+- uid: VSTS.Net.VstsClient.GetPullRequestThreadsAsync(System.String,System.String,System.Int32,System.Threading.CancellationToken)
+  name: GetPullRequestThreadsAsync(String, String, Int32, CancellationToken)
+  href: api/VSTS.Net.VstsClient.html#VSTS_Net_VstsClient_GetPullRequestThreadsAsync_System_String_System_String_System_Int32_System_Threading_CancellationToken_
+  commentId: M:VSTS.Net.VstsClient.GetPullRequestThreadsAsync(System.String,System.String,System.Int32,System.Threading.CancellationToken)
+  fullName: VSTS.Net.VstsClient.GetPullRequestThreadsAsync(System.String, System.String, System.Int32, System.Threading.CancellationToken)
+  nameWithType: VstsClient.GetPullRequestThreadsAsync(String, String, Int32, CancellationToken)
 - uid: VSTS.Net.VstsClient.GetPullRequestThreadsAsync*
   name: GetPullRequestThreadsAsync
   href: api/VSTS.Net.VstsClient.html#VSTS_Net_VstsClient_GetPullRequestThreadsAsync_
@@ -2068,12 +3266,72 @@ references:
   isSpec: "True"
   fullName: VSTS.Net.VstsClient.GetPullRequestThreadsAsync
   nameWithType: VstsClient.GetPullRequestThreadsAsync
-- uid: VSTS.Net.VstsClient.GetWorkItemsAsync(System.String,VSTS.Net.Models.Request.WorkItemsQuery)
-  name: GetWorkItemsAsync(String, WorkItemsQuery)
-  href: api/VSTS.Net.VstsClient.html#VSTS_Net_VstsClient_GetWorkItemsAsync_System_String_VSTS_Net_Models_Request_WorkItemsQuery_
-  commentId: M:VSTS.Net.VstsClient.GetWorkItemsAsync(System.String,VSTS.Net.Models.Request.WorkItemsQuery)
-  fullName: VSTS.Net.VstsClient.GetWorkItemsAsync(System.String, VSTS.Net.Models.Request.WorkItemsQuery)
-  nameWithType: VstsClient.GetWorkItemsAsync(String, WorkItemsQuery)
+- uid: VSTS.Net.VstsClient.GetWorkItemAsync(System.Int32,System.Nullable{System.DateTime},System.String[],System.Threading.CancellationToken)
+  name: GetWorkItemAsync(Int32, Nullable<DateTime>, String[], CancellationToken)
+  href: api/VSTS.Net.VstsClient.html#VSTS_Net_VstsClient_GetWorkItemAsync_System_Int32_System_Nullable_System_DateTime__System_String___System_Threading_CancellationToken_
+  commentId: M:VSTS.Net.VstsClient.GetWorkItemAsync(System.Int32,System.Nullable{System.DateTime},System.String[],System.Threading.CancellationToken)
+  name.vb: GetWorkItemAsync(Int32, Nullable(Of DateTime), String(), CancellationToken)
+  fullName: VSTS.Net.VstsClient.GetWorkItemAsync(System.Int32, System.Nullable<System.DateTime>, System.String[], System.Threading.CancellationToken)
+  fullName.vb: VSTS.Net.VstsClient.GetWorkItemAsync(System.Int32, System.Nullable(Of System.DateTime), System.String(), System.Threading.CancellationToken)
+  nameWithType: VstsClient.GetWorkItemAsync(Int32, Nullable<DateTime>, String[], CancellationToken)
+  nameWithType.vb: VstsClient.GetWorkItemAsync(Int32, Nullable(Of DateTime), String(), CancellationToken)
+- uid: VSTS.Net.VstsClient.GetWorkItemAsync*
+  name: GetWorkItemAsync
+  href: api/VSTS.Net.VstsClient.html#VSTS_Net_VstsClient_GetWorkItemAsync_
+  commentId: Overload:VSTS.Net.VstsClient.GetWorkItemAsync
+  isSpec: "True"
+  fullName: VSTS.Net.VstsClient.GetWorkItemAsync
+  nameWithType: VstsClient.GetWorkItemAsync
+- uid: VSTS.Net.VstsClient.GetWorkItemExpandedAsync(System.Int32,System.Nullable{System.DateTime},System.Threading.CancellationToken)
+  name: GetWorkItemExpandedAsync(Int32, Nullable<DateTime>, CancellationToken)
+  href: api/VSTS.Net.VstsClient.html#VSTS_Net_VstsClient_GetWorkItemExpandedAsync_System_Int32_System_Nullable_System_DateTime__System_Threading_CancellationToken_
+  commentId: M:VSTS.Net.VstsClient.GetWorkItemExpandedAsync(System.Int32,System.Nullable{System.DateTime},System.Threading.CancellationToken)
+  name.vb: GetWorkItemExpandedAsync(Int32, Nullable(Of DateTime), CancellationToken)
+  fullName: VSTS.Net.VstsClient.GetWorkItemExpandedAsync(System.Int32, System.Nullable<System.DateTime>, System.Threading.CancellationToken)
+  fullName.vb: VSTS.Net.VstsClient.GetWorkItemExpandedAsync(System.Int32, System.Nullable(Of System.DateTime), System.Threading.CancellationToken)
+  nameWithType: VstsClient.GetWorkItemExpandedAsync(Int32, Nullable<DateTime>, CancellationToken)
+  nameWithType.vb: VstsClient.GetWorkItemExpandedAsync(Int32, Nullable(Of DateTime), CancellationToken)
+- uid: VSTS.Net.VstsClient.GetWorkItemExpandedAsync*
+  name: GetWorkItemExpandedAsync
+  href: api/VSTS.Net.VstsClient.html#VSTS_Net_VstsClient_GetWorkItemExpandedAsync_
+  commentId: Overload:VSTS.Net.VstsClient.GetWorkItemExpandedAsync
+  isSpec: "True"
+  fullName: VSTS.Net.VstsClient.GetWorkItemExpandedAsync
+  nameWithType: VstsClient.GetWorkItemExpandedAsync
+- uid: VSTS.Net.VstsClient.GetWorkItemFieldsAsync(System.Threading.CancellationToken)
+  name: GetWorkItemFieldsAsync(CancellationToken)
+  href: api/VSTS.Net.VstsClient.html#VSTS_Net_VstsClient_GetWorkItemFieldsAsync_System_Threading_CancellationToken_
+  commentId: M:VSTS.Net.VstsClient.GetWorkItemFieldsAsync(System.Threading.CancellationToken)
+  fullName: VSTS.Net.VstsClient.GetWorkItemFieldsAsync(System.Threading.CancellationToken)
+  nameWithType: VstsClient.GetWorkItemFieldsAsync(CancellationToken)
+- uid: VSTS.Net.VstsClient.GetWorkItemFieldsAsync*
+  name: GetWorkItemFieldsAsync
+  href: api/VSTS.Net.VstsClient.html#VSTS_Net_VstsClient_GetWorkItemFieldsAsync_
+  commentId: Overload:VSTS.Net.VstsClient.GetWorkItemFieldsAsync
+  isSpec: "True"
+  fullName: VSTS.Net.VstsClient.GetWorkItemFieldsAsync
+  nameWithType: VstsClient.GetWorkItemFieldsAsync
+- uid: VSTS.Net.VstsClient.GetWorkItemsAsync(System.Guid,System.Boolean,System.Threading.CancellationToken)
+  name: GetWorkItemsAsync(Guid, Boolean, CancellationToken)
+  href: api/VSTS.Net.VstsClient.html#VSTS_Net_VstsClient_GetWorkItemsAsync_System_Guid_System_Boolean_System_Threading_CancellationToken_
+  commentId: M:VSTS.Net.VstsClient.GetWorkItemsAsync(System.Guid,System.Boolean,System.Threading.CancellationToken)
+  fullName: VSTS.Net.VstsClient.GetWorkItemsAsync(System.Guid, System.Boolean, System.Threading.CancellationToken)
+  nameWithType: VstsClient.GetWorkItemsAsync(Guid, Boolean, CancellationToken)
+- uid: VSTS.Net.VstsClient.GetWorkItemsAsync(System.Int32[],System.Nullable{System.DateTime},System.String[],System.Threading.CancellationToken)
+  name: GetWorkItemsAsync(Int32[], Nullable<DateTime>, String[], CancellationToken)
+  href: api/VSTS.Net.VstsClient.html#VSTS_Net_VstsClient_GetWorkItemsAsync_System_Int32___System_Nullable_System_DateTime__System_String___System_Threading_CancellationToken_
+  commentId: M:VSTS.Net.VstsClient.GetWorkItemsAsync(System.Int32[],System.Nullable{System.DateTime},System.String[],System.Threading.CancellationToken)
+  name.vb: GetWorkItemsAsync(Int32(), Nullable(Of DateTime), String(), CancellationToken)
+  fullName: VSTS.Net.VstsClient.GetWorkItemsAsync(System.Int32[], System.Nullable<System.DateTime>, System.String[], System.Threading.CancellationToken)
+  fullName.vb: VSTS.Net.VstsClient.GetWorkItemsAsync(System.Int32(), System.Nullable(Of System.DateTime), System.String(), System.Threading.CancellationToken)
+  nameWithType: VstsClient.GetWorkItemsAsync(Int32[], Nullable<DateTime>, String[], CancellationToken)
+  nameWithType.vb: VstsClient.GetWorkItemsAsync(Int32(), Nullable(Of DateTime), String(), CancellationToken)
+- uid: VSTS.Net.VstsClient.GetWorkItemsAsync(VSTS.Net.Models.Request.WorkItemsQuery,System.Boolean,System.Threading.CancellationToken)
+  name: GetWorkItemsAsync(WorkItemsQuery, Boolean, CancellationToken)
+  href: api/VSTS.Net.VstsClient.html#VSTS_Net_VstsClient_GetWorkItemsAsync_VSTS_Net_Models_Request_WorkItemsQuery_System_Boolean_System_Threading_CancellationToken_
+  commentId: M:VSTS.Net.VstsClient.GetWorkItemsAsync(VSTS.Net.Models.Request.WorkItemsQuery,System.Boolean,System.Threading.CancellationToken)
+  fullName: VSTS.Net.VstsClient.GetWorkItemsAsync(VSTS.Net.Models.Request.WorkItemsQuery, System.Boolean, System.Threading.CancellationToken)
+  nameWithType: VstsClient.GetWorkItemsAsync(WorkItemsQuery, Boolean, CancellationToken)
 - uid: VSTS.Net.VstsClient.GetWorkItemsAsync*
   name: GetWorkItemsAsync
   href: api/VSTS.Net.VstsClient.html#VSTS_Net_VstsClient_GetWorkItemsAsync_
@@ -2081,12 +3339,28 @@ references:
   isSpec: "True"
   fullName: VSTS.Net.VstsClient.GetWorkItemsAsync
   nameWithType: VstsClient.GetWorkItemsAsync
-- uid: VSTS.Net.VstsClient.GetWorkItemUpdatesAsync(System.Int32)
-  name: GetWorkItemUpdatesAsync(Int32)
-  href: api/VSTS.Net.VstsClient.html#VSTS_Net_VstsClient_GetWorkItemUpdatesAsync_System_Int32_
-  commentId: M:VSTS.Net.VstsClient.GetWorkItemUpdatesAsync(System.Int32)
-  fullName: VSTS.Net.VstsClient.GetWorkItemUpdatesAsync(System.Int32)
-  nameWithType: VstsClient.GetWorkItemUpdatesAsync(Int32)
+- uid: VSTS.Net.VstsClient.GetWorkItemsExpandedAsync(System.Int32[],System.Nullable{System.DateTime},System.Threading.CancellationToken)
+  name: GetWorkItemsExpandedAsync(Int32[], Nullable<DateTime>, CancellationToken)
+  href: api/VSTS.Net.VstsClient.html#VSTS_Net_VstsClient_GetWorkItemsExpandedAsync_System_Int32___System_Nullable_System_DateTime__System_Threading_CancellationToken_
+  commentId: M:VSTS.Net.VstsClient.GetWorkItemsExpandedAsync(System.Int32[],System.Nullable{System.DateTime},System.Threading.CancellationToken)
+  name.vb: GetWorkItemsExpandedAsync(Int32(), Nullable(Of DateTime), CancellationToken)
+  fullName: VSTS.Net.VstsClient.GetWorkItemsExpandedAsync(System.Int32[], System.Nullable<System.DateTime>, System.Threading.CancellationToken)
+  fullName.vb: VSTS.Net.VstsClient.GetWorkItemsExpandedAsync(System.Int32(), System.Nullable(Of System.DateTime), System.Threading.CancellationToken)
+  nameWithType: VstsClient.GetWorkItemsExpandedAsync(Int32[], Nullable<DateTime>, CancellationToken)
+  nameWithType.vb: VstsClient.GetWorkItemsExpandedAsync(Int32(), Nullable(Of DateTime), CancellationToken)
+- uid: VSTS.Net.VstsClient.GetWorkItemsExpandedAsync*
+  name: GetWorkItemsExpandedAsync
+  href: api/VSTS.Net.VstsClient.html#VSTS_Net_VstsClient_GetWorkItemsExpandedAsync_
+  commentId: Overload:VSTS.Net.VstsClient.GetWorkItemsExpandedAsync
+  isSpec: "True"
+  fullName: VSTS.Net.VstsClient.GetWorkItemsExpandedAsync
+  nameWithType: VstsClient.GetWorkItemsExpandedAsync
+- uid: VSTS.Net.VstsClient.GetWorkItemUpdatesAsync(System.Int32,System.Threading.CancellationToken)
+  name: GetWorkItemUpdatesAsync(Int32, CancellationToken)
+  href: api/VSTS.Net.VstsClient.html#VSTS_Net_VstsClient_GetWorkItemUpdatesAsync_System_Int32_System_Threading_CancellationToken_
+  commentId: M:VSTS.Net.VstsClient.GetWorkItemUpdatesAsync(System.Int32,System.Threading.CancellationToken)
+  fullName: VSTS.Net.VstsClient.GetWorkItemUpdatesAsync(System.Int32, System.Threading.CancellationToken)
+  nameWithType: VstsClient.GetWorkItemUpdatesAsync(Int32, CancellationToken)
 - uid: VSTS.Net.VstsClient.GetWorkItemUpdatesAsync*
   name: GetWorkItemUpdatesAsync
   href: api/VSTS.Net.VstsClient.html#VSTS_Net_VstsClient_GetWorkItemUpdatesAsync_
@@ -2094,3 +3368,16 @@ references:
   isSpec: "True"
   fullName: VSTS.Net.VstsClient.GetWorkItemUpdatesAsync
   nameWithType: VstsClient.GetWorkItemUpdatesAsync
+- uid: VSTS.Net.VstsClient.UpdateWorkItemAsync(VSTS.Net.Models.Request.UpdateWorkitemRequest,System.Threading.CancellationToken)
+  name: UpdateWorkItemAsync(UpdateWorkitemRequest, CancellationToken)
+  href: api/VSTS.Net.VstsClient.html#VSTS_Net_VstsClient_UpdateWorkItemAsync_VSTS_Net_Models_Request_UpdateWorkitemRequest_System_Threading_CancellationToken_
+  commentId: M:VSTS.Net.VstsClient.UpdateWorkItemAsync(VSTS.Net.Models.Request.UpdateWorkitemRequest,System.Threading.CancellationToken)
+  fullName: VSTS.Net.VstsClient.UpdateWorkItemAsync(VSTS.Net.Models.Request.UpdateWorkitemRequest, System.Threading.CancellationToken)
+  nameWithType: VstsClient.UpdateWorkItemAsync(UpdateWorkitemRequest, CancellationToken)
+- uid: VSTS.Net.VstsClient.UpdateWorkItemAsync*
+  name: UpdateWorkItemAsync
+  href: api/VSTS.Net.VstsClient.html#VSTS_Net_VstsClient_UpdateWorkItemAsync_
+  commentId: Overload:VSTS.Net.VstsClient.UpdateWorkItemAsync
+  isSpec: "True"
+  fullName: VSTS.Net.VstsClient.UpdateWorkItemAsync
+  nameWithType: VstsClient.UpdateWorkItemAsync
