@@ -82,16 +82,6 @@ namespace VSTS.Net.Interfaces
         Task<WorkItemsQueryResult> ExecuteQueryAsync(WorkItemsQuery query, CancellationToken cancellationToken = default(CancellationToken));
 
         /// <summary>
-        /// Gets the results of the query given the query ID.
-        /// </summary>
-        /// <typeparam name="T">Type of the returned result. <see cref="FlatWorkItemsQueryResult" />for flat query and<see cref="HierarchicalWorkItemsQueryResult" for hierarchical queries/></typeparam>
-        /// <param name="queryId">The query ID.</param>
-        /// <param name="cancellationToken">Cancellation token</param>
-        /// <returns>Returns <see cref="WorkItemsQueryResult"/></returns>
-        Task<T> ExecuteQueryAsync<T>(Guid queryId, CancellationToken cancellationToken = default(CancellationToken))
-            where T : WorkItemsQueryResult;
-
-        /// <summary>
         /// Executes a flat work item query
         /// </summary>
         /// <param name="query">Work item query to execute</param>
@@ -106,6 +96,34 @@ namespace VSTS.Net.Interfaces
         /// <param name="cancellationToken">Cancellation token</param>
         /// <returns>List of workitem relations returned by the query</returns>
         Task<HierarchicalWorkItemsQueryResult> ExecuteHierarchicalQueryAsync(string query, CancellationToken cancellationToken = default(CancellationToken));
+
+        /// <summary>
+        /// Gets the results of the query given the query ID.
+        /// </summary>
+        /// <typeparam name="T">Type of the returned result. <see cref="FlatWorkItemsQueryResult" />for flat query and<see cref="HierarchicalWorkItemsQueryResult" for hierarchical queries/></typeparam>
+        /// <param name="queryId">The query ID.</param>
+        /// <param name="cancellationToken">Cancellation token</param>
+        /// <returns>Returns <see cref="WorkItemsQueryResult"/></returns>
+        Task<T> ExecuteQueryAsync<T>(Guid queryId, CancellationToken cancellationToken = default(CancellationToken))
+            where T : WorkItemsQueryResult;
+
+        /// <summary>
+        /// Gets the results of the query with workitems given the query ID
+        /// </summary>
+        /// <param name="queryId">The query ID.</param>
+        /// <param name="expandFields">Indicates whether to expand the workitem fields. if true, columns list will be ignored</param>
+        /// <param name="cancellationToken">Cancellation token</param>
+        /// <returns>Returns <see cref="WorkItemsQueryResult"/></returns>
+        Task<WorkItemsQueryResult> ExecuteQueryAndExpandAsync(Guid queryId, bool expandFields, CancellationToken cancellationToken = default(CancellationToken));
+
+        /// <summary>
+        /// Gets the results of the query with workitems given the query string
+        /// </summary>
+        /// <param name="query">Work item query to execute</param>
+        /// <param name="expandFields">Indicates whether to expand the workitem fields. if true, columns list will be ignored</param>
+        /// <param name="cancellationToken">Cancellation token</param>
+        /// <returns>Returns <see cref="WorkItemsQueryResult"/></returns>
+        Task<WorkItemsQueryResult> ExecuteQueryAndExpandAsync(string query, bool expandFields, CancellationToken cancellationToken = default(CancellationToken));
 
         /// <summary>
         /// Executes a work item query

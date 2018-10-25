@@ -47,6 +47,48 @@ namespace VSTS.Net
         }
 
         /// <inheritdoc />
+        public async Task<WorkItemsQueryResult> ExecuteQueryAndExpandAsync(Guid queryId, bool expandFields, CancellationToken cancellationToken = default(CancellationToken))
+        {
+            ThrowIfArgumentIsDefault(queryId, nameof(queryId));
+
+            var queryResultObject = await ExecuteQueryInternalAsync<JObject>(queryId, cancellationToken);
+            var queryTypeString = queryResultObject.GetValue("queryType", StringComparison.OrdinalIgnoreCase).Value<string>();
+            var queryType = (QueryType)Enum.Parse(typeof(QueryType), queryTypeString);
+            if (queryType == QueryType.Flat)
+            {
+                var flatQueryResult = queryResultObject.ToObject<FlatWorkItemsQueryResultWithWorkItems>();
+                var idsToQuery = flatQueryResult.WorkItems.Select(w => w.Id).ToArray();
+                flatQueryResult.WorkItems = await GetWorkItemsAsync(idsToQuery, cancellationToken: cancellationToken);
+                return flatQueryResult;
+            }
+            else
+            {
+                throw new NotImplementedException();
+            }
+        }
+
+        /// <inheritdoc />
+        public async Task<WorkItemsQueryResult> ExecuteQueryAndExpandAsync(string query, bool expandFields, CancellationToken cancellationToken = default(CancellationToken))
+        {
+            ThrowIfArgumentNullOrEmpty(query, nameof(query));
+
+            var queryResultObject = await ExecuteQueryInternalAsync<JObject>(WorkItemsQuery.Get(query), cancellationToken);
+            var queryTypeString = queryResultObject.GetValue("queryType", StringComparison.OrdinalIgnoreCase).Value<string>();
+            var queryType = (QueryType)Enum.Parse(typeof(QueryType), queryTypeString);
+            if (queryType == QueryType.Flat)
+            {
+                var flatQueryResult = queryResultObject.ToObject<FlatWorkItemsQueryResultWithWorkItems>();
+                var idsToQuery = flatQueryResult.WorkItems.Select(w => w.Id).ToArray();
+                flatQueryResult.WorkItems = await GetWorkItemsAsync(idsToQuery, cancellationToken: cancellationToken);
+                return flatQueryResult;
+            }
+            else
+            {
+                throw new NotImplementedException();
+            }
+        }
+
+        /// <inheritdoc />
         public async Task<FlatWorkItemsQueryResult> ExecuteFlatQueryAsync(string query, CancellationToken cancellationToken = default(CancellationToken))
         {
             var result = await ExecuteQueryAsync(WorkItemsQuery.Get(query, isHierarchical: false), cancellationToken);
@@ -172,11 +214,12 @@ namespace VSTS.Net
             ThrowIfArgumentIsDefault(queryId, nameof(queryId));
 
             var queryResultObject = await ExecuteQueryInternalAsync<JObject>(queryId, cancellationToken);
-            var queryType = queryResultObject.GetValue("queryType", StringComparison.OrdinalIgnoreCase).Value<string>();
+            var queryTypeString = queryResultObject.GetValue("queryType", StringComparison.OrdinalIgnoreCase).Value<string>();
+            var queryType = (QueryType)Enum.Parse(typeof(QueryType), queryTypeString);
 
             int[] ids = new int[0];
             WorkItemsQueryResult resultObject;
-            if (queryType == "tree")
+            if (queryType == QueryType.Tree)
             {
                 var treeQueryResult = queryResultObject.ToObject<HierarchicalWorkItemsQueryResult>();
                 ids = treeQueryResult.WorkItemRelations.SelectMany(r => new[] { r.Source, r.Target })
@@ -185,7 +228,7 @@ namespace VSTS.Net
                     .ToArray();
                 resultObject = treeQueryResult;
             }
-            else if (queryType == "flat")
+            else if (queryType == QueryType.Flat)
             {
                 var flatQueryResult = queryResultObject.ToObject<FlatWorkItemsQueryResult>();
                 ids = flatQueryResult.WorkItems.Select(r => r.Id).ToArray();
@@ -287,6 +330,17 @@ namespace VSTS.Net
                 .Build(Constants.CurrentWorkItemsApiVersion);
 
             return await _httpClient.ExecuteGet<T>(url, cancellationToken);
+        }
+
+        private async Task<T> ExecuteQueryInternalAsync<T>(WorkItemsQuery query, CancellationToken cancellationToken = default(CancellationToken))
+        {
+            ThrowIfArgumentNull(query, nameof(query));
+
+            var url = _urlBuilderFactory.Create()
+                .ForWIQL()
+                .Build(Constants.CurrentWorkItemsApiVersion);
+
+            return await _httpClient.ExecutePost<T>(url, query, cancellationToken);
         }
     }
 }

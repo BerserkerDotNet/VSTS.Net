@@ -40,10 +40,6 @@ namespace VSTS.Net.Tests.Types
             CancellationToken = source.Token;
         }
 
-        protected virtual void Initialize()
-        {
-        }
-
         protected ISetup<IHttpClient, Task<CollectionResponse<T>>> SetupGetCollectionOf<T>(Expression<Func<string, bool>> urlPredicate = null)
         {
             if (urlPredicate == null)
