@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using Microsoft.Extensions.Logging;
 using Newtonsoft.Json.Linq;
 using VSTS.Net.Exceptions;
+using VSTS.Net.Extensions;
 using VSTS.Net.Interfaces;
 using VSTS.Net.Models.Request;
 using VSTS.Net.Models.Response;
@@ -51,20 +52,7 @@ namespace VSTS.Net
         {
             ThrowIfArgumentIsDefault(queryId, nameof(queryId));
 
-            var queryResultObject = await ExecuteQueryInternalAsync<JObject>(queryId, cancellationToken);
-            var queryTypeString = queryResultObject.GetValue("queryType", StringComparison.OrdinalIgnoreCase).Value<string>();
-            var queryType = (QueryType)Enum.Parse(typeof(QueryType), queryTypeString);
-            if (queryType == QueryType.Flat)
-            {
-                var flatQueryResult = queryResultObject.ToObject<FlatWorkItemsQueryResultWithWorkItems>();
-                var idsToQuery = flatQueryResult.WorkItems.Select(w => w.Id).ToArray();
-                flatQueryResult.WorkItems = await GetWorkItemsAsync(idsToQuery, cancellationToken: cancellationToken);
-                return flatQueryResult;
-            }
-            else
-            {
-                throw new NotImplementedException();
-            }
+            return await ExecuteQueryAndExpandInternal(async () => await ExecuteQueryInternalAsync<JObject>(queryId, cancellationToken), cancellationToken);
         }
 
         /// <inheritdoc />
@@ -72,20 +60,7 @@ namespace VSTS.Net
         {
             ThrowIfArgumentNullOrEmpty(query, nameof(query));
 
-            var queryResultObject = await ExecuteQueryInternalAsync<JObject>(WorkItemsQuery.Get(query), cancellationToken);
-            var queryTypeString = queryResultObject.GetValue("queryType", StringComparison.OrdinalIgnoreCase).Value<string>();
-            var queryType = (QueryType)Enum.Parse(typeof(QueryType), queryTypeString);
-            if (queryType == QueryType.Flat)
-            {
-                var flatQueryResult = queryResultObject.ToObject<FlatWorkItemsQueryResultWithWorkItems>();
-                var idsToQuery = flatQueryResult.WorkItems.Select(w => w.Id).ToArray();
-                flatQueryResult.WorkItems = await GetWorkItemsAsync(idsToQuery, cancellationToken: cancellationToken);
-                return flatQueryResult;
-            }
-            else
-            {
-                throw new NotImplementedException();
-            }
+            return await ExecuteQueryAndExpandInternal(async () => await ExecuteQueryInternalAsync<JObject>(WorkItemsQuery.Get(query), cancellationToken), cancellationToken);
         }
 
         /// <inheritdoc />
@@ -222,10 +197,7 @@ namespace VSTS.Net
             if (queryType == QueryType.Tree)
             {
                 var treeQueryResult = queryResultObject.ToObject<HierarchicalWorkItemsQueryResult>();
-                ids = treeQueryResult.WorkItemRelations.SelectMany(r => new[] { r.Source, r.Target })
-                    .Select(r => r.Id)
-                    .Distinct()
-                    .ToArray();
+                ids = treeQueryResult.WorkItemRelations.ToIdsArray();
                 resultObject = treeQueryResult;
             }
             else if (queryType == QueryType.Flat)
@@ -320,7 +292,7 @@ namespace VSTS.Net
                 .ToArray();
         }
 
-        private async Task<T> ExecuteQueryInternalAsync<T>(Guid queryId, CancellationToken cancellationToken = default(CancellationToken))
+        private async Task<T> ExecuteQueryInternalAsync<T>(Guid queryId, CancellationToken cancellationToken)
         {
             ThrowIfArgumentIsDefault(queryId, nameof(queryId));
 
@@ -332,7 +304,7 @@ namespace VSTS.Net
             return await _httpClient.ExecuteGet<T>(url, cancellationToken);
         }
 
-        private async Task<T> ExecuteQueryInternalAsync<T>(WorkItemsQuery query, CancellationToken cancellationToken = default(CancellationToken))
+        private async Task<T> ExecuteQueryInternalAsync<T>(WorkItemsQuery query, CancellationToken cancellationToken)
         {
             ThrowIfArgumentNull(query, nameof(query));
 
@@ -341,6 +313,31 @@ namespace VSTS.Net
                 .Build(Constants.CurrentWorkItemsApiVersion);
 
             return await _httpClient.ExecutePost<T>(url, query, cancellationToken);
+        }
+
+        private async Task<WorkItemsQueryResult> ExecuteQueryAndExpandInternal(Func<Task<JObject>> queryExecutor, CancellationToken cancellationToken)
+        {
+            var queryResultObject = await queryExecutor();
+            var queryTypeString = queryResultObject.GetValue("queryType", StringComparison.OrdinalIgnoreCase).Value<string>();
+            var queryType = (QueryType)Enum.Parse(typeof(QueryType), queryTypeString);
+            if (queryType == QueryType.Flat)
+            {
+                var flatQueryResult = queryResultObject.ToObject<FlatWorkItemsQueryResultWithWorkItems>();
+                var idsToQuery = flatQueryResult.WorkItems.Select(w => w.Id).ToArray();
+                flatQueryResult.WorkItems = await GetWorkItemsAsync(idsToQuery, cancellationToken: cancellationToken);
+                return flatQueryResult;
+            }
+            else if (queryType == QueryType.Tree)
+            {
+                var heirarchicalQueryResult = queryResultObject.ToObject<HierarchicalWorkItemsQueryResultWithWorkItems>();
+                var idsToQuery = heirarchicalQueryResult.WorkItemRelations.ToIdsArray();
+                heirarchicalQueryResult.WorkItems = await GetWorkItemsAsync(idsToQuery, cancellationToken: cancellationToken);
+                return heirarchicalQueryResult;
+            }
+            else
+            {
+                throw new NotImplementedException();
+            }
         }
     }
 }

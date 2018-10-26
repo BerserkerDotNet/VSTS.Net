@@ -41,7 +41,7 @@ namespace VSTS.Net.Models.WorkItems
                 return true;
             }
 
-            return base.Equals(obj as WorkItemReference);
+            return Equals(obj as WorkItemReference);
         }
 
         public override int GetHashCode()
