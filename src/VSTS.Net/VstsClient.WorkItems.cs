@@ -8,6 +8,7 @@ using Newtonsoft.Json.Linq;
 using VSTS.Net.Exceptions;
 using VSTS.Net.Extensions;
 using VSTS.Net.Interfaces;
+using VSTS.Net.Interfaces.Internal;
 using VSTS.Net.Models.Request;
 using VSTS.Net.Models.Response;
 using VSTS.Net.Models.WorkItems;
@@ -52,7 +53,7 @@ namespace VSTS.Net
         {
             ThrowIfArgumentIsDefault(queryId, nameof(queryId));
 
-            return await ExecuteQueryAndExpandInternal(async () => await ExecuteQueryInternalAsync<JObject>(queryId, cancellationToken), cancellationToken);
+            return await ExecuteQueryAndExpandInternal(async () => await ExecuteQueryInternalAsync<JObject>(queryId, cancellationToken), expandFields, cancellationToken);
         }
 
         /// <inheritdoc />
@@ -60,7 +61,7 @@ namespace VSTS.Net
         {
             ThrowIfArgumentNullOrEmpty(query, nameof(query));
 
-            return await ExecuteQueryAndExpandInternal(async () => await ExecuteQueryInternalAsync<JObject>(WorkItemsQuery.Get(query), cancellationToken), cancellationToken);
+            return await ExecuteQueryAndExpandInternal(async () => await ExecuteQueryInternalAsync<JObject>(WorkItemsQuery.Get(query), cancellationToken), expandFields, cancellationToken);
         }
 
         /// <inheritdoc />
@@ -315,29 +316,40 @@ namespace VSTS.Net
             return await _httpClient.ExecutePost<T>(url, query, cancellationToken);
         }
 
-        private async Task<WorkItemsQueryResult> ExecuteQueryAndExpandInternal(Func<Task<JObject>> queryExecutor, CancellationToken cancellationToken)
+        private async Task<WorkItemsQueryResult> ExecuteQueryAndExpandInternal(Func<Task<JObject>> queryExecutor, bool expandFields, CancellationToken cancellationToken)
         {
+            const string queryTypeProperty = "queryType";
             var queryResultObject = await queryExecutor();
-            var queryTypeString = queryResultObject.GetValue("queryType", StringComparison.OrdinalIgnoreCase).Value<string>();
-            var queryType = (QueryType)Enum.Parse(typeof(QueryType), queryTypeString);
+            var queryTypeToken = queryResultObject.GetValue(queryTypeProperty, StringComparison.OrdinalIgnoreCase);
+            if (queryTypeToken == null)
+            {
+                throw new UnknownWorkItemQueryTypeException($"Response does not contain property '{queryTypeProperty}'");
+            }
+
+            var queryTypeString = queryTypeToken.Value<string>();
+            var isKnownQueryType = Enum.TryParse<QueryType>(queryTypeString, out var queryType);
+            if (!isKnownQueryType)
+            {
+                throw new UnknownWorkItemQueryTypeException($"Query of type '{queryTypeString}' is not supported");
+            }
+
+            IHaveWorkItems result = null;
+            var idsToQuery = new int[0];
             if (queryType == QueryType.Flat)
             {
-                var flatQueryResult = queryResultObject.ToObject<FlatWorkItemsQueryResultWithWorkItems>();
-                var idsToQuery = flatQueryResult.WorkItems.Select(w => w.Id).ToArray();
-                flatQueryResult.WorkItems = await GetWorkItemsAsync(idsToQuery, cancellationToken: cancellationToken);
-                return flatQueryResult;
+                result = queryResultObject.ToObject<FlatWorkItemsQueryResultWithWorkItems>();
+                idsToQuery = result.WorkItems.Select(w => w.Id).ToArray();
             }
             else if (queryType == QueryType.Tree)
             {
                 var heirarchicalQueryResult = queryResultObject.ToObject<HierarchicalWorkItemsQueryResultWithWorkItems>();
-                var idsToQuery = heirarchicalQueryResult.WorkItemRelations.ToIdsArray();
-                heirarchicalQueryResult.WorkItems = await GetWorkItemsAsync(idsToQuery, cancellationToken: cancellationToken);
-                return heirarchicalQueryResult;
+                idsToQuery = heirarchicalQueryResult.WorkItemRelations.ToIdsArray();
+                result = heirarchicalQueryResult;
             }
-            else
-            {
-                throw new NotImplementedException();
-            }
+
+            var fields = expandFields ? null : ((IHaveColumns)result).Columns.Select(c => c.ReferenceName).ToArray();
+            result.WorkItems = await GetWorkItemsAsync(idsToQuery, fields: fields, cancellationToken: cancellationToken);
+            return (WorkItemsQueryResult)result;
         }
     }
 }

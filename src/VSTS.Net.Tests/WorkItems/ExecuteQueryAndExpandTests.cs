@@ -5,6 +5,7 @@ using FluentAssertions;
 using Moq;
 using Newtonsoft.Json.Linq;
 using NUnit.Framework;
+using VSTS.Net.Exceptions;
 using VSTS.Net.Models.Request;
 using VSTS.Net.Models.Response;
 using VSTS.Net.Models.WorkItems;
@@ -31,31 +32,67 @@ namespace VSTS.Net.Tests.WorkItems
                 .Should().Throw<ArgumentNullException>("queryId");
         }
 
-        [Test]
-        public async Task ReturnsFlatQueryResultWithWorkitemsByQueryText()
+        [TestCase(true)]
+        [TestCase(false)]
+        public async Task ReturnsFlatQueryResultWithWorkitemsByQueryText(bool expand)
         {
-            await RunFlatQuery(async () => await Client.ExecuteQueryAndExpandAsync("Fake query", false, CancellationToken));
+            await RunFlatQuery(async () => await Client.ExecuteQueryAndExpandAsync("Fake query", expand, CancellationToken), expand);
+        }
+
+        [TestCase(true)]
+        [TestCase(false)]
+        public async Task ReturnsHeirarchicalQueryResultWithWorkitemsByQueryText(bool expand)
+        {
+            await RunHierarchicalQuery(async () => await Client.ExecuteQueryAndExpandAsync("Fake query", expand, CancellationToken), expand);
+        }
+
+        [TestCase(true)]
+        [TestCase(false)]
+        public async Task ReturnsFlatQueryResultWithWorkitemsByQueryId(bool expand)
+        {
+            await RunFlatQuery(async () => await Client.ExecuteQueryAndExpandAsync(Guid.NewGuid(), expand, CancellationToken), expand);
+        }
+
+        [TestCase(true)]
+        [TestCase(false)]
+        public async Task ReturnsHeirarchicalQueryResultWithWorkitemsByQueryId(bool expand)
+        {
+            await RunHierarchicalQuery(async () => await Client.ExecuteQueryAndExpandAsync(Guid.NewGuid(), expand, CancellationToken), expand);
         }
 
         [Test]
-        public async Task ReturnsHeirarchicalQueryResultWithWorkitemsByQueryText()
+        public void ThrowsExceptionIfMissingQueryTypeFieldInTheResponse()
         {
-            await RunHierarchicalQuery(async () => await Client.ExecuteQueryAndExpandAsync("Fake query", false, CancellationToken));
+            var expectedQueryResult = new { Foo = 5 };
+
+            HttpClientMock.Setup(c => c.ExecuteGet<JObject>(It.IsAny<string>(), CancellationToken))
+                .ReturnsAsync(JObject.FromObject(expectedQueryResult));
+            HttpClientMock.Setup(c => c.ExecutePost<JObject>(It.IsAny<string>(), It.IsAny<WorkItemsQuery>(), CancellationToken))
+                .ReturnsAsync(JObject.FromObject(expectedQueryResult));
+
+            Client.Awaiting(c => c.ExecuteQueryAndExpandAsync(Guid.NewGuid(), false, CancellationToken))
+                .Should().Throw<UnknownWorkItemQueryTypeException>();
+            Client.Awaiting(c => c.ExecuteQueryAndExpandAsync("Fake query", false, CancellationToken))
+                .Should().Throw<UnknownWorkItemQueryTypeException>();
         }
 
         [Test]
-        public async Task ReturnsFlatQueryResultWithWorkitemsByQueryId()
+        public void ThrowsExceptionIfIncorrectQueryTypeInTheResponse()
         {
-            await RunFlatQuery(async () => await Client.ExecuteQueryAndExpandAsync(Guid.NewGuid(), false, CancellationToken));
+            var expectedQueryResult = new { QueryType = "HyperTree" };
+
+            HttpClientMock.Setup(c => c.ExecuteGet<JObject>(It.IsAny<string>(), CancellationToken))
+                .ReturnsAsync(JObject.FromObject(expectedQueryResult));
+            HttpClientMock.Setup(c => c.ExecutePost<JObject>(It.IsAny<string>(), It.IsAny<WorkItemsQuery>(), CancellationToken))
+                .ReturnsAsync(JObject.FromObject(expectedQueryResult));
+
+            Client.Awaiting(c => c.ExecuteQueryAndExpandAsync(Guid.NewGuid(), false, CancellationToken))
+                .Should().Throw<UnknownWorkItemQueryTypeException>();
+            Client.Awaiting(c => c.ExecuteQueryAndExpandAsync("Fake query", false, CancellationToken))
+                .Should().Throw<UnknownWorkItemQueryTypeException>();
         }
 
-        [Test]
-        public async Task ReturnsHeirarchicalQueryResultWithWorkitemsByQueryId()
-        {
-            await RunHierarchicalQuery(async () => await Client.ExecuteQueryAndExpandAsync(Guid.NewGuid(), false, CancellationToken));
-        }
-
-        private async Task RunFlatQuery(Func<Task<WorkItemsQueryResult>> queryExecutor)
+        private async Task RunFlatQuery(Func<Task<WorkItemsQueryResult>> queryExecutor, bool expand)
         {
             var workitems = new[] { new WorkItem { Id = 1 }, new WorkItem() { Id = 2 }, new WorkItem { Id = 3 } };
             var workitemReferences = workitems.Select(w => new WorkItemReference(w.Id)).ToArray();
@@ -70,7 +107,7 @@ namespace VSTS.Net.Tests.WorkItems
                 .ReturnsAsync(JObject.FromObject(expectedQueryResult));
             HttpClientMock.Setup(c => c.ExecutePost<JObject>(It.IsAny<string>(), It.IsAny<WorkItemsQuery>(), CancellationToken))
                 .ReturnsAsync(JObject.FromObject(expectedQueryResult));
-            HttpClientMock.Setup(c => c.ExecuteGet<CollectionResponse<WorkItem>>(It.IsAny<string>(), CancellationToken))
+            SetupGetCollectionOf<WorkItem>(url => GetWorkitemsUrlPredicate(url, expand))
                 .ReturnsAsync(new CollectionResponse<WorkItem> { Value = workitems });
 
             var result = await queryExecutor();
@@ -83,7 +120,7 @@ namespace VSTS.Net.Tests.WorkItems
             flatQueryResult.SortColumns.Should().BeEquivalentTo(expectedQueryResult.SortColumns);
         }
 
-        private async Task RunHierarchicalQuery(Func<Task<WorkItemsQueryResult>> queryExecutor)
+        private async Task RunHierarchicalQuery(Func<Task<WorkItemsQueryResult>> queryExecutor, bool expand)
         {
             var workitems = new[] { new WorkItem { Id = 1 }, new WorkItem() { Id = 2 }, new WorkItem { Id = 3 } };
             var workitemLinks = new[]
@@ -104,7 +141,7 @@ namespace VSTS.Net.Tests.WorkItems
                 .ReturnsAsync(JObject.FromObject(expectedQueryResult));
             HttpClientMock.Setup(c => c.ExecuteGet<JObject>(It.IsAny<string>(), CancellationToken))
                 .ReturnsAsync(JObject.FromObject(expectedQueryResult));
-            HttpClientMock.Setup(c => c.ExecuteGet<CollectionResponse<WorkItem>>(It.IsAny<string>(), CancellationToken))
+            SetupGetCollectionOf<WorkItem>(url => GetWorkitemsUrlPredicate(url, expand))
                 .ReturnsAsync(new CollectionResponse<WorkItem> { Value = workitems });
 
             var result = await queryExecutor();
@@ -116,6 +153,12 @@ namespace VSTS.Net.Tests.WorkItems
             hierarchicalQueryResult.QueryType.Should().Be(expectedQueryResult.QueryType);
             hierarchicalQueryResult.Columns.Should().BeEquivalentTo(expectedQueryResult.Columns);
             hierarchicalQueryResult.SortColumns.Should().BeEquivalentTo(expectedQueryResult.SortColumns);
+        }
+
+        private bool GetWorkitemsUrlPredicate(string url, bool expand)
+        {
+            return (expand && url.Contains("$expand") && !url.Contains("fields")) ||
+                (!expand && url.Contains("fields") && !url.Contains("$expand"));
         }
     }
 }

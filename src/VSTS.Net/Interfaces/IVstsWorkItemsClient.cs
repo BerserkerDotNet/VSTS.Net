@@ -113,7 +113,7 @@ namespace VSTS.Net.Interfaces
         /// <param name="queryId">The query ID.</param>
         /// <param name="expandFields">Indicates whether to expand the workitem fields. if true, columns list will be ignored</param>
         /// <param name="cancellationToken">Cancellation token</param>
-        /// <returns>Returns <see cref="WorkItemsQueryResult"/></returns>
+        /// <returns>Returns <see cref="FlatWorkItemsQueryResultWithWorkItems"/> or <see cref="HierarchicalWorkItemsQueryResultWithWorkItems"/> </returns>
         Task<WorkItemsQueryResult> ExecuteQueryAndExpandAsync(Guid queryId, bool expandFields, CancellationToken cancellationToken = default(CancellationToken));
 
         /// <summary>
@@ -122,7 +122,7 @@ namespace VSTS.Net.Interfaces
         /// <param name="query">Work item query to execute</param>
         /// <param name="expandFields">Indicates whether to expand the workitem fields. if true, columns list will be ignored</param>
         /// <param name="cancellationToken">Cancellation token</param>
-        /// <returns>Returns <see cref="WorkItemsQueryResult"/></returns>
+        /// <returns>Returns <see cref="FlatWorkItemsQueryResultWithWorkItems"/> or <see cref="HierarchicalWorkItemsQueryResultWithWorkItems"/> </returns>
         Task<WorkItemsQueryResult> ExecuteQueryAndExpandAsync(string query, bool expandFields, CancellationToken cancellationToken = default(CancellationToken));
 
         /// <summary>
