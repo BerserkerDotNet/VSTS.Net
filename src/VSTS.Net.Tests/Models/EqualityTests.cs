@@ -34,9 +34,22 @@ namespace VSTS.Net.Tests.Models
 
         private static object[] IdentityReferencesMixedWithOtherType => new[] { new object[] { new IdentityReference { UniqueName = "foo@bar.com" }, new WorkItem { Id = 4563 } } };
 
+        private static object[] SingleWorkItemLink => new[] { new[] { new WorkItemLink(new WorkItemReference(1), new WorkItemReference(2), "S") } };
+
+        private static object[] SameWorkItemLinks => new[] { new[] { new WorkItemLink(new WorkItemReference(1), new WorkItemReference(2), "P"), new WorkItemLink(new WorkItemReference(1), new WorkItemReference(2), "P") } };
+
+        private static object[] DifferentSourceWorkItemLinks => new[] { new[] { new WorkItemLink(new WorkItemReference(1), new WorkItemReference(2), "P"), new WorkItemLink(new WorkItemReference(2), new WorkItemReference(2), "P") } };
+
+        private static object[] DifferentTargetWorkItemLinks => new[] { new[] { new WorkItemLink(new WorkItemReference(1), new WorkItemReference(2), "P"), new WorkItemLink(new WorkItemReference(1), new WorkItemReference(1), "P") } };
+
+        private static object[] DifferentRelationWorkItemLinks => new[] { new[] { new WorkItemLink(new WorkItemReference(1), new WorkItemReference(2), "P"), new WorkItemLink(new WorkItemReference(1), new WorkItemReference(2), "R") } };
+
+        private static object[] WorkItemLinksMixedWithOtherType => new[] { new object[] { new WorkItemLink(new WorkItemReference(1), new WorkItemReference(2), "P"), new WorkItemReference(2) } };
+
         [TestCaseSource(nameof(SameWorkItems))]
         [TestCaseSource(nameof(SamePullRequests))]
         [TestCaseSource(nameof(SameIdentityReferences))]
+        [TestCaseSource(nameof(SameWorkItemLinks))]
         public void ItemsWithSameIdShouldBeEqual(object item1, object item2)
         {
             item1.Should().Be(item1);
@@ -49,6 +62,9 @@ namespace VSTS.Net.Tests.Models
         [TestCaseSource(nameof(DifferentWorkItems))]
         [TestCaseSource(nameof(DifferentPullRequests))]
         [TestCaseSource(nameof(DifferentIdentityReferences))]
+        [TestCaseSource(nameof(DifferentSourceWorkItemLinks))]
+        [TestCaseSource(nameof(DifferentTargetWorkItemLinks))]
+        [TestCaseSource(nameof(DifferentRelationWorkItemLinks))]
         public void ItemsWithDifferentIdsShouldNotBeEqual(object item1, object item2)
         {
             item1.Should().NotBe(item2);
@@ -58,7 +74,8 @@ namespace VSTS.Net.Tests.Models
         [TestCaseSource(nameof(SingleWorkItem))]
         [TestCaseSource(nameof(SinglePullRequest))]
         [TestCaseSource(nameof(SingleIdentityReference))]
-        public void WorkitemNotBeEqualToNull(object item)
+        [TestCaseSource(nameof(SingleWorkItemLink))]
+        public void ItemShouldNotBeEqualToNull(object item)
         {
             item.Should().NotBe(null);
         }
@@ -66,7 +83,8 @@ namespace VSTS.Net.Tests.Models
         [TestCaseSource(nameof(SameWorkItems))]
         [TestCaseSource(nameof(SamePullRequests))]
         [TestCaseSource(nameof(SameIdentityReferences))]
-        public void WorkitemShouldImplementIEquatable(object item1, object item2)
+        [TestCaseSource(nameof(SameWorkItemLinks))]
+        public void ItemShouldImplementIEquatable(object item1, object item2)
         {
             var equatable = typeof(IEquatable<>).MakeGenericType(item1.GetType());
             item1.Should().BeAssignableTo(equatable);
@@ -79,7 +97,8 @@ namespace VSTS.Net.Tests.Models
         [TestCaseSource(nameof(WorkItemMixedWithOtherType))]
         [TestCaseSource(nameof(PullRequestsMixedWithOtherType))]
         [TestCaseSource(nameof(IdentityReferencesMixedWithOtherType))]
-        public void WorkitemShouldNotBeEqualToOtherTypes(object item1, object item2)
+        [TestCaseSource(nameof(WorkItemLinksMixedWithOtherType))]
+        public void ItemShouldNotBeEqualToOtherTypes(object item1, object item2)
         {
             item1.Should().NotBe(item2);
         }

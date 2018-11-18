@@ -1,6 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
+using Newtonsoft.Json;
+using Newtonsoft.Json.Converters;
 using VSTS.Net.Models.Response;
+using VSTS.Net.Types;
 
 namespace VSTS.Net.Models.WorkItems
 {
@@ -9,7 +12,8 @@ namespace VSTS.Net.Models.WorkItems
         /// <summary>
         /// The type of the query
         /// </summary>
-        public string QueryType { get; set; }
+        [JsonConverter(typeof(StringEnumConverter))]
+        public QueryType QueryType { get; set; }
 
         /// <summary>
         /// The date the query was run in the context of.

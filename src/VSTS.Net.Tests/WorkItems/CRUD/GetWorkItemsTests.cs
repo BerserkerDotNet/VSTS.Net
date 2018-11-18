@@ -10,6 +10,7 @@ using VSTS.Net.Exceptions;
 using VSTS.Net.Models.Response;
 using VSTS.Net.Models.WorkItems;
 using VSTS.Net.Tests.Types;
+using VSTS.Net.Types;
 
 namespace VSTS.Net.Tests.WorkItems.CRUD
 {
@@ -110,7 +111,7 @@ namespace VSTS.Net.Tests.WorkItems.CRUD
         public async Task AggregatesWorkitemsFromFlatQuery()
         {
             var workitemReferences = new[] { new WorkItemReference(1), new WorkItemReference(2), new WorkItemReference(3) };
-            var queryResult = new FlatWorkItemsQueryResult { QueryType = "flat", WorkItems = workitemReferences };
+            var queryResult = new FlatWorkItemsQueryResult { QueryType = QueryType.Flat, WorkItems = workitemReferences };
             HttpClientMock.Setup(c => c.ExecuteGet<JObject>(It.IsAny<string>(), CancellationToken))
                 .ReturnsAsync(JObject.FromObject(queryResult));
 
@@ -136,7 +137,7 @@ namespace VSTS.Net.Tests.WorkItems.CRUD
                 new WorkItemLink(new WorkItemReference(2), new WorkItemReference(4), "forward"),
                 new WorkItemLink(new WorkItemReference(5), new WorkItemReference(6), "forward"),
             };
-            var queryResult = new HierarchicalWorkItemsQueryResult { QueryType = "tree", WorkItemRelations = workitemLinks };
+            var queryResult = new HierarchicalWorkItemsQueryResult { QueryType = QueryType.Tree, WorkItemRelations = workitemLinks };
             HttpClientMock.Setup(c => c.ExecuteGet<JObject>(It.IsAny<string>(), CancellationToken))
                 .ReturnsAsync(JObject.FromObject(queryResult));
 
@@ -159,7 +160,7 @@ namespace VSTS.Net.Tests.WorkItems.CRUD
         {
             var workitemReferences = new[] { new WorkItemReference(1), new WorkItemReference(2), new WorkItemReference(3) };
             var columns = new[] { new ColumnReference("C1", "System.C1"), new ColumnReference("C2", "System.C2") };
-            var queryResult = new FlatWorkItemsQueryResult { QueryType = "flat", WorkItems = workitemReferences, Columns = columns };
+            var queryResult = new FlatWorkItemsQueryResult { QueryType = QueryType.Flat, WorkItems = workitemReferences, Columns = columns };
             HttpClientMock.Setup(c => c.ExecuteGet<JObject>(It.IsAny<string>(), CancellationToken))
                 .ReturnsAsync(JObject.FromObject(queryResult));
 
@@ -178,7 +179,7 @@ namespace VSTS.Net.Tests.WorkItems.CRUD
         [Test]
         public void ThrowsIfUnknownQueryType()
         {
-            var queryResult = new FlatWorkItemsQueryResult { QueryType = "3D" };
+            var queryResult = new FlatWorkItemsQueryResult { QueryType = QueryType.Unknown };
             HttpClientMock.Setup(c => c.ExecuteGet<JObject>(It.IsAny<string>(), CancellationToken))
                 .ReturnsAsync(JObject.FromObject(queryResult));
             Client.Awaiting(c => c.GetWorkItemsAsync(Guid.NewGuid(), false, CancellationToken))
