@@ -74,6 +74,7 @@ namespace VSTS.Net.Extensions
             services.AddSingleton<IVstsWorkItemsClient, VstsClient>();
             services.AddSingleton<IVstsPullRequestsClient, VstsClient>();
             services.AddSingleton<IVstsWorkItemsMetadataClient, VstsClient>();
+            services.AddSingleton<IVstsIdentityClient, VstsClient>();
         }
     }
 }

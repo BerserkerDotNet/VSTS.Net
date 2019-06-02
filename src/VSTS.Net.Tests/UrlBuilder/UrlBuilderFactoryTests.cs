@@ -10,13 +10,19 @@ namespace VSTS.Net.Tests.UrlBuilder
     [TestFixture]
     public class UrlBuilderFactoryTests
     {
-        [Test]
-        public void OnlineUrlBuilderFactoryTest()
+        [TestCase("bar", "", "https://foo.bar.visualstudio.com")]
+        [TestCase("bar", null, "https://foo.bar.visualstudio.com")]
+        [TestCase("bar", "baz", "https://foo.baz.visualstudio.com")]
+        [TestCase("", "", "https://foo.visualstudio.com")]
+        [TestCase(null, null, "https://foo.visualstudio.com")]
+        [TestCase("", "baz", "https://foo.baz.visualstudio.com")]
+        [TestCase(null, "baz", "https://foo.baz.visualstudio.com")]
+        public void OnlineUrlBuilderFactoryTest(string subDomain, string subDomainOverride, string expected)
         {
-            var factory = new OnlineUrlBuilderFactory(instance: "foo", subDomain: "bar");
-            var result = factory.Create().Build();
+            var factory = new OnlineUrlBuilderFactory(instance: "foo", subDomain: subDomain);
+            var result = factory.Create(subDomainOverride).Build();
 
-            result.Should().Be($"https://foo.bar.visualstudio.com?api-version={Constants.CurrentWorkItemsApiVersion}");
+            result.Should().Be($"{expected}?api-version={Constants.CurrentWorkItemsApiVersion}");
         }
 
         [Test]

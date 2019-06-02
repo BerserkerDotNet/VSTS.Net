@@ -13,9 +13,10 @@ namespace VSTS.Net.Types
             _subDomain = subDomain;
         }
 
-        public VstsUrlBuilder Create()
+        public VstsUrlBuilder Create(string subDomain = "")
         {
-            return VstsUrlBuilder.Create(_instance, _subDomain);
+            var sd = string.IsNullOrEmpty(subDomain) ? _subDomain : subDomain;
+            return VstsUrlBuilder.Create(_instance, sd);
         }
     }
 }
