@@ -12,7 +12,7 @@ namespace VSTS.Net.Types
             _baseUri = baseUri;
         }
 
-        public VstsUrlBuilder Create()
+        public VstsUrlBuilder Create(string subDomain = "")
         {
             return VstsUrlBuilder.Create(_baseUri);
         }

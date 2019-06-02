@@ -38,6 +38,7 @@ namespace VSTS.Net.Tests
         public void ShouldRegisterAllVstsClientInterfaces()
         {
             _services.AddAzureDevOpsServices(InstanceName, Token);
+            TestClientRegistration<IVstsIdentityClient>();
             TestClientRegistration<IVstsWorkItemsMetadataClient>();
             TestClientRegistration<IVstsPullRequestsClient>();
             TestClientRegistration<IVstsWorkItemsClient>();

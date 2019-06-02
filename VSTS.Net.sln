@@ -11,6 +11,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution 
 	ProjectSection(SolutionItems) = preProject
 		docs\docfx.json = docs\docfx.json
 		README.md = README.md
+		version.json = version.json
 	EndProjectSection
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "docs", "docs", "{08A5D9D3-C35D-4D5A-903F-A81FCA275BED}"
@@ -20,7 +21,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "docs", "docs", "{08A5D9D3-C
 		docs\toc.yml = docs\toc.yml
 	EndProjectSection
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "VSTS.Net.AspNetCore", "src\VSTS.Net.AspNetCore\VSTS.Net.AspNetCore.csproj", "{7484ACA1-08EC-4531-8247-1AD9250B4E1B}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "VSTS.Net.AspNetCore", "src\VSTS.Net.AspNetCore\VSTS.Net.AspNetCore.csproj", "{7484ACA1-08EC-4531-8247-1AD9250B4E1B}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

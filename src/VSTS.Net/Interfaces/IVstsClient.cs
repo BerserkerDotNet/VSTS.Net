@@ -1,6 +1,6 @@
 ﻿namespace VSTS.Net.Interfaces
 {
-    public interface IVstsClient : IVstsWorkItemsClient, IVstsPullRequestsClient, IVstsWorkItemsMetadataClient
+    public interface IVstsClient : IVstsWorkItemsClient, IVstsPullRequestsClient, IVstsWorkItemsMetadataClient, IVstsIdentityClient
     {
     }
 }

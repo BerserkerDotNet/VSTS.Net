@@ -2,6 +2,8 @@
 {
     public static class Constants
     {
+        public const string IdentitySubDomain = "vssps";
+        public const string IdentityDefaultSearchFilter = "General";
         public const string HttpMethodPatch = "PATCH";
         public const string JsonMimeType = "application/json";
         public const string JsonPatchMimeType = "application/json-patch+json";

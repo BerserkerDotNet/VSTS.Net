@@ -5,6 +5,6 @@ namespace VSTS.Net.Interfaces
 {
     public interface IVstsUrlBuilderFactory
     {
-        VstsUrlBuilder Create();
+        VstsUrlBuilder Create(string subDomain = "");
     }
 }
