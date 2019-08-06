@@ -29,6 +29,11 @@ namespace VSTS.Net.Models.WorkItems
         public Dictionary<string, WorkItemFieldUpdate> Fields { get; set; }
 
         /// <summary>
+        /// List of updates to relations.
+        /// </summary>
+        public WorkItemRelationUpdate Relations { get; set; }
+
+        /// <summary>
         /// The work item updates revision date.
         /// </summary>
         public DateTime RevisedDate { get; set; }
